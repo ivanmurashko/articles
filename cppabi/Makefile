@@ -1,26 +1,10 @@
 all: pdf ps
 
-algorithmic.sty: algorithms.ins algorithms.dtx
-	latex algorithms.ins
-
-ps: main.tex main.bib algorithmic.sty
+ps: main.tex main.bib
 	latex main.tex
-	bibtex main
-	texindy -M texindy -L russian -C utf8 main.idx
-	latex main.tex
-	cp main.dvi crypto.dvi
 
-pdf: main.tex main.bib algorithmic.sty
+pdf: main.tex
 	pdflatex main.tex
-	bibtex main
-	texindy -M texindy -L russian -C utf8 main.idx
-	pdflatex main.tex
-	cp main.pdf crypto.pdf
-	#cd presentation && $(MAKE) pdf
-
-install: pdf
-	cp crypto.pdf ../pdfs
-	#cd presentation && $(MAKE) install
 
 clean:
 	rm -rf main.aux main.bbl main.dvi main.pdf crypto.pdf crypto.dvi 

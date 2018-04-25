@@ -1,39 +1,26 @@
 %% -*- coding:utf-8 -*- 
-\documentclass[14pt,a4paper]{extbook} 
-\input preamble.tex
-\title{Криптография и квантовые вычисления\thanks{Санкт Петербургский Государственный Политехнический Университет}}
+\documentclass[14pt,a4paper]{article} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+
+\title{C++ ABI}
 \author{Мурашко И. В.}
 \date{}
 \begin{document}
+
 \Russian
-
-
-% Redefine plain style for the TOC part:
-\makeatletter
-\renewcommand{\ps@plain}{%
-\renewcommand\@oddhead{\hfil\normalfont\textrm{\thepage}\hfil}%
-\renewcommand\@evenhead{\hfil\normalfont\textrm{\thepage}\hfil}%
-\renewcommand\@oddfoot{}%
-\renewcommand\@evenfoot{}%
-}
-
-\pagestyle{plain}% Centered page numbers in footer for TOC pages after the first one
-
 
 \maketitle
 
-\tableofcontents
+\section*{Введение}
+По роду своей деятельности мы часто сталкиваемся с библиотеками сторонних 
+разработчиков которые предоставляются нам в бинарной форме, например 
+Oracle OCCI. Вместе с тем в разработке мы используем разные версии 
+компиляторов gcc, которые не всегда совместимы по умолчанию с Oracle OCCI. 
+В данном докладе детально описываются соответствующие проблемы и способы 
+их решения. 
 
-\input ./intro/main.tex
-\input ./classical/main.tex
-\input ./qm/main.tex
-\input ./qc/main.tex
-\input ./grover/main.tex
-\input ./rsa/main.tex
-\input ./discretlog/main.tex
-\input ./elliptic/main.tex
-\input ./misc/main.tex
-\printindex
-\input ./bibliography.tex
 
 \end{document}
