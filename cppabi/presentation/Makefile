@@ -71,9 +71,7 @@ $(PPT): $(ODP)
 clean:
 	$(LATEXMK) -c
 	rm -f $(DIA_INTERMEDIATES)
-
-clean-all:
-	$(LATEXMK) -C
+	rm -rf *.nav *.snm *.vrb *.pdf
 	rm -f *-eps-converted-to.pdf $(DIA_ALL_PRODUCTS) $(MAIN_BBL) $(ODP) $(PPT)
-	rm -rf _minted-nginx-haskell-module-pres/
+	rm -rf _minted-cppabi/
 

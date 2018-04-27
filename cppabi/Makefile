@@ -1,10 +1,6 @@
-all: pdf ps
-
-ps: cppabi.tex cppabi.bib
-	latex cppabi.tex
-
-pdf: cppabi.tex
+all: cppabi.tex
 	pdflatex cppabi.tex
+	cd presentation && $(MAKE)
 
 clean:
 	rm -rf cppabi.aux cppabi.bbl cppabi.dvi cppabi.pdf crypto.pdf crypto.dvi 
