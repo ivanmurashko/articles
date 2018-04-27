@@ -1,18 +1,79 @@
-all: pdf
+# Produce main.pdf in output directory specified in latexmkrc
 
-algorithmic.sty:
-	cd ../ && \
-	$(MAKE) algorithmic.sty && \
-	cp algorithmic.sty ./presentation && \
-	cp algorithm.sty ./presentation 
+GREP                =   grep
+SED                 =   sed
+DIA                 =   dia
+LATEXMK             =   latexmk
+MPOST               =   mpost
+PDF2ODP             =   pdf2odp
+OFFICE              =   libreoffice
 
-pdf: lecture1.tex algorithmic.sty
-	pdflatex lecture1.tex
+LATEXMKRC           =   ./latexmkrc
+PDF_MODE_PTN        =   ^\s*$$pdf_mode\s*=\s*
+OUT_EXT             =   $(shell case \
+                        `$(GREP) '$(PDF_MODE_PTN)' $(LATEXMKRC) 2>/dev/null | \
+                        $(SED) 's/$(PDF_MODE_PTN)\([0-3]\).*/\1/'` \
+                        in ([1-3]) echo pdf ;; (*) echo dvi ;; esac)
+OUT_DIR_PTN         =   ^\s*$$out_dir\s*=\s*
+OUT_DIR             =   $(shell \
+                        $(GREP) '$(OUT_DIR_PTN)' $(LATEXMKRC) 2>/dev/null | \
+                        $(SED) 's/$(OUT_DIR_PTN)["\x27]\(.*\)["\x27].*/\1/')
 
-install: pdf
-	cp lecture1.pdf ../../pdfs/crypto_present
+ifeq ($(strip $(OUT_DIR)),)
+    OUT_DIR         =   .
+endif
+
+MAIN                =   cppabi
+TARGET              =   $(OUT_DIR)/$(MAIN).$(OUT_EXT)
+ODP                 =   $(OUT_DIR)/$(MAIN).odp
+PPT                 =   $(OUT_DIR)/$(MAIN).ppt
+
+TEX_SOURCES         =   $(wildcard *.tex)
+DIA_SOURCES         =   $(wildcard *.dia)
+EPS_IMAGES          =   $(wildcard *.eps)
+DIA_MP_SOURCES      =   $(DIA_SOURCES:.dia=.mp)
+DIA_MPS_IMAGES      =   $(DIA_SOURCES:.dia=.mps)
+
+DIA_MP_LOGS         =   $(DIA_SOURCES:.dia=.log)
+DIA_MPX_FILES       =   $(DIA_SOURCES:.dia=.mpx)
+DIA_MP_TRANS_FILES  =   $(DIA_MP_LOGS) $(DIA_MPX_FILES)
+DIA_INTERMEDIATES   =   $(DIA_MP_SOURCES) $(DIA_MP_TRANS_FILES)
+DIA_ALL_PRODUCTS    =   $(DIA_INTERMEDIATES) $(DIA_MPS_IMAGES)
+
+MAIN_BBL            =   $(OUT_DIR)/$(MAIN).bbl
+
+
+.PHONY: all clean clean-all odp ppt
+
+.SECONDARY: $(DIA_MP_SOURCES)
+
+all: $(TARGET)
+
+odp: $(ODP)
+
+ppt: $(PPT)
+
+%.mp: %.dia
+	$(DIA) -e $@ $<
+
+%.mps: %.mp
+	$(MPOST) -s 'outputtemplate="%j.mps"' $<
+
+$(TARGET): $(EPS_IMAGES) $(DIA_MPS_IMAGES) $(TEX_SOURCES)
+	$(LATEXMK) $(MAIN)
+
+$(ODP): $(MAIN).pdf
+	$(PDF2ODP) -x pdftocairo -s 1600 $(MAIN).pdf
+
+$(PPT): $(ODP)
+	$(OFFICE) --headless --convert-to ppt --outdir $(OUT_DIR) $(ODP)
 
 clean:
-	rm -rf crypto*.pdf main.blg *.toc *.out *.nav *.snm lecture*.pdf lecture*.aux
-	rm -rf algorithmic.sty  algorithm.sty
-	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
+	$(LATEXMK) -c
+	rm -f $(DIA_INTERMEDIATES)
+
+clean-all:
+	$(LATEXMK) -C
+	rm -f *-eps-converted-to.pdf $(DIA_ALL_PRODUCTS) $(MAIN_BBL) $(ODP) $(PPT)
+	rm -rf _minted-nginx-haskell-module-pres/
+

@@ -1,0 +1,94 @@
+\documentclass{beamer}
+
+\usepackage{url}
+\usepackage{minted}
+\usepackage{upquote}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[nott]{inconsolata}
+
+\usepackage{mathptmx}
+\usepackage{helvet}
+
+\definecolor{rcorange}{rgb}{0.99, 0.69, 0.24}
+\definecolor{rcblue}{rgb}{0.45, 0.62, 0.81}
+\definecolor{tocblue}{rgb}{0.13, 0.29, 0.53}
+
+\mode<presentation>
+{
+\usetheme{CambridgeUS}
+\usecolortheme{seahorse}
+\setbeamercolor*{palette primary}{use=structure, fg=black, bg=rcblue}
+\setbeamercolor*{palette secondary}{use=structure, fg=black, bg=rcblue}
+\setbeamercolor*{palette tertiary}{use=structure, fg=black, bg=rcorange}
+\setbeamercolor*{palette quaternary}{use=structure, fg=black, bg=rcorange}
+}
+
+%\definecolor{scriptbg}{rgb}{0.95,0.95,0.95}
+\definecolor{scriptbg}{rgb}{0.99,0.96,0.90}
+\definecolor{hlfg}{HTML}{FE9A2E}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\usepackage[T2A]{fontenc}
+%\usepackage{lmodern}
+\usepackage[utf8x]{inputenc}
+\usepackage[english,russian]{babel}
+\logo{\includegraphics[height=0.4cm]{RingCentral-logo-256x.png}}
+\title[CPP ABI]
+    {cpp abi}
+\author{routers@core}
+\date{16 May 2018}
+
+\newcommand{\SurrLgt}[1]{\textless{}#1\textgreater{}}
+\newcommand{\Hl}[1]{\textcolor{hlfg}{\textbf{#1}}}
+
+\setlength{\parskip}{4pt}
+
+\setbeamercovered{transparent=10}
+
+\setbeamertemplate{section in toc}
+{
+\begingroup
+\color{tocblue}
+\inserttocsection
+\endgroup
+}
+\addtobeamertemplate{title page}{}{\tableofcontents}
+
+\begin{document}
+\maketitle
+
+\section{Into}
+
+\begin{frame}[fragile]
+\frametitle{Frame 1}
+\begin{itemize}
+\item<+-> Чистый функциональный язык, тип \emph{Monad} скрывает побочные эффекты
+        \begin{minted}[fontsize=\tiny,bgcolor=scriptbg,linenos=false,gobble=2]{c++}
+          std::string a;
+        \end{minted}
+\item<+-> TBD
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ABI}
+\begin{itemize}
+\item<+-> TBD
+\item<+-> TBD
+\end{itemize}
+\end{frame}
+
+\section{ABI}
+
+\begin{frame}[fragile]
+\frametitle{ABI 1}
+Исходный код 
+\begin{minted}[fontsize=\tiny,bgcolor=scriptbg,linenos=false,gobble=2]{c++}
+  std::string a;
+\end{minted}
+\end{frame}
+
+\end{document}
+

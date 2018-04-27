@@ -1,14 +1,14 @@
 all: pdf ps
 
-ps: main.tex main.bib
-	latex main.tex
+ps: cppabi.tex cppabi.bib
+	latex cppabi.tex
 
-pdf: main.tex
-	pdflatex main.tex
+pdf: cppabi.tex
+	pdflatex cppabi.tex
 
 clean:
-	rm -rf main.aux main.bbl main.dvi main.pdf crypto.pdf crypto.dvi 
-	rm -rf main.blg main.toc main.out main.idx main.ilg main.ind
+	rm -rf cppabi.aux cppabi.bbl cppabi.dvi cppabi.pdf crypto.pdf crypto.dvi 
+	rm -rf cppabi.blg cppabi.toc cppabi.out cppabi.idx cppabi.ilg cppabi.ind
 	rm -rf algorithmic.sty  algorithm.sty
 	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
 	cd presentation && $(MAKE) clean
