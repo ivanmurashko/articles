@@ -4,10 +4,10 @@ CPPFLAGS=-g -O0
 all: libtest.so
 
 old.o: old.cpp
-	gcc -g -O0 -c old.cpp
+	gcc -g -O0 -fPIC -c old.cpp
 
 libtest.so: old.o
-	gcc -shared -o libtest.so -c old.cpp
+	gcc -shared -fPIC -o libtest.so -c old.cpp
 
 clean:
 	rm -rf *.o *.so
