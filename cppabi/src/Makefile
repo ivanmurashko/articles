@@ -2,7 +2,11 @@ CC=gcc
 CPPFLAGS=-g -O0 -std=c++14
 LDFLAGS=-lstdc++ -lm -lpthread
 
-all: libtest4.so libtest5.so libtest6.so exception 
+all: libtest4.so libtest5.so libtest6.so exception str
+
+str: str.cpp
+	gcc -g -O0 -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++03 str.cpp -o str4 -lstdc++
+	gcc -g -O0 -D_GLIBCXX_USE_CXX11_ABI=1 -std=c++03 str.cpp -o str -lstdc++
 
 libtest4.so: old.cpp clean-libtest
 	make clean-libtest
@@ -30,5 +34,5 @@ clean-libtest:
 	rm -rf old.o libtest.so
 
 clean:
-	rm -rf *.o *.so exception
+	rm -rf *.o *.so exception str str4 
 	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
