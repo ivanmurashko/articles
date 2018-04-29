@@ -5,8 +5,8 @@ LDFLAGS=-lstdc++ -lm -lpthread
 all: libtest4.so libtest5.so libtest6.so exception str
 
 str: str.cpp
-	gcc -g -O0 -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++03 str.cpp -o str4 -lstdc++
-	gcc -g -O0 -D_GLIBCXX_USE_CXX11_ABI=1 -std=c++03 str.cpp -o str -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 str.cpp -o str4 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 str.cpp -o str5 -lstdc++
 
 libtest4.so: old.cpp clean-libtest
 	make clean-libtest
@@ -34,5 +34,5 @@ clean-libtest:
 	rm -rf old.o libtest.so
 
 clean:
-	rm -rf *.o *.so exception str str4 
+	rm -rf *.o *.so exception str4 str5 
 	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 

@@ -39,6 +39,24 @@ std::locale.
 Рассмотрим следующий фрагмент
 \inputminted{c++}{./src/str.cpp}
 
+GCC 5 дает вполне предсказуемый вывод: мы получаем копию строки со
+своими внутреннеми данными
+\begin{minted}{shell}
+$ ./str5
+0x7ffc757fc1b0
+0x7ffc757fc200
+$
+\end{minted}
+
+Другая ситуация GCC 4:
+\begin{minted}{shell}
+$ ./str4
+0x1d5be88
+0x1d5be88
+$
+\end{minted}
+
+
 TBD
 
 \subsection{std::list}
