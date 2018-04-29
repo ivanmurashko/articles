@@ -2,11 +2,15 @@ CC=gcc
 CPPFLAGS=-g -O0 -std=c++14
 LDFLAGS=-lstdc++ -lm -lpthread
 
-all: libtest4.so libtest5.so libtest6.so exception str
+all: libtest4.so libtest5.so libtest6.so exception str list
 
 str: str.cpp
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 str.cpp -o str4 -lstdc++
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 str.cpp -o str5 -lstdc++
+
+list: list.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 list.cpp -o list4 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 list.cpp -o list5 -lstdc++
 
 libtest4.so: old.cpp clean-libtest
 	make clean-libtest
@@ -34,5 +38,5 @@ clean-libtest:
 	rm -rf old.o libtest.so
 
 clean:
-	rm -rf *.o *.so exception str4 str5 
+	rm -rf *.o *.so exception *4 *5
 	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
