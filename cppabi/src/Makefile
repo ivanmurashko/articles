@@ -8,9 +8,9 @@ str: str.cpp
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 str.cpp -o str4 -lstdc++
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 str.cpp -o str5 -lstdc++
 
-list: list.cpp
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 list.cpp -o list4 -lstdc++
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 list.cpp -o list5 -lstdc++
+sizes: sizes.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 sizes.cpp -o sizes4 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 sizes.cpp -o sizes5 -lstdc++
 
 libtest4.so: old.cpp clean-libtest
 	make clean-libtest

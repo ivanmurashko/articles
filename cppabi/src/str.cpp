@@ -8,6 +8,7 @@ struct Data {
 
 void set(Data& data){
   std::string s = "abc";
+  std::cout << "Size: " << sizeof(s) << std::endl;
   std::cout << (void*)(s.c_str()) << std::endl;  
   data.s = s;
   
