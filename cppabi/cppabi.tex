@@ -186,21 +186,16 @@ $
 
 \begin{verbatim}
 make tests
-gcc -g -O0 -std=c++14 -c main.cpp
-rm -rf old.o libtest.so
-make clean-libtest
-make[1]: Entering directory "src"
-rm -rf old.o libtest.so
-make[1]: Leaving directory "src"
-docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 make libtest.so
-g++  -g -O0 -std=c++14  -c -o old.o old.cpp
-gcc -shared -fPIC -o libtest.so -c old.cpp
-mv -f libtest.so libtest4.so
-gcc  main.o -o tests -lstdc++ -lm -lpthread -L. -ltest4
+gcc -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
 main.o: In function "main":
-src/main.cpp:5: undefined reference to "test::func[abi:cxx11]()"
+src/main.cpp:5: undefined reference to 
+"test::func(std::__cxx11::basic_string<char, std::char_traits<char>, 
+std::allocator<char> >)"
 collect2: error: ld returned 1 exit status
-Makefile:32: recipe for target "tests" failed
+Makefile:31: recipe for target "tests" failed
 make: *** [tests] Error 1
 \end{verbatim}
 
@@ -237,27 +232,73 @@ std::list<int> l;
 добавлен в опции компилятора gcc:
 -D\_GLIBCXX\_USE\_CXX11\_ABI=0. 
 
-\begin{verbatim}  
-make tests
-gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -std=c++14 -c main.cpp
-rm -rf old.o libtest.so
-make clean-libtest
-make[1]: Entering directory "src"
-rm -rf old.o libtest.so
-make[1]: Leaving directory "src"
-docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 make libtest.so
-g++  -g -O0 -std=c++14  -c -o old.o old.cpp
-gcc -shared -fPIC -o libtest.so -c old.cpp
-mv -f libtest.so libtest4.so
-gcc  main.o -o tests -lstdc++ -lm -lpthread -L. -ltest4
-\end{verbatim}
-
 TBD Conan
 
 Сложнее ситуация когда имеется несколько несовместимых бинарных
 библиотек которые должны быть использованы в рамках одного проекта.
 В этом случае имеет смысл организовывать взаимодействие с этим
 библиотеками с помощью адаптеров, например TBD.
+
+\section{Примеры}
+
+Рассмотрим тестовую библиотеку, которая состоит из интерфейса (API):
+old.h
+\inputminted{c++}{./src/old.h}
+и реализации 
+\inputminted{c++}{./src/old.cpp}
+сборка осуществляется с помощью следующей команды
+\begin{minted}{makefile}
+libtest4.so: old.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+	gcc -shared -fPIC -o libtest4.so -c old.cpp
+\end{minted}
+
+Код который использует эту библиотеку выглядит следующим образом: main.cpp
+\inputminted{c++}{./src/main.cpp}
+
+Если использовать стандартные опции сборки
+\begin{minted}{makefile}
+main.o: main.cpp
+	gcc -g -O0 -c main.cpp 
+
+tests: main.o libtest4.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{minted}
+то получится следующий вывод об ошибке
+\begin{verbatim}
+make tests
+gcc -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+main.o: In function "main":
+src/main.cpp:5: undefined reference to 
+"test::func(std::__cxx11::basic_string<char, std::char_traits<char>, 
+std::allocator<char> >)"
+collect2: error: ld returned 1 exit status
+Makefile:31: recipe for target "tests" failed
+make: *** [tests] Error 1
+\end{verbatim}
+
+
+Если перевести весь проект на старый ABI, т.е. использовать для сборки
+флаг -D\_GLIBCXX\_USE\_CXX11\_ABI=0 то Makefile будет выглядеть
+следующим образом
+\begin{minted}{makefile}
+main.o: main.cpp
+	gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -c main.cpp
+
+tests: main.o libtest4.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{minted}
+и весь проект соберется успешно
+\begin{verbatim}
+make tests
+gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{verbatim}
 
 \section*{Заключение}
 Несколько полезных советов по результатам этого исследования. Основной

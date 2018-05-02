@@ -1,41 +1,40 @@
 CC=gcc
 CPPFLAGS=-g -O0 -std=c++14
-LDFLAGS=-lstdc++ -lm -lpthread
+LDFLAGS=-lstdc++
 
-all: libtest4.so libtest5.so libtest6.so tests str sizes
+all: libtest4.so libtest5.so tests str sizes
 
 str: str.cpp
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 str.cpp -o str4 -lstdc++
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 str.cpp -o str5 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+	gcc -g -O0 str.cpp -o str4 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 \
+	gcc -g -O0 str.cpp -o str5 -lstdc++
 
 sizes: sizes.cpp
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 gcc -g -O0 sizes.cpp -o sizes4 -lstdc++
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 gcc -g -O0 sizes.cpp -o sizes5 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+	gcc -g -O0 sizes.cpp -o sizes4 -lstdc++
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 \
+	gcc -g -O0 sizes.cpp -o sizes5 -lstdc++
 
-libtest4.so: old.cpp clean-libtest
-	make clean-libtest
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 make libtest.so
-	mv -f libtest.so libtest4.so
+libtest4.so: old.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+	gcc -shared -fPIC -o libtest4.so -c old.cpp
 
-libtest5.so: old.cpp clean-libtest
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 make libtest.so
-	mv -f libtest.so libtest5.so
+libtest5.so: old.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 \
+	gcc -shared -fPIC -o libtest5.so -c old.cpp
 
-libtest6.so: old.cpp clean-libtest
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:6 make libtest.so
-	mv -f libtest.so libtest6.so
+libadapter.so: adapter.cpp
+	gcc -shared -fPIC -o libadapter.so -c adapter.cpp
 
 main.o: main.cpp
-	gcc -D_GLIBCXX_USE_CXX11_ABI=0 $(CPPFLAGS) -c main.cpp
+	gcc -g -O0 -c main.cpp 
 
-tests: main.o libtest4.so
-	$(CC)  main.o -o tests $(LDFLAGS) -L. -ltest4
+tests: main.o libtest4.so libadapter.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ladapter -ltest4
 
 libtest.so: old.o
 	gcc -shared -fPIC -o libtest.so -c old.cpp
-
-clean-libtest:
-	rm -rf old.o libtest.so
 
 clean:
 	rm -rf *.o *.so tests *4 *5
