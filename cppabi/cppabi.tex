@@ -183,9 +183,26 @@ $
 использование компилятора gcc 5.x вместе с другими библиотеками
 собранными этим компилятором (например boost) то возникнут проблемы:
 на этапе линковки получаются следующие ошибки
-\begin{minted}{shell}
-TBD
-\end{minted}
+
+\begin{verbatim}
+make tests
+gcc -g -O0 -std=c++14 -c main.cpp
+rm -rf old.o libtest.so
+make clean-libtest
+make[1]: Entering directory "src"
+rm -rf old.o libtest.so
+make[1]: Leaving directory "src"
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 make libtest.so
+g++  -g -O0 -std=c++14  -c -o old.o old.cpp
+gcc -shared -fPIC -o libtest.so -c old.cpp
+mv -f libtest.so libtest4.so
+gcc  main.o -o tests -lstdc++ -lm -lpthread -L. -ltest4
+main.o: In function "main":
+src/main.cpp:5: undefined reference to "test::func[abi:cxx11]()"
+collect2: error: ld returned 1 exit status
+Makefile:32: recipe for target "tests" failed
+make: *** [tests] Error 1
+\end{verbatim}
 
 Для решения этих проблем gcc ABI предлагает реализацию контейнеров
 std::list и std::string
@@ -219,6 +236,21 @@ std::list<int> l;
 режиме совместимости со старым ABI: следующий влаг должен быть
 добавлен в опции компилятора gcc:
 -D\_GLIBCXX\_USE\_CXX11\_ABI=0. 
+
+\begin{verbatim}  
+make tests
+gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -std=c++14 -c main.cpp
+rm -rf old.o libtest.so
+make clean-libtest
+make[1]: Entering directory "src"
+rm -rf old.o libtest.so
+make[1]: Leaving directory "src"
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 make libtest.so
+g++  -g -O0 -std=c++14  -c -o old.o old.cpp
+gcc -shared -fPIC -o libtest.so -c old.cpp
+mv -f libtest.so libtest4.so
+gcc  main.o -o tests -lstdc++ -lm -lpthread -L. -ltest4
+\end{verbatim}
 
 TBD Conan
 

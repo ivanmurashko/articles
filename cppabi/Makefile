@@ -1,4 +1,3 @@
-
 all: cppabi.tex
 	pdflatex -interaction=nonstopmode -shell-escape cppabi.tex
 	bibtex cppabi
