@@ -300,6 +300,32 @@ gcc -shared -fPIC -o libtest4.so -c old.cpp
 gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
 \end{verbatim}
 
+В качестве альтернативного варианта разработаем адаптер состояший из
+следующих файлов - adapter.h:
+\inputminted{c++}{./src/adapter.h}
+adapterold.cpp:
+\inputminted{c++}{./src/adapterold.cpp}
+adapter.cpp:
+\inputminted{c++}{./src/adapter.cpp}
+
+Сборка теперь осуществляется с помощью следующего Makefile:
+\begin{minted}{makefile}
+adapter.o: adapter.cpp
+	gcc -g -O0 -fPIC -o adapter.o -c adapter.cpp
+
+adapterold.o: adapterold.cpp
+	gcc -g -O0 -fPIC -o adapterold.o -c adapterold.cpp
+
+libadapter.so: adapter.o adapterold.o
+	gcc -shared -fPIC adapter.o adapterold.o -o libadapter.so 
+
+main.o: main.cpp
+	gcc -g -O0 -c main.cpp 
+
+tests: main.o libtest4.so libadapter.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ladapter -ltest4
+\end{minted}
+
 \section*{Заключение}
 Несколько полезных советов по результатам этого исследования. Основной
 совет - избегайте использования библиотек, которые недоступны в
