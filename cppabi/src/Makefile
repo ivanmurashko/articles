@@ -24,8 +24,14 @@ libtest5.so: old.cpp
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 \
 	gcc -shared -fPIC -o libtest5.so -c old.cpp
 
-libadapter.so: adapter.cpp
-	gcc -shared -fPIC -o libadapter.so -c adapter.cpp
+adapter.o: adapter.cpp
+	gcc -g -O0 -fPIC -o adapter.o -c adapter.cpp
+
+adapterold.o: adapterold.cpp
+	gcc -g -O0 -fPIC -o adapterold.o -c adapterold.cpp
+
+libadapter.so: adapter.o adapterold.o
+	gcc -shared -fPIC adapter.o adapterold.o -o libadapter.so 
 
 main.o: main.cpp
 	gcc -g -O0 -c main.cpp 
