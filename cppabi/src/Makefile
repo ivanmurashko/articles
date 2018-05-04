@@ -6,7 +6,7 @@ all: libtest4.so libtest5.so tests str sizes
 
 str: str.cpp
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
-	gcc -g -O0 str.cpp -o str4 -lstdc++
+	gcc -g -O0 -std=c++11 str.cpp -o str4 -lstdc++
 	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:5 \
 	gcc -g -O0 str.cpp -o str5 -lstdc++
 
