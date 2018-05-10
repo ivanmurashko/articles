@@ -5,6 +5,7 @@
 \usepackage{upquote}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{longtable}
 \usepackage[nott]{inconsolata}
 
 \usepackage{mathptmx}
@@ -59,7 +60,103 @@
 \begin{document}
 \maketitle
 
-\section{Into}
+\section{API vs ABI}
+
+\begin{frame}[fragile]
+\frametitle{API}
+Aplication Program Interface - compilation (компиляция)
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ABI}
+Aplication Binary Interface - linker (компоновка)
+\end{frame}
+
+\section{gcc 5.1 ABI}
+
+\begin{frame}[fragile]
+\frametitle{Поддержка стандарта c++11 в gcc}
+\begin{itemize}
+\item ver. 4.8.1 - объявлена полная поддержка стандарта c++11
+\item ver. 5.1 - объявлены серьезные изменения в ABI
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sizes}
+\begin{minted}{c++}
+int main() {
+  std::vector<int> v;
+  std::cout << "std::vector: " << sizeof(v) << std::endl;  
+  ...
+  std::string str;
+  std::cout << "std::string: " << sizeof(str) << std::endl;  
+  return 0;
+}
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Sizes}
+\begin{longtable}{|l|c|c|}
+\hline
+Контейнер STL & gcc 4.9.4 & gcc 5.5.0 \\
+\hline
+std::vector & 24 & 24 \\
+std::queue & 80 & 80 \\
+std::priority\_queue & 32 & 32 \\
+std::deque & 80 & 80 \\
+std::stack & 80 & 80 \\
+std::set & 48 & 48 \\
+std::multiset & 48 & 48 \\
+std::map & 48 & 48 \\
+std::multimap & 48 & 48 \\
+std::list & 16 & 24 \\
+std::string & 8 & 32 \\
+\hline
+\end{longtable}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{std::list}
+\begin{itemize}
+\item 16 bytes - двусвязанный список
+\item Вычисление размера требует $O(N)$ операций
+\item Стандарт C++11 требует для этой операции $O(1)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{std::string}
+\inputminted{c++}{../src/str.cpp}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{gcc 5.1 std::string}
+\begin{minted}{shell}
+$ ./str5
+0x7ffd1b434d90
+0x7ffd1b434de0
+$
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{gcc 4.9.4 std::string}
+\begin{minted}{shell}
+$ ./str4
+0x127fe88
+0x127fe88
+$
+\end{minted}
+\end{frame}
+
+
+\section{Бинарные внешние библиотеки}
+
+\section{Примеры}
+
+\section{Заключение}
 
 \begin{frame}[fragile]
 \frametitle{Frame 1}
