@@ -64,12 +64,12 @@
 
 \begin{frame}[fragile]
 \frametitle{API}
-Aplication Program Interface - compilation (компиляция)
+Application Program Interface - compilation (компиляция)
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{ABI}
-Aplication Binary Interface - linker (компоновка)
+Application Binary Interface - linker (компоновка)
 \end{frame}
 
 \section{gcc 5.1 ABI}
@@ -120,7 +120,7 @@ std::string & 8 & 32 \\
 \begin{frame}[fragile]
 \frametitle{std::list}
 \begin{itemize}
-\item 16 bytes - двусвязанный список
+\item 16 bytes - двусвязный список
 \item Вычисление размера требует $O(N)$ операций
 \item Стандарт C++11 требует для этой операции $O(1)$
 \end{itemize}
@@ -155,9 +155,9 @@ $
 \begin{frame}[fragile]
 \frametitle{COW}
 \begin{itemize}
-\item Преймущества - скорость
-\item Недобстатки - падение производительности при работе в
-  многопоточном окружении
+\item Преимущества - скорость
+\item Недостатки - падение производительности при работе в
+  много-поточном окружении
 \item COW vs C++11 move
 \end{itemize}
 \end{frame}
@@ -165,37 +165,187 @@ $
 
 \section{Бинарные внешние библиотеки}
 
+\begin{frame}[fragile]
+\frametitle{Изменения в gcc 5.1 API/ABI}
+std::list<int> vs 
+std::\_\_cxx11::list<int>
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Ошибки}
+\begin{verbatim}
+make tests
+gcc -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+main.o: In function "main":
+src/main.cpp:5: undefined reference to 
+"test::func(std::__cxx11::basic_string<char, std::char_traits<char>, 
+std::allocator<char> >)"
+collect2: error: ld returned 1 exit status
+Makefile:31: recipe for target "tests" failed
+make: *** [tests] Error 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\_GLIBCXX\_USE\_CXX11\_ABI макрос}
+\begin{minted}{c++}
+#define _GLIBCXX_USE_CXX11_ABI 0
+#include <list>
+...
+// Old ABI be used
+std::list<int> l;
+...
+\end{minted} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\_GLIBCXX\_USE\_CXX11\_ABI макрос по умолчанию}
+\begin{minted}{c++}
+#define _GLIBCXX_USE_CXX11_ABI 1
+#include <list>
+...
+// New ABI be used
+std::list<int> l;
+...
+\end{minted} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{std::abi}
+ Herb Sutter, Defining a Portable C++ ABI,
+
+ http://www.open-std.org/Jtc1/sc22/wg21/docs/papers/2014/n4028.pdf
+\end{frame}
+
 \section{Примеры}
+
+\subsection{Использование макроса \_GLIBCXX\_USE\_CXX11\_ABI}
+
+\begin{frame}[fragile]
+\frametitle{Интерфейс}
+\inputminted{c++}{../src/old.h}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Реализация}
+\inputminted{c++}{../src/old.cpp}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Сборка}
+\begin{minted}{makefile}
+libtest4.so: old.cpp
+	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+	gcc -shared -fPIC -o libtest4.so -c old.cpp
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Использование библиотеки}
+\inputminted{c++}{../src/main.cpp}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Стандартная сборка}
+\begin{minted}{makefile}
+main.o: main.cpp
+	gcc -g -O0 -c main.cpp 
+
+tests: main.o libtest4.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Стандартная сборка}
+\begin{verbatim}
+make tests
+gcc -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+main.o: In function "main":
+src/main.cpp:5: undefined reference to 
+"test::func(std::__cxx11::basic_string<char, std::char_traits<char>, 
+std::allocator<char> >)"
+collect2: error: ld returned 1 exit status
+Makefile:31: recipe for target "tests" failed
+make: *** [tests] Error 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Режим совместимости}
+\begin{minted}{makefile}
+main.o: main.cpp
+	gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -c main.cpp
+
+tests: main.o libtest4.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Режим совместимости}
+\begin{verbatim}
+make tests
+gcc -D_GLIBCXX_USE_CXX11_ABI=0 -g -O0 -c main.cpp 
+docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
+gcc -shared -fPIC -o libtest4.so -c old.cpp
+gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
+\end{verbatim}
+\end{frame}
+
+\subsection{Адаптер}
+\begin{frame}[fragile]
+\frametitle{Адаптер}
+\inputminted{c++}{../src/adapter.h}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Адаптер}
+\inputminted{c++}{../src/adapterold.cpp}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Адаптер}
+\inputminted{c++}{../src/adapter.cpp}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Сборка}
+\begin{minted}{makefile}
+adapter.o: adapter.cpp
+	gcc -g -O0 -fPIC -o adapter.o -c adapter.cpp
+
+adapterold.o: adapterold.cpp
+	gcc -g -O0 -fPIC -o adapterold.o -c adapterold.cpp
+
+libadapter.so: adapter.o adapterold.o
+	gcc -shared -fPIC adapter.o adapterold.o -o libadapter.so 
+
+main.o: main.cpp
+	gcc -g -O0 -c main.cpp 
+
+tests: main.o libtest4.so libadapter.so
+	gcc -g -O0 main.o -o tests -lstdc++ -L. -ladapter -ltest4
+\end{minted}
+\end{frame}
 
 \section{Заключение}
 
 \begin{frame}[fragile]
-\frametitle{Frame 1}
-\begin{itemize}
-\item<+-> Чистый функциональный язык, тип \emph{Monad} скрывает побочные эффекты
-        \begin{minted}[fontsize=\tiny,bgcolor=scriptbg,linenos=false,gobble=2]{c++}
-          std::string a;
-        \end{minted}
-\item<+-> TBD
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{ABI}
-\begin{itemize}
-\item<+-> TBD
-\item<+-> TBD
-\end{itemize}
-\end{frame}
-
-\section{ABI}
-
-\begin{frame}[fragile]
-\frametitle{ABI 1}
-Исходный код 
-\begin{minted}[fontsize=\tiny,bgcolor=scriptbg,linenos=false,gobble=2]{c++}
-  std::string a;
-\end{minted}
+\frametitle{Советы}
+\begin{enumerate}
+\item Пробуйте опции компилятора, такие как
+  \texttt{-D\_GLIBCXX\_USE\_CXX11\_ABI=0}
+\item Проектируйте использование библиотек через фасады, которые
+  скрывают проблемные интерфейсы
+\item Ждите реализации std::abi
+\end{enumerate}
 \end{frame}
 
 \end{document}
