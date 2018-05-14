@@ -1,16 +1,13 @@
 #include <iostream>
 #include <string>
-struct Data {
-  std::string s;
-};
-void set(Data& data){
-  std::string s = "abc";
-  std::cout << (void*)(s.data()) << std::endl;  
-  data.s = s;
+void set(std::string& s){
+  std::string s_ = "abc";
+  std::cout << (void*)(s_.data()) << std::endl;  
+  s = s_;
 }
 int main() {
-  Data data;
-  set(data);
-  std::cout << (void*)(data.s.data()) << std::endl;  
+  std::string s;
+  set(s);
+  std::cout << (void*)(s.data()) << std::endl;  
   return 0;
 }
