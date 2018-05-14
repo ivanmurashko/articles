@@ -36,10 +36,10 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[english,russian]{babel}
 \logo{\includegraphics[height=0.4cm]{RingCentral-logo-256x.png}}
-\title[CPP ABI]
-    {cpp abi}
-\author{routers@core}
-\date{16 May 2018}
+\title[C++ ABI]
+    {C++ ABI}
+\author{Иван Мурашко}
+\date{14 Мая 2018}
 
 \newcommand{\SurrLgt}[1]{\textless{}#1\textgreater{}}
 \newcommand{\Hl}[1]{\textcolor{hlfg}{\textbf{#1}}}
@@ -63,13 +63,28 @@
 \section{API vs ABI}
 
 \begin{frame}[fragile]
+\frametitle{Окружение}
+\begin{itemize}
+\item Centos 7.x, gcc 4.8 (pro)
+\item Ubuntu, Fedora Core, gcc 6.x, 7.x, 8.x (dev)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{API}
-Application Program Interface - compilation (компиляция)
+Application Program Interface
+\begin{itemize}
+\item Интерфейс
+\item Ошибки проявляются на этапе компиляции (Compilation)
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{ABI}
-Application Binary Interface - linker (компоновка)
+\begin{itemize}
+\item Двоичное представление, реализация интерфейса
+\item Ошибки проявляются на этапе компоновки (Linker)
+\end{itemize}
 \end{frame}
 
 \section{gcc 5.1 ABI}
@@ -117,6 +132,8 @@ std::string & 8 & 32 \\
 \end{longtable}
 \end{frame}
 
+\subsection*{std::list}
+
 \begin{frame}[fragile]
 \frametitle{std::list}
 \begin{itemize}
@@ -125,6 +142,8 @@ std::string & 8 & 32 \\
 \item Стандарт C++11 требует для этой операции $O(1)$
 \end{itemize}
 \end{frame}
+
+\subsection*{std::string}
 
 \begin{frame}[fragile]
 \frametitle{std::string}
@@ -222,15 +241,16 @@ std::list<int> l;
 
 \section{Примеры}
 
-\subsection{Использование макроса \_GLIBCXX\_USE\_CXX11\_ABI}
+\subsection*{Использование макроса \_GLIBCXX\_USE\_CXX11\_ABI}
+
 
 \begin{frame}[fragile]
-\frametitle{Интерфейс}
+\frametitle{Интерфейс: ./src/old.h}
 \inputminted{c++}{../src/old.h}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Реализация}
+\frametitle{Реализация: ./src/old.cpp}
 \inputminted{c++}{../src/old.cpp}
 \end{frame}
 
@@ -238,13 +258,15 @@ std::list<int> l;
 \frametitle{Сборка}
 \begin{minted}{makefile}
 libtest4.so: old.cpp
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4 \
-	gcc -shared -fPIC -o libtest4.so -c old.cpp
+    docker run --rm \
+               -v "$$PWD":/usr/src/myapp \
+               -w /usr/src/myapp gcc:4 \
+    gcc -shared -fPIC -o libtest4.so -c old.cpp
 \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Использование библиотеки}
+\frametitle{Использование библиотеки: ./src/main.cpp}
 \inputminted{c++}{../src/main.cpp}
 \end{frame}
 
@@ -299,19 +321,19 @@ gcc -g -O0 main.o -o tests -lstdc++ -L. -ltest4
 \end{verbatim}
 \end{frame}
 
-\subsection{Адаптер}
+\subsection*{Адаптер}
 \begin{frame}[fragile]
-\frametitle{Адаптер}
+\frametitle{Адаптер: ./src/adapter.h}
 \inputminted{c++}{../src/adapter.h}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Адаптер}
+\frametitle{Адаптер: ./src/adapterold.cpp}
 \inputminted{c++}{../src/adapterold.cpp}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Адаптер}
+\frametitle{Адаптер: ./src/adapter.cpp}
 \inputminted{c++}{../src/adapter.cpp}
 \end{frame}
 
@@ -339,10 +361,10 @@ tests: main.o libtest4.so libadapter.so
 
 \begin{frame}[fragile]
 \frametitle{Сылки}
-\begin{enumerate}
+\begin{itemize}
 \item https://github.com/ivanmurashko
 \item articles/cppabi
-\end{enumerate}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -358,7 +380,9 @@ tests: main.o libtest4.so libadapter.so
 
 \begin{frame}[fragile]
 \frametitle{Вопросы}
-?
+\begin{center}
+\includegraphics[height=5cm]{questions.jpg}
+\end{center}
 \end{frame}
 
 \end{document}
