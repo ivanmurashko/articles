@@ -4,7 +4,7 @@
 
 namespace testadapter {
 const char* func(const char* input){
-  static thread_local std::string res;
+  thread_local std::string res;
   res = test::func(input);
   return res.c_str();
 }
