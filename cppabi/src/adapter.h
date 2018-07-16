@@ -1,5 +1,6 @@
 #pragma once
+#include <vector>
 namespace testadapter
 {
-const char* func(const char* input);
+std::vector<char> func(std::vector<char> input);
 }

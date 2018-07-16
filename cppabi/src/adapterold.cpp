@@ -3,9 +3,8 @@
 #include "old.h"
 
 namespace testadapter {
-const char* func(const char* input){
-  thread_local std::string res;
-  res = test::func(input);
-  return res.c_str();
+std::vector<char> func(std::vector<char> input){
+  auto res = test::func(std::string(input.data(), input.size()));
+  return std::vector<char>(res.begin(), res.end());
 }
 }

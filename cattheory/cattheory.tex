@@ -1,0 +1,250 @@
+%% -*- coding:utf-8 -*- 
+\documentclass[12pt,a4paper]{book}
+\usepackage[toc,page]{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{xparse} %to make Mac OSX compilation happy
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{imakeidx}
+\usepackage{scrbase}
+
+% http://tex.stackexchange.com/questions/42343/how-to-add-a-navigation-window-to-a-latex-generated-pdf-document
+\usepackage{hyperref}
+\hypersetup{
+  pdftex,
+  allcolors=blue,
+  bookmarksnumbered=true,     
+  bookmarksopen=true,         
+  bookmarksopenlevel=1,       
+  colorlinks=true,            
+  pdfstartview=Fit,           
+  pdfpagemode=UseOutlines,  
+  pdfpagelayout=TwoPageRight
+}
+\usepackage{hypcap}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows}
+\usepackage{mathtools}
+
+\DeclareMathOperator{\Ima}{Im}
+\newcommand{\eqdef}{\overset{\mathrm{def}}{=\joinrel=}}
+
+%
+% https://tex.stackexchange.com/questions/187388/amsthm-with-shared-counters-messes-up-autoref-references
+%
+\usepackage{aliascnt}
+\usepackage{cleveref}
+
+\theoremstyle{theorem}
+%\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{xtheorem}{Theorem}[chapter]
+\providecommand*{\xtheoremautorefname}{Theorem}
+\NewDocumentEnvironment{theorem}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to theorem
+                         {\begin{xtheorem}}
+                         {\begin{xtheorem}[#1]\index{#1 theorem!declaration}}
+                       }%
+                       {\end{xtheorem}}
+
+%
+% https://tex.stackexchange.com/questions/98626/automatically-add-theorems-to-index-and-label-them/98634
+%
+\theoremstyle{definition}
+\newaliascnt{definition}{xtheorem}
+\newtheorem{xdefinition}[definition]{Definition}
+\aliascntresetthe{definition}
+\providecommand*{\definitionautorefname}{Definition}
+\NewDocumentEnvironment{definition}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to definition
+                         {\begin{xdefinition}}
+                         {\begin{xdefinition}[#1]\index{#1!definition}}
+                       }%
+                       {\end{xdefinition}}
+
+\theoremstyle{example}
+\newaliascnt{example}{xtheorem}
+\newtheorem{xexample}[example]{Example}
+\aliascntresetthe{example}
+\providecommand*{\exampleautorefname}{Example}
+\NewDocumentEnvironment{example}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to example
+                         {\begin{xexample}}
+                         {\begin{xexample}[#1]\index{#1!example}}
+                       }%
+                       {\end{xexample}}
+
+\theoremstyle{gapexample}
+\newaliascnt{gapexample}{xtheorem}
+\newtheorem{xgapexample}[gapexample]{Example}
+\aliascntresetthe{gapexample}
+\providecommand*{\gapexampleautorefname}{Example}
+\NewDocumentEnvironment{gapexample}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to gapexample
+                         {\begin{xgapexample}}
+                         {\begin{xgapexample}[#1]
+                             \footnote{
+                               The example is not a part of the lectures
+                               and it uses GAP \cite{url:gap}.
+                             }                             
+                             \index{#1!example}
+                             \index{GAP example!#1}
+                         }
+                       }%
+                       {\end{xgapexample}}
+
+\theoremstyle{myexample}
+\newaliascnt{myexample}{xtheorem}
+\newtheorem{xmyexample}[myexample]{Example}
+\aliascntresetthe{myexample}
+\providecommand*{\myexampleautorefname}{Example}
+\NewDocumentEnvironment{myexample}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to myexample
+                         {\begin{xmyexample}
+                             \footnote{
+                               The example is not a part of the lectures.
+                             }                             
+                         }
+                         {\begin{xmyexample}[#1]
+                             \footnote{
+                               The example is not a part of the lectures.
+                             }                             
+                             \index{#1!example}
+                         }
+                       }%
+                       {\end{xmyexample}}
+
+
+\theoremstyle{myremark}
+\newaliascnt{myremark}{xtheorem}
+\newtheorem{xmyremark}[myremark]{Remark}
+\aliascntresetthe{myremark}
+\providecommand*{\myremarkautorefname}{Remark}
+\NewDocumentEnvironment{myremark}{oo}
+                       {\begin{xmyremark}
+                         \footnote{
+                           The remark is not a part of the lectures
+                           but it is important to understand the below
+                           content. 
+                         }                             
+                       }
+                       {\end{xmyremark}}
+
+
+%
+% https://tex.stackexchange.com/questions/250035/transform-output-theoremstyleremark-from-italics-to-bold
+%
+\makeatletter
+\def\th@remark{%
+  \thm@headfont{\bfseries}%
+  \normalfont % body font
+  \thm@preskip\topsep \divide\thm@preskip\tw@
+  \thm@postskip\thm@preskip
+}
+\makeatother
+                       
+\theoremstyle{remark}
+\newaliascnt{remark}{xtheorem}
+\newtheorem{xremark}[remark]{Remark}
+\aliascntresetthe{remark}
+\providecommand*{\remarkautorefname}{Remark}
+\NewDocumentEnvironment{remark}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to remark
+                         {\begin{xremark}}
+                         {\begin{xremark}[#1]\index{#1!remark}}
+                       }%
+                       {\end{xremark}}
+                       
+\theoremstyle{lemma}
+\newaliascnt{lemma}{xtheorem}
+\newtheorem{xlemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\providecommand*{\lemmaautorefname}{Lemma}
+\NewDocumentEnvironment{lemma}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to lemma
+                         {\begin{xlemma}}
+                         {\begin{xlemma}[#1]
+                             \index{#1 lemma!declaration}
+                         }
+                       }%
+                       {\end{xlemma}}
+
+                       
+\newtheorem{claim}[xtheorem]{Claim}
+\newtheorem{proposition}[xtheorem]{Proposition}
+\newtheorem{corollary}[xtheorem]{Corollary}
+\newtheorem{property}[xtheorem]{Property}
+
+%
+% https://tex.stackexchange.com/questions/357118/expand-nameref-before-creating-index
+%
+
+\makeatletter
+\newcommand{\getnamereftext}[1]{%
+  \@ifundefined{r@#1}{}{%
+    \unexpanded\expandafter\expandafter\expandafter{%
+      \expandafter\expandafter\expandafter\@thirdoffive\csname r@#1\endcsname
+    }%
+  }%
+}
+
+\newcommand{\mynameref}[1]{%
+  {\nameref{#1}}%
+  \ifstrstart{#1}{def:}%
+  {\expandafter\index{{\getnamereftext{#1}}}}%
+  {
+    \def\makeidx
+        {\ifstrstart{#1}{lem:}
+          {
+            \index{{\getnamereftext{#1} lemma}}
+          }
+          {\ifstrstart{#1}{thm:}
+            {
+              \index{{\getnamereftext{#1} theorem}}
+            }
+            {\ifstrstart{#1}{rem:}
+              {
+                \index{{\getnamereftext{#1} remark}}
+              }
+              {\ifstrstart{#1}{ex:}
+                {
+                  \index{{\getnamereftext{#1} example}}
+                }
+                {
+                  \index{{\getnamereftext{#1} \namecref{#1}}}
+                }
+              }
+            }
+          }
+        }
+    \makeidx
+    (\autoref{#1})
+  }%
+}
+
+\makeindex[intoc]
+
+\title{Category Theory}
+\author{Ivan Murashko}
+%\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input ./introduction.tex
+\printindex
+\bibliographystyle{gost780s}
+\bibliography{cattheory}
+\end{document}
