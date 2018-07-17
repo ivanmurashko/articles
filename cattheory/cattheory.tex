@@ -185,7 +185,22 @@
 \newtheorem{claim}[xtheorem]{Claim}
 \newtheorem{proposition}[xtheorem]{Proposition}
 \newtheorem{corollary}[xtheorem]{Corollary}
-\newtheorem{property}[xtheorem]{Property}
+
+\theoremstyle{property}
+\newaliascnt{property}{xtheorem}
+\newtheorem{xproperty}[property]{Property}
+\aliascntresetthe{property}
+\providecommand*{\propertyautorefname}{Property}
+\NewDocumentEnvironment{property}{oo}
+                       {\IfNoValueTF{#1}
+                         % no optional argument to property
+                         {\begin{xproperty}}
+                         {\begin{xproperty}[#1]
+                             \index{#1 property!declaration}
+                         }
+                       }%
+                       {\end{xproperty}}
+
 
 %
 % https://tex.stackexchange.com/questions/357118/expand-nameref-before-creating-index
@@ -222,8 +237,13 @@
                 {
                   \index{{\getnamereftext{#1} example}}
                 }
-                {
-                  \index{{\getnamereftext{#1} \namecref{#1}}}
+                {\ifstrstart{#1}{prop:}
+                  {
+                    \index{{\getnamereftext{#1} property}}
+                  }
+                  {
+                    \index{{\getnamereftext{#1} \namecref{#1}}}
+                  }
                 }
               }
             }

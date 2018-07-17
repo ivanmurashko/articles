@@ -38,6 +38,69 @@ is called
 ($a$) is called \textit{source} and another one ($b$) \textit{target}.
 \end{definition}
 
+\mynameref{def:morphism}s have several properties. \footnote{The
+  properties don't have any proof and postulated as axioms}
+\begin{property}[Composition]
+\label{prop:composition}
+If we have 3 \mynameref{def:object}s $a, b$ and $c$ and 2
+\mynameref{def:morphism}s 
+\[
+f_{ab} : a \rightarrow b
+\]
+and 
+\[
+f_{bc} : b \rightarrow c
+\]
+then there exists \mynameref{def:morphism} 
+\[
+f_{ac} : a \rightarrow c
+\]
+such that
+\[
+f_{ac} = f_{bc} \circ f_{ab}
+\]
+\end{property}
+
+\begin{remark}[Composition]
+\label{rem:composition}
+The equation
+\[
+f_{ac} = f_{bc} \circ f_{ab}
+\]
+means that we apply $f_{ab}$ first and then we apply $f_{bc}$ to the
+result of the application i.e. if our objects are sets and $x \in a$
+then 
+\[
+f_{ac} ( x ) = f_{bc} ( f_{ab} ( x ) ),
+\]
+where $f_{ab} ( x ) \in b$.
+\end{remark}
+
+\begin{property}[Associativity]
+\label{prop:associativity}
+The \mynameref{def:morphism}s \mynameref{prop:composition}s should
+follow associativity property:
+\[
+f_{ce} \circ (f_{bc} \circ f_{ab}) = (f_{ce} \circ f_{bc}) \circ
+f_{ab} = f_{ce} \circ f_{bc} \circ f_{ab}.
+\]
+\end{property}
+
+\begin{definition}[Identity morphism]
+\label{def:id}
+For every \mynameref{def:object} $a$ we define a special
+\mynameref{def:morphism} $\idarrow[a] : a \rightarrow a$ with the
+following properties: $\forall f_{ab} : a \rightarrow b$
+\[
+\idarrow[a] \circ f_{ab} = f_{ab}
+\]
+and
+$\forall f_{ba} : b \rightarrow a$
+\[
+f_{ba} \circ \idarrow[a]  = f_{ba}.
+\] 
+This morphism is called \textit{identity morphism}.
+\end{definition}
 
 \begin{definition}[Commutative diagram]
   A commutative diagram is a diagram of \mynameref{def:object}s (also known as
