@@ -234,6 +234,21 @@
   }%
 }
 
+% took from 
+% http://www.andrew.cmu.edu/user/jonasf/80-413-713/documents/LaTeX_howto.pdf
+\newcommand {\cat}{%
+  \mathbf%
+}
+\newcommand {\domain} [1] {%
+  \mathrm{dom}(#1)%
+}
+\newcommand {\codomain} [1] {%
+  \mathrm{ cod }(#1)%
+}
+\newcommand {\idarrow} [1] [] {%
+  \mathbf{1} {#1}%
+}
+
 \makeindex[intoc]
 
 \title{Category Theory}
@@ -244,6 +259,8 @@
 \tableofcontents
 
 \input ./introduction.tex
+\input ./basedefinitions.tex
+
 \printindex
 \bibliographystyle{gost780s}
 \bibliography{cattheory}

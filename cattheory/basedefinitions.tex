@@ -1,0 +1,79 @@
+%% -*- coding:utf-8 -*-
+\chapter{Base definitions}
+
+\section{Definitions}
+
+\subsection{Object}
+
+\begin{definition}[Class]
+  A class is a collection of sets (or sometimes other mathematical
+  objects) that can be unambiguously defined by a property that all
+  its members share. 
+  \label{def:class}
+\end{definition}
+
+\begin{definition}[Object]
+\label{def:object}
+In category theory object is considered as something that does not
+have internal structure (aka point) but has a property that makes
+different objects belong to the same \mynameref{def:class}
+\end{definition}
+
+\begin{remark}[Class of Objects]
+\label{rem:objclass}
+The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
+$\mathrm{ob}(C)$
+\end{remark}
+
+\subsection{Morphism}
+Morphism is a kind of relation between 2 \mynameref{def:object}s. 
+\begin{definition}[Morphism]
+\label{def:morphism}
+A relation between two \mynameref{def:object}s $a$ and $b$ 
+\[
+f_{ab}: a \rightarrow b
+\]
+is called
+\textit{morphism}. Morphism assumes a direction i.e. one \mynameref{def:object}
+($a$) is called \textit{source} and another one ($b$) \textit{target}.
+\end{definition}
+
+
+\begin{definition}[Commutative diagram]
+  A commutative diagram is a diagram of objects (also known as
+  vertices) and morphisms (also known as arrows or edges) such that
+  all directed paths in the diagram with the same start and endpoints
+  lead to the same result by composition
+  \label{def:commutativediagram}
+
+  The following diagram commutes if $f_{AB} = f_{CB} f_{AC}$ or
+  $f_{AB}\left(x\right) = f_{CB} \left(f_{AC}\left(x\right)\right)$.
+  \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+    \matrix (m) [matrix of math nodes, row sep=3em,
+      column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+            { A& & B \\
+              & C & \\ };
+            %\draw[double,double distance=5pt] (m-1-1) – (m-1-3);
+            \path[->]
+            (m-1-1) edge node[description] {$ f_{AB} $} (m-1-3)
+            edge node[description] {$  f_{AC} $} (m-2-2)
+            (m-2-2) edge node[description] {$  f_{CB} $} (m-1-3);
+  \end{tikzpicture}
+\end{definition}
+
+
+\begin{remark}[Class of Morphisms]
+\label{rem:morphclass}
+The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
+$\mathrm{hom}(C)$
+\end{remark}
+
+
+
+\subsection{Category}
+TBD
+
+\section{Examples}
+
+\subsection{\textbf{Set} category}
+TBD
