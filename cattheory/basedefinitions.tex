@@ -40,14 +40,14 @@ is called
 
 
 \begin{definition}[Commutative diagram]
-  A commutative diagram is a diagram of objects (also known as
-  vertices) and morphisms (also known as arrows or edges) such that
-  all directed paths in the diagram with the same start and endpoints
-  lead to the same result by composition
+  A commutative diagram is a diagram of \mynameref{def:object}s (also known as
+  vertices) and \mynameref{def:morphism}s (also known as arrows or
+  edges) such that all directed paths in the diagram with the same
+  start and endpoints lead to the same result by composition
   \label{def:commutativediagram}
 
-  The following diagram commutes if $f_{AB} = f_{CB} f_{AC}$ or
-  $f_{AB}\left(x\right) = f_{CB} \left(f_{AC}\left(x\right)\right)$.
+  The following diagram commutes if $f_{ab} = f_{cb} \circ f_{ac}$.
+
   \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
     \matrix (m) [matrix of math nodes, row sep=3em,
       column sep=2.5em, text height=1.5ex, text depth=0.25ex]
@@ -55,9 +55,9 @@ is called
               & C & \\ };
             %\draw[double,double distance=5pt] (m-1-1) – (m-1-3);
             \path[->]
-            (m-1-1) edge node[description] {$ f_{AB} $} (m-1-3)
-            edge node[description] {$  f_{AC} $} (m-2-2)
-            (m-2-2) edge node[description] {$  f_{CB} $} (m-1-3);
+            (m-1-1) edge node[description] {$ f_{ab} $} (m-1-3)
+            edge node[description] {$  f_{ac} $} (m-2-2)
+            (m-2-2) edge node[description] {$  f_{cb} $} (m-1-3);
   \end{tikzpicture}
 \end{definition}
 
