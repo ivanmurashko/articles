@@ -1,12 +1,9 @@
-all: pdf ps
-
-ps: cattheory.tex 
-	latex cattheory.tex
+all: pdf
 
 pdf: cattheory.tex
-	pdflatex cattheory.tex
+	pdflatex  -interaction=nonstopmode -shell-escape cattheory.tex
 	bibtex cattheory
-	pdflatex cattheory.tex
+	pdflatex  -interaction=nonstopmode -shell-escape cattheory.tex
 
 clean:
 	rm -rf *.aux cattheory.bbl *.dvi *.blg *.toc *.out *.idx
