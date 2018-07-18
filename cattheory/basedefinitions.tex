@@ -159,9 +159,48 @@ then $f$ is called \textit{epimorphism}.
 
 
 \subsection{Category}
-TBD
+
+\begin{definition}[Category]
+\label{def:category}
+A category $\cat{C}$ consists of 
+\begin{itemize}
+\item \mynameref{def:class} of
+\mynameref{def:object}s $\mathrm{ob}(C)$
+\item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(C)$
+defined for $\mathrm{ob}(C)$, i.e. each morphism $f_{ab}$ from 
+$\mathrm{hom}(C)$ has both source
+$a$ and target $b$ from $\mathrm{ob}(C)$
+\end{itemize}
+\end{definition}
 
 \section{Examples}
 
+There are several examples of categories that will also be used later
+
 \subsection{\textbf{Set} category}
+\begin{example}[{Set} category]
+\label{ex:setcategory}
+\index{Object!\textbf{Set} example}
+\index{Morphism!\textbf{Set} example}
+In the set category we consider a set of sets where
+\mynameref{def:object}s are sets and \mynameref{def:morphism}s are
+functions between the sets. 
+\end{example}
+
+\begin{remark}[Set vs Category]
+\label{rem:set_vs_category}
+There is an interesting relation between sets and categories. In both
+we consider objects(sets) and relations between
+them(morphisms/functions). 
+
+In the set theory we can get info about functions by looking inside
+the objects(sets) aka use ``microscope'' \cite{bib:milewski2018category} 
+
+Contrary in the category theory we initially don't have info about object
+internal structure but can get it using the relation between the
+objects i.e. using \mynameref{def:morphism}s. In other words we can use
+``telescope'' \cite{bib:milewski2018category}  there.
+\end{remark}
+
+\subsection{\textbf{Hask} category}
 TBD
