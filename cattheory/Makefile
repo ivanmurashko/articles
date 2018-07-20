@@ -7,4 +7,5 @@ pdf: cattheory.tex
 
 clean:
 	rm -rf *.aux cattheory.bbl *.dvi *.blg *.toc *.out *.idx
+	rm -rf _minted-*
 	find . \( -name "*.log" -o -name "*~" -o -name "*.ind" -o -name "*.ilg" \) -exec rm -rf {} \; 
