@@ -178,24 +178,32 @@ properties.
 
 \end{definition}
 
-\subsubsection{Equality of objects}
-via unique isomorphism
-
-\subsubsection{Equality of morphisms}
-TBD
-
 \section{Examples}
 
 There are several examples of categories that will also be used later
 
 \subsection{\textbf{Set} category}
+
+\begin{definition}[Set]
+\label{def:set}
+TBD
+\end{definition}
+
+\begin{definition}[Function]
+\label{def:function}
+If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
+called function $f$ between the 2 sets, i.e. $f \subset A \times B$.
+\end{definition}
+
+
 \begin{example}[{Set} category]
 \label{ex:setcategory}
 \index{Object!\textbf{Set} example}
 \index{Morphism!\textbf{Set} example}
-In the set category we consider a set of sets where
-\mynameref{def:object}s are sets and \mynameref{def:morphism}s are
-functions between the sets. 
+In the set category we consider a \mynameref{def:set} of
+\mynameref{def:set}s where 
+\mynameref{def:object}s are the \mynameref{def:set}s and
+\mynameref{def:morphism}s are \mynameref{def:function}s between the sets. 
 \end{example}
 
 \begin{remark}[Set vs Category]
@@ -212,6 +220,17 @@ internal structure but can get it using the relation between the
 objects i.e. using \mynameref{def:morphism}s. In other words we can use
 ``telescope'' \cite{bib:milewski2018category}  there.
 \end{remark}
+
+\begin{definition}[Domain]
+\label{def:domain}
+TBD
+\end{definition}
+
+\begin{definition}[Codomain]
+\label{def:codomain}
+TBD
+\end{definition}
+
 
 \begin{definition}[Surjection]
   \label{def:surjection}
