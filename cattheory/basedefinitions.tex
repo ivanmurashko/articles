@@ -13,93 +13,93 @@
 \end{definition}
 
 \begin{definition}[Object]
-\label{def:object}
-In category theory object is considered as something that does not
-have internal structure (aka point) but has a property that makes
-different objects belong to the same \mynameref{def:class}
+  \label{def:object}
+  In category theory object is considered as something that does not
+  have internal structure (aka point) but has a property that makes
+  different objects belong to the same \mynameref{def:class}
 \end{definition}
 
 \begin{remark}[Class of Objects]
-\label{rem:objclass}
-The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
-$\mathrm{ob}(C)$
+  \label{rem:objclass}
+  The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
+  $\mathrm{ob}(C)$
 \end{remark}
 
 \subsection{Morphism}
 Morphism is a kind of relation between 2 \mynameref{def:object}s. 
 \begin{definition}[Morphism]
-\label{def:morphism}
-A relation between two \mynameref{def:object}s $a$ and $b$ 
-\[
-f_{ab}: a \rightarrow b
-\]
-is called
-\textit{morphism}. Morphism assumes a direction i.e. one \mynameref{def:object}
-($a$) is called \textit{source} and another one ($b$) \textit{target}.
+  \label{def:morphism}
+  A relation between two \mynameref{def:object}s $a$ and $b$ 
+  \[
+  f_{ab}: a \rightarrow b
+  \]
+  is called
+  \textit{morphism}. Morphism assumes a direction i.e. one \mynameref{def:object}
+  ($a$) is called \textit{source} and another one ($b$) \textit{target}.
 \end{definition}
 
 \mynameref{def:morphism}s have several properties. \footnote{The
   properties don't have any proof and postulated as axioms}
 \begin{property}[Composition]
-\label{prop:composition}
-If we have 3 \mynameref{def:object}s $a, b$ and $c$ and 2
-\mynameref{def:morphism}s 
-\[
-f_{ab} : a \rightarrow b
-\]
-and 
-\[
-f_{bc} : b \rightarrow c
-\]
-then there exists \mynameref{def:morphism} 
-\[
-f_{ac} : a \rightarrow c
-\]
-such that
-\[
-f_{ac} = f_{bc} \circ f_{ab}
-\]
+  \label{prop:composition}
+  If we have 3 \mynameref{def:object}s $a, b$ and $c$ and 2
+  \mynameref{def:morphism}s 
+  \[
+  f_{ab} : a \rightarrow b
+  \]
+  and 
+  \[
+  f_{bc} : b \rightarrow c
+  \]
+  then there exists \mynameref{def:morphism} 
+  \[
+  f_{ac} : a \rightarrow c
+  \]
+  such that
+  \[
+  f_{ac} = f_{bc} \circ f_{ab}
+  \]
 \end{property}
 
 \begin{remark}[Composition]
-\label{rem:composition}
-The equation
-\[
-f_{ac} = f_{bc} \circ f_{ab}
-\]
-means that we apply $f_{ab}$ first and then we apply $f_{bc}$ to the
-result of the application i.e. if our objects are sets and $x \in a$
-then 
-\[
-f_{ac} ( x ) = f_{bc} ( f_{ab} ( x ) ),
-\]
-where $f_{ab} ( x ) \in b$.
+  \label{rem:composition}
+  The equation
+  \[
+  f_{ac} = f_{bc} \circ f_{ab}
+  \]
+  means that we apply $f_{ab}$ first and then we apply $f_{bc}$ to the
+  result of the application i.e. if our objects are sets and $x \in a$
+  then 
+  \[
+  f_{ac} ( x ) = f_{bc} ( f_{ab} ( x ) ),
+  \]
+  where $f_{ab} ( x ) \in b$.
 \end{remark}
 
 \begin{property}[Associativity]
-\label{prop:associativity}
-The \mynameref{def:morphism}s \mynameref{prop:composition}s should
-follow associativity property:
-\[
-f_{ce} \circ (f_{bc} \circ f_{ab}) = (f_{ce} \circ f_{bc}) \circ
-f_{ab} = f_{ce} \circ f_{bc} \circ f_{ab}.
-\]
+  \label{prop:associativity}
+  The \mynameref{def:morphism}s \mynameref{prop:composition}s should
+  follow associativity property:
+  \[
+  f_{ce} \circ (f_{bc} \circ f_{ab}) = (f_{ce} \circ f_{bc}) \circ
+  f_{ab} = f_{ce} \circ f_{bc} \circ f_{ab}.
+  \]
 \end{property}
 
 \begin{definition}[Identity morphism]
-\label{def:id}
-For every \mynameref{def:object} $a$ we define a special
-\mynameref{def:morphism} $\idarrow[a] : a \rightarrow a$ with the
-following properties: $\forall f_{ab} : a \rightarrow b$
-\[
-\idarrow[a] \circ f_{ab} = f_{ab}
-\]
-and
-$\forall f_{ba} : b \rightarrow a$
-\[
-f_{ba} \circ \idarrow[a]  = f_{ba}.
-\] 
-This morphism is called \textit{identity morphism}.
+  \label{def:id}
+  For every \mynameref{def:object} $a$ we define a special
+  \mynameref{def:morphism} $\idarrow[a] : a \rightarrow a$ with the
+  following properties: $\forall f_{ab} : a \rightarrow b$
+  \[
+  \idarrow[a] \circ f_{ab} = f_{ab}
+  \]
+  and
+  $\forall f_{ba} : b \rightarrow a$
+  \[
+  f_{ba} \circ \idarrow[a]  = f_{ba}.
+  \] 
+  This morphism is called \textit{identity morphism}.
 \end{definition}
 
 \begin{definition}[Commutative diagram]
@@ -128,55 +128,55 @@ This morphism is called \textit{identity morphism}.
 
 
 \begin{remark}[Class of Morphisms]
-\label{rem:morphclass}
-The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
-$\mathrm{hom}(C)$
+  \label{rem:morphclass}
+  The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
+  $\mathrm{hom}(C)$
 \end{remark}
 
 \begin{definition}[Monomorphism]
-\label{def:monomorphism}
-If $\forall g_1, g_2$ the equation 
-\[
-f \circ g_1 = f \circ g_2
-\]
-leads to 
-\[
-g_1 = g_2
-\]
-then $f$ is called \textit{monomorphism}.
+  \label{def:monomorphism}
+  If $\forall g_1, g_2$ the equation 
+  \[
+  f \circ g_1 = f \circ g_2
+  \]
+  leads to 
+  \[
+  g_1 = g_2
+  \]
+  then $f$ is called \textit{monomorphism}.
 \end{definition}
 
 \begin{definition}[Epimorphism]
-\label{def:epimorphism}
-If $\forall g_1, g_2$ the equation 
-\[
-g_1 \circ f = g_2 \circ f
-\]
-leads to 
-\[
-g_1 = g_2
-\]
-then $f$ is called \textit{epimorphism}.
+  \label{def:epimorphism}
+  If $\forall g_1, g_2$ the equation 
+  \[
+  g_1 \circ f = g_2 \circ f
+  \]
+  leads to 
+  \[
+  g_1 = g_2
+  \]
+  then $f$ is called \textit{epimorphism}.
 \end{definition}
 
 
 \subsection{Category}
 
 \begin{definition}[Category]
-\label{def:category}
-A category $\cat{C}$ consists of 
-\begin{itemize}
-\item \mynameref{def:class} of
-\mynameref{def:object}s $\mathrm{ob}(C)$
-\item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(C)$
-defined for $\mathrm{ob}(C)$, i.e. each morphism $f_{ab}$ from 
-$\mathrm{hom}(C)$ has both source
-$a$ and target $b$ from $\mathrm{ob}(C)$
-\end{itemize}
-For any \mynameref{def:object} $a$ there should be unique
-\mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
-\mynameref{prop:composition} and \mynameref{prop:associativity}
-properties. See \cref{fig:category}  
+  \label{def:category}
+  A category $\cat{C}$ consists of 
+  \begin{itemize}
+  \item \mynameref{def:class} of
+    \mynameref{def:object}s $\mathrm{ob}(C)$
+  \item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(C)$
+    defined for $\mathrm{ob}(C)$, i.e. each morphism $f_{ab}$ from 
+    $\mathrm{hom}(C)$ has both source
+    $a$ and target $b$ from $\mathrm{ob}(C)$
+  \end{itemize}
+  For any \mynameref{def:object} $a$ there should be unique
+  \mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
+  \mynameref{prop:composition} and \mynameref{prop:associativity}
+  properties. See \cref{fig:category}  
 \end{definition}
 
 \begin{figure}
@@ -184,13 +184,13 @@ properties. See \cref{fig:category}
   \caption{Category example}
   \label{fig:category}
   \begin{tikzcd}
-a \arrow[rd,swap,"f\circ g"]
-  \arrow{r}{f}
-  \arrow[loop left,"1_a"] &
-b \arrow{d}{g}
-  \arrow[out=65,in=25,loop,"1_b"] \\
-& c
-  \arrow[loop right,"1_c"]
+    a \arrow[rd,swap,"f\circ g"]
+    \arrow{r}{f}
+    \arrow[loop left,"1_a"] &
+    b \arrow{d}{g}
+    \arrow[out=65,in=25,loop,"1_b"] \\
+    & c
+    \arrow[loop right,"1_c"]
   \end{tikzcd}
 \end{figure}
 
@@ -201,51 +201,51 @@ There are several examples of categories that will also be used later
 \subsection{\textbf{Set} category}
 
 \begin{definition}[Set]
-\label{def:set}
-Set is a collection of distinct object. The objects are called the
-elements of the set.
+  \label{def:set}
+  Set is a collection of distinct object. The objects are called the
+  elements of the set.
 \end{definition}
 
 \begin{definition}[Function]
-\label{def:function}
-If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
-called function $f$ between the 2 sets, i.e. $f \subset A \times B$.
+  \label{def:function}
+  If $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
+  called function $f$ between the 2 sets, i.e. $f \subset A \times B$.
 \end{definition}
 
 
 \begin{example}[{Set} category]
-\label{ex:setcategory}
-\index{Object!\textbf{Set} example}
-\index{Morphism!\textbf{Set} example}
-In the set category we consider a \mynameref{def:set} of
-\mynameref{def:set}s where 
-\mynameref{def:object}s are the \mynameref{def:set}s and
-\mynameref{def:morphism}s are \mynameref{def:function}s between the sets. 
+  \label{ex:setcategory}
+  \index{Object!\textbf{Set} example}
+  \index{Morphism!\textbf{Set} example}
+  In the set category we consider a \mynameref{def:set} of
+  \mynameref{def:set}s where 
+  \mynameref{def:object}s are the \mynameref{def:set}s and
+  \mynameref{def:morphism}s are \mynameref{def:function}s between the sets. 
 \end{example}
 
 \begin{remark}[Set vs Category]
-\label{rem:set_vs_category}
-There is an interesting relation between sets and categories. In both
-we consider objects(sets) and relations between
-them(morphisms/functions). 
+  \label{rem:set_vs_category}
+  There is an interesting relation between sets and categories. In both
+  we consider objects(sets) and relations between
+  them(morphisms/functions). 
 
-In the set theory we can get info about functions by looking inside
-the objects(sets) aka use ``microscope'' \cite{bib:milewski2018category} 
+  In the set theory we can get info about functions by looking inside
+  the objects(sets) aka use ``microscope'' \cite{bib:milewski2018category} 
 
-Contrary in the category theory we initially don't have info about object
-internal structure but can get it using the relation between the
-objects i.e. using \mynameref{def:morphism}s. In other words we can use
-``telescope'' \cite{bib:milewski2018category}  there.
+  Contrary in the category theory we initially don't have info about object
+  internal structure but can get it using the relation between the
+  objects i.e. using \mynameref{def:morphism}s. In other words we can use
+  ``telescope'' \cite{bib:milewski2018category}  there.
 \end{remark}
 
 \begin{definition}[Domain]
-\label{def:domain}
-TBD
+  \label{def:domain}
+  TBD
 \end{definition}
 
 \begin{definition}[Codomain]
-\label{def:codomain}
-TBD
+  \label{def:codomain}
+  TBD
 \end{definition}
 
 
@@ -253,40 +253,198 @@ TBD
   \label{def:surjection}
   The function $f: X \rightarrow Y$ is surjective (or onto) if
   $\forall y \in Y$, $\exists x \in X$ such that
-  $f\left(x\right) = y$.
+  $f\left(x\right) = y$ (see \cref{fig:surjection,fig:bijection}).
 \end{definition}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3),minimum width=2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
+  \end{tikzpicture}
+  \caption{A surjective (non-injective) function from domain $X$ to
+    codomain $Y$ }
+  \label{fig:surjection}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
+    \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y4);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
+  \end{tikzpicture}
+  \caption{An injective and surjective function (bijection)}
+  \label{fig:bijection}
+\end{figure}
+
+
 \begin{remark}[Surjection vs Epimorphism]
-\label{rem:surjection_epimorphism}
-TBD
+  \label{rem:surjection_epimorphism}
+  \mynameref{def:surjection} and \mynameref{def:epimorphism} are
+  related each other.
+  TBD
 \end{remark}
 
 \begin{definition}[Injection]
   \label{def:injection}
   The function $f: X \rightarrow Y$ is injective (or one-to-one function) if
   $\forall x_1, x_2 \in X$, such that $x_1 \ne x_2$ then
-  $f\left(x_1\right) \ne f\left(x_2\right)$.
+  $f\left(x_1\right) \ne f\left(x_2\right)$ (see
+  \cref{fig:injection,fig:bijection}).  
 \end{definition}
 
+% https://tex.stackexchange.com/questions/19987/
+% drawing-a-bijective-map-with-tikz 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
+    \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
+  \end{tikzpicture}
+  \caption{A injective (non-surjective) function from domain $X$ to
+    codomain $Y$ }
+  \label{fig:injection}
+\end{figure}
+
+
 \begin{remark}[Injection vs Monomorphism]
-\label{rem:injection_monomorphism}
-TBD
+  \label{rem:injection_monomorphism}
+  \mynameref{def:injection} and \mynameref{def:monomorphism} are
+  related each other. Consider a non-injective function $f: X
+  \rightarrow Y$ (see \cref{fig:injection_monomorphism}). One can
+  conclude that it is not monomorphism because $\exists g_1, g_2$ such
+  that $g_1 \ne g_2$ and $f(g_1(a_1)) = y_3 = f(g_2(b_1))$.
+
+  As result we can say that an \mynameref{def:injection} is a
+  \mynameref{def:monomorphism} in \textbf{Set} category.
 \end{remark}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$A$};
+    \node at (0,0) {$B$};
+    \node at (4,5) {$X$};
+    \node at (8,5) {$Y$};
+
+    \node[ele,label=left:$a_1$] (a1) at (0,4) {};
+    \node[ele,label=left:$a_2$] (a2) at (0,3) {};    
+
+    \node[ele,label=left:$b_1$] (b1) at (0,2) {};    
+    \node[ele,label=left:$b_2$] (b2) at (0,1) {};    
+
+    
+    \node[ele,label=left:$x_1$] (x1) at (4,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (4,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (4,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (4,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (8,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (8,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (8,2) {};
+    \node[draw,fit= (a1) (a2),minimum width=2cm] {} ;
+    \node[draw,fit= (b1) (b2),minimum width=2cm] {} ;
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3),minimum width=2cm] {} ;  
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2] (a1) -- (x3);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (a2) -- (x3);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b1) -- (x4);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b2) -- (x4);
+
+  \end{tikzpicture}
+  \caption{A non-injective function $f$ from domain $X$ to
+    codomain $Y$. $\exists g_1: A \rightarrow X, g_2: B
+    \rightarrow X$ such that $g_1 \ne g_2$ but $f
+    \circ g_1 = f \circ g_2$. I.e. the function $f$ is not monomorphism. }
+  \label{fig:injection_monomorphism}
+\end{figure}
 
 \subsection{\textbf{Hask} category}
 \begin{example}[{Hask} category]
-\label{ex:haskcategory}
-\index{Object!\textbf{Hask} example}
-\index{Morphism!\textbf{Hask} example}
-Types in Haskell are considered as \mynameref{def:object}s
-Functions are considered as \mynameref{def:morphism}s
+  \label{ex:haskcategory}
+  \index{Object!\textbf{Hask} example}
+  \index{Morphism!\textbf{Hask} example}
+  Types in Haskell are considered as \mynameref{def:object}s
+  Functions are considered as \mynameref{def:morphism}s
 
-For instance consider the function even that converts Int type
-into Bool.
-\begin{minted}{haskell}
-even :: Int -> Bool
-\end{minted}
+  For instance consider the function even that converts Int type
+  into Bool.
+  \begin{minted}{haskell}
+    even :: Int -> Bool
+  \end{minted}
 \end{example}
 
 
