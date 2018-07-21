@@ -322,9 +322,48 @@ There are several examples of categories that will also be used later
 \begin{remark}[Surjection vs Epimorphism]
   \label{rem:surjection_epimorphism}
   \mynameref{def:surjection} and \mynameref{def:epimorphism} are
-  related each other.
+  related each other. see \cref{fig:surjection_epimorphism}
   TBD
 \end{remark}
+
+
+% https://tex.stackexchange.com/questions/19987/
+% drawing-a-bijective-map-with-tikz 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
+    \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
+  \end{tikzpicture}
+  \caption{A non-surjective function $f$ from domain $X$ to
+    codomain $Y$.
+    $\exists g_1: Y \rightarrow Y, g_2: Y \rightarrow Y$
+    such that $g_1 \ne g_2$ but
+    $g_1 \circ f = g_2 \circ f$.
+    I.e. the function $f$ is not epimorphism. }
+  \label{fig:surjection_epimorphism}
+\end{figure}
+
 
 \begin{definition}[Injection]
   \label{def:injection}
@@ -377,7 +416,10 @@ There are several examples of categories that will also be used later
   that $g_1 \ne g_2$ and $f(g_1(a_1)) = y_3 = f(g_2(b_1))$.
 
   As result we can say that an \mynameref{def:injection} is a
-  \mynameref{def:monomorphism} in \textbf{Set} category.
+  \mynameref{def:monomorphism} in \textbf{Set} category. Moreover
+  there is a proof 
+  \cite{bib:proofwiki:Injection_iff_Monomorphism_in_Category_of_Sets}
+  of that fact.
 \end{remark}
 
 \begin{figure}
