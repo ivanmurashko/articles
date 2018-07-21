@@ -354,6 +354,13 @@ There are several examples of categories that will also be used later
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
     \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
     \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
+
+
+    \draw[->,thick,shorten <=2pt,shorten >=2] (y3) to
+         [out=30,in=30,looseness=4] node[pos=0.5,right]{$g_1$} (y1);  
+    \draw[->,thick,shorten <=2pt,shorten >=2] (y3) to
+         [out=-30,in=-30,looseness=4] node[pos=0.5,right]{$g_2$} (y4);  
+
   \end{tikzpicture}
   \caption{A non-surjective function $f$ from domain $X$ to
     codomain $Y$.
@@ -487,7 +494,12 @@ There are several examples of categories that will also be used later
   \begin{minted}{haskell}
     even :: Int -> Bool
   \end{minted}
+
+  There is also $\idarrow[a]$ that is defined as follows
+  \begin{minted}{haskell}
+    id :: a -> a
+    id x = x
+  \end{minted}
+  
 \end{example}
 
-
-TBD
