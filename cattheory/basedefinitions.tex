@@ -22,8 +22,31 @@
 \begin{remark}[Class of Objects]
   \label{rem:objclass}
   The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
-  $\mathrm{ob}(C)$
+  $\mathrm{ob}(C)$ (see \cref{fig:class_of_objects}).
 \end{remark}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,4) {$C$};
+    
+    \node[ele,label=left:$a$] (a) at (2,2) {};    
+    \node[ele,label=left:$b$] (b) at (2,1) {};    
+    \node[ele,label=left:$c$] (c) at (0,2) {};
+    \node[ele,label=left:$d$] (d) at (0,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=4cm, minimum
+      height=4cm] {}  ;
+
+  \end{tikzpicture}
+  \caption{Class of objects $\mathrm{ob}(C)=\{a,b,c,d\}$}
+  \label{fig:class_of_objects}
+\end{figure}
+
 
 \subsection{Morphism}
 Morphism is a kind of relation between 2 \mynameref{def:object}s. 
@@ -132,8 +155,39 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
 \begin{remark}[Class of Morphisms]
   \label{rem:morphclass}
   The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
-  $\mathrm{hom}(C)$
+  $\mathrm{hom}(C)$ (see \cref{fig:class_of_morphisms})
 \end{remark}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,4) {$C$};
+    
+    \node[ele,label=left:$a$] (a) at (0,2) {};    
+    \node[ele,label=left:$b$] (b) at (0,1) {};    
+    \node[ele,label=right:$c$] (c) at (2,2) {};
+    \node[ele,label=right:$d$] (d) at (2,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=4cm, minimum
+      height=4cm] {}  ;
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    node[pos=0.5,left]{$g$} (a); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    node[pos=0.5,right]{$h$} (c); 
+
+
+  \end{tikzpicture}
+  \caption{Class of morphisms $\hom{ob}(C)=\{f,g,h\}$, where $h = f
+    \circ g$}
+  \label{fig:class_of_morphisms}
+\end{figure}
+
 
 \begin{definition}[Monomorphism]
   \label{def:monomorphism}
@@ -183,17 +237,38 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
 
 \begin{figure}
   \centering
-  \caption{Category example}
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,4.5) {$C$};
+    
+    \node[ele,label=left:$a$] (a) at (0,2) {};    
+    \node[ele,label=left:$b$] (b) at (0,1) {};    
+    \node[ele,label=right:$c$] (c) at (2,2) {};
+    \node[ele,label=right:$d$] (d) at (2,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=5cm, minimum
+      height=5cm] {}  ;
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,above]{$f$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    node[pos=0.5,left]{$g$} (a); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    node[pos=0.5,right]{$h$} (c);
+
+    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow[a]$} (a);
+    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[b]$} (b);
+    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow[c]$} (c);
+    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[d]$} (d);
+
+  \end{tikzpicture}
+  \caption{Category $C$. It consists of 4 objects
+    $\mathrm{ob}(C) = \{a,b,c,d\}$ and 7 morphisms
+    $\mathrm{ob}(C) = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
+    \idarrow[c], \idarrow[d]\}$}
   \label{fig:category}
-  \begin{tikzcd}
-    a \arrow[rd,swap,"f\circ g"]
-    \arrow{r}{f}
-    \arrow[loop left,"1_a"] &
-    b \arrow{d}{g}
-    \arrow[out=65,in=25,loop,"1_b"] \\
-    & c
-    \arrow[loop right,"1_c"]
-  \end{tikzcd}
 \end{figure}
 
 \section{Examples}
@@ -499,7 +574,7 @@ There are several examples of categories that will also be used later
 \end{figure}
 
 \subsection{\textbf{Hask} category}
-\begin{example}[{Hask} category]
+\begin{example}[\textbf{Hask} category]
   \label{ex:haskcategory}
   \index{Object!\textbf{Hask} example}
   \index{Morphism!\textbf{Hask} example}
@@ -550,8 +625,22 @@ There are several examples of categories that will also be used later
     seq (id.undefined) True
     seq (undefined.id) True
   \end{minted}
-  produces \textit{True} in both cases, i.e. \eqref{eq:leftid} and
-  \eqref{eq:rightid} are not satisfied.
-  
-  
+  produces \textit{True} in both cases.
+  As result we have
+  (we cannot compare compare functions in Haskell, but if we
+    could we can get the following)
+  \begin{minted}{haskell}
+    id . undefined /= undefined
+    undefined . id /= undefined,
+  \end{minted}
+  i.e. \eqref{eq:leftid} and
+  \eqref{eq:rightid} are not satisfied.  
 \end{remark}
+
+\subsection{\textbf{C++} category}
+\begin{example}[\textbf{C++} category]
+  \label{ex:cppcategory}
+  \index{Object!\textbf{C++} example}
+  \index{Morphism!\textbf{C++} example}
+  TBD
+\end{example}
