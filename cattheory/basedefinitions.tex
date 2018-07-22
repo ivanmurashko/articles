@@ -322,8 +322,22 @@ There are several examples of categories that will also be used later
 \begin{remark}[Surjection vs Epimorphism]
   \label{rem:surjection_epimorphism}
   \mynameref{def:surjection} and \mynameref{def:epimorphism} are
-  related each other. see \cref{fig:surjection_epimorphism}
-  TBD
+  related each other. Consider a non-surjective function $f: X
+  \rightarrow Y' \subset Y$ (see \cref{fig:surjection_epimorphism}). One can
+  conclude that there is not an \mynameref{def:epimorphism} because  
+  $\exists g_1: Y' \to Y'$ and  $g_2 : Y \to Y$ such
+  that $g_1 \ne g_2$ because they operates on different
+  \mynameref{def:domain}s but from other hand $g_1(Y') = g_2(Y')$. For
+  instance we can choose $g_1 = \idarrow[Y'], g_2=\idarrow[Y]$. As
+  soon as $Y'$ is \mynameref{def:codomain} of $f$ we always have
+  $g_1(f(X)) = g_2(F(X))$.
+  
+  As result we can say that an \mynameref{def:surjection} is a
+  \mynameref{def:epimorphism} in \textbf{Set} category. Moreover
+  there is a proof 
+  \cite{bib:proofwiki:Surjection_iff_Epimorphism_in_Category_of_Sets}
+  of that fact.
+
 \end{remark}
 
 
@@ -338,6 +352,7 @@ There are several examples of categories that will also be used later
     % the texts
     \node at (0,5) {$X$};
     \node at (4,5) {$Y$};
+    \node at (5.5,3.5) {$Y'$};
     
     \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
     \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
@@ -348,25 +363,21 @@ There are several examples of categories that will also be used later
     \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
     \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
     \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
-
+    
     \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
-    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3),minimum width=2cm] {} ;
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y2);
     \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y1);
     \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y3);
 
-
-    \draw[->,thick,shorten <=2pt,shorten >=2] (y3) to
-         [out=30,in=30,looseness=4] node[pos=0.5,right]{$g_1$} (y1);  
-    \draw[->,thick,shorten <=2pt,shorten >=2] (y3) to
-         [out=-30,in=-30,looseness=4] node[pos=0.5,right]{$g_2$} (y4);  
-
   \end{tikzpicture}
   \caption{A non-surjective function $f$ from domain $X$ to
-    codomain $Y$.
-    $\exists g_1: Y \rightarrow Y, g_2: Y \rightarrow Y$
-    such that $g_1 \ne g_2$ but
-    $g_1 \circ f = g_2 \circ f$.
+    codomain $Y' \subset Y$.
+    $\exists g_1: Y' \rightarrow Y', g_2: Y \rightarrow Y$ such that
+    $g_1(Y') = g_2(Y')$, but as soon as $Y' 
+    \ne Y$ we have $g_1 \ne g_2$. Using the fact that $Y'$ is codomain
+    of $f$ we got $g_1 \circ f = g_2 \circ f$.
     I.e. the function $f$ is not epimorphism. }
   \label{fig:surjection_epimorphism}
 \end{figure}
