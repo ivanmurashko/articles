@@ -369,37 +369,6 @@ There are several examples of categories that will also be used later
 \end{figure}
 
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-        sep=-2pt}]
-    % the texts
-    \node at (0,5) {$X$};
-    \node at (4,5) {$Y$};
-    
-    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
-    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
-    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
-    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
-
-    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
-    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
-    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
-    \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
-
-    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
-    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y4);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y2);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y1);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
-  \end{tikzpicture}
-  \caption{An injective and surjective function (bijection)}
-  \label{fig:bijection}
-\end{figure}
-
-
 \begin{remark}[Surjection vs Epimorphism]
   \label{rem:surjection_epimorphism}
   \mynameref{def:surjection} and \mynameref{def:epimorphism} are
@@ -572,6 +541,45 @@ There are several examples of categories that will also be used later
     \circ g_1 = f \circ g_2$. I.e. the function $f$ is not monomorphism. }
   \label{fig:injection_monomorphism}
 \end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    % the texts
+    \node at (0,5) {$X$};
+    \node at (4,5) {$Y$};
+    
+    \node[ele,label=left:$x_1$] (x1) at (0,4) {};    
+    \node[ele,label=left:$x_2$] (x2) at (0,3) {};    
+    \node[ele,label=left:$x_3$] (x3) at (0,2) {};
+    \node[ele,label=left:$x_4$] (x4) at (0,1) {};
+
+    \node[ele,,label=right:$y_1$] (y1) at (4,4) {};
+    \node[ele,,label=right:$y_2$] (y2) at (4,3) {};
+    \node[ele,,label=right:$y_3$] (y3) at (4,2) {};
+    \node[ele,,label=right:$y_4$] (y4) at (4,1) {};
+
+    \node[draw,fit= (x1) (x2) (x3) (x4),minimum width=2cm] {} ;
+    \node[draw,fit= (y1) (y2) (y3) (y4),minimum width=2cm] {} ;  
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (x1) -- (y4);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x2) -- (y2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x3) -- (y1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (x4) -- (y3);
+  \end{tikzpicture}
+  \caption{An injective and surjective function (bijection)}
+  \label{fig:bijection}
+\end{figure}
+
+\begin{definition}[Bijection]
+  \label{def:bijection}
+  The function $f: X \rightarrow Y$ is bijective (or one-to-one
+  correspondence) if it is an \mynameref{def:injection} and a
+  \mynameref{def:surjection} (see \cref{fig:bijection}). 
+\end{definition}
+
 
 \subsection{\textbf{Hask} category}
 \begin{example}[\textbf{Hask} category]
