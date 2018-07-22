@@ -91,14 +91,16 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   For every \mynameref{def:object} $a$ we define a special
   \mynameref{def:morphism} $\idarrow[a] : a \rightarrow a$ with the
   following properties: $\forall f_{ab} : a \rightarrow b$
-  \[
-  \idarrow[a] \circ f_{ab} = f_{ab}
-  \]
+  \begin{equation}
+    \idarrow[a] \circ f_{ab} = f_{ab}
+    \label{eq:leftid}
+  \end{equation}
   and
   $\forall f_{ba} : b \rightarrow a$
-  \[
-  f_{ba} \circ \idarrow[a]  = f_{ba}.
-  \] 
+  \begin{equation}
+    f_{ba} \circ \idarrow[a]  = f_{ba}.
+    \label{eq:rightid}
+  \end{equation}
   This morphism is called \textit{identity morphism}.
 \end{definition}
 
@@ -528,7 +530,28 @@ There are several examples of categories that will also be used later
     isStringLengthEven = isEven . stringLength
   \end{minted}
 
-  If we consider pure (without effects) functions then
-  \mynameref{prop:associativity} is also satisfied.
+  %% If we consider pure (without effects) functions then
+  %% \mynameref{prop:associativity} is also satisfied.
 \end{example}
 
+%http://math.andrej.com/2016/08/06/hask-is-not-a-category/
+\begin{remark}[Haskell lazy evaluation]
+  Each Haskell type has a special value $\bot$. The value presents
+  and lazy evaluations make several category law invalid, for instance
+  \mynameref{def:id} behaviour become invalid in specific cases:
+
+  The following code
+  \begin{minted}{haskell}
+    seq undefined True
+  \end{minted}
+  produces \textit{undefined}
+  But the following
+  \begin{minted}{haskell}
+    seq (id.undefined) True
+    seq (undefined.id) True
+  \end{minted}
+  produces \textit{True} in both cases, i.e. \eqref{eq:leftid} and
+  \eqref{eq:rightid} are not satisfied.
+  
+  
+\end{remark}
