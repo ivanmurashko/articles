@@ -580,16 +580,56 @@ There are several examples of categories that will also be used later
   \mynameref{def:surjection} (see \cref{fig:bijection}). 
 \end{definition}
 
+\subsection{Programming languages}
 
-\subsection{\textbf{Hask} category}
+In the programming languages we consider types as
+\mynameref{def:object}s and functions as
+\mynameref{def:morphism}s. Particularly we will look into category
+with 3 objects that are types: Int, Bool, String. There are also
+several functions between them (see \cref{fig:pl_example}).   
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    % the texts    
+    \node[ele,label=right:Int] (int) at (6,4) {};    
+    \node[ele,label=right:Bool] (bool) at (6,0) {};    
+    \node[ele,label=left:String] (string) at (0,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (int) to
+    node[right]{isEven} (bool); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (string) to
+    node[pos=0.5,sloped,above]{stringLength} (int); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (string) to
+    node[pos=0.5,sloped,above]{isStringLengthEven} (bool); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (string) -- (bool);
+    \draw (int) to [out=45,in=135,looseness=50] node[above]
+          {$id_{Int}$} (int); 
+    \draw (string) to [out=-45,in=-135,looseness=50] node[below]
+          {$id_{String}$} (string); 
+    \draw (bool) to [out=-45,in=-135,looseness=50] node[below]
+          {$id_{Bool}$} (bool); 
+
+  \end{tikzpicture}
+  \caption{Programming language category example. Objects are types: Int,
+    Bool, String. Morphisms are several functions}
+  \label{fig:pl_example}
+\end{figure}
+
+
+\subsubsection{\textbf{Hask} category}
 \begin{example}[\textbf{Hask} category]
   \label{ex:haskcategory}
   \index{Object!\textbf{Hask} example}
   \index{Morphism!\textbf{Hask} example}
   Types in Haskell are considered as \mynameref{def:object}s.
   Functions are considered as \mynameref{def:morphism}s.
+  We are going to implement \mynameref{def:category} from
+  \cref{fig:pl_example}.
 
-  For instance consider the function even that converts Int type
+  The function isEven that converts Int type
   into Bool.
   \begin{minted}{haskell}
     isEven :: Int -> Bool
@@ -645,7 +685,7 @@ There are several examples of categories that will also be used later
   \eqref{eq:rightid} are not satisfied.  
 \end{remark}
 
-\subsection{\textbf{C++} category}
+\subsubsection{\textbf{C++} category}
 \begin{example}[\textbf{C++} category]
   \label{ex:cppcategory}
   \index{Object!\textbf{C++} example}
@@ -653,7 +693,10 @@ There are several examples of categories that will also be used later
   We will use the same trick as in \mynameref{ex:haskcategory} and
   will assume 
   types in C++ as \mynameref{def:object}s, 
-  functions as \mynameref{def:morphism}s
+  functions as \mynameref{def:morphism}s.
+  We also are going to implement
+  \mynameref{def:category} from \cref{fig:pl_example}.
+
 
   We  also define 2 functions:
   \begin{minted}{c++}
