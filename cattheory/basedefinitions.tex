@@ -220,7 +220,11 @@ There are several examples of categories that will also be used later
   In the set category we consider a \mynameref{def:set} of
   \mynameref{def:set}s where 
   \mynameref{def:object}s are the \mynameref{def:set}s and
-  \mynameref{def:morphism}s are \mynameref{def:function}s between the sets. 
+  \mynameref{def:morphism}s are \mynameref{def:function}s between the
+  sets.
+
+  The \mynameref{def:id} is trivial function such that $\forall x \in
+  X: \idarrow[X](x) = x$.
 \end{example}
 
 \begin{remark}[Set vs Category]
@@ -240,12 +244,12 @@ There are several examples of categories that will also be used later
 
 \begin{definition}[Domain]
   \label{def:domain}
-  TBD
+  Given a function $f: X \to Y$, the set $X$ is the domain.
 \end{definition}
 
 \begin{definition}[Codomain]
   \label{def:codomain}
-  TBD
+  Given a function $f: X \to Y$, the set $Y$ is the codomain.
 \end{definition}
 
 
@@ -503,14 +507,28 @@ There are several examples of categories that will also be used later
   For instance consider the function even that converts Int type
   into Bool.
   \begin{minted}{haskell}
-    even :: Int -> Bool
+    isEven :: Int -> Bool
+    isEven x = x `mod` 2 == 0
   \end{minted}
 
-  There is also $\idarrow[a]$ that is defined as follows
+  There is also \mynameref{def:id} that is defined as follows
   \begin{minted}{haskell}
     id :: a -> a
     id x = x
   \end{minted}
-  
+
+  If we have an additional function
+  \begin{minted}{haskell}
+    stringLength :: String -> Int
+    stringLength x = length x
+  \end{minted}
+  then we can create a \mynameref{prop:composition}
+  \begin{minted}{haskell}
+    isStringLengthEven :: String -> Bool
+    isStringLengthEven = isEven . stringLength
+  \end{minted}
+
+  If we consider pure (without effects) functions then
+  \mynameref{prop:associativity} is also satisfied.
 \end{example}
 
