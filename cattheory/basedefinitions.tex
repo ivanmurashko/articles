@@ -578,8 +578,8 @@ There are several examples of categories that will also be used later
   \label{ex:haskcategory}
   \index{Object!\textbf{Hask} example}
   \index{Morphism!\textbf{Hask} example}
-  Types in Haskell are considered as \mynameref{def:object}s
-  Functions are considered as \mynameref{def:morphism}s
+  Types in Haskell are considered as \mynameref{def:object}s.
+  Functions are considered as \mynameref{def:morphism}s.
 
   For instance consider the function even that converts Int type
   into Bool.
@@ -628,7 +628,7 @@ There are several examples of categories that will also be used later
   produces \textit{True} in both cases.
   As result we have
   (we cannot compare compare functions in Haskell, but if we
-    could we can get the following)
+  could we can get the following)
   \begin{minted}{haskell}
     id . undefined /= undefined
     undefined . id /= undefined,
@@ -642,5 +642,69 @@ There are several examples of categories that will also be used later
   \label{ex:cppcategory}
   \index{Object!\textbf{C++} example}
   \index{Morphism!\textbf{C++} example}
-  TBD
+  We will use the same trick as in \mynameref{ex:haskcategory} and
+  will assume 
+  types in C++ as \mynameref{def:object}s, 
+  functions as \mynameref{def:morphism}s
+
+  We  also define 2 functions:
+  \begin{minted}{c++}
+    std::function<bool(int)> isEven =
+    [](int x)
+    {
+      return x % 2 == 0;                
+    };
+
+    std::function<int(std::string)> stringLength =
+    [](std::string s)
+    {
+      return static_cast<int>(s.size());
+    };
+  \end{minted}
+
+  Composition can be defined as follows:
+  \begin{minted}{c++}
+    // h = g . f
+    template < typename A, typename B, typename C> std::function<C(A)>
+    compose(std::function<C(B)> g, std::function<B(A)> f) 
+    {
+      auto h = [f,g](A a)
+      {
+        B b = f(a);
+        C c = g(b);
+        return c;           
+      };  
+      return h;  
+    };
+  \end{minted}
+
+  The \mynameref{def:id}:
+  \begin{minted}{c++}
+    std::function<bool(bool)> id_bool =
+    [](bool x)
+    {
+      return x;    
+    };
+    
+    std::function<std::string(std::string)> id_string =
+    [](std::string x)
+    {
+      return x;    
+    };    
+  \end{minted}
+
+  The usage examples are the following:
+  \begin{minted}{c++}
+    std::function<bool(std::string)> isStringLengthEven =
+    compose<>(isEven, stringLength);
+
+    std::function<bool(std::string)> isStringLengthEvenLeft =
+    compose<>(id_bool, isStringLengthEven);
+
+    std::function<bool(std::string)> isStringLengthEvenRight =
+    compose<>(isStringLengthEven, id_string);
+  \end{minted}
+
+  Such construction will always provides us the category as soon as we
+  use pure function (functions without effects).
 \end{example}
