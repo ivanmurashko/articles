@@ -2,51 +2,30 @@
 #include <functional>
 #include <string>
 
-std::function<bool(int)> isEven =
-  [](int x)
-  {
-    return x % 2 == 0;                
-  };
+auto isEven = [](int x) { return x % 2 == 0; };
 
-std::function<int(std::string)> stringLength =
-  [](std::string s)
-  {
-    return static_cast<int>(s.size());
-  };
+auto stringLength = [](std::string s) { return static_cast<int>(s.size()); };
 
 // h = g . f
-template < typename A, typename B, typename C> std::function<C(A)>
-compose(std::function<C(B)> g, std::function<B(A)> f) 
+template < typename A, typename B> 
+auto compose(A g, B f) 
 {
-  auto h = [f,g](A a)
+  auto h = [f,g](auto a)
          {
-           B b = f(a);
-           C c = g(b);
+           auto b = f(a);
+           auto c = g(b);
            return c;           
          };  
   return h;  
 };
 
-std::function<bool(std::string)> isStringLengthEven =
-  compose<>(isEven, stringLength);
+auto isStringLengthEven = compose<>(isEven, stringLength);
 
-std::function<bool(bool)> id_bool =
-  [](bool x)
-  {
-    return x;    
-  };
+auto id = [](auto x) { return x; };
 
-std::function<std::string(std::string)> id_string =
-  [](std::string x)
-  {
-    return x;    
-  };
+auto isStringLengthEvenLeft = compose<>(id, isStringLengthEven);
 
-std::function<bool(std::string)> isStringLengthEvenLeft =
-   compose<>(id_bool, isStringLengthEven);
-
-std::function<bool(std::string)> isStringLengthEvenRight =
-  compose<>(isStringLengthEven, id_string);
+auto isStringLengthEvenRight = compose<>(isStringLengthEven, id);
 
 
 int main()
