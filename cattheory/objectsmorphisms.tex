@@ -14,8 +14,15 @@ structure. We can use the same trick as in
 use ``telescope'' and define the equality of objects and morphisms of
 a category $c$ in the terms of whole $\mathrm{hom}(C)$.
 
-\subsection{Equality of objects}
-via unique isomorphism
+\begin{definition}[Objects equality]
+\label{def:object_equality}
+Two \mynameref{def:object}s $a$ and $b$ in \mynameref{def:category}
+$C$ are equal if there exists an unique \mynameref{def:isomorphism}
+$f: a \to b$. This also means that also exist unique isomorphism $g: b
+-> a$. These two \mynameref{def:morphism}s are related each other via
+the following equations: $f \circ g = \idarrow[a]$ and $g \circ f
+= \idarrow[b]$. 
+\end{definition}
 
 \subsection{Equality of morphisms}
 TBD
