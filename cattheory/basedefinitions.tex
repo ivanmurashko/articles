@@ -717,60 +717,41 @@ several functions between them (see \cref{fig:pl_example}).
 
   We  also define 2 functions:
   \begin{minted}{c++}
-    std::function<bool(int)> isEven =
-    [](int x)
-    {
-      return x % 2 == 0;                
+    auto isEven = [](int x) { 
+      return x % 2 == 0; 
     };
 
-    std::function<int(std::string)> stringLength =
-    [](std::string s)
-    {
-      return static_cast<int>(s.size());
+    auto stringLength = [](std::string s) { 
+      return static_cast<int>(s.size()); 
     };
   \end{minted}
 
   Composition can be defined as follows:
   \begin{minted}{c++}
     // h = g . f
-    template < typename A, typename B, typename C> std::function<C(A)>
-    compose(std::function<C(B)> g, std::function<B(A)> f) 
-    {
-      auto h = [f,g](A a)
-      {
-        B b = f(a);
-        C c = g(b);
-        return c;           
-      };  
-      return h;  
+    template <typename A, typename B> 
+    auto compose(A g, B f) {
+      auto h = [f, g](auto a) {
+        auto b = f(a);
+        auto c = g(b);
+        return c;
+      };
+      return h;
     };
   \end{minted}
 
   The \mynameref{def:id}:
   \begin{minted}{c++}
-    std::function<bool(bool)> id_bool =
-    [](bool x)
-    {
-      return x;    
-    };
-    
-    std::function<std::string(std::string)> id_string =
-    [](std::string x)
-    {
-      return x;    
-    };    
+    auto id = [](auto x) { return x; };
   \end{minted}
 
   The usage examples are the following:
   \begin{minted}{c++}
-    std::function<bool(std::string)> isStringLengthEven =
-    compose<>(isEven, stringLength);
+    auto isStringLengthEven = compose<>(isEven, stringLength);
 
-    std::function<bool(std::string)> isStringLengthEvenLeft =
-    compose<>(id_bool, isStringLengthEven);
+    auto isStringLengthEvenL = compose<>(id, isStringLengthEven);
 
-    std::function<bool(std::string)> isStringLengthEvenRight =
-    compose<>(isStringLengthEven, id_string);
+    auto isStringLengthEvenR = compose<>(isStringLengthEven, id);  
   \end{minted}
 
   Such construction will always provides us the category as soon as we
