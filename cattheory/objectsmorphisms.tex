@@ -24,8 +24,27 @@ the following equations: $f \circ g = \idarrow[a]$ and $g \circ f
 = \idarrow[b]$. 
 \end{definition}
 
-\subsection{Equality of morphisms}
-TBD
+Unlike \mynameref{def:function}s between \mynameref{def:set}s we don't
+have any additional info 
+\footnote{
+for instance info about sets internals. i.e. which elements of the sets
+are connected by the considered functions
+}
+about \mynameref{def:morphism}s except
+category theory axioms which the morphisms satisfied
+\cite{bib:stackexchange:morphism:equality}. This leads us to the
+following definition for morphims equality:
+\begin{definition}[Morphisms equality]
+\label{def:morphism_equality}
+Two \mynameref{def:morphism}s $f$ and $g$ in \mynameref{def:category}
+$C$ are equal if the equality can be derived from base axioms: 
+\begin{itemize}
+\item \mynameref{prop:composition}
+\item \mynameref{prop:associativity}
+\item \mynameref{def:id}: \eqref{eq:leftid}, \eqref{eq:rightid}
+\end{itemize}
+or \mynameref{def:commutative_diagram}s which postulates the equality.
+\end{definition}
 
 \section{Initial and terminal objects}
 TBD
