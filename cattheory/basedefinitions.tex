@@ -75,8 +75,8 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
 
 \mynameref{def:morphism}s have several properties. \footnote{The
   properties don't have any proof and postulated as axioms}
-\begin{property}[Composition]
-  \label{prop:composition}
+\begin{axiom}[Composition]
+  \label{axm:composition}
   If we have 3 \mynameref{def:object}s $a, b$ and $c$ and 2
   \mynameref{def:morphism}s 
   \[
@@ -94,7 +94,7 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   \[
   f_{ac} = f_{bc} \circ f_{ab}
   \]
-\end{property}
+\end{axiom}
 
 \begin{remark}[Composition]
   \label{rem:composition}
@@ -111,15 +111,15 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   where $f_{ab} ( x ) \in b$.
 \end{remark}
 
-\begin{property}[Associativity]
-  \label{prop:associativity}
-  The \mynameref{def:morphism}s \mynameref{prop:composition}s should
+\begin{axiom}[Associativity]
+  \label{axm:associativity}
+  The \mynameref{def:morphism}s \mynameref{axm:composition}s should
   follow associativity property:
   \[
   f_{ce} \circ (f_{bc} \circ f_{ab}) = (f_{ce} \circ f_{bc}) \circ
   f_{ab} = f_{ce} \circ f_{bc} \circ f_{ab}.
   \]
-\end{property}
+\end{axiom}
 
 \begin{definition}[Identity morphism]
   \label{def:id}
@@ -258,7 +258,7 @@ There are can be many different \mynameref{def:isomorphism}s between 2
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
   \mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
-  \mynameref{prop:composition} and \mynameref{prop:associativity}
+  \mynameref{axm:composition} and \mynameref{axm:associativity}
   properties. See \cref{fig:category}  
 \end{definition}
 
@@ -691,14 +691,14 @@ several functions between them (see \cref{fig:pl_example}).
     stringLength :: String -> Int
     stringLength x = length x
   \end{minted}
-  then we can create a \mynameref{prop:composition}
+  then we can create a \mynameref{axm:composition}
   \begin{minted}{haskell}
     isStringLengthEven :: String -> Bool
     isStringLengthEven = isEven . stringLength
   \end{minted}
 
   %% If we consider pure (without effects) functions then
-  %% \mynameref{prop:associativity} is also satisfied.
+  %% \mynameref{axm:associativity} is also satisfied.
 \end{example}
 
 %http://math.andrej.com/2016/08/06/hask-is-not-a-category/
