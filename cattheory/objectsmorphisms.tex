@@ -46,6 +46,25 @@ $C$ are equal if the equality can be derived from the base axioms:
 or \mynameref{def:commutative_diagram}s which postulate the equality.
 \end{definition}
 
+As an example lets proof the following theorem
+\begin{theorem}[Identity is unique]
+\label{thm:identity_unique}
+The \mynameref{def:id} is unique.
+\begin{proof}
+Consider an \mynameref{def:object} $a$ and it's \mynameref{def:id} 
+$\idarrow[a]$. Let $\exists f: a \to a$ such that $f$ is also
+identity. In the case \eqref{eq:leftid} for $f$ as identity gives
+\[
+f \circ \idarrow[a] = \idarrow[a].
+\]
+From other side \eqref{eq:rightid} for $\idarrow[a]$ satisfied
+\[
+f \circ \idarrow[a] = f
+\]
+i.e. $f = \idarrow[a]$.
+\end{proof}
+\end{theorem}
+
 \section{Initial and terminal objects}
 TBD
 

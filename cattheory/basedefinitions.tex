@@ -61,6 +61,18 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   ($a$) is called \textit{source} and another one ($b$) \textit{target}.
 \end{definition}
 
+\begin{definition}[Domain]
+  \label{def:domain}
+  Given a \mynameref{def:morphism} $f: a \to b$, the
+  \mynameref{def:object} $a$ is called domain and is denoted as $\dom a$.
+\end{definition}
+
+\begin{definition}[Codomain]
+  \label{def:codomain}
+  Given a \mynameref{def:morphism} $f: a \to b$, the
+  \mynameref{def:object} $b$ is called codomain and is denoted as $\cod a$.
+\end{definition}
+
 \mynameref{def:morphism}s have several properties. \footnote{The
   properties don't have any proof and postulated as axioms}
 \begin{property}[Composition]
@@ -126,6 +138,9 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   \end{equation}
   This morphism is called \textit{identity morphism}.
 \end{definition}
+
+Note that \mynameref{def:id} is unique, see
+\mynameref{thm:identity_unique} below.
 
 \begin{definition}[Commutative diagram]
   A commutative diagram is a diagram of \mynameref{def:object}s (also known as
@@ -337,12 +352,12 @@ There are several examples of categories that will also be used later
 \end{remark}
 
 \begin{definition}[Domain]
-  \label{def:domain}
+  \label{def:domain_set}
   Given a function $f: X \to Y$, the set $X$ is the domain.
 \end{definition}
 
 \begin{definition}[Codomain]
-  \label{def:codomain}
+  \label{def:codomain_set}
   Given a function $f: X \to Y$, the set $Y$ is the codomain.
 \end{definition}
 
