@@ -302,6 +302,65 @@ The \mynameref{def:category} can be considered as a way to represent a
 structured data. \mynameref{def:morphism}s are the ones to form the
 structure. 
 
+\begin{definition}{Opposite category}
+\label{def:op_category}
+\index{Category!opposite}
+\index{Category!dual}
+If $C$ is a \mynameref{def:category} then oppsite (or dual) category
+$C^{op}$ is constructed in the following way: \mynameref{def:object}s
+are the same, but the \mynameref{def:morphism}s are inverted i.e. 
+if $f \in \mathrm{hom}(C)$ and $\dom f = a, \cod f = b$, then the
+corresponding morphism $f^{op} \in \mathrm{hom}(C^{op})$ has $\dom f^{op} =
+b, \cod f^{op} = a$ (see \cref{fig:op_category})
+\end{definition}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node at (0,4.5) {$C$};
+    
+    \node[ele,label=left:$a$] (a) at (0,2) {};    
+    \node[ele,label=left:$b$] (b) at (0,1) {};    
+    \node[ele,label=right:$c$] (c) at (2,2) {};
+    \node[ele,label=right:$d$] (d) at (2,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=5cm, minimum
+      height=5cm] {}  ;
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+    node[pos=0.5,above]{$f^{op}$} (a); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[pos=0.5,left]{$g^{op}$} (b); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+    node[pos=0.5,right]{$h^{op}$} (b);
+
+    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow[a]$} (a);
+    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[b]$} (b);
+    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow[c]$} (c);
+    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[d]$} (d);
+
+  \end{tikzpicture}
+  \caption{Opposite category $C^{op}$ to the category from
+    \cref{fig:category} . It consists of 4 objects
+    $\mathrm{ob}(C^{op}) = \mathrm{ob}(C) = \{a,b,c,d\}$ and 7 morphisms
+    $\mathrm{hom}(C^{op}) = \{f^{op},g^{op},h^{op} = g^{op} \circ
+    f^{op}, \idarrow[a], \idarrow[b], 
+    \idarrow[c], \idarrow[d]\}$}
+  \label{fig:op_category}
+\end{figure}
+
+\begin{remark}{Composition on $C^{op}$}
+\label{rem:op_composition}
+\index{Composition!opposite category}
+As you can see from \cref{fig:op_category} the
+\mynameref{axm:composition} is reverted for
+\mynameref{def:op_category}. If $f,g,h = f \circ g \in
+\mathrm{hom}(C)$ then $f \circ g$ translated into $g^{op} \circ
+f^{op}$ in opposite category.
+\end{remark}
 
 \section{Examples}
 
