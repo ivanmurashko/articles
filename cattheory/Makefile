@@ -1,5 +1,6 @@
 all: pdf
 	cd src/cpp && $(MAKE)
+	cd src/scala && sbt build
 
 
 pdf: cattheory.tex
@@ -12,4 +13,7 @@ clean:
 	rm -rf _minted-*
 	find . \( -name "*.log" -o -name "*~" -o -name "*.ind" -o -name "*.ilg" \) -exec rm -rf {} \;
 	cd src/cpp && $(MAKE) clean
-
+	rm -rf src/scala/target
+	rm -rf src/scala/.ensime*
+	find src/scala -name target -type d -exec rm -rf {} \;
+	cd src/scala && sbt clean 
