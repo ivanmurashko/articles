@@ -12,7 +12,7 @@ same for default objects as soon as they don't have any internal
 structure. We can use the same trick as in
 \mynameref{rem:set_vs_category}: if we cannot use ``microscope'' lets
 use ``telescope'' and define the equality of objects and morphisms of
-a category $c$ in the terms of whole $\mathrm{hom}(C)$.
+a category $\cat{C}$ in the terms of whole $\mathrm{hom}(\cat{C})$.
 
 \begin{definition}[Objects equality]
 \label{def:object_equality}
@@ -66,7 +66,65 @@ i.e. $f = \idarrow[a]$.
 \end{theorem}
 
 \section{Initial and terminal objects}
-TBD
+\begin{definition}[Initial object]
+\label{def:initial_object}
+Let $\cat{C}$ is a \mynameref{def:category}, the
+\mynameref{def:object} $i \in \mathrm{ob}(\cat{C})$ is called
+\textit{initial object} if $\forall x \in \mathrm{ob}(\cat{C})
+\exists! f_x: i \to x \in \mathrm{hom}(\cat{C})$.
+\end{definition}
+
+\begin{definition}[Terminal object]
+\label{def:terminal_object}
+Let $\cat{C}$ is a \mynameref{def:category}, the
+\mynameref{def:object} $t \in \mathrm{ob}(\cat{C})$ is called
+\textit{terminal object} if $\forall x \in \mathrm{ob}(\cat{C})
+\exists! g_x: x \to t \in \mathrm{hom}(\cat{C})$.
+\end{definition}
+
+As you can see the initial and terminal objects are opposite each
+other. I.e. if $i$ is an \mynameref{def:initial_object} in $\cat{C}$
+then it will be \mynameref{def:terminal_object} in
+the \mynameref{def:op_category} $\cat{C^{op}}$.
+
+\begin{theorem}[Initial object is unique]
+\label{thm:initial_object_unique}
+Let $\cat{C}$ is a category and $i, i' \in \mathrm{ob}(\cat{C})$ two
+\mynameref{def:initial_object}s then there exists an unique
+\mynameref{def:isomorphism} $u: i \to i'$ (see
+\mynameref{def:object_equality}) 
+\begin{proof}
+Consider the following \mynameref{def:commutative_diagram} (see
+\cref{fig:initial_object_unique}) 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$i$] (i1) at (0,3) {};    
+    \node[ele,label=above:$i'$] (i2) at (3,3) {};    
+    \node[ele,label=below:$i$] (i12) at (3,0) {};
+    \node[ele,label=below:$i'$] (i22) at (6,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (i1) to
+    node[sloped,above]{$u$} (i2);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (i12) to
+    node[sloped,above]{$u$} (i22); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (i1) to
+    node[sloped,above]{$\idarrow[i]$} (i12); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
+    node[sloped,above]{$\idarrow[i']$} (i22); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
+    node[right]{$u^{-1}$} (i12); 
+  \end{tikzpicture}
+  \caption{Commutative diagram}
+  \label{fig:initial_object_unique}
+\end{figure}
+\end{proof}
+\end{theorem}
 
 \section{Product and sum}
 TBD

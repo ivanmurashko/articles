@@ -22,7 +22,7 @@
 \begin{remark}[Class of Objects]
   \label{rem:objclass}
   The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
-  $\mathrm{ob}(C)$ (see \cref{fig:class_of_objects}).
+  $\mathrm{ob}(\cat{C})$ (see \cref{fig:class_of_objects}).
 \end{remark}
 
 \begin{figure}
@@ -32,7 +32,7 @@
         sep=-2pt}]
 
     % the texts
-    \node at (0,4) {$C$};
+    \node at (0,4) {$\cat{C}$};
     
     \node[ele,label=left:$a$] (a) at (2,2) {};    
     \node[ele,label=left:$b$] (b) at (2,1) {};    
@@ -43,7 +43,7 @@
       height=4cm] {}  ;
 
   \end{tikzpicture}
-  \caption{Class of objects $\mathrm{ob}(C)=\{a,b,c,d\}$}
+  \caption{Class of objects $\mathrm{ob}(\cat{C})=\{a,b,c,d\}$}
   \label{fig:class_of_objects}
 \end{figure}
 
@@ -170,7 +170,7 @@ Note that \mynameref{def:id} is unique, see
 \begin{remark}[Class of Morphisms]
   \label{rem:morphclass}
   The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
-  $\mathrm{hom}(C)$ (see \cref{fig:class_of_morphisms})
+  $\mathrm{hom}(\cat{C})$ (see \cref{fig:class_of_morphisms})
 \end{remark}
 
 \begin{figure}
@@ -180,7 +180,7 @@ Note that \mynameref{def:id} is unique, see
         sep=-2pt}]
 
     % the texts
-    \node at (0,4) {$C$};
+    \node at (0,4) {$\cat{C}$};
     
     \node[ele,label=left:$a$] (a) at (0,2) {};    
     \node[ele,label=left:$b$] (b) at (0,1) {};    
@@ -250,11 +250,11 @@ There are can be many different \mynameref{def:isomorphism}s between 2
   A category $\cat{C}$ consists of 
   \begin{itemize}
   \item \mynameref{def:class} of
-    \mynameref{def:object}s $\mathrm{ob}(C)$
-  \item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(C)$
-    defined for $\mathrm{ob}(C)$, i.e. each morphism $f_{ab}$ from 
-    $\mathrm{hom}(C)$ has both source
-    $a$ and target $b$ from $\mathrm{ob}(C)$
+    \mynameref{def:object}s $\mathrm{ob}(\cat{C})$
+  \item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(\cat{C})$
+    defined for $\mathrm{ob}(\cat{C})$, i.e. each morphism $f_{ab}$ from 
+    $\mathrm{hom}(\cat{C})$ has both source
+    $a$ and target $b$ from $\mathrm{ob}(\cat{C})$
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
   \mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
@@ -269,7 +269,7 @@ There are can be many different \mynameref{def:isomorphism}s between 2
         sep=-2pt}]
 
     % the texts
-    \node at (0,4.5) {$C$};
+    \node at (0,4.5) {$\cat{C}$};
     
     \node[ele,label=left:$a$] (a) at (0,2) {};    
     \node[ele,label=left:$b$] (b) at (0,1) {};    
@@ -291,9 +291,9 @@ There are can be many different \mynameref{def:isomorphism}s between 2
     \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[d]$} (d);
 
   \end{tikzpicture}
-  \caption{Category $C$. It consists of 4 objects
-    $\mathrm{ob}(C) = \{a,b,c,d\}$ and 7 morphisms
-    $\mathrm{ob}(C) = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
+  \caption{Category $\cat{C}$. It consists of 4 objects
+    $\mathrm{ob}(\cat{C}) = \{a,b,c,d\}$ and 7 morphisms
+    $\mathrm{ob}(\cat{C}) = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
     \idarrow[c], \idarrow[d]\}$}
   \label{fig:category}
 \end{figure}
@@ -302,15 +302,15 @@ The \mynameref{def:category} can be considered as a way to represent a
 structured data. \mynameref{def:morphism}s are the ones to form the
 structure. 
 
-\begin{definition}{Opposite category}
+\begin{definition}[Opposite category]
 \label{def:op_category}
 \index{Category!opposite}
 \index{Category!dual}
-If $C$ is a \mynameref{def:category} then oppsite (or dual) category
-$C^{op}$ is constructed in the following way: \mynameref{def:object}s
+If $\cat{C}$ is a \mynameref{def:category} then opposite (or dual) category
+$\cat{C}^{op}$ is constructed in the following way: \mynameref{def:object}s
 are the same, but the \mynameref{def:morphism}s are inverted i.e. 
-if $f \in \mathrm{hom}(C)$ and $\dom f = a, \cod f = b$, then the
-corresponding morphism $f^{op} \in \mathrm{hom}(C^{op})$ has $\dom f^{op} =
+if $f \in \mathrm{hom}(\cat{C})$ and $\dom f = a, \cod f = b$, then the
+corresponding morphism $f^{op} \in \mathrm{hom}(\cat{C}^{op})$ has $\dom f^{op} =
 b, \cod f^{op} = a$ (see \cref{fig:op_category})
 \end{definition}
 
@@ -321,7 +321,7 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
         sep=-2pt}]
 
     % the texts
-    \node at (0,4.5) {$C$};
+    \node at (0,4.5) {$\cat{C}$};
     
     \node[ele,label=left:$a$] (a) at (0,2) {};    
     \node[ele,label=left:$b$] (b) at (0,1) {};    
@@ -345,8 +345,8 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
   \end{tikzpicture}
   \caption{Opposite category $C^{op}$ to the category from
     \cref{fig:category} . It consists of 4 objects
-    $\mathrm{ob}(C^{op}) = \mathrm{ob}(C) = \{a,b,c,d\}$ and 7 morphisms
-    $\mathrm{hom}(C^{op}) = \{f^{op},g^{op},h^{op} = g^{op} \circ
+    $\mathrm{ob}(\cat{C}^{op}) = \mathrm{ob}(\cat{C}) = \{a,b,c,d\}$ and 7 morphisms
+    $\mathrm{hom}(\cat{C}^{op}) = \{f^{op},g^{op},h^{op} = g^{op} \circ
     f^{op}, \idarrow[a], \idarrow[b], 
     \idarrow[c], \idarrow[d]\}$}
   \label{fig:op_category}
@@ -358,7 +358,7 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
 As you can see from \cref{fig:op_category} the
 \mynameref{axm:composition} is reverted for
 \mynameref{def:op_category}. If $f,g,h = f \circ g \in
-\mathrm{hom}(C)$ then $f \circ g$ translated into $g^{op} \circ
+\mathrm{hom}(\cat{C})$ then $f \circ g$ translated into $g^{op} \circ
 f^{op}$ in opposite category.
 \end{remark}
 
