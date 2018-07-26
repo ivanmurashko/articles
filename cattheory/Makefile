@@ -1,6 +1,6 @@
 all: pdf
 	cd src/cpp && $(MAKE)
-	cd src/scala && sbt build
+	cd src/scala && sbt compile
 
 
 pdf: cattheory.tex
