@@ -120,11 +120,52 @@ Consider the following \mynameref{def:commutative_diagram} (see
     \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
     node[right]{$u^{-1}$} (i12); 
   \end{tikzpicture}
-  \caption{Commutative diagram}
+  \caption{Commutative diagram for initial object unique proof}
   \label{fig:initial_object_unique}
 \end{figure}
 \end{proof}
 \end{theorem}
+
+\begin{theorem}[Terminal object is unique]
+\label{thm:terminal_object_unique}
+Let $\cat{C}$ is a category and $t, t' \in \mathrm{ob}(\cat{C})$ two
+\mynameref{def:terminal_object}s then there exists an unique
+\mynameref{def:isomorphism} $v: t' \to t$ (see
+\mynameref{def:object_equality}) 
+\begin{proof}
+Just got to the \mynameref{def:op_category} and revert arrows in
+\cref{fig:initial_object_unique}. The result shown on
+\cref{fig:terminal_object_unique} and it proofs the theorem statement.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$t$] (t1) at (0,3) {};    
+    \node[ele,label=above:$t'$] (t2) at (3,3) {};    
+    \node[ele,label=below:$t$] (t12) at (3,0) {};
+    \node[ele,label=below:$t'$] (t22) at (6,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (t2) to
+    node[sloped,above]{$v$} (t1);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (t22) to
+    node[sloped,above]{$v^{-1}$} (t12); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (t12) to
+    node[sloped,above]{$\idarrow[t]$} (t1); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (t22) to
+    node[sloped,above]{$\idarrow[t']$} (t2); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (t12) to
+    node[right]{$v^{-1}$} (t2); 
+  \end{tikzpicture}
+  \caption{Commutative diagram for terminal object unique proof}
+  \label{fig:terminal_object_unique}
+\end{figure}
+\end{proof}
+\end{theorem}
+
 
 \section{Product and sum}
 TBD
