@@ -1,7 +1,8 @@
-libraryDependencies += "org.scalatest" %% "scalatest" % "1.9.1" % "test"
-libraryDependencies += "junit" % "junit" % "4.10" % "test"
+libraryDependencies += "org.scalacheck" %% "scalacheck" % "latest.milestone" % "test"
+//libraryDependencies += "org.scalatest" %% "scalatest" % "latest.milestone" % " "test"
+//libraryDependencies += "org.specs2" %% "specs2-scalacheck" % "latest.milestone" % "test"
 
 lazy val root = (project in file(".")).
   settings(
-    name := "cluster"      
+    name := "category"      
   )
