@@ -12,7 +12,7 @@ same for default objects as soon as they don't have any internal
 structure. We can use the same trick as in
 \mynameref{rem:set_vs_category}: if we cannot use ``microscope'' lets
 use ``telescope'' and define the equality of objects and morphisms of
-a category $\cat{C}$ in the terms of whole $\mathrm{hom}(\cat{C})$.
+a category $\cat{C}$ in the terms of whole $\cathom{C}$.
 
 \begin{definition}[Objects equality]
 \label{def:object_equality}
@@ -69,17 +69,17 @@ i.e. $f = \idarrow[a]$.
 \begin{definition}[Initial object]
 \label{def:initial_object}
 Let $\cat{C}$ is a \mynameref{def:category}, the
-\mynameref{def:object} $i \in \mathrm{ob}(\cat{C})$ is called
-\textit{initial object} if $\forall x \in \mathrm{ob}(\cat{C})
-\exists! f_x: i \to x \in \mathrm{hom}(\cat{C})$.
+\mynameref{def:object} $i \in \catob{C}$ is called
+\textit{initial object} if $\forall x \in \catob{C}
+\exists! f_x: i \to x \in \cathom{C}$.
 \end{definition}
 
 \begin{definition}[Terminal object]
 \label{def:terminal_object}
 Let $\cat{C}$ is a \mynameref{def:category}, the
-\mynameref{def:object} $t \in \mathrm{ob}(\cat{C})$ is called
-\textit{terminal object} if $\forall x \in \mathrm{ob}(\cat{C})
-\exists! g_x: x \to t \in \mathrm{hom}(\cat{C})$.
+\mynameref{def:object} $t \in \catob{C}$ is called
+\textit{terminal object} if $\forall x \in \catob{C}
+\exists! g_x: x \to t \in \cathom{C}$.
 \end{definition}
 
 As you can see the initial and terminal objects are opposite each
@@ -89,7 +89,7 @@ the \mynameref{def:op_category} $\cat{C^{op}}$.
 
 \begin{theorem}[Initial object is unique]
 \label{thm:initial_object_unique}
-Let $\cat{C}$ is a category and $i, i' \in \mathrm{ob}(\cat{C})$ two
+Let $\cat{C}$ is a category and $i, i' \in \catob{C}$ two
 \mynameref{def:initial_object}s then there exists an unique
 \mynameref{def:isomorphism} $u: i \to i'$ (see
 \mynameref{def:object_equality}) 
@@ -128,7 +128,7 @@ Consider the following \mynameref{def:commutative_diagram} (see
 
 \begin{theorem}[Terminal object is unique]
 \label{thm:terminal_object_unique}
-Let $\cat{C}$ is a category and $t, t' \in \mathrm{ob}(\cat{C})$ two
+Let $\cat{C}$ is a category and $t, t' \in \catob{C}$ two
 \mynameref{def:terminal_object}s then there exists an unique
 \mynameref{def:isomorphism} $v: t' \to t$ (see
 \mynameref{def:object_equality}) 
@@ -183,6 +183,6 @@ TBD
 \subsubsection{\textbf{Scala} category}
 TBD
 
-\subsection{Physics}
+\subsection{Quantum mechanics}
 TBD
 

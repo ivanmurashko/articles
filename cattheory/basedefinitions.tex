@@ -22,7 +22,7 @@
 \begin{remark}[Class of Objects]
   \label{rem:objclass}
   The \mynameref{def:class} of \mynameref{def:object}s will be marked as 
-  $\mathrm{ob}(\cat{C})$ (see \cref{fig:class_of_objects}).
+  $\catob{C}$ (see \cref{fig:class_of_objects}).
 \end{remark}
 
 \begin{figure}
@@ -43,7 +43,7 @@
       height=4cm] {}  ;
 
   \end{tikzpicture}
-  \caption{Class of objects $\mathrm{ob}(\cat{C})=\{a,b,c,d\}$}
+  \caption{Class of objects $\catob{C}=\{a,b,c,d\}$}
   \label{fig:class_of_objects}
 \end{figure}
 
@@ -170,7 +170,7 @@ Note that \mynameref{def:id} is unique, see
 \begin{remark}[Class of Morphisms]
   \label{rem:morphclass}
   The \mynameref{def:class} of \mynameref{def:morphism}s will be marked as 
-  $\mathrm{hom}(\cat{C})$ (see \cref{fig:class_of_morphisms})
+  $\cathom{C}$ (see \cref{fig:class_of_morphisms})
 \end{remark}
 
 \begin{figure}
@@ -198,7 +198,7 @@ Note that \mynameref{def:id} is unique, see
 
 
   \end{tikzpicture}
-  \caption{Class of morphisms $\hom{ob}(C)=\{f,g,h\}$, where $h = f
+  \caption{Class of morphisms $\cathom{C}=\{f,g,h\}$, where $h = f
     \circ g$}
   \label{fig:class_of_morphisms}
 \end{figure}
@@ -250,11 +250,11 @@ There are can be many different \mynameref{def:isomorphism}s between 2
   A category $\cat{C}$ consists of 
   \begin{itemize}
   \item \mynameref{def:class} of
-    \mynameref{def:object}s $\mathrm{ob}(\cat{C})$
-  \item \mynameref{def:class} of \mynameref{def:morphism}s $\mathrm{hom}(\cat{C})$
-    defined for $\mathrm{ob}(\cat{C})$, i.e. each morphism $f_{ab}$ from 
-    $\mathrm{hom}(\cat{C})$ has both source
-    $a$ and target $b$ from $\mathrm{ob}(\cat{C})$
+    \mynameref{def:object}s $\catob{C}$
+  \item \mynameref{def:class} of \mynameref{def:morphism}s $\cathom{C}$
+    defined for $\catob{C}$, i.e. each morphism $f_{ab}$ from 
+    $\cathom{C}$ has both source
+    $a$ and target $b$ from $\catob{C}$
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
   \mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
@@ -292,8 +292,8 @@ There are can be many different \mynameref{def:isomorphism}s between 2
 
   \end{tikzpicture}
   \caption{Category $\cat{C}$. It consists of 4 objects
-    $\mathrm{ob}(\cat{C}) = \{a,b,c,d\}$ and 7 morphisms
-    $\mathrm{ob}(\cat{C}) = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
+    $\catob{C} = \{a,b,c,d\}$ and 7 morphisms
+    $\catob{C} = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
     \idarrow[c], \idarrow[d]\}$}
   \label{fig:category}
 \end{figure}
@@ -309,8 +309,8 @@ structure.
 If $\cat{C}$ is a \mynameref{def:category} then opposite (or dual) category
 $\cat{C}^{op}$ is constructed in the following way: \mynameref{def:object}s
 are the same, but the \mynameref{def:morphism}s are inverted i.e. 
-if $f \in \mathrm{hom}(\cat{C})$ and $\dom f = a, \cod f = b$, then the
-corresponding morphism $f^{op} \in \mathrm{hom}(\cat{C}^{op})$ has $\dom f^{op} =
+if $f \in \cathom{C}$ and $\dom f = a, \cod f = b$, then the
+corresponding morphism $f^{op} \in \cathom{C^{op}}$ has $\dom f^{op} =
 b, \cod f^{op} = a$ (see \cref{fig:op_category})
 \end{definition}
 
@@ -345,8 +345,8 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
   \end{tikzpicture}
   \caption{Opposite category $C^{op}$ to the category from
     \cref{fig:category} . It consists of 4 objects
-    $\mathrm{ob}(\cat{C}^{op}) = \mathrm{ob}(\cat{C}) = \{a,b,c,d\}$ and 7 morphisms
-    $\mathrm{hom}(\cat{C}^{op}) = \{f^{op},g^{op},h^{op} = g^{op} \circ
+    $\catob{C^{op}} = \catob{C} = \{a,b,c,d\}$ and 7 morphisms
+    $\cathom{C^{op}} = \{f^{op},g^{op},h^{op} = g^{op} \circ
     f^{op}, \idarrow[a], \idarrow[b], 
     \idarrow[c], \idarrow[d]\}$}
   \label{fig:op_category}
@@ -358,7 +358,7 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
 As you can see from \cref{fig:op_category} the
 \mynameref{axm:composition} is reverted for
 \mynameref{def:op_category}. If $f,g,h = f \circ g \in
-\mathrm{hom}(\cat{C})$ then $f \circ g$ translated into $g^{op} \circ
+\cathom{C}$ then $f \circ g$ translated into $g^{op} \circ
 f^{op}$ in opposite category.
 \end{remark}
 
@@ -892,5 +892,5 @@ several functions between them (see \cref{fig:pl_example}).
   \end{minted}
 \end{example}
 
-\subsection{Physics}
+\subsection{Quantum mechanics}
 TBD
