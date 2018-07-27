@@ -188,8 +188,17 @@ with one element.
 
 
 \subsection{Programming languages}
+In our toy example \cref{fig:pl_example} the type String is
+\mynameref{def:initial_object} and type Bool is the
+\mynameref{def:terminal_object}. From other side there are types in
+different programming languages that satisfies the definitions of
+initial and terminal objects.
+
 \subsubsection{\textbf{Hask} category}
 \begin{example}[Initial object][\textbf{Hask}]
+If we avoid lazy evaluations in Haskell (see
+\mynameref{rem:hask_lazy_eval}) then we can found the following types
+as candidates for initial and terminal object in haskell. 
 \label{ex:hask_initial_object}
 \mynameref{def:initial_object} in \mynameref{ex:haskcategory} is an
 type without values 
@@ -201,7 +210,7 @@ i.e. you cannot construct a object of the type.
 
 \begin{example}[Terminal object][\textbf{Hask}]
 \label{ex:hask_terminal_object}
-Terminal object (unit) in mynameref{ex:haskcategory} keeps only one element
+Terminal object (unit) in \mynameref{ex:haskcategory} keeps only one element
 \begin{minted}{haskell}
 data () = ()
 \end{minted}

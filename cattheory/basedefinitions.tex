@@ -762,6 +762,7 @@ several functions between them (see \cref{fig:pl_example}).
 
 %http://math.andrej.com/2016/08/06/hask-is-not-a-category/
 \begin{remark}[Haskell lazy evaluation]
+  \label{rem:hask_lazy_eval}
   Each Haskell type has a special value $\bot$. The value presents
   and lazy evaluations make several category law invalid, for instance
   \mynameref{def:id} behaviour become invalid in specific cases:
@@ -893,4 +894,15 @@ several functions between them (see \cref{fig:pl_example}).
 \end{example}
 
 \subsection{Quantum mechanics}
-TBD
+\begin{example}[\textbf{FdHilb} category]
+  \label{ex:fdhilbcategory}
+  \index{Object!\textbf{FdHilb} example}
+  \index{Morphism!\textbf{FdHilb} example}
+  In quantum mechanics the \mynameref{def:object}s are the system
+  states in the Hilbert space. The \mynameref{def:morphism}s are
+  linear operators which transforms one state into another one. Lets consider 
+  a simple toy example of a system with 2 states $\ket{0}$ and
+  $\ket{1}$.
+
+  TBD
+\end{example}
