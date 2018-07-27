@@ -77,54 +77,16 @@
 \aliascntresetthe{example}
 \providecommand*{\exampleautorefname}{Example}
 \NewDocumentEnvironment{example}{oo}
-                       {\IfNoValueTF{#1}
-                         % no optional argument to example
-                         {\begin{xexample}}
-                         {\begin{xexample}[#1]\index{#1!example}}
+                       {\IfNoValueTF{#2}
+                         {\IfNoValueTF{#1}
+                           % no optional argument to example
+                           {\begin{xexample}}
+                           {\begin{xexample}[#1]\index{#1!example}}
+                         }%
+                         {\begin{xexample}[#1][#2]\index{#1!#2 example}}
                        }%
                        {\end{xexample}}
 
-\theoremstyle{gapexample}
-\newaliascnt{gapexample}{xtheorem}
-\newtheorem{xgapexample}[gapexample]{Example}
-\aliascntresetthe{gapexample}
-\providecommand*{\gapexampleautorefname}{Example}
-\NewDocumentEnvironment{gapexample}{oo}
-                       {\IfNoValueTF{#1}
-                         % no optional argument to gapexample
-                         {\begin{xgapexample}}
-                         {\begin{xgapexample}[#1]
-                             \footnote{
-                               The example is not a part of the lectures
-                               and it uses GAP \cite{url:gap}.
-                             }                             
-                             \index{#1!example}
-                             \index{GAP example!#1}
-                         }
-                       }%
-                       {\end{xgapexample}}
-
-\theoremstyle{myexample}
-\newaliascnt{myexample}{xtheorem}
-\newtheorem{xmyexample}[myexample]{Example}
-\aliascntresetthe{myexample}
-\providecommand*{\myexampleautorefname}{Example}
-\NewDocumentEnvironment{myexample}{oo}
-                       {\IfNoValueTF{#1}
-                         % no optional argument to myexample
-                         {\begin{xmyexample}
-                             \footnote{
-                               The example is not a part of the lectures.
-                             }                             
-                         }
-                         {\begin{xmyexample}[#1]
-                             \footnote{
-                               The example is not a part of the lectures.
-                             }                             
-                             \index{#1!example}
-                         }
-                       }%
-                       {\end{xmyexample}}
 
 
 \theoremstyle{myremark}

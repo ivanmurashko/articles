@@ -173,10 +173,41 @@ TBD
 \section{Examples}
 
 \subsection{\textbf{Set} category}
-TBD
+\begin{example}[Initial object][\textbf{Set}]
+\label{ex:set_initial_object}
+Note that there is only one function from empty set to any other sets
+\cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
+as the \mynameref{def:initial_object} in \mynameref{ex:setcategory}. 
+\end{example}
+
+\begin{example}[Terminal object][\textbf{Set}]
+\label{ex:set_terminal_object}
+\mynameref{def:terminal_object} in \mynameref{ex:setcategory} is a set
+with one element. 
+\end{example}
+
 
 \subsection{Programming languages}
 \subsubsection{\textbf{Hask} category}
+\begin{example}[Initial object][\textbf{Hask}]
+\label{ex:hask_initial_object}
+\mynameref{def:initial_object} in \mynameref{ex:haskcategory} is an
+type without values 
+\begin{minted}{haskell}
+data Empty
+\end{minted}
+i.e. you cannot construct a object of the type.
+\end{example}
+
+\begin{example}[Terminal object][\textbf{Hask}]
+\label{ex:hask_terminal_object}
+Terminal object (unit) in mynameref{ex:haskcategory} keeps only one element
+\begin{minted}{haskell}
+data () = ()
+\end{minted}
+i.e. you can create only one element of the type.
+\end{example}
+
 TBD
 \subsubsection{\textbf{C++} category}
 TBD
