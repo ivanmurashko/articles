@@ -1,11 +1,26 @@
 %% -*- coding:utf-8 -*-
 \chapter{Functors}
 
-\section{Definition}
+\section{Definitions}
 
 \begin{definition}[Functor]
 \label{def:functor}
-TBD
+Let $\cat{C}$ and $\cat{D}$ are 2 categories. A mapping $F: \cat{C}
+\to \cat{D}$ between the categories is called \textit{functor} is it
+preserves the internal structure: 
+\begin{itemize}
+\item $\forall a_C \in \catob{C}, \exists a_D \in \catob{D}$ such that
+  $a_d = F( a_C )$
+\item $\forall f_C \in \cathom{C}, \exists f_D \in \cathom{D}$ such
+  that $\dom f_D = F (\dom f_C), \cod f_D = F (\cod f_C)$. We will use
+  the following notation later: $f_D = F(f_C)$.
+\item $\forall f_C, g_C$ the following equation holds: 
+\[
+F\left(f_C \circ
+  f_D\right) = F\left(f_C\right) \circ F\left(g_C\right) = f_D \circ
+  g_D.
+\]
+\end{itemize}  
 \end{definition}
 
 \section{Natural transformations}
