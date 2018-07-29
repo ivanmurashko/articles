@@ -7,7 +7,7 @@
 \label{def:functor}
 Let $\cat{C}$ and $\cat{D}$ are 2 categories. A mapping $F: \cat{C}
 \to \cat{D}$ between the categories is called \textit{functor} is it
-preserves the internal structure: 
+preserves the internal structure (see \cref{fig:functor}): 
 \begin{itemize}
 \item $\forall a_C \in \catob{C}, \exists a_D \in \catob{D}$ such that
   $a_d = F( a_C )$
@@ -22,6 +22,42 @@ F\left(f_C \circ
 \]
 \item $\forall x \in \catob{C}: F(\idarrow{x}) = \idarrow{F(x)}$.
 \end{itemize}  
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+
+    \node at (0,3) {$C$};        
+    \node at (4,3) {$D$};        
+
+    \node[ele,label=above:$a_C$] (ac) at (0,2) {};    
+    \node[ele,label=below:$b_C$] (bc) at (0,0) {};    
+    \node[ele,label=above:$a_D$] (ad) at (4,2) {};
+    \node[ele,label=below:$b_D$] (bd) at (4,0) {};
+
+    \node[draw,fit= (ac) (bc),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (ad) (bd),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+    node[left]{$f_C$} (bc);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ad) to
+    node[right]{$f_D$} (bd);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ac) to
+    node[sloped,above]{$a_D = F(a_C)$} (ad);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
+    node[sloped,above]{$b_D = F(b_C)$} (bd);
+  \end{tikzpicture}
+  \caption{Functor $F: \cat{C} \to \cat{D}$ definition}
+  \label{fig:functor}
+\end{figure}
+
+
 \end{definition}
 
 \section{Natural transformations}
