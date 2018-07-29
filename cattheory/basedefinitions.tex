@@ -708,7 +708,16 @@ does not have any structure? The answer is
 
 In the programming languages we consider types as
 \mynameref{def:object}s and functions as
-\mynameref{def:morphism}s. Particularly we will look into category
+\mynameref{def:morphism}s. The languages as Haskell can be considered
+(with some limitations see \mynameref{rem:hask_lazy_eval}) as a
+category in whole i.e. all possible constructions that can be created by the
+language tools can be considered as a huge category. Another languages
+such as C++ assumes side effects and there can be 
+easy constructed objects that does not satisfied the axioms of
+category theory. The last language Scala is something between.
+
+In any case we can construct a simple toy category that can be easy
+implemented in any language. Particularly we will look into category
 with 3 objects that are types: Int, Bool, String. There are also
 several functions between them (see \cref{fig:pl_example}).   
 
@@ -868,7 +877,7 @@ several functions between them (see \cref{fig:pl_example}).
 
 \subsubsection{\textbf{Scala} category}
 \begin{example}[\textbf{Scala} category]
-  \label{ex:cppcategory}
+  \label{ex:scalacategory}
   \index{Object!\textbf{Scala} example}
   \index{Morphism!\textbf{Scala} example}
 
