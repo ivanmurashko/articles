@@ -402,6 +402,13 @@ There are several examples of categories that will also be used later
 
   The \mynameref{def:id} is trivial function such that $\forall x \in
   X: \idarrow[X](x) = x$.
+
+  In general case when we say \textbf{Set} category we assume the set
+  of all sets. But the result is inconsistent because famous Russell's
+  paradox \cite{wiki:russell_paradox}can be applied. To avoid such
+  situations we assume the some 
+  kind of limitations are applied on our construction, for instance
+  ZFC \cite{wiki:zfc} 
 \end{example}
 
 \begin{remark}[Set vs Category]
@@ -418,6 +425,11 @@ There are several examples of categories that will also be used later
   objects i.e. using \mynameref{def:morphism}s. In other words we can use
   ``telescope'' \cite{bib:milewski2018category}  there.
 \end{remark}
+
+\begin{definition}{Singleton}
+\label{def:singleton} 
+The \textit{singleton} is a \mynameref{def:set} with only one element.
+\end{definition}
 
 \begin{definition}[Domain]
   \label{def:domain_set}
@@ -905,7 +917,30 @@ several functions between them (see \cref{fig:pl_example}).
 \subsection{Quantum mechanics}
 The most critical property of quantum system is superposition
 principle. The \mynameref{ex:setcategory} cannot be used for it
-because it does not satisfied the principle.
+because it does not satisfied the principle. 
+
+A simple modification of the \textbf{Set} category can satisfy the
+principle. 
+\begin{example}[\textbf{Rel} category]
+  \label{ex:relcategory}
+  \index{Object!\textbf{Rel} example}
+  \index{Morphism!\textbf{Rel} example}
+  We will consider a set of sets (same as \mynameref{ex:setcategory})
+  i.e. \mynameref{def:set}s as \mynameref{def:object}s. Instead of
+  \mynameref{def:function}s we will use \mynameref{def:binary_relation}s as
+  \mynameref{def:morphism}s. 
+
+  The \textbf{Rel} category is similar to the finite dimensional
+  Hilber space especially because it assumes some kind of superposition.
+  Really consider $\cat{C_R}$ - the \textbf{Rel} category. $X, Y \in
+  \catob{C_R}$ - 2 sets which consists of different elements. Let $f: X
+  \to X$ - \mynameref{def:morphism}. Each element $x \in X$ is
+  mapped to a subset $Y' \subset Y$. The $Y'$ can be
+  \mynameref{def:singleton} (in this case no differences with
+  \mynameref{ex:setcategory}) but there can be a situation when $Y'$
+  consists of several elements. In the case we will get some kind of
+  superposition that is analogiest to quantum mechanics.
+\end{example}
 
 \begin{example}[\textbf{FdHilb} category]
   \label{ex:fdhilbcategory}
