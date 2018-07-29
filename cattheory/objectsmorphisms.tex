@@ -168,7 +168,93 @@ Just got to the \mynameref{def:op_category} and revert arrows in
 
 
 \section{Product and sum}
-TBD
+The pair of 2 objects is defined via so called universal property in
+the following way:
+\begin{definition}
+\label{def:product}
+Let we have a category $\cat{C}$ and $a, b \in \catob{C}$ -two
+\mynameref{def:object}s the product of the objects $a, b$ is
+another object in $\cat{C}$ $c = a\times b$ with 2 \mynameref{def:morphism}s $g_a,
+g_b$ such that $a = g_a c, b = g_b c$ and the
+following universal property is satisfied: $\forall c' \in \catob{C}$
+and morphisms $g'_a: g'_a c' = a, g'_b: g'_b c' = b$, exists unique
+morphism $h$ such that the following diagram (see \cref{fig:product})
+commutes, i.e. $g'_a = g_a \circ h, g'_b = g_b \circ h$.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=left:$a$] (a) at (0,0) {};    
+    \node[ele,label=right:$b$] (b) at (4,0) {};    
+    \node[ele,label=below:$c$] (c) at (2,0) {};
+    \node[ele,label=above:$c'$] (c') at (2,3) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
+    node[sloped,above]{$g_a$} (a);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
+    node[sloped,above]{$g_b$} (b); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
+    node[sloped,above]{$g'_a$} (a); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
+    node[sloped,above]{$g'_b$} (b); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
+    node[right]{$h$} (c); 
+  \end{tikzpicture}
+  \caption{Product $c = a \times b$. $\forall c, \exists! h \in
+    \cathom{C}: g'_a = g_a \circ h, g'_b = g_b \circ h$.}
+  \label{fig:product}
+\end{figure}
+In other words $h$ factorizes $g'_{a,b}$.
+\end{definition}
+
+If we invert arrows in \mynameref{def:product} we will got another
+object definition that is called sum
+
+\begin{definition}
+\label{def:sum}
+Let we have a category $\cat{C}$ and $a, b \in \catob{C}$ -two
+\mynameref{def:object}s the sum of the objects $a, b$ is
+another object in $\cat{C}$ $c = a+ b$ with 2 \mynameref{def:morphism}s $g_a,
+g_b$ such that $c = g_a a, c = g_b b$ and the
+following universal property is satisfied: $\forall c' \in \catob{C}$
+and morphisms $g'_a: g'_a a = c', g'_b: g'_b b = c'$, exists unique
+morphism $h$ such that the following diagram (see \cref{fig:sum})
+commutes, i.e. $g'_a = h \circ g_a, g'_b = h \circ g_b$.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=left:$a$] (a) at (0,0) {};    
+    \node[ele,label=right:$b$] (b) at (4,0) {};    
+    \node[ele,label=below:$c$] (c) at (2,0) {};
+    \node[ele,label=above:$c'$] (c') at (2,3) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[sloped,above]{$g_a$} (c);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
+    node[sloped,above]{$g_b$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (a) to
+    node[sloped,above]{$g'_a$} (c'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
+    node[sloped,above]{$g'_b$} (c'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
+    node[right]{$h$} (c'); 
+  \end{tikzpicture}
+  \caption{Sum $c = a + b$. $\forall c, \exists! h \in
+    \cathom{C}: g'_a = h \circ g_a, g'_b = h \circ g_b $.}
+  \label{fig:sum}
+\end{figure}
+In other words $h$ factorizes $g'_{a,b}$.
+\end{definition}
+
 
 \section{Examples}
 
