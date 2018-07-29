@@ -946,69 +946,72 @@ principle.
   \label{ex:fdhilbcategory}
   \index{Object!\textbf{FdHilb} example}
   \index{Morphism!\textbf{FdHilb} example}
-  In quantum mechanics the \mynameref{def:object}s are the system
-  states in the Hilbert space. The \mynameref{def:morphism}s are
+
+  We are going to consider finite dimensional Hilber space as a
+  category where \mynameref{def:object}s are the collections
+  (\mynameref{def:set}s) of system
+  states in the Hilbert space and \mynameref{def:morphism}s are
   linear operators which transforms one state into another one. 
 
-  For our example we consider a 2 level atom with states $\ket{a}$ -
-  excited and $\ket{b}$. The atom interacts with light beam of
-  frequency $\omega = \omega_{ab}$. The interaction time $t$ is fixed and
-  corresponds to $\omega_R t = \pi$ where $\omega_R$ - Rabi
-  frequency \cite{bib:quantum_optics_mine}. The state of the system is
-  described by the following equation \cite{bib:quantum_optics_mine}:
-  \begin{equation}
-    \ket{\psi} = \cos{\frac{\omega_R t}{2}} \ket{a} -
-      i \sin{\frac{\omega_R t}{2}} \ket{b}
-    \nonumber
-  \end{equation}
+%%   For our example we consider a 2 level atom with states $\ket{a}$ -
+%%   excited and $\ket{b}$. The atom interacts with light beam of
+%%   frequency $\omega = \omega_{ab}$. The interaction time $t$ is fixed and
+%%   corresponds to $\omega_R t = \pi$ where $\omega_R$ - Rabi
+%%   frequency \cite{bib:quantum_optics_mine}. The state of the system is
+%%   described by the following equation \cite{bib:quantum_optics_mine}:
+%%   \begin{equation}
+%%     \ket{\psi} = \cos{\frac{\omega_R t}{2}} \ket{a} -
+%%       i \sin{\frac{\omega_R t}{2}} \ket{b}
+%%     \nonumber
+%%   \end{equation}
 
-  There are 4 different states and as result 4
-  \mynameref{def:object}s:
-  \begin{eqnarray}
-    \ket{\psi}_0 = \ket{a},
-    \nonumber \\
-    \ket{\psi}_1 = -i \ket{b},
-    \nonumber \\
-    \ket{\psi}_2 = - \ket{a},
-    \nonumber \\
-    \ket{\psi}_3 = i \ket{b},
-    \nonumber
-  \end{eqnarray}
+%%   There are 4 different states and as result 4
+%%   \mynameref{def:object}s:
+%%   \begin{eqnarray}
+%%     \ket{\psi}_0 = \ket{a},
+%%     \nonumber \\
+%%     \ket{\psi}_1 = -i \ket{b},
+%%     \nonumber \\
+%%     \ket{\psi}_2 = - \ket{a},
+%%     \nonumber \\
+%%     \ket{\psi}_3 = i \ket{b},
+%%     \nonumber
+%%   \end{eqnarray}
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-        sep=-2pt}]
+%% \begin{figure}
+%%   \centering
+%%   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+%%         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+%%         sep=-2pt}]
 
-    % the texts
-    \node at (0,4) {$\cat{C}$};
+%%     % the texts
+%%     \node at (0,4) {$\cat{C}$};
     
-    \node[ele,label=left:$\ket{\psi}_0$] (0) at (0,0) {};    
-    \node[ele,label=left:$\ket{\psi}_1$] (1) at (0,2) {};    
-    \node[ele,label=right:$\ket{\psi}_2$] (2) at (2,2) {};
-    \node[ele,label=right:$\ket{\psi}_3$] (3) at (2,0) {};
+%%     \node[ele,label=left:$\ket{\psi}_0$] (0) at (0,0) {};    
+%%     \node[ele,label=left:$\ket{\psi}_1$] (1) at (0,2) {};    
+%%     \node[ele,label=right:$\ket{\psi}_2$] (2) at (2,2) {};
+%%     \node[ele,label=right:$\ket{\psi}_3$] (3) at (2,0) {};
     
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (0) to
-    node[pos=0.5,sloped,above]{$\hat{L}_{01}$} (1); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (1) to
-    node[pos=0.5,sloped,above]{$\hat{L}_{12}$} (2); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (2) to
-    node[pos=0.5,sloped,above]{$\hat{L}_{23}$} (3); 
-    \draw[->,thick,shorten <=2pt,shorten >=2pt] (3) to
-    node[pos=0.5,sloped,below]{$\hat{L}_{30}$} (0); 
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (0) to
+%%     node[pos=0.5,sloped,above]{$\hat{L}_{01}$} (1); 
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (1) to
+%%     node[pos=0.5,sloped,above]{$\hat{L}_{12}$} (2); 
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (2) to
+%%     node[pos=0.5,sloped,above]{$\hat{L}_{23}$} (3); 
+%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (3) to
+%%     node[pos=0.5,sloped,below]{$\hat{L}_{30}$} (0); 
 
-    \draw (0) to [out=-45,in=-135,looseness=20] node[pos=0.5,left] {$\idarrow[0]$} (0);
-    \draw (1) to [out=45,in=135,looseness=20] node[pos=0.5,left] {$\idarrow[1]$} (1);
-    \draw (2) to [out=45,in=135,looseness=20] node[pos=0.5,right] {$\idarrow[2]$} (2);
-    \draw (3) to [out=-45,in=-135,looseness=20] node[pos=0.5,right] {$\idarrow[3]$} (3);
+%%     \draw (0) to [out=-45,in=-135,looseness=20] node[pos=0.5,left] {$\idarrow[0]$} (0);
+%%     \draw (1) to [out=45,in=135,looseness=20] node[pos=0.5,left] {$\idarrow[1]$} (1);
+%%     \draw (2) to [out=45,in=135,looseness=20] node[pos=0.5,right] {$\idarrow[2]$} (2);
+%%     \draw (3) to [out=-45,in=-135,looseness=20] node[pos=0.5,right] {$\idarrow[3]$} (3);
 
 
 
-  \end{tikzpicture}
-  \caption{Rabi oscillations as a category}
-  \label{fig:example_quantum}
-\end{figure}
+%%   \end{tikzpicture}
+%%   \caption{Rabi oscillations as a category}
+%%   \label{fig:example_quantum}
+%% \end{figure}
 
   TBD
 \end{example}
