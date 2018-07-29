@@ -708,13 +708,20 @@ does not have any structure? The answer is
 
 In the programming languages we consider types as
 \mynameref{def:object}s and functions as
-\mynameref{def:morphism}s. The languages as Haskell can be considered
-(with some limitations see \mynameref{rem:hask_lazy_eval}) as a
-category in whole i.e. all possible constructions that can be created by the
-language tools can be considered as a huge category. Another languages
-such as C++ assumes side effects and there can be 
-easy constructed objects that does not satisfied the axioms of
-category theory. The last language Scala is something between.
+\mynameref{def:morphism}s. The critical requirements for such
+consideration is that the functions have to be pure function (without
+side effects). This requirement mainly is satisfied by functional
+languages such as Haskell and Scala. From other side the functional
+languages use lazy evaluation to improve the performance. The laziness
+can also make category theory axiom invalid (see
+\mynameref{rem:hask_lazy_eval}). 
+
+Strictly speaking neither Haskell (pure functional language) nor C++
+can be considered as a category in general. As a first approximation
+the functional language (Haskell, Scala) can be considered as a
+category if we avoid to use functions with side effects (mainly for
+Scala) and use strict (for both Haskell and Scala) evaluations. 
+
 
 In any case we can construct a simple toy category that can be easy
 implemented in any language. Particularly we will look into category
