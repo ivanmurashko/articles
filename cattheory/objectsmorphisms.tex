@@ -297,6 +297,18 @@ type without values
 data Empty
 \end{minted}
 i.e. you cannot construct a object of the type.
+
+There is only one function from the initial object:
+\begin{minted}{haskell}
+absurd :: Empty -> a
+\end{minted}
+The function is called absurd because it does absurd action. Nobody
+can proof that it does not exist. For the existence proof can be used
+the following absurd argument: ``Just provide me an object type Empty
+and I will provide you the result of evaluation''. 
+
+There is no function in opposite direction because it would had been
+used for the Empty object creation. 
 \end{example}
 
 \begin{example}[Terminal object][\textbf{Hask}]
