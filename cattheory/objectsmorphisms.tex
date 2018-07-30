@@ -172,14 +172,15 @@ The pair of 2 objects is defined via so called universal property in
 the following way:
 \begin{definition}
 \label{def:product}
-Let we have a category $\cat{C}$ and $a, b \in \catob{C}$ -two
-\mynameref{def:object}s the product of the objects $a, b$ is
-another object in $\cat{C}$ $c = a\times b$ with 2 \mynameref{def:morphism}s $g_a,
-g_b$ such that $a = g_a c, b = g_b c$ and the
+Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
+\mynameref{def:object}s the product of the objects $c_1, c_2$ is
+another object in $\cat{C}$ $c = c_1 \times c_2$ with 2
+\mynameref{def:morphism}s $\pi_1, \pi_2$ such that $a = g_a c, b = g_b
+c$ and the 
 following universal property is satisfied: $\forall c' \in \catob{C}$
-and morphisms $g'_a: g'_a c' = a, g'_b: g'_b c' = b$, exists unique
+and morphisms $\pi'_1: \pi'_2 c' = c_1, \pi'_2: \pi'_2 c' = c_2$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:product})
-commutes, i.e. $g'_a = g_a \circ h, g'_b = g_b \circ h$.
+commutes, i.e. $\pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -188,27 +189,27 @@ commutes, i.e. $g'_a = g_a \circ h, g'_b = g_b \circ h$.
 
     % the texts
     
-    \node[ele,label=left:$a$] (a) at (0,0) {};    
-    \node[ele,label=right:$b$] (b) at (4,0) {};    
+    \node[ele,label=left:$c_1$] (a) at (0,0) {};    
+    \node[ele,label=right:$c_2$] (b) at (4,0) {};    
     \node[ele,label=below:$c$] (c) at (2,0) {};
     \node[ele,label=above:$c'$] (c') at (2,3) {};
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
-    node[sloped,above]{$g_a$} (a);
+    node[sloped,above]{$\pi_1$} (a);
     \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
-    node[sloped,above]{$g_b$} (b); 
+    node[sloped,above]{$\pi_2$} (b); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
-    node[sloped,above]{$g'_a$} (a); 
+    node[sloped,above]{$\pi'_1$} (a); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
-    node[sloped,above]{$g'_b$} (b); 
+    node[sloped,above]{$\pi'_2$} (b); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (c') to
     node[right]{$h$} (c); 
   \end{tikzpicture}
-  \caption{Product $c = a \times b$. $\forall c, \exists! h \in
-    \cathom{C}: g'_a = g_a \circ h, g'_b = g_b \circ h$.}
+  \caption{Product $c = c_1 \times c_2$. $\forall c, \exists! h \in
+    \cathom{C}: \pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.}
   \label{fig:product}
 \end{figure}
-In other words $h$ factorizes $g'_{a,b}$.
+In other words $h$ factorizes $\pi'_{1,2}$.
 \end{definition}
 
 If we invert arrows in \mynameref{def:product} we will got another
@@ -216,14 +217,15 @@ object definition that is called sum
 
 \begin{definition}
 \label{def:sum}
-Let we have a category $\cat{C}$ and $a, b \in \catob{C}$ -two
-\mynameref{def:object}s the sum of the objects $a, b$ is
-another object in $\cat{C}$ $c = a+ b$ with 2 \mynameref{def:morphism}s $g_a,
-g_b$ such that $c = g_a a, c = g_b b$ and the
+Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
+\mynameref{def:object}s the sum of the objects $c_1, c_2$ is
+another object in $\cat{C}$ $c = c_1 \oplus c_2$ with 2
+\mynameref{def:morphism}s $i_1, i_2$ such that $c = i_1 c_1, c = i_2
+c_2$ and the 
 following universal property is satisfied: $\forall c' \in \catob{C}$
-and morphisms $g'_a: g'_a a = c', g'_b: g'_b b = c'$, exists unique
+and morphisms $i'_1: i'_1 x_1 = c', i'_2: i'_2 x_2 = c'$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:sum})
-commutes, i.e. $g'_a = h \circ g_a, g'_b = h \circ g_b$.
+commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -232,27 +234,27 @@ commutes, i.e. $g'_a = h \circ g_a, g'_b = h \circ g_b$.
 
     % the texts
     
-    \node[ele,label=left:$a$] (a) at (0,0) {};    
-    \node[ele,label=right:$b$] (b) at (4,0) {};    
+    \node[ele,label=left:$c_1$] (a) at (0,0) {};    
+    \node[ele,label=right:$c_2$] (b) at (4,0) {};    
     \node[ele,label=below:$c$] (c) at (2,0) {};
     \node[ele,label=above:$c'$] (c') at (2,3) {};
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[sloped,above]{$g_a$} (c);
+    node[sloped,above]{$i_1$} (c);
     \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
-    node[sloped,above]{$g_b$} (c); 
+    node[sloped,above]{$i_2$} (c); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (a) to
-    node[sloped,above]{$g'_a$} (c'); 
+    node[sloped,above]{$i'_1$} (c'); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
-    node[sloped,above]{$g'_b$} (c'); 
+    node[sloped,above]{$i'_2$} (c'); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
     node[right]{$h$} (c'); 
   \end{tikzpicture}
-  \caption{Sum $c = a + b$. $\forall c, \exists! h \in
-    \cathom{C}: g'_a = h \circ g_a, g'_b = h \circ g_b $.}
+  \caption{Sum $c = c_1 \oplus c_2$. $\forall c, \exists! h \in
+    \cathom{C}: i'_1 = h \circ i_1, i'_2 = h \circ i_2 $.}
   \label{fig:sum}
 \end{figure}
-In other words $h$ factorizes $g'_{a,b}$.
+In other words $h$ factorizes $i'_{1,2}$.
 \end{definition}
 
 \section{Exponential}
