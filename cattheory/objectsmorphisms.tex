@@ -352,7 +352,7 @@ unit _ = ()
 \end{example}
 
 \begin{example}[Product][\textbf{Hask}]
-\label{ex:hask_terminal_object}
+\label{ex:hask_product}
 The \mynameref{def:product} in \mynameref{ex:haskcategory} keeps a
 pair and the constructor defined as follows
 \begin{minted}{haskell}
@@ -369,7 +369,7 @@ snd (_, y) = y
 \end{example}
 
 \begin{example}[Sum][\textbf{Hask}]
-\label{ex:hask_terminal_object}
+\label{ex:hask_sum}
 The \mynameref{def:sum} in \mynameref{ex:haskcategory} defined as
 follows 
 \begin{minted}{haskell}
@@ -405,6 +405,44 @@ namespace std {
   struct monostate {};
 }
 \end{minted}
+\end{example}
+
+\begin{example}[Product][\textbf{C++}]
+\label{ex:cpp_product}
+The \mynameref{def:product} in \mynameref{ex:cppcategory} keeps a
+pair and the constructor defined as follows
+\begin{minted}{c++}
+namespace std {
+  template< class A, class B > struct pair {
+    T1 first;
+    T2 second;
+  };
+}
+\end{minted}
+
+There is a simple usage example
+\begin{minted}{c++}
+#include <utility>
+#include <iostream>
+
+int main()
+{
+  std::pair<int, bool> p(0, false);
+
+  std::cout << "First projector: " << p.first << std::endl;
+  std::cout << "Second projector: " << p.second << std::endl;
+
+  return 0;
+}
+\end{minted}
+
+Really any struct or class can be considered as the product.
+\end{example}
+
+\begin{example}[Sum][\textbf{C++}]
+\label{ex:cpp_sum}
+The modern C++ suggest TBD
+
 \end{example}
 
 
