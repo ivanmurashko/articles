@@ -327,6 +327,28 @@ unit _ = ()
 
 TBD
 \subsubsection{\textbf{C++} category}
+\begin{example}[Initial object][\textbf{C++}]
+\label{ex:cpp_initial_object}
+In C++ exists a special type that does not hold any values and as
+result that cannot be created:
+\begin{minted}{c++}
+void
+\end{minted}
+You cannot create an object of that type: you will get a compiler
+error if you try.
+\end{example}
+
+\begin{example}[Terminal object][\textbf{C++}]
+\label{ex:cpp_terminal_object}
+C++ 17 introduced a special type that keeps only one value: 
+\begin{minted}{c++}
+namespace std {
+  struct monostate {};
+}
+\end{minted}
+\end{example}
+
+
 TBD
 \subsubsection{\textbf{Scala} category}
 \begin{example}[Initial object][\textbf{Scala}]
@@ -341,7 +363,7 @@ i.e. you cannot construct a object of the type.
 \end{example}
 
 \begin{example}[Terminal object][\textbf{Scala}]
-\label{ex:scala_initial_object}
+\label{ex:scala_terminal_object}
 We used a same trick as for \mynameref{ex:hask_terminal_object} and define
 \mynameref{def:terminal_object} in \mynameref{ex:scalacategory} as a
 type with only one value
