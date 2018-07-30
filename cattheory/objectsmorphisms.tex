@@ -170,7 +170,7 @@ Just got to the \mynameref{def:op_category} and revert arrows in
 \section{Product and sum}
 The pair of 2 objects is defined via so called universal property in
 the following way:
-\begin{definition}
+\begin{definition}[Product]
 \label{def:product}
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
 \mynameref{def:object}s the product of the objects $c_1, c_2$ is
@@ -216,7 +216,7 @@ If we invert arrows in \mynameref{def:product} we will got another
 object definition that is called sum
 
 \begin{definition}
-\label{def:sum}
+\label{def:sum}[Sum]
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
 \mynameref{def:object}s the sum of the objects $c_1, c_2$ is
 another object in $\cat{C}$ $c = c_1 \oplus c_2$ with 2
@@ -279,6 +279,30 @@ as the \mynameref{def:initial_object} in \mynameref{ex:setcategory}.
 with one element i.e \mynameref{def:singleton_set}. 
 \end{example}
 
+\begin{example}[Product][\textbf{Set}]
+\label{ex:set_product}
+The \mynameref{def:product} of two sets $A$ and $B$ in
+\mynameref{ex:setcategory} is defined 
+as a Cartesian product: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
+\end{example}
+
+\begin{example}[Sum][\textbf{Set}]
+  \label{ex:set_sum}
+  \index{Disjoint union}
+  The \mynameref{def:sum} of two sets $A$ and $B$ in
+  \mynameref{ex:setcategory} is defined as disjoint union
+  \cite{wiki:disjointunion}. Let $\{A_i: i \in I\}$ be a family of sets 
+  indexed by $I$. The 
+  disjoint union of this family is the set
+  \[
+  \sqcup_{i \in I} A_i = \cup_{i \in I}\left\{
+  \left(x, i\right): x \in A_i
+  \right\}.
+  \]
+  The elements of the disjoint union are ordered pairs $(x, i)$. Here $i$
+  serves as an auxiliary index that indicates which Ai the element $x$
+  came from.
+\end{example}
 
 \subsection{Programming languages}
 In our toy example \cref{fig:pl_example} the type String is
@@ -327,7 +351,40 @@ unit _ = ()
 \end{minted}
 \end{example}
 
-TBD
+\begin{example}[Product][\textbf{Hask}]
+\label{ex:hask_terminal_object}
+The \mynameref{def:product} in \mynameref{ex:haskcategory} keeps a
+pair and the constructor defined as follows
+\begin{minted}{haskell}
+(,) :: a -> b -> (a, b)
+(,) x y = (x, y)
+\end{minted}
+There are 2 projectors: 
+\begin{minted}{haskell}
+fst :: (a, b) -> a
+fst (x, _) = x
+snd :: (a, b) -> b
+snd (_, y) = y
+\end{minted}
+\end{example}
+
+\begin{example}[Sum][\textbf{Hask}]
+\label{ex:hask_terminal_object}
+The \mynameref{def:sum} in \mynameref{ex:haskcategory} defined as
+follows 
+\begin{minted}{haskell}
+data Either a b = Left a | Right b
+\end{minted}
+
+The typical usage is via pattern matching for instance 
+\begin{minted}{haskell}
+factor :: (a -> c) -> (b -> c) -> Either a b -> c
+factor f _ (Left x) = f x
+factor _ g (Right y) = g y
+\end{minted}
+\end{example}
+
+
 \subsubsection{\textbf{C++} category}
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
