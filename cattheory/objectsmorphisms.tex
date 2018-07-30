@@ -317,7 +317,12 @@ Terminal object (unit) in \mynameref{ex:haskcategory} keeps only one element
 \begin{minted}{haskell}
 data () = ()
 \end{minted}
-i.e. you can create only one element of the type.
+i.e. you can create only one element of the type. You can use the
+following function for the creation:
+\begin{minted}{haskell}
+unit :: a -> ()
+unit _ = ()
+\end{minted}
 \end{example}
 
 TBD
