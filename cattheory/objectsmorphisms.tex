@@ -389,17 +389,15 @@ factor _ g (Right y) = g y
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
 In C++ exists a special type that does not hold any values and as
-result that cannot be created:
-\begin{minted}{c++}
-void
-\end{minted}
+result that cannot be created: \mintinline{c++}{void}.
 You cannot create an object of that type: you will get a compiler
 error if you try.
 \end{example}
 
 \begin{example}[Terminal object][\textbf{C++}]
 \label{ex:cpp_terminal_object}
-C++ 17 introduced a special type that keeps only one value: 
+C++ 17 introduced a special type that keeps only one value -
+\mintinline{c++}{std::monostate}:  
 \begin{minted}{c++}
 namespace std {
   struct monostate {};
