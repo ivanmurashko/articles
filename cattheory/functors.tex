@@ -81,6 +81,7 @@ TBD
 \end{definition}
 
 \begin{definition}[Bifunctor]
+\label{def:bifunctor}
 TBD
 \end{definition}
 
@@ -92,6 +93,21 @@ $\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
 \Delta_c a = c$ -fixed object in $\cat{C}$ and 
 $\forall f \in \cathom{A}: \Delta_c f = \idarrow{c}$.
 \end{definition}
+
+\begin{definition}[Contravariant functor]
+\label{def:contravariant_functor}
+If we have a categories $\cat{C}$ and $\cat{D}$ then the
+\mynameref{def:functor} $\cat{C^{op}} \to \cat{D}$ is called
+\textit{contravariant functor}. 
+\end{definition}
+
+\begin{definition}[Profunctor]
+\label{def:profunctor}
+If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
+$\cat{C^{op}} \times \cat{C} \to \cat{C}$ is called
+\textit{profunctor}. 
+\end{definition}
+
 
 \section{Natural transformations}
 
@@ -131,6 +147,25 @@ data Maybe a = Either () (Identity a)
 -- Thus Maybe is a composition of 2 functors 
 \end{minted}
 \end{example}
+
+\begin{example}[Contravariant functor][\textbf{Hask}]
+\label{ex:contravariant_functor_hask}
+TBD
+\begin{minted}{haskell}
+class Contravariant f where
+      contramap :: (a -> b) -> f b -> f a
+\end{minted}
+\end{example}
+
+\begin{example}[Profunctor][\textbf{Hask}]
+\label{ex:contravariant_functor_hask}
+TBD
+\begin{minted}{haskell}
+class Profunctor p where
+      dimap :: (a' -> a) -> ( b -> b' ) -> p a b -> p a' b'
+\end{minted}
+\end{example}
+
 
 \subsubsection{\textbf{C++} category}
 TBD
