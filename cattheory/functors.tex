@@ -107,6 +107,31 @@ TBD
 \subsubsection{\textbf{Hask} category}
 TBD
 
+\begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
+\label{ex:terminal_object_cat_hask}
+\begin{minted}{haskell}
+data Const c a = Const c
+fmap :: (a -> b) -> Const c a -> Const c b
+fmap f (Const c a) = Const c
+\end{minted}
+\end{example}
+
+\begin{example}[Maybe as a functor][\textbf{Hask}]
+\label{ex:maybe_functor}
+Lets show how the \mintinline{haskell}{Maybe a} type can be
+constructed from different 
+\mynameref{def:functor}s and as result show that the
+\mintinline{haskell}{Maybe a} is also 
+\mynameref{def:functor}. 
+\begin{minted}{haskell}
+data Maybe a = Nothing | Just a
+-- This is equivalent to
+data Maybe a = Either () (Identity a)
+-- Either is a bifunctor and () == Const () a 
+-- Thus Maybe is a composition of 2 functors 
+\end{minted}
+\end{example}
+
 \subsubsection{\textbf{C++} category}
 TBD
 
