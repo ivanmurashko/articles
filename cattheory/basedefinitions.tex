@@ -985,11 +985,28 @@ principle.
   \index{Object!\textbf{FdHilb} example}
   \index{Morphism!\textbf{FdHilb} example}
 
-  We are going to consider finite dimensional Hilber space as a
-  category where \mynameref{def:object}s are the collections
-  (\mynameref{def:set}s) of system
-  states in the Hilbert space and \mynameref{def:morphism}s are
-  linear operators which transforms one state into another one. 
+  Most common case in quantum mechanics is the case of quantum states
+  in the finite dimensional Hilbert space. We can consider the set of
+  all finite dimensional Hilbert spaces as a category. The category is
+  denoted as \textbf{FdHilb}. It is very similar to
+  \mynameref{ex:relcategory}. The brief relation is describe in the
+  \cref{tab:rel_vs_fdhilb}
+ 
+  \begin{table}
+    \centering
+    \caption{Relations between \textbf{Set}, \textbf{Rel} and \textbf{FdHilb} categories}
+    \label{tab:rel_vs_fdhilb}
+    \begin{tabular}{l|l|l|l}
+      \toprule
+       & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
+      \midrule
+      \mynameref{def:object} & \mynameref{def:set} & \mynameref{def:set} & finite
+      dimensional Hilber space\\
+      \mynameref{def:morphism} & \mynameref{def:function} & \mynameref{def:binary_relation} &
+      linear operator in Hilber space\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 
 %%   For our example we consider a 2 level atom with states $\ket{a}$ -
 %%   excited and $\ket{b}$. The atom interacts with light beam of

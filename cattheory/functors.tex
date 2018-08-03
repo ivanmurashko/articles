@@ -163,6 +163,8 @@ TBD
 \begin{minted}{haskell}
 class Profunctor p where
       dimap :: (a' -> a) -> ( b -> b' ) -> p a b -> p a' b'
+      -- p a b == a -> b
+      dimap f g h = g . h . f
 \end{minted}
 \end{example}
 
