@@ -980,6 +980,23 @@ principle.
   superposition that is analogiest to quantum mechanics.
 \end{example}
 
+In the quantum mechanics we say about Hilber spaces. The
+transformation between them that preserves the structure is called
+linear map or linear transformations.
+\begin{definition}[Linear map]
+\label{def:linear_map}
+The linear map between2 Hilber spaces $A$ and $B$ is a mapping $f: A
+\to B$ that preserves additions 
+\[
+f(a_1 + a_2) = f(a_1) + f(a_2),
+\]
+and scalar multiplications:
+\[
+f(c \cdot a) = c \cdot f(a)
+\]
+where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
+\end{definition}
+
 \begin{example}[\textbf{FdHilb} category]
   \label{ex:fdhilbcategory}
   \index{Object!\textbf{FdHilb} example}
@@ -987,15 +1004,18 @@ principle.
 
   Most common case in quantum mechanics is the case of quantum states
   in the finite dimensional Hilbert space. We can consider the set of
-  all finite dimensional Hilbert spaces as a category. The category is
-  denoted as \textbf{FdHilb}. It is very similar to
-  \mynameref{ex:relcategory}. The brief relation is describe in the
-  \cref{tab:rel_vs_fdhilb}
+  all finite dimensional Hilbert spaces as a category. The
+  \mynameref{def:object}s in the category are finite dimensional
+  Hilber spaces and \mynameref{def:morphism}s are
+  \mynameref{def:linear_map}s. The category is denoted as
+  \textbf{FdHilb}. It is very similar to   \mynameref{ex:relcategory}.
+  The brief relation is   describe in the
+  \cref{tab:set_vs_rel_vs_fdhilb}.  
  
   \begin{table}
     \centering
     \caption{Relations between \textbf{Set}, \textbf{Rel} and \textbf{FdHilb} categories}
-    \label{tab:rel_vs_fdhilb}
+    \label{tab:set_vs_rel_vs_fdhilb}
     \begin{tabular}{l|l|l|l}
       \toprule
        & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
@@ -1003,7 +1023,7 @@ principle.
       \mynameref{def:object} & \mynameref{def:set} & \mynameref{def:set} & finite
       dimensional Hilber space\\
       \mynameref{def:morphism} & \mynameref{def:function} & \mynameref{def:binary_relation} &
-      linear operator in Hilber space\\
+      \mynameref{def:linear_map}\\
       \bottomrule
     \end{tabular}
   \end{table}
