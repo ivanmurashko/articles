@@ -952,6 +952,7 @@ several functions between them (see \cref{fig:pl_example}).
   \end{minted}
 \end{example}
 
+
 \subsection{Quantum mechanics}
 The most critical property of quantum system is superposition
 principle. The \mynameref{ex:setcategory} cannot be used for it
@@ -1009,7 +1010,7 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
   Hilber spaces and \mynameref{def:morphism}s are
   \mynameref{def:linear_map}s. The category is denoted as
   \textbf{FdHilb}. It is very similar to   \mynameref{ex:relcategory}.
-  The brief relation is   describe in the
+  The brief relation is   described in the
   \cref{tab:set_vs_rel_vs_fdhilb}.  
  
   \begin{table}
@@ -1027,66 +1028,64 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
       \bottomrule
     \end{tabular}
   \end{table}
+\end{example}
 
-%%   For our example we consider a 2 level atom with states $\ket{a}$ -
-%%   excited and $\ket{b}$. The atom interacts with light beam of
-%%   frequency $\omega = \omega_{ab}$. The interaction time $t$ is fixed and
-%%   corresponds to $\omega_R t = \pi$ where $\omega_R$ - Rabi
-%%   frequency \cite{bib:quantum_optics_mine}. The state of the system is
-%%   described by the following equation \cite{bib:quantum_optics_mine}:
-%%   \begin{equation}
-%%     \ket{\psi} = \cos{\frac{\omega_R t}{2}} \ket{a} -
-%%       i \sin{\frac{\omega_R t}{2}} \ket{b}
-%%     \nonumber
-%%   \end{equation}
+\begin{example}[Rabi oscillations]  
+  For our example we consider a 2 level atom with states $\ket{a}$ -
+  excited and $\ket{b}$.
+  As soon as we consider a 2-level system we are in the 2 dimensional
+  Hilber space i.e. have only one \mynameref{def:object}. Lets call
+  it as $\ket{\psi}$. The category will be called as
+  $\cat{\mathcal{H}_2}$. I.e. $\catob{\mathcal{H}_2} =
+  \{\ket{\psi}\}$.  
 
-%%   There are 4 different states and as result 4
-%%   \mynameref{def:object}s:
-%%   \begin{eqnarray}
-%%     \ket{\psi}_0 = \ket{a},
-%%     \nonumber \\
-%%     \ket{\psi}_1 = -i \ket{b},
-%%     \nonumber \\
-%%     \ket{\psi}_2 = - \ket{a},
-%%     \nonumber \\
-%%     \ket{\psi}_3 = i \ket{b},
-%%     \nonumber
-%%   \end{eqnarray}
+  The atom interacts with light beam of
+  frequency $\omega = \omega_{ab}$. The state of the system is
+  described by the following equation \cite{bib:quantum_optics_mine}:
+  \begin{equation}
+    \ket{\psi} = \cos{\frac{\omega_R t}{2}} \ket{a} -
+      i \sin{\frac{\omega_R t}{2}} \ket{b},
+    \nonumber
+  \end{equation}
+  where $\omega_R$ - Rabi frequency \cite{bib:quantum_optics_mine}. 
 
-%% \begin{figure}
-%%   \centering
-%%   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
-%%         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
-%%         sep=-2pt}]
+  The interaction time $t$ is fixed and corresponds to $\omega_R t =
+  \pi$ i.e. the interaction can be described a linear operator $\hat{L}$.
+  
+  There are 4 different states and as result 4
+  \mynameref{def:morphism}s:
+  \begin{eqnarray}
+    \ket{\psi}_0 = \ket{a},
+    \nonumber \\
+    \ket{\psi}_1 = \hat{L} \ket{\psi}_0 = -i \ket{b},
+    \nonumber \\
+    \ket{\psi}_2 = \hat{L}^2 \ket{\psi}_0 = - \ket{a},
+    \nonumber \\
+    \ket{\psi}_3 = \hat{L}^3 \ket{\psi}_0 = i \ket{b},
+    \nonumber
+  \end{eqnarray}
 
-%%     % the texts
-%%     \node at (0,4) {$\cat{C}$};
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=right:$\ket{\psi}$] (0) at (2,2) {};    
     
-%%     \node[ele,label=left:$\ket{\psi}_0$] (0) at (0,0) {};    
-%%     \node[ele,label=left:$\ket{\psi}_1$] (1) at (0,2) {};    
-%%     \node[ele,label=right:$\ket{\psi}_2$] (2) at (2,2) {};
-%%     \node[ele,label=right:$\ket{\psi}_3$] (3) at (2,0) {};
-    
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (0) to
-%%     node[pos=0.5,sloped,above]{$\hat{L}_{01}$} (1); 
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (1) to
-%%     node[pos=0.5,sloped,above]{$\hat{L}_{12}$} (2); 
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (2) to
-%%     node[pos=0.5,sloped,above]{$\hat{L}_{23}$} (3); 
-%%     \draw[->,thick,shorten <=2pt,shorten >=2pt] (3) to
-%%     node[pos=0.5,sloped,below]{$\hat{L}_{30}$} (0); 
 
-%%     \draw (0) to [out=-45,in=-135,looseness=20] node[pos=0.5,left] {$\idarrow[0]$} (0);
-%%     \draw (1) to [out=45,in=135,looseness=20] node[pos=0.5,left] {$\idarrow[1]$} (1);
-%%     \draw (2) to [out=45,in=135,looseness=20] node[pos=0.5,right] {$\idarrow[2]$} (2);
-%%     \draw (3) to [out=-45,in=-135,looseness=20] node[pos=0.5,right] {$\idarrow[3]$} (3);
+    \draw (0) to [out=45,in=135,looseness=50] node[pos=0.5,above]
+          {$\hat{L}$} (0);
+    \draw (0) to [out=45,in=135,looseness=100] node[pos=0.5,above]
+          {$\hat{L}^2$} (0);
+    \draw (0) to [out=45,in=135,looseness=150] node[pos=0.5,above]
+          {$\hat{L}^3$} (0);
+    \draw (0) to [out=45,in=135,looseness=200] node[pos=0.5,above]
+          {$\idarrow[\ket{\psi}] = \hat{L}^4$} (0);
 
-
-
-%%   \end{tikzpicture}
-%%   \caption{Rabi oscillations as a category}
-%%   \label{fig:example_quantum}
-%% \end{figure}
-
-  TBD
+  \end{tikzpicture}
+  \caption{Rabi oscillations as a category $\cat{\mathcal{H}_2}$}
+  \label{fig:example_quantum}
+\end{figure}
 \end{example}
