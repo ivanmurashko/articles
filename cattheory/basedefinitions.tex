@@ -981,13 +981,25 @@ principle.
   superposition that is analogiest to quantum mechanics.
 \end{example}
 
-In the quantum mechanics we say about Hilber spaces. The
-transformation between them that preserves the structure is called
+In the quantum mechanics we say about Hilber spaces.
+\begin{definition}[Hilbert space]
+  \label{def:hilbert_space} The Hilbert space a complex vector space
+  with an inner product as a complex number ($\mathbb{C}$).
+
+  Later we will consider only finite dimensional Hilber spaces.
+  We will denote a Hilber space of dimensional $n$ as
+  $\mathcal{H}_n$. Obviously $\mathcal{H}_1 = \mathbb{C}$.
+\end{definition}
+
+The
+transformation between 2 \mynameref{def:hilber_space}s that preserves
+the structure is called 
 linear map or linear transformations.
 \begin{definition}[Linear map]
 \label{def:linear_map}
-The linear map between2 Hilber spaces $A$ and $B$ is a mapping $f: A
-\to B$ that preserves additions 
+The linear map between2 \mynameref{def:hilbert_space}s $\mathcal{H}_n$
+and $\mathcal{H}_m$ is a mapping $f: \mathcal{H}_n 
+\to \mathcal{H}_m$ that preserves additions 
 \[
 f(a_1 + a_2) = f(a_1) + f(a_2),
 \]
@@ -995,7 +1007,7 @@ and scalar multiplications:
 \[
 f(c \cdot a) = c \cdot f(a)
 \]
-where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
+where $a,a_{1,2} \in \mathcal{H}_n$ and $f(a), f(a_{1,2}) \in \mathcal{H}_m$.
 \end{definition}
 
 \begin{example}[\textbf{FdHilb} category]
@@ -1007,7 +1019,7 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
   in the finite dimensional Hilbert space. We can consider the set of
   all finite dimensional Hilbert spaces as a category. The
   \mynameref{def:object}s in the category are finite dimensional
-  Hilber spaces and \mynameref{def:morphism}s are
+  \mynameref{def:hilbert_space}s and \mynameref{def:morphism}s are
   \mynameref{def:linear_map}s. The category is denoted as
   \textbf{FdHilb}. It is very similar to   \mynameref{ex:relcategory}.
   The brief relation is   described in the
@@ -1022,11 +1034,11 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
        & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
       \midrule
       \mynameref{def:object} & \mynameref{def:set} & \mynameref{def:set} & \makecell{finite
-      dimensional \\Hilber space}\\
+      dimensional \\\mynameref{def:hilbert_space}}\\
       \mynameref{def:morphism} & \mynameref{def:function} & \mynameref{def:binary_relation} &
       \mynameref{def:linear_map}\\
       \mynameref{def:initial_object} & empty set & empty set & \makecell{trivial
-      Hilber space\\ of dimensional 0} \\
+      \mynameref{def:hilbert_space}\\ of dimensional 0} \\
       \mynameref{def:terminal_object} & \mynameref{def:singleton_set} &
       \mynameref{def:singleton_set} & $\mathbb{C}$ \\
       \mynameref{def:product} & Cartesian product &
@@ -1042,9 +1054,9 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
   For our example we consider a 2 level atom with states $\ket{a}$ -
   excited and $\ket{b}$.
   As soon as we consider a 2-level system we are in the 2 dimensional
-  Hilber space i.e. have only one \mynameref{def:object}. Lets call
+  \mynameref{def:hilbert_space} i.e. have only one \mynameref{def:object}. Lets call
   it as $\ket{\psi}$. The category will be called as
-  $\cat{\mathcal{H}_2}$. I.e. $\catob{\mathcal{H}_2} =
+  $\cat{R}$. I.e. $\catob{R} = \mathcal{H}_2
   \{\ket{\psi}\}$.  
 
   The atom interacts with light beam of
@@ -1093,7 +1105,7 @@ where $a,a_{1,2} \in A$ and $f(a), f(a_{1,2}) \in B$.
           {$\idarrow[\ket{\psi}] = \hat{L}^4$} (0);
 
   \end{tikzpicture}
-  \caption{Rabi oscillations as a category $\cat{\mathcal{H}_2}$}
+  \caption{Rabi oscillations as a category $\cat{R}$}
   \label{fig:example_quantum}
 \end{figure}
 \end{example}
