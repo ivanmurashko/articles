@@ -992,7 +992,7 @@ In the quantum mechanics we say about Hilber spaces.
 \end{definition}
 
 The
-transformation between 2 \mynameref{def:hilber_space}s that preserves
+transformation between 2 \mynameref{def:hilbert_space}s that preserves
 the structure is called 
 linear map or linear transformations.
 \begin{definition}[Linear map]
@@ -1010,6 +1010,23 @@ f(c \cdot a) = c \cdot f(a)
 where $a,a_{1,2} \in \mathcal{A}$ and $f(a), f(a_{1,2}) \in \mathcal{B}$.
 \end{definition}
 
+If we want to combine 2 Hilbert spaces into one we use a notion of
+direct sum.
+\begin{definition}[Direct sum of Hilber spaces]
+  \label{def:fdhilb_direct_sum}
+  Let $\mathcal{A}, \mathcal{B}$ are 2 Hilber spaces. The
+  direct sum $\mathcal{A} \oplus \mathcal{B}$ is defined as follows
+  \[
+  \mathcal{A} \oplus \mathcal{B} = \{a \oplus b | a \in \mathcal{A}, b
+  \in \mathcal{B}\}.
+  \]
+  The inner product is defined as follows
+  \[
+  \bra{a_1 \oplus b_1}\ket{a_2 \oplus b_2} =
+  \bra{a_1}\ket{a_2} + \bra{b_1}\ket{b_2}.
+  \]
+\end{definition}
+
 \begin{example}[\textbf{FdHilb} category]
   \label{ex:fdhilbcategory}
   \index{Object!\textbf{FdHilb} example}
@@ -1024,29 +1041,33 @@ where $a,a_{1,2} \in \mathcal{A}$ and $f(a), f(a_{1,2}) \in \mathcal{B}$.
   \textbf{FdHilb}. It is very similar to   \mynameref{ex:relcategory}.
   The brief relation is   described in the
   \cref{tab:set_vs_rel_vs_fdhilb}.  
- 
   \begin{table}
     \centering
     \caption{Relations between \textbf{Set}, \textbf{Rel} and \textbf{FdHilb} categories}
     \label{tab:set_vs_rel_vs_fdhilb}
-    \begin{tabular}{l|l|l|l}
-      \toprule
-       & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
-      \midrule
-      \mynameref{def:object} & \mynameref{def:set} & \mynameref{def:set} & \makecell{finite
-      dimensional \\\mynameref{def:hilbert_space}}\\
-      \mynameref{def:morphism} & \mynameref{def:function} & \mynameref{def:binary_relation} &
-      \mynameref{def:linear_map}\\
-      \mynameref{def:initial_object} & empty set & empty set & \makecell{trivial
-      \mynameref{def:hilbert_space}\\ of dimensional 0} \\
-      \mynameref{def:terminal_object} & \mynameref{def:singleton_set} &
-      \mynameref{def:singleton_set} & $\mathbb{C}$ \\
-      \mynameref{def:product} & Cartesian product &
-      Cartesian product& tensor product \\
-      \mynameref{def:sum} & \mynameref{ex:set_sum} &
-      \mynameref{ex:set_sum} & TBD \\
-      \bottomrule
-    \end{tabular}
+    \begin{adjustbox}{width=1\textwidth}
+      \small
+      \begin{tabular}{l|l|l|l}
+        \toprule
+        & \textbf{Set} & \textbf{Rel} & \textbf{FdHilb}\\
+        \midrule
+        \mynameref{def:object} & \mynameref{def:set} &
+        \mynameref{def:set} &
+        finite dimensional \mynameref{def:hilbert_space}\\
+        \mynameref{def:morphism} & \mynameref{def:function} &
+          \mynameref{def:binary_relation} & 
+          \mynameref{def:linear_map}\\
+          \mynameref{def:initial_object} & empty set & empty set & trivial
+          \mynameref{def:hilbert_space} of dimensional 0 \\
+          \mynameref{def:terminal_object} & \mynameref{def:singleton_set} &
+          \mynameref{def:singleton_set} & $\mathbb{C}$ \\
+          \mynameref{def:product} & Cartesian product &
+          Cartesian product& \mynameref{def:fdhilb_direct_sum} \\
+          \mynameref{def:sum} & \mynameref{ex:set_sum} &
+          \mynameref{ex:set_sum} & \mynameref{def:fdhilb_direct_sum} \\
+          \bottomrule
+      \end{tabular}
+    \end{adjustbox}
   \end{table}
 \end{example}
 
