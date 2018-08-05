@@ -1,13 +1,18 @@
-all: category objects
+CC=gcc
+CPPFLAGS=-g -O0 -std=c++14 -I/opt/local/include
+LDFLAGS=-lstdc++ -lm -lpthread
+CPPSOURCES=$(wildcard ./*.cpp)
 
-category: category.cpp
-	gcc -g -O0 -std=c++14 category.cpp -o category -lstdc++
+CPPEXECUTABLES=$(CPPSOURCES:.cpp=)
+EXECUTABLES=$(CPPEXECUTABLES)
 
-objects: objects.cpp
-	gcc -g -O0 -std=c++14 objects.cpp -o objects -lstdc++
+all: $(EXECUTABLES)
 
+.cpp:
+	$(CC) $(CPPFLAGS) $< -o $@ $(LDFLAGS)
 
 clean:
-	rm -rf category
-	rm -rf objects
-	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
+	for exe in $(EXECUTABLES) ; do \
+		rm -rf $$exe ; \
+	done
+	rm -rf *~ *.dSYM
