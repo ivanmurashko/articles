@@ -6,25 +6,46 @@
 template <typename A, typename B> class Either
 {
 public:
-  Either(const A& l) : left_(l), is_left_(true){    
+  Either(const Either& e) : is_left_(e.is_left_){
+    if (is_left_){
+      data.l = e.data.l;      
+    } else {
+      data.r = e.data.r;      
+    }    
   }
-  Either(const B& r) : right_(r), is_left_(false){    
+  ~Either(){
+    if (is_left_){
+      data.l.~A();      
+    } else {
+      data.r.~B();      
+    }        
+  }
+  
+  Either(const A& l) : data(l), is_left_(true){
+  }
+  Either(const B& r) : data(r), is_left_(false){
   }
   const A& left() const {
     if (!is_left_){
       throw std::logic_error("no left");      
     }    
-    return left_;    
+    return data.l;    
   }
   const B& right() const {
     if (is_left_){
       throw std::logic_error("no right");      
     }    
-    return right_;    
+    return data.r;    
   }
 private:
-  A left_;
-  B right_;
+  union Data {
+    Data() {}
+    Data( const A& a) : l(a) {}
+    Data (const B& b) : r(b) {}
+    ~Data() {}
+    A l;
+    B r;
+  } data;       
   bool is_left_;  
 };
 
