@@ -420,18 +420,11 @@ namespace std {
 
 There is a simple usage example
 \begin{minted}{c++}
-#include <utility>
-#include <iostream>
-
-int main()
-{
   std::pair<int, bool> p(0, false);
 
   std::cout << "First projector: " << p.first << std::endl;
   std::cout << "Second projector: " << p.second << std::endl;
 
-  return 0;
-}
 \end{minted}
 Really any \mintinline{c++}{struct} or \mintinline{c++}{class} can be
 considered as the product. 
@@ -442,14 +435,63 @@ considered as the product.
   If we consider \mynameref{def:object}s as types then
   \mynameref{def:sum} is an object that can be either one or another
   type. The corresponding C/C++ construction that provides an ability
-  to keep one of two types is \mintinline{c++}{union}. 
-%%   The \mynameref{def:sum} can be represented as a
-%%    in C/C++. 
-%% The modern C++ suggest TBD
+  to keep one of two types is \mintinline{c++}{union}.
 
+  There is an \mintinline{haskell}{Either} implementation from
+  \mynameref{ex:hask_sum} 
+  \begin{minted}{c++}
+    template <typename A, typename B> class Either
+    {
+    public:
+      Either(const A& l) : left_(l), is_left_(true){    
+      }
+      Either(const B& r) : right_(r), is_left_(false){    
+      }
+      const A& left() const {
+        if (!is_left_){
+          throw std::logic_error("no left");      
+        }    
+        return left_;    
+      }
+      const B& right() const {
+        if (is_left_){
+          throw std::logic_error("no right");      
+        }    
+        return right_;    
+      }
+    private:
+      A left_;
+      B right_;
+      bool is_left_;  
+    };
+  \end{minted}
+  The usage example:
+  \begin{minted}{c++}
+    template <typename A, typename B, typename C, typename D>
+    auto factor(A f, B g, const Either<C, D>& either) {
+      try {
+        return f(either.left());               
+      }
+      catch(...) {
+        return g(either.right());                              
+      }
+    };
+    
+    auto stringLength = [](std::string s) {
+      return static_cast<int>(s.size()); };
+    auto id = [](auto x) { return x; };
+          
+    Either<std::string, int> str = std::string("abc");
+    std::cout << "String length:" <<
+    factor<>(stringLength, id, str) << std::endl;
+    Either<std::string, int> i = 4;
+    std::cout << "id(int):" <<
+    factor<>(stringLength, id, i) << std::endl;
+  \end{minted}
+
+  C++17 suggests \mintinline{c++}{std:variant} as a safe replacement
+  for \mintinline{c++}{union}.
 \end{example}
-
-
 TBD
 \subsubsection{\textbf{Scala} category}
 \begin{example}[Initial object][\textbf{Scala}]
