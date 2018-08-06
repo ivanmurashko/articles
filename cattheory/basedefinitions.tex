@@ -128,16 +128,16 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
 \begin{definition}[Identity morphism]
   \label{def:id}
   For every \mynameref{def:object} $a$ we define a special
-  \mynameref{def:morphism} $\idarrow[a] : a \rightarrow a$ with the
+  \mynameref{def:morphism} $\idarrow{a} : a \rightarrow a$ with the
   following properties: $\forall f_{ab} : a \rightarrow b$
   \begin{equation}
-    \idarrow[a] \circ f_{ab} = f_{ab}
+    \idarrow{a} \circ f_{ab} = f_{ab}
     \label{eq:leftid}
   \end{equation}
   and
   $\forall f_{ba} : b \rightarrow a$
   \begin{equation}
-    f_{ba} \circ \idarrow[a]  = f_{ba}.
+    f_{ba} \circ \idarrow{a}  = f_{ba}.
     \label{eq:rightid}
   \end{equation}
   This morphism is called \textit{identity morphism}.
@@ -237,8 +237,8 @@ Note that \mynameref{def:id} is unique, see
 \begin{definition}[Isomorphism]
 \label{def:isomorphism} 
 A \mynameref{def:morphism} $f: a \to b$ is called isomorphism if
-$\exists g: b -> a$ such that $f \circ g = \idarrow[a]$ and $g \circ f
-= \idarrow[b]$. 
+$\exists g: b -> a$ such that $f \circ g = \idarrow{a}$ and $g \circ f
+= \idarrow{b}$. 
 \end{definition}
 
 \begin{remark}[Isomorphism]
@@ -261,7 +261,7 @@ There are can be many different \mynameref{def:isomorphism}s between 2
     $a$ and target $b$ from $\catob{C}$
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
-  \mynameref{def:id} $\idarrow[a]$. Any morphism should satisfy
+  \mynameref{def:id} $\idarrow{a}$. Any morphism should satisfy
   \mynameref{axm:composition} and \mynameref{axm:associativity}
   properties. See \cref{fig:category}  
 \end{definition}
@@ -289,16 +289,16 @@ There are can be many different \mynameref{def:isomorphism}s between 2
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
     node[pos=0.5,right]{$h$} (c);
 
-    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow[a]$} (a);
-    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[b]$} (b);
-    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow[c]$} (c);
-    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[d]$} (d);
+    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow{a}$} (a);
+    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow{b}$} (b);
+    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow{c}$} (c);
+    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow{d}$} (d);
 
   \end{tikzpicture}
   \caption{Category $\cat{C}$. It consists of 4 objects
     $\catob{C} = \{a,b,c,d\}$ and 7 morphisms
-    $\catob{C} = \{f,g,h = f \circ g, \idarrow[a], \idarrow[b],
-    \idarrow[c], \idarrow[d]\}$}
+    $\catob{C} = \{f,g,h = f \circ g, \idarrow{a}, \idarrow{b},
+    \idarrow{c}, \idarrow{d}\}$}
   \label{fig:category}
 \end{figure}
 
@@ -341,18 +341,18 @@ b, \cod f^{op} = a$ (see \cref{fig:op_category})
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (c) to
     node[pos=0.5,right]{$h^{op}$} (b);
 
-    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow[a]$} (a);
-    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[b]$} (b);
-    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow[c]$} (c);
-    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow[d]$} (d);
+    \draw (a) to [out=45,in=135,looseness=20] node[above] {$\idarrow{a}$} (a);
+    \draw (b) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow{b}$} (b);
+    \draw (c) to [out=45,in=135,looseness=20] node[above] {$\idarrow{c}$} (c);
+    \draw (d) to [out=-45,in=-135,looseness=20] node[below] {$\idarrow{d}$} (d);
 
   \end{tikzpicture}
   \caption{Opposite category $C^{op}$ to the category from
     \cref{fig:category} . It consists of 4 objects
     $\catob{C^{op}} = \catob{C} = \{a,b,c,d\}$ and 7 morphisms
     $\cathom{C^{op}} = \{f^{op},g^{op},h^{op} = g^{op} \circ
-    f^{op}, \idarrow[a], \idarrow[b], 
-    \idarrow[c], \idarrow[d]\}$}
+    f^{op}, \idarrow{a}, \idarrow{b}, 
+    \idarrow{c}, \idarrow{d}\}$}
   \label{fig:op_category}
 \end{figure}
 
@@ -1123,7 +1123,7 @@ direct sum.
     \draw (0) to [out=45,in=135,looseness=150] node[pos=0.5,above]
           {$\hat{L}^3$} (0);
     \draw (0) to [out=45,in=135,looseness=200] node[pos=0.5,above]
-          {$\idarrow[\ket{\psi}] = \hat{L}^4$} (0);
+          {$\idarrow{\ket{\psi}} = \hat{L}^4$} (0);
 
   \end{tikzpicture}
   \caption{Rabi oscillations as a category $\cat{R}$}
