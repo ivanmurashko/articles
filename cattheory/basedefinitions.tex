@@ -1071,6 +1071,39 @@ direct sum.
   \end{table}
 \end{example}
 
+\begin{definition}[Tensor product]
+  \label{def:tensor_product}
+  TBD
+\end{definition}
+The tensor product in quantum mechanics is used for
+representing a system that consists of multiple systems. For instance
+if we have an interaction between an 2 level atom ($a$ is excited
+state $b$ as a ground state) and one mode light then the
+atom has its own Hilber space $\mathcal{H}_{at}$ with $\ket{a}$ and
+$\ket{b}$ as basis 
+vectors.  Light also has its own Hilber space $\mathcal{H}_f$ with Fock state
+$\{\ket{n}\}$ as the basis.
+\footnote{
+  Really the $\mathcal{H}_f$ is infinite dimensional Hilber space and
+  seems to be out of our assumption about \textbf{FdHilb} category as
+  a collection of finite dimensional Hilber spaces only.
+}
+The result system that describes both atom
+and light is represented as the tensor product $\mathcal{H}_{at}
+\otimes \mathcal{H}_f$.
+
+The morphisms of \textbf{FdHilb} category have a connection with
+\mynameref{def:tensor_product}. Consider the so called Hilbert-Schmidt
+correspondence for finite dimensional Hilbert spaces i.e. for given
+$\mathcal{A}$ and $\mathcal{B}$ there is a natural isomorphism between
+the tensor product and linear maps (aka morphisms) between
+$\mathcal{A}$ and $\mathcal{B}$:
+\[
+\mathcal{A}^\ast \otimes \mathcal{B} \cong \hom(\mathcal{A}, \mathcal{B})
+\]
+where $\mathcal{A}^\ast$ - dual space.
+
+
 \begin{example}[Rabi oscillations]  
   For our example we consider a 2 level atom with states $\ket{a}$ -
   excited and $\ket{b}$.
