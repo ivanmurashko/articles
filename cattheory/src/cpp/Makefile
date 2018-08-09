@@ -1,5 +1,5 @@
 CC=gcc
-CPPFLAGS=-g -O0 -std=c++14 -I/opt/local/include
+CPPFLAGS=-g -O0 -std=c++17 -I/opt/local/include
 LDFLAGS=-lstdc++ -lm -lpthread
 CPPSOURCES=$(wildcard ./*.cpp)
 
