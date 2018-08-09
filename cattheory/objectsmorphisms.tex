@@ -510,7 +510,29 @@ considered as the product.
   \end{minted}
 
   C++17 suggests \mintinline{c++}{std:variant} as a safe replacement
-  for \mintinline{c++}{union}.
+  for \mintinline{c++}{union}. The example of the \mintinline{c++}{factor}
+  function is below
+  \begin{minted}{c++}
+    template <typename A, typename B, typename C, typename D>
+    auto factor(A f, B g, const std::variant<C, D>& either) {
+      try {
+        return f(std::get<C>(either));               
+      }
+      catch(...) {
+        return g(std::get<D>(either));                              
+      }
+    };
+  \end{minted}
+  The usage example is the same:
+  \begin{minted}{c++}
+    std::variant<std::string, int> var = std::string("abc");
+    std::cout << "String length:" <<
+    factor<>(stringLength, id, var) << std::endl;
+    var = 4;
+    std::cout << "id(int):" <<
+    factor<>(stringLength, id, var) << std::endl;    
+  \end{minted}
+
 \end{example}
 TBD
 \subsubsection{\textbf{Scala} category}
