@@ -991,6 +991,28 @@ In the quantum mechanics we say about Hilber spaces.
   $\mathcal{H}_n$. Obviously $\mathcal{H}_1 = \mathbb{C}$.
 \end{definition}
 
+\begin{definition}[Dual space]
+\label{def:dual_space}
+Each Hilber space $\mathcal{H}$ has an associated with it so called
+dual space $\mathcal{H}^\ast$ that consists of linear functionals 
+\end{definition}
+
+\begin{example}[Dirac notation]
+\label{ex:dirac_notation}
+Consider a so called ket-vector $\ket{\psi} \in \mathcal{H}$. Then the
+corresponding vector from \mynameref{def:dual_space} is called
+bra-vector $\bra{psi} \in \mathcal{H}^\ast$. From the definition of
+dual space the bra-vector is a linear functional i.e. 
+\[
+\bra{\psi} : \mathcal{H} \to \mathbb{C},
+\]
+$\forall \ket{\phi} \in \mathcal{H}$ we have 
+\(
+\bra{\psi}\left(\ket{\phi}\right) = \left(\ket{\psi}, \ket{\phi}\right)
+\) - inner product that is often written as $\bra{\psi}\ket{\phi}$.
+\end{example}
+
+
 The
 transformation between 2 \mynameref{def:hilbert_space}s that preserves
 the structure is called 
@@ -1075,6 +1097,7 @@ direct sum.
   \label{def:tensor_product}
   TBD
 \end{definition}
+
 The tensor product in quantum mechanics is used for
 representing a system that consists of multiple systems. For instance
 if we have an interaction between an 2 level atom ($a$ is excited
@@ -1101,7 +1124,7 @@ $\mathcal{A}$ and $\mathcal{B}$:
 \[
 \mathcal{A}^\ast \otimes \mathcal{B} \cong \hom(\mathcal{A}, \mathcal{B})
 \]
-where $\mathcal{A}^\ast$ - dual space.
+where $\mathcal{A}^\ast$ - \mynameref{def:dual_space}.
 
 
 \begin{example}[Rabi oscillations]  
