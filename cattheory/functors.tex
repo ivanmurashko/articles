@@ -76,9 +76,23 @@ TBD
 TBD
 \end{definition}
 
+As an extension of Cartesian product is used so called Category product
 \begin{definition}[Category Product]
 \label{def:category_product}
-TBD
+If we have 2 categories $\cat{C}$ and $\cat{D}$ then we can construct
+a new category $\cat{C} \times \cat{D}$ with the following components:
+\begin{itemize}
+\item \mynameref{def:object}s are the pairs $(c,d)$ where $c \in
+  \catob{C}$ and $d \in \catob{D}$
+\item \mynameref{def:morphism}s are the pair $(f,g)$ where $f \in
+  \cathom{C}$ and $g \in \cathom{D}$
+\item \mynameref{axm:composition} is defined as follows 
+\(
+(f_1, g_1) \circ (f_2, g_2) = (f_1 \circ f_2, g_1 \circ g_2)
+\)
+\item Identity is defined as follows: $\idarrow{C \times D} = 
+\left(\idarrow{C}, \idarrow{D}\right)$
+\end{itemize}
 \end{definition}
 
 \begin{definition}[Bifunctor]
