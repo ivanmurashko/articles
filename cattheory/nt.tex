@@ -121,9 +121,14 @@ The functor is not just the object mapping but also the morphisms
 mapping. If we have 2 objects $a$ and $b$ in the category $\cat{C}$
 then we potentially can have a morphism $f \in \hom(a, b)$. In this
 case the morphism is mapped by the functors $F$ and $G$ into 2
-morphisms $f_f$ and $f_G$ in the category $\cat{D}$.
-
-
+morphisms $f_f$ and $f_G$ in the category $\cat{D}$. 
+As result we have 4 morphisms: $\alpha_a, \alpha_b, f_F, f_G \in
+\cathom{D}$. It is natural to impose additional conditions on the
+morphisms especially that they form a
+\mynameref{def:commutative_diagram}: 
+\[
+f_f \circ \alpha_b = \alpha_a \circ f_G.
+\]
 
 TBD
 
