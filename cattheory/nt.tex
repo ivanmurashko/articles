@@ -146,11 +146,40 @@ TBD
 
 \subsection{Programming languages}
 
+\begin{definition}[Parametric polymorphism]
+\label{def:parametric_polymorphism}
+Polymorphism is parametric if all function instances behave uniformly
+i.e. have the same realization
+\end{definition}
+
+\begin{definition}[Ad-hoc polymorphism]
+\label{def:ad_hoc_polymorphism}
+Polymorphism is parametric if the function instances can behave
+differently dependently on the type they are being instantiated with. 
+\end{definition}
+
+
 \begin{theorem}[Reynolds]
 \label{thm:reynolds}
- parametricity theorem 
+Functions that satisfy \mynameref{def:parametric_polymorphism} are
+\mynameref{def:nt}s 
+\begin{proof}
 TBD
+\end{proof}
 \end{theorem}
 
 \subsubsection{\textbf{Hask} category}
+
+\begin{example}[Natural transformation][\textbf{Hask}]
+\label{ex:nt_hask}
+Consider the following function
+\begin{minted}{haskell}
+safeHead :: [a] -> Maybe a
+safeHead [] = Nothing
+safeHead (x:xs) = Just x
+\end{minted}
+The function is parametricaly polymorphic and by
+\mynameref{thm:reynolds} is \mynameref{def:nt}
+
+\end{example}
 TBD
