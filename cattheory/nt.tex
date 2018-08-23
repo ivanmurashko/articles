@@ -66,6 +66,54 @@ each other. Another example if the
 morphisms are \mynameref{def:isomorphism}s then the functors can be
 considered as equal.
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+
+    \node at (0,3) {$C$};        
+    \node at (4,3) {$D$};        
+
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$b$] (b) at (0,0) {};    
+    \node[ele,label=above:$a_F$] (af) at (4,2) {};
+    \node[ele,label=below:$a_G$] (ag) at (4,0) {};
+    \node[ele,label=above:$b_F$] (bf) at (5.5,2) {};
+    \node[ele,label=below:$b_G$] (bg) at (5.5,0) {};
+
+    \node[draw,fit= (a) (b),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (af) (ag) (bf) (bg),minimum width=3cm, minimum
+      height=4cm] {} ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$F$} (af);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    [out=45,in=135,looseness=1] node[above]{$F$} (bf);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$G$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    [out=-45,in=-135,looseness=1] node[above]{$G$} (bg);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[right]{$\alpha_a$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+    node[right]{$\alpha_b$} (bg);
+  \end{tikzpicture}
+  \caption{Natural transformation morphisms mapping}
+  \label{fig:nt_morphisms_mapping}
+\end{figure}
+
+
+The functor is not just the object mapping but also the morphisms
+mapping. 
+
+
+
+TBD
+
 \begin{definition}[Natural transformation]
 \label{def:nt}
 TBD
