@@ -2,9 +2,65 @@
 \chapter{Natural transformation}
 
 Natural transformation is the most important part of the category
-theory. 
+theory. It provides a possibility to compare \mynameref{def:functor}s
+via a standard tool. 
 
 \section{Definitions}
+
+The natural transformation is not an easy concept compare other one
+and requires some additional preparations before we can give the
+formal definition.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+
+    \node at (0,3) {$C$};        
+    \node at (4,3) {$D$};        
+
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$a_F$] (af) at (4,2) {};
+    \node[ele,label=below:$a_G$] (ag) at (4,0) {};
+
+    \node[draw,fit= (a),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (af) (ag),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$F$} (af);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$G$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[right]{$\alpha_a$} (ag);
+  \end{tikzpicture}
+  \caption{Natural transformation object mapping}
+  \label{fig:nt_objects_mapping}
+\end{figure}
+
+Consider 2 categories $\cat{C}, \cat{D}$ and 2
+\mynameref{def:functor}s $F: \cat{C} \to \cat{D}$ and $G: \cat{C} \to
+\cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
+it will be translated by different functors into different objects of
+category $\cat{D}$: $a_F = F a, a_G = G a \in \catob{D}$ (see
+\cref{fig:nt_objects_mapping}). There are 2 options possible
+\begin{enumerate}
+\item There is not  any \mynameref{def:morphism} that connects $a_F$
+  and $a_G$.
+\item $\exists \alpha_a \in \hom\left(a_F, a_G\right)$.
+\end{enumerate}
+We can of course to create an artificial morphism that connects the
+objects but if we use \textit{natural} morphisms that we can get a
+special characteristics of the considered functors and categories.
+
+\begin{definition}[Natural transformation]
+\label{def:nt}
+TBD
+\end{definition}
 
 TBD
 
@@ -17,6 +73,7 @@ TBD
 
 \begin{theorem}[Reynolds]
 \label{thm:reynolds}
+ parametricity theorem 
 TBD
 \end{theorem}
 
