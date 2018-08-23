@@ -181,5 +181,55 @@ safeHead (x:xs) = Just x
 The function is parametricaly polymorphic and by
 \mynameref{thm:reynolds} is \mynameref{def:nt}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+
+    \node at (0,3) {$C$};        
+    \node at (4,3) {$D$};        
+
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=below:$b$] (b) at (0,0) {};    
+    \node[ele,label=above:$\mbox{[a]}$] (af) at (4,2) {};
+    \node[ele,label=below:$\mbox{Maybe a}$] (ag) at (4,0) {};
+    \node[ele,label=above:$\mbox{[b]}$] (bf) at (6.5,2) {};
+    \node[ele,label=below:$\mbox{Maybe b}$] (bg) at (6.5,0) {};
+
+    \node[draw,fit= (a) (b),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (af) (ag) (bf) (bg),minimum width=5cm, minimum
+      height=5cm] {} ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[left]{$f$} (b);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[below]{$fmap_f$} (bf);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[above]{$fmap_f$} (bg);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$$} (af);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    [out=45,in=135,looseness=1] node[above]{$$} (bf);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
+    [out=-45,in=-135,looseness=1] node[above]{$$} (bg);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[left]{$$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+    node[right]{$$} (bg);
+  \end{tikzpicture}
+  \caption{Natural transformation morphisms mapping}
+  \label{fig:nt_hask}
+\end{figure}
+
+
 \end{example}
 TBD
