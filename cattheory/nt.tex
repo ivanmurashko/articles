@@ -78,7 +78,7 @@ considered as equal.
     \node at (4,3) {$D$};        
 
     \node[ele,label=above:$a$] (a) at (0,2) {};    
-    \node[ele,label=above:$b$] (b) at (0,0) {};    
+    \node[ele,label=below:$b$] (b) at (0,0) {};    
     \node[ele,label=above:$a_F$] (af) at (4,2) {};
     \node[ele,label=below:$a_G$] (ag) at (4,0) {};
     \node[ele,label=above:$b_F$] (bf) at (5.5,2) {};
@@ -90,6 +90,15 @@ considered as equal.
       height=4cm] {} ;
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[left]{$f$} (b);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[below]{$f_F$} (bf);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[above]{$f_G$} (bg);
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
     node[above]{$F$} (af);
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
     [out=45,in=135,looseness=1] node[above]{$F$} (bf);
@@ -98,7 +107,7 @@ considered as equal.
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (b) to
     [out=-45,in=-135,looseness=1] node[above]{$G$} (bg);
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
-    node[right]{$\alpha_a$} (ag);
+    node[left]{$\alpha_a$} (ag);
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
     node[right]{$\alpha_b$} (bg);
   \end{tikzpicture}
