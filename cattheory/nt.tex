@@ -134,7 +134,15 @@ TBD
 
 \begin{definition}[Natural transformation]
 \label{def:nt}
-TBD
+Let $F$ and $G$ are 2 \mynameref{def:functor}s from category $\cat{C}$
+to the category $\cat{D}$. The \textit{natural transformation} is a
+set of \mynameref{def:morphism}s $\alpha \subset \cathom{D}$ such that  
+$\forall a,b \in \catob{C}$ and 
+$\forall f \in \hom(a,b)$ the morphisms $f_F = F(f), f_G = G(f),
+\alpha_a \in \hom\left(F(a), G(a)\right) \in \alpha, 
+\alpha_b \in \hom\left(F(b), G(b)\right) \in \alpha$ forms a
+\mynameref{def:commutative_diagram} shown on the
+\cref{fig:nt_morphisms_mapping}. 
 \end{definition}
 
 TBD
