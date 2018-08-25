@@ -237,7 +237,7 @@ safeHead [] = Nothing
 safeHead (x:xs) = Just x
 \end{minted}
 The function is parametricaly polymorphic and by
-\mynameref{thm:reynolds} is \mynameref{def:nt}
+\mynameref{thm:reynolds} is \mynameref{def:nt} (see \cref{fig:nt_pp_hask}).
 
 \begin{figure}
   \centering
@@ -285,7 +285,45 @@ The function is parametricaly polymorphic and by
   \label{fig:nt_pp_hask}
 \end{figure}
 
+From the definition of the natural transformation we have
+\eqref{eq:nt_definition} therefore
+\mintinline{haskell}{fmap f . safeHead = safeHead . fmap f}. I.e. it
+does not matter if we initially apply \mintinline{haskell}{fmap f} and
+then \mintinline{haskell}{safeHead} to the result or initially
+\mintinline{haskell}{safeHead} and then \mintinline{haskell}{fmap f}.
 
+The statement can be verified directly. For empty list we have
+\begin{minted}{haskell}
+fmap f . safeHead [] =>
+fmap f Nothing =>
+Nothing
+\end{minted}
+from other side
+\begin{minted}{haskell}
+safeHead . fmap f [] =>
+safeHead [] =>
+Nothing
+\end{minted}
+
+For a non empty list we have
+\begin{minted}{haskell}
+fmap f . safeHead (x:xs) =>
+fmap f (Just x) =>
+Just (f x)
+\end{minted}
+from other side
+\begin{minted}{haskell}
+safeHead . fmap f (x:xs) =>
+safeHead (f x: fmap f xs ) =>
+Just ( f x )
+\end{minted}
+
+Using the fact that \mintinline{haskell}{fmap f} is an expensive
+operation if it is applied to the list we can conclude that the second
+approach is more productive. Such transformation allows compiler to
+optimize the code.
+\footnote{It is not directly applied to Haskell because it lazy
+  evaluation that can perform optimization before that one}
 \end{example}
 
 
