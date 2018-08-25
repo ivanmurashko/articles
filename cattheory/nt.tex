@@ -294,27 +294,35 @@ then \mintinline{haskell}{safeHead} to the result or initially
 
 The statement can be verified directly. For empty list we have
 \begin{minted}{haskell}
-fmap f . safeHead [] =>
-fmap f Nothing =>
+fmap f . safeHead []
+-- equivalent to
+fmap f Nothing 
+-- equivalent to
 Nothing
 \end{minted}
 from other side
 \begin{minted}{haskell}
-safeHead . fmap f [] =>
-safeHead [] =>
+safeHead . fmap f []
+-- equivalent to
+safeHead [] 
+-- equivalent to
 Nothing
 \end{minted}
 
 For a non empty list we have
 \begin{minted}{haskell}
-fmap f . safeHead (x:xs) =>
-fmap f (Just x) =>
+fmap f . safeHead (x:xs)
+-- equivalent to
+fmap f (Just x) 
+-- equivalent to
 Just (f x)
 \end{minted}
 from other side
 \begin{minted}{haskell}
-safeHead . fmap f (x:xs) =>
-safeHead (f x: fmap f xs ) =>
+safeHead . fmap f (x:xs)
+-- equivalent to
+safeHead (f x: fmap f xs ) 
+-- equivalent to
 Just ( f x )
 \end{minted}
 
