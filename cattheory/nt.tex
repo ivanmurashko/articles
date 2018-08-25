@@ -134,15 +134,53 @@ TBD
 
 \begin{definition}[Natural transformation]
 \label{def:nt}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=above:$a_F$] (af) at (0,2) {};
+    \node[ele,label=below:$a_G$] (ag) at (0,0) {};
+    \node[ele,label=above:$b_F$] (bf) at (1.5,2) {};
+    \node[ele,label=below:$b_G$] (bg) at (1.5,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[below]{$f_F$} (bf);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[above]{$f_G$} (bg);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[left]{$\alpha_a$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
+    node[right]{$\alpha_b$} (bg);
+  \end{tikzpicture}
+  \caption{Natural transformation. Commutative diagram}
+  \label{fig:nt_def}
+\end{figure}
+
 Let $F$ and $G$ are 2 \mynameref{def:functor}s from category $\cat{C}$
 to the category $\cat{D}$. The \textit{natural transformation} is a
-set of \mynameref{def:morphism}s $\alpha \subset \cathom{D}$ such that  
-$\forall a,b \in \catob{C}$ and 
-$\forall f \in \hom(a,b)$ the morphisms $f_F = F(f), f_G = G(f),
-\alpha_a \in \hom\left(F(a), G(a)\right) \in \alpha, 
-\alpha_b \in \hom\left(F(b), G(b)\right) \in \alpha$ forms a
-\mynameref{def:commutative_diagram} shown on the
-\cref{fig:nt_morphisms_mapping}. 
+set of \mynameref{def:morphism}s $\alpha \subset \cathom{D}$ that
+satisfied the following conditions:
+\begin{itemize}
+\item For every \mynameref{def:object} $a \in \catob{C}$ $\exists
+\alpha_a \in \hom\left(F(a), G(a)\right)$ - \mynameref{def:morphism}
+in category $\cat{D}$. The morphism $\alpha_a$ is called the component of
+the natural transformation.
+\item For every morphism $f \in \cathom{C}$ that connects 2 objects
+  $a$ and $b$ , i.e. $f \in \hom(a,b)$ the corresponding components of
+  the natural transformation $\alpha_a, \alpha_b \in \alpha$ should
+  satisfy the following conditions
+  \begin{equation}
+    f_G \circ \alpha_a = \alpha_b \circ f_F,
+    \label{eq:nt_definition}
+  \end{equation}
+  where $f_F = F(f), f_G = G(f)$.
+  In other words the morphisms the morphisms form a
+  \mynameref{def:commutative_diagram} shown on the \cref{fig:nt_def}. 
+\end{itemize}
 \end{definition}
 
 TBD
