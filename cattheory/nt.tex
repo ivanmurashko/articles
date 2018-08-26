@@ -38,7 +38,7 @@ formal definition.
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
     node[right]{$\alpha_a$} (ag);
   \end{tikzpicture}
-  \caption{Natural transformation object mapping}
+  \caption{Natural transformation: object mapping}
   \label{fig:nt_objects_mapping}
 \end{figure}
 
@@ -112,7 +112,7 @@ considered as equal.
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
     node[right]{$\alpha_b$} (bg);
   \end{tikzpicture}
-  \caption{Natural transformation morphisms mapping}
+  \caption{Natural transformation: morphisms mapping}
   \label{fig:nt_morphisms_mapping}
 \end{figure}
 
@@ -156,7 +156,7 @@ TBD
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bf) to
     node[right]{$\alpha_b$} (bg);
   \end{tikzpicture}
-  \caption{Natural transformation. Commutative diagram}
+  \caption{Natural transformation: commutative diagram}
   \label{fig:nt_def}
 \end{figure}
 
@@ -182,6 +182,60 @@ the natural transformation.
   \mynameref{def:commutative_diagram} shown on the \cref{fig:nt_def}. 
 \end{itemize}
 \end{definition}
+
+\section{\textbf{Fun} category}
+
+The functors can be considered as objects in a special category
+\textbf{Fun}. The morphisms in the category are \mynameref{def:nt}s.
+
+To define a category we need to define composition operation that
+satisfied \mynameref{axm:composition}, identity
+morphism and verify \mynameref{axm:associativity}. 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+
+    \node at (0,3) {$C$};        
+    \node at (4,5) {$D$};        
+
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$a_F$] (af) at (4,4) {};
+    \node[ele,label=right:$a_G$] (ag) at (4,2) {};
+    \node[ele,label=below:$a_H$] (ah) at (4,0) {};
+
+    \node[draw,fit= (a),minimum width=2cm, minimum
+      height=3.5cm] {} ;
+    \node[draw,fit= (af) (ag) (ah),minimum width=5cm, minimum
+      height=5cm] {} ;
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$F$} (af);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$G$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[above]{$H$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+    node[right]{$\alpha_a$} (ag);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (ag) to
+    node[right]{$\beta_a$} (ah);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
+     [out=-45,in=45,looseness=1] node[right]{$\beta_a \cdot \alpha_a$} (ah);
+  \end{tikzpicture}
+  \caption{Natural transformation composition: object mapping}
+  \label{fig:nt_objects_mapping_composition}
+\end{figure}
+
+
+For the composition consider 2 \mynameref{def:nt}s $\alpha, \beta$ and
+consider how they act on an object $a \in \catob{C}$ (see
+\cref{fig:nt_objects_mapping_composition}). 
+
+
 
 \begin{example}[\textbf{Fun} category]
 \label{ex:fun_category}
