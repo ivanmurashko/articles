@@ -15,6 +15,8 @@
 \usepackage{scrbase}
 \usepackage{physics}
 \usepackage{adjustbox}
+\usepackage{nomencl}
+\makenomenclature
 
 % http://tex.stackexchange.com/questions/42343/how-to-add-a-navigation-window-to-a-latex-generated-pdf-document
 \usepackage{hyperref}
@@ -291,6 +293,7 @@
 \maketitle
 \tableofcontents
 
+\input ./notations.tex
 \input ./introduction.tex
 \input ./basedefinitions.tex
 \input ./objectsmorphisms.tex
