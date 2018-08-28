@@ -76,6 +76,31 @@ the functor from a category to the same category is called
 \textit{endofunctor}. 
 \end{definition}
 
+\begin{definition}[Identity functor]
+\label{def:idfunctor}
+Let $\cat{C}$ is a \mynameref{def:category}. The
+\mynameref{def:functor} $Id_C: \cat{C} \to \cat{C}$ is called \textit{identity
+functor} if for every object $a \in \catob{C}$
+\[
+Id_c(a) = a
+\]
+and for every \mynameref{def:morphism} $f \in \cathom{C}$
+\[
+Id_c(f) = f
+\] 
+\end{definition}
+
+\begin{remark}[Identity functor]
+  \label{rem:idfunctor}
+  First of all notice that \mynameref{def:idfunctor} is an
+  \mynameref{def:endofunctor}.
+
+  There is difference between identity functor and \mynameref{def:id}
+  because the first one has deal with both \mynameref{def:object}s and
+  \mynameref{def:morphism}s while the second one with the objects
+  only. 
+\end{remark}
+
 \begin{definition}[Category Composition]
 TBD
 \end{definition}

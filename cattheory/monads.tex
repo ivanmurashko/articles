@@ -5,11 +5,28 @@ Monads are very important for pure functional programming languages
 such as Haskell. We will start with formal mathematical definition and
 will continue with programming languages examples later.
 
-\section{Category of endofunctors}
-The \mynameref{ex:fun_category} is an example of a category. We can
-apply additional limitation and consider only
-\mynameref{def:endofunctor}s i.e. we will look at the category
-$[\cat{C}, \cat{C}]$ - category of functors from category $\cat{C}$ to
-the same category. 
+\begin{definition}[Monad]
+  \label{def:monad}
+  The monad $M$ is an \mynameref{def:endofunctor} with 2
+  \mynameref{def:nt}s:
+  \begin{enumerate}
+  \item $\eta: Id_c \xrightarrow{.} M$
+  \item $\mu: M \circ M \xrightarrow{.} M$
+  \end{enumerate}
+  where $Id_c$ is \mynameref{def:idfunctor}.
+\end{definition}
+
+%% \section{Category of endofunctors}
+%% When 
+
+%% The \mynameref{ex:fun_category} is an example of a category. We can
+%% apply additional limitation and consider only
+%% \mynameref{def:endofunctor}s i.e. we will look at the category
+%% $[\cat{C}, \cat{C}]$ - category of functors from category $\cat{C}$ to
+%% the same category.
+
+%% Lets continue to add our limitations and consider the category of
+%% endofunctors that consists only one object
+%% i.e. \mynameref{def:monoid}. 
 
 TBD
