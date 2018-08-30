@@ -184,7 +184,7 @@ We use the following notation (arrow with a dot) for the natural transformation 
 functors $F$ and $G$: $\alpha: F \xrightarrow{.} G$. 
 \end{definition}
 
-\section{Composition of natural transformations}
+\section{Operations with natural transformations}
 
 \begin{example}[\textbf{Fun} category]
 \label{ex:fun_category}
@@ -305,13 +305,29 @@ denoted as $[\cat{C}, \cat{D}]$.
 \begin{definition}[Vertical composition]
 \label{def:vertical_composition}
 \index{Natural transformation!Vertical composition}
-TBD
+Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
+Also we have $\alpha : F \xrightarrow{.} G, \beta: G \xrightarrow{.}
+H$ - natural transformations. We can compose the $\alpha$ and $\beta$
+as follows 
+\[
+\alpha \cdot \beta: F \xrightarrow{.} H.
+\]
+This composition
+is called \textit{vertical composition}.
 \end{definition}
 
 \begin{definition}[Horizontal composition]
 \label{def:horizontal_composition}
 \index{Natural transformation!Horizontal composition}
-TBD
+If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
+\cat{D}$ and another one $J,K: \cat{D} \to \cat{E}$. If we have a
+natural transformation between each pair: $\alpha : F \xrightarrow{.}
+G$ for the first one and $\beta : J \xrightarrow{.}
+K$ for the second one. We can create a new transformation
+\[
+\alpha \circ \beta: FJ \xrightarrow{.} GK
+\] 
+that is called \textit{horizontal composition}.
 \end{definition}
 
 
