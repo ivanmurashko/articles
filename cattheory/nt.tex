@@ -233,7 +233,7 @@ morphism and verify \mynameref{axm:associativity}.
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (af) to
      [out=-45,in=45,looseness=1] node[right]{$\beta_a \circ \alpha_a$} (ah);
   \end{tikzpicture}
-  \caption{Natural transformation composition: object mapping}
+  \caption{Natural transformation vertical composition: object mapping}
   \label{fig:nt_objects_mapping_composition}
 \end{figure}
 
@@ -287,7 +287,7 @@ definition.
      [out=-45,in=45,looseness=1] node[right]{$\beta_b \circ \alpha_b$}
      (bh); 
   \end{tikzpicture}
-  \caption{Natural transformation composition: morphism mapping -
+  \caption{Natural transformation vertical composition: morphism mapping -
     commutative diagram}
   \label{fig:nt_morphism_mapping_composition}
 \end{figure}
@@ -295,7 +295,9 @@ definition.
 
 The natural transformation is not just object mapping but also
 morphism mapping. We will require that all morphisms (see
-\cref{fig:nt_morphism_mapping_composition}) commutes.   
+\cref{fig:nt_morphism_mapping_composition}) commutes. The composition
+defined in the such way is called
+\mynameref{def:vertical_composition}. 
 
 The functor category between categories $\cat{C}$ and $\cat{D}$ is
 denoted as $[\cat{C}, \cat{D}]$.
@@ -325,7 +327,7 @@ natural transformation between each pair: $\alpha : F \xrightarrow{.}
 G$ for the first one and $\beta : J \xrightarrow{.}
 K$ for the second one. We can create a new transformation
 \[
-\alpha \circ \beta: FJ \xrightarrow{.} GK
+\alpha \circ \beta: F \circ J \xrightarrow{.} G \circ K
 \] 
 that is called \textit{horizontal composition}.
 \end{definition}
