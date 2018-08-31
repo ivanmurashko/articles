@@ -268,8 +268,25 @@
 \newcommand {\codomain} [1] {%
   \mathrm{ cod }(#1)%
 }
-\newcommand {\idarrow} [1] {%
-  \mathbf{1}_{ #1 }%
+\newcommand {\idm} [1] {%
+  \mathbf{1}_{ #1 \to #1 }%
+}
+
+\newcommand {\tof}  {%
+  \Rightarrow%
+}
+
+\newcommand {\idf} [1] {%
+  \mathbf{1}_{ \cat{#1} \tof \cat{#1} }%
+}
+
+\newcommand {\tont}  {%
+  \xrightarrow{.}%
+}
+
+
+\newcommand {\idnt} [1] {%
+  \mathbf{1}_{ #1 \tont #1 }%
 }
 
 \newcommand {\catob} [1] {%
@@ -279,7 +296,6 @@
 \newcommand {\cathom} [1] {%
   \mathrm{hom}(\cat{#1})%
 }
-
 
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\cod}{cod}

@@ -43,8 +43,8 @@ formal definition.
 \end{figure}
 
 Consider 2 categories $\cat{C}, \cat{D}$ and 2
-\mynameref{def:functor}s $F: \cat{C} \Rightarrow \cat{D}$ and $G:
-\cat{C} \Rightarrow \cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
+\mynameref{def:functor}s $F: \cat{C} \tof \cat{D}$ and $G:
+\cat{C} \tof \cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
 it will be translated by different functors into different objects of
 category $\cat{D}$: $a_F = F a, a_G = G a \in \catob{D}$ (see
 \cref{fig:nt_objects_mapping}). There are 2 options possible
@@ -181,7 +181,7 @@ the natural transformation.
 \end{itemize}
 
 We use the following notation (arrow with a dot) for the natural transformation between
-functors $F$ and $G$: $\alpha: F \xrightarrow{.} G$. 
+functors $F$ and $G$: $\alpha: F \tont G$. 
 \end{definition}
 
 \section{Operations with natural transformations}
@@ -308,11 +308,11 @@ denoted as $[\cat{C}, \cat{D}]$.
 \label{def:vertical_composition}
 \index{Natural transformation!Vertical composition}
 Let $F,G,H$ are functors between categories $\cat{C}$ and $\cat{D}$.
-Also we have $\alpha : F \xrightarrow{.} G, \beta: G \xrightarrow{.}
+Also we have $\alpha : F \tont G, \beta: G \tont
 H$ - natural transformations. We can compose the $\alpha$ and $\beta$
 as follows 
 \[
-\alpha \cdot \beta: F \xrightarrow{.} H.
+\alpha \cdot \beta: F \tont H.
 \]
 This composition
 is called \textit{vertical composition}.
@@ -322,12 +322,12 @@ is called \textit{vertical composition}.
 \label{def:horizontal_composition}
 \index{Natural transformation!Horizontal composition}
 If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-\cat{D}$ and another one $J,K: \cat{D} \Rightarrow \cat{E}$. If we have a
-natural transformation between each pair: $\alpha : F \xrightarrow{.}
-G$ for the first one and $\beta : J \xrightarrow{.}
+\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. If we have a
+natural transformation between each pair: $\alpha : F \tont
+G$ for the first one and $\beta : J \tont
 K$ for the second one. We can create a new transformation
 \[
-\alpha \circ \beta: F \circ J \xrightarrow{.} G \circ K
+\alpha \circ \beta: F \circ J \tont G \circ K
 \] 
 that is called \textit{horizontal composition}.
 \end{definition}
@@ -335,12 +335,12 @@ that is called \textit{horizontal composition}.
 \begin{definition}[Left composition]
 \label{def:lc}
 If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{D} \to
+\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
 \cat{E}$ and \mynameref{def:nt} 
-$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
+$\alpha: F \tont G$ then we can construct a new natural
 transformations:
 \[
-H \alpha : H \circ F \xrightarrow{.} H \circ G
+H \alpha : H \circ F \tont H \circ G
 \]
 that is called \textit{left composition} of functor and natural
 transformation. 
@@ -351,12 +351,12 @@ with the correct one TBD}
 \begin{definition}[Left whiskering]
 \label{def:lw}
 If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{B} \to
+\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{B} \to
 \cat{C}$ and \mynameref{def:nt} 
-$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
+$\alpha: F \tont G$ then we can construct a new natural
 transformations:
 \[
-\alpha H : F \circ H \xrightarrow{.} G \circ H
+\alpha H : F \circ H \tont G \circ H
 \]
 that is called \textit{left whiskering} of functor and natural
 transformation \cite{misc:whiskering}. 
@@ -365,16 +365,40 @@ transformation \cite{misc:whiskering}.
 \begin{definition}[Right whiskering]
 \label{def:rw}
 If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{D} \to
+\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
 \cat{E}$ and \mynameref{def:nt} 
-$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
-transformations:
+$\alpha: F \tont G$ then we can construct a new natural 
+transformations: 
 \[
-H \alpha : H \circ F \xrightarrow{.} H \circ G
+H \alpha : H \circ F \tont H \circ G
 \]
 that is called \textit{right whiskering} of functor and natural
 transformation \cite{misc:whiskering}. 
 \end{definition}
+
+\begin{definition}[Identity natural transformation]
+\label{def:idnt}
+If $F: \cat{C} \tof \cat{D}$ is a \mynameref{def:functor} then we can
+define \textit{identity natural transformation}
+$\idnt{F}$ that maps any \mynameref{def:object} 
+$a \in \catob{C}$ into \mynameref{def:id} $\idm{F(a)} \in \cathom{D}$.
+\end{definition}
+
+\begin{remark}[Whiskering]
+\label{rem:whiskering}
+With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
+\mynameref{def:rw} via \mynameref{def:horizontal_composition} as follows.
+
+For left whiskering:
+\[
+\alpha H = \alpha \circ \idnt{H}
+\]
+
+For right whiskering:
+\[
+H \alpha = \idnt{H} \circ \alpha
+\]
+\end{remark}
 
 
 \section{Polymorphism and natural transformation}

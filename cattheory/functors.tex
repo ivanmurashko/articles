@@ -20,7 +20,7 @@ F\left(f_C \circ
   f_D\right) = F\left(f_C\right) \circ F\left(g_C\right) = f_D \circ
   g_D.
 \]
-\item $\forall x \in \catob{C}: F(\idarrow{x}) = \idarrow{F(x)}$.
+\item $\forall x \in \catob{C}: F(\idm{x}) = \idm{F(x)}$.
 \end{itemize}  
 
 \begin{figure}
@@ -53,7 +53,7 @@ F\left(f_C \circ
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
     node[sloped,above]{$b_D = F(b_C)$} (bd);
   \end{tikzpicture}
-  \caption{Functor $F: \cat{C} \Rightarrow \cat{D}$ definition}
+  \caption{Functor $F: \cat{C} \tof \cat{D}$ definition}
   \label{fig:functor}
 \end{figure}
 \end{definition}
@@ -71,7 +71,7 @@ is some kind of searching of the pattern inside another category.
 \begin{definition}[Endofunctor]
 \label{def:endofunctor}
 Let $\cat{C}$ is a \mynameref{def:category}. The
-\mynameref{def:functor} $E: \cat{C} \Rightarrow \cat{C}$ i.e. 
+\mynameref{def:functor} $E: \cat{C} \tof \cat{C}$ i.e. 
 the functor from a category to the same category is called
 \textit{endofunctor}. 
 \end{definition}
@@ -79,14 +79,14 @@ the functor from a category to the same category is called
 \begin{definition}[Identity functor]
 \label{def:idfunctor}
 Let $\cat{C}$ is a \mynameref{def:category}. The
-\mynameref{def:functor} $Id_C: \cat{C} \Rightarrow \cat{C}$ is called \textit{identity
+\mynameref{def:functor} $\idf{C}: \cat{C} \tof \cat{C}$ is called \textit{identity
 functor} if for every object $a \in \catob{C}$
 \[
-Id_c(a) = a
+\idf{C}(a) = a
 \]
 and for every \mynameref{def:morphism} $f \in \cathom{C}$
 \[
-Id_c(f) = f
+\idf{C}(f) = f
 \] 
 \end{definition}
 
@@ -127,8 +127,8 @@ a new category $\cat{C} \times \cat{D}$ with the following components:
 \(
 (f_1, g_1) \circ (f_2, g_2) = (f_1 \circ f_2, g_1 \circ g_2)
 \)
-\item Identity is defined as follows: $\idarrow{C \times D} = 
-\left(\idarrow{C}, \idarrow{D}\right)$
+\item Identity is defined as follows: $\idm{C \times D} = 
+\left(\idm{C}, \idm{D}\right)$
 \end{itemize}
 \end{definition}
 
@@ -144,20 +144,20 @@ a \mynameref{def:category_product}.
 Let consider $\Delta_c$ is a trivial functor from \mynameref{def:category}
 $\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
 \Delta_c a = c$ -fixed object in $\cat{C}$ and 
-$\forall f \in \cathom{A}: \Delta_c f = \idarrow{c}$.
+$\forall f \in \cathom{A}: \Delta_c f = \idm{c}$.
 \end{definition}
 
 \begin{definition}[Contravariant functor]
 \label{def:contravariant_functor}
 If we have a categories $\cat{C}$ and $\cat{D}$ then the
-\mynameref{def:functor} $\cat{C^{op}} \Rightarrow \cat{D}$ is called
+\mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
 \textit{contravariant functor}. 
 \end{definition}
 
 \begin{definition}[Profunctor]
 \label{def:profunctor}
 If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
-$\cat{C^{op}} \times \cat{C} \Rightarrow \cat{C}$ is called
+$\cat{C^{op}} \times \cat{C} \tof \cat{C}$ is called
 \textit{profunctor}. 
 \end{definition}
 

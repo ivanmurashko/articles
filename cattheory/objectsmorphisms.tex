@@ -20,8 +20,8 @@ Two \mynameref{def:object}s $a$ and $b$ in \mynameref{def:category}
 $C$ are equal if there exists an unique \mynameref{def:isomorphism}
 $f: a \to b$. This also means that also exist unique isomorphism $g: b
 \to a$. These two \mynameref{def:morphism}s are related each other via
-the following equations: $f \circ g = \idarrow{a}$ and $g \circ f
-= \idarrow{b}$. 
+the following equations: $f \circ g = \idm{a}$ and $g \circ f
+= \idm{b}$. 
 \end{definition}
 
 Unlike \mynameref{def:function}s between \mynameref{def:set}s we don't
@@ -52,16 +52,16 @@ As an example lets proof the following theorem
 The \mynameref{def:id} is unique.
 \begin{proof}
 Consider an \mynameref{def:object} $a$ and it's \mynameref{def:id} 
-$\idarrow{a}$. Let $\exists f: a \to a$ such that $f$ is also
+$\idm{a}$. Let $\exists f: a \to a$ such that $f$ is also
 identity. In the case \eqref{eq:leftid} for $f$ as identity gives
 \[
-f \circ \idarrow{a} = \idarrow{a}.
+f \circ \idm{a} = \idm{a}.
 \]
-From other side \eqref{eq:rightid} for $\idarrow{a}$ satisfied
+From other side \eqref{eq:rightid} for $\idm{a}$ satisfied
 \[
-f \circ \idarrow{a} = f
+f \circ \idm{a} = f
 \]
-i.e. $f = \idarrow{a}$.
+i.e. $f = \idm{a}$.
 \end{proof}
 \end{theorem}
 
@@ -114,9 +114,9 @@ Consider the following \mynameref{def:commutative_diagram} (see
     \draw[->,thick,shorten <=2pt,shorten >=2] (i12) to
     node[sloped,above]{$u$} (i22); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (i1) to
-    node[sloped,above]{$\idarrow{i}$} (i12); 
+    node[sloped,above]{$\idm{i}$} (i12); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
-    node[sloped,above]{$\idarrow{i'}$} (i22); 
+    node[sloped,above]{$\idm{i'}$} (i22); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
     node[right]{$u^{-1}$} (i12); 
   \end{tikzpicture}
@@ -154,9 +154,9 @@ Just got to the \mynameref{def:op_category} and revert arrows in
     \draw[->,thick,shorten <=2pt,shorten >=2] (t22) to
     node[sloped,above]{$v^{-1}$} (t12); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (t12) to
-    node[sloped,above]{$\idarrow{t}$} (t1); 
+    node[sloped,above]{$\idm{t}$} (t1); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (t22) to
-    node[sloped,above]{$\idarrow{t'}$} (t2); 
+    node[sloped,above]{$\idm{t'}$} (t2); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (t12) to
     node[right]{$v^{-1}$} (t2); 
   \end{tikzpicture}
