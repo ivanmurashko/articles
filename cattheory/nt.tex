@@ -332,6 +332,50 @@ K$ for the second one. We can create a new transformation
 that is called \textit{horizontal composition}.
 \end{definition}
 
+\begin{definition}[Left composition]
+\label{def:lc}
+If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
+\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{D} \to
+\cat{E}$ and \mynameref{def:nt} 
+$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
+transformations:
+\[
+H \alpha : H \circ F \xrightarrow{.} H \circ G
+\]
+that is called \textit{left composition} of functor and natural
+transformation. 
+\footnote{The definition is my own definition and it has to be relaced
+with the correct one TBD}
+\end{definition}
+
+\begin{definition}[Left whiskering]
+\label{def:lw}
+If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
+\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{B} \to
+\cat{C}$ and \mynameref{def:nt} 
+$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
+transformations:
+\[
+\alpha H : F \circ H \xrightarrow{.} G \circ H
+\]
+that is called \textit{left whiskering} of functor and natural
+transformation \cite{misc:whiskering}. 
+\end{definition}
+
+\begin{definition}[Right whiskering]
+\label{def:rw}
+If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
+\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{D} \to
+\cat{E}$ and \mynameref{def:nt} 
+$\alpha: F \xrightarrow{.} G$ then we can construct a new natural
+transformations:
+\[
+H \alpha : H \circ F \xrightarrow{.} H \circ G
+\]
+that is called \textit{right whiskering} of functor and natural
+transformation \cite{misc:whiskering}. 
+\end{definition}
+
 
 \section{Polymorphism and natural transformation}
 
