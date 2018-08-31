@@ -43,8 +43,8 @@ formal definition.
 \end{figure}
 
 Consider 2 categories $\cat{C}, \cat{D}$ and 2
-\mynameref{def:functor}s $F: \cat{C} \to \cat{D}$ and $G: \cat{C} \to
-\cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
+\mynameref{def:functor}s $F: \cat{C} \Rightarrow \cat{D}$ and $G:
+\cat{C} \Rightarrow \cat{D}$. If we have an \mynameref{def:object} $a \in \catob{C}$ then
 it will be translated by different functors into different objects of
 category $\cat{D}$: $a_F = F a, a_G = G a \in \catob{D}$ (see
 \cref{fig:nt_objects_mapping}). There are 2 options possible
@@ -322,7 +322,7 @@ is called \textit{vertical composition}.
 \label{def:horizontal_composition}
 \index{Natural transformation!Horizontal composition}
 If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-\cat{D}$ and another one $J,K: \cat{D} \to \cat{E}$. If we have a
+\cat{D}$ and another one $J,K: \cat{D} \Rightarrow \cat{E}$. If we have a
 natural transformation between each pair: $\alpha : F \xrightarrow{.}
 G$ for the first one and $\beta : J \xrightarrow{.}
 K$ for the second one. We can create a new transformation
@@ -335,7 +335,7 @@ that is called \textit{horizontal composition}.
 \begin{definition}[Left composition]
 \label{def:lc}
 If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{D} \to
+\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{D} \to
 \cat{E}$ and \mynameref{def:nt} 
 $\alpha: F \xrightarrow{.} G$ then we can construct a new natural
 transformations:
@@ -351,7 +351,7 @@ with the correct one TBD}
 \begin{definition}[Left whiskering]
 \label{def:lw}
 If we have 3 categories $\cat{B}, \cat{C}, \cat{D}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{B} \to
+\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{B} \to
 \cat{C}$ and \mynameref{def:nt} 
 $\alpha: F \xrightarrow{.} G$ then we can construct a new natural
 transformations:
@@ -365,7 +365,7 @@ transformation \cite{misc:whiskering}.
 \begin{definition}[Right whiskering]
 \label{def:rw}
 If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \to \cat{D}$, $H: \cat{D} \to
+\mynameref{def:functor}s $F,G: \cat{C} \Rightarrow \cat{D}$, $H: \cat{D} \to
 \cat{E}$ and \mynameref{def:nt} 
 $\alpha: F \xrightarrow{.} G$ then we can construct a new natural
 transformations:

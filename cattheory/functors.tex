@@ -53,7 +53,7 @@ F\left(f_C \circ
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (bc) to
     node[sloped,above]{$b_D = F(b_C)$} (bd);
   \end{tikzpicture}
-  \caption{Functor $F: \cat{C} \to \cat{D}$ definition}
+  \caption{Functor $F: \cat{C} \Rightarrow \cat{D}$ definition}
   \label{fig:functor}
 \end{figure}
 \end{definition}
@@ -71,7 +71,7 @@ is some kind of searching of the pattern inside another category.
 \begin{definition}[Endofunctor]
 \label{def:endofunctor}
 Let $\cat{C}$ is a \mynameref{def:category}. The
-\mynameref{def:functor} $E: \cat{C} \to \cat{C}$ i.e. 
+\mynameref{def:functor} $E: \cat{C} \Rightarrow \cat{C}$ i.e. 
 the functor from a category to the same category is called
 \textit{endofunctor}. 
 \end{definition}
@@ -79,7 +79,7 @@ the functor from a category to the same category is called
 \begin{definition}[Identity functor]
 \label{def:idfunctor}
 Let $\cat{C}$ is a \mynameref{def:category}. The
-\mynameref{def:functor} $Id_C: \cat{C} \to \cat{C}$ is called \textit{identity
+\mynameref{def:functor} $Id_C: \cat{C} \Rightarrow \cat{C}$ is called \textit{identity
 functor} if for every object $a \in \catob{C}$
 \[
 Id_c(a) = a
@@ -150,14 +150,14 @@ $\forall f \in \cathom{A}: \Delta_c f = \idarrow{c}$.
 \begin{definition}[Contravariant functor]
 \label{def:contravariant_functor}
 If we have a categories $\cat{C}$ and $\cat{D}$ then the
-\mynameref{def:functor} $\cat{C^{op}} \to \cat{D}$ is called
+\mynameref{def:functor} $\cat{C^{op}} \Rightarrow \cat{D}$ is called
 \textit{contravariant functor}. 
 \end{definition}
 
 \begin{definition}[Profunctor]
 \label{def:profunctor}
 If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
-$\cat{C^{op}} \times \cat{C} \to \cat{C}$ is called
+$\cat{C^{op}} \times \cat{C} \Rightarrow \cat{C}$ is called
 \textit{profunctor}. 
 \end{definition}
 
