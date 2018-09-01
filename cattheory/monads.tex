@@ -5,6 +5,51 @@ Monads are very important for pure functional programming languages
 such as Haskell. We will start with formal mathematical definition and
 will continue with programming languages examples later.
 
+
+\section{Monoidal category}
+
+\begin{definition}[Monoidal category]
+\label{def:monoidal_category}
+A category $\cat{C}$ is called \textit{monoidal category} if it is
+equipped with a \mynameref{def:monoid} structure i.e. there are
+\begin{itemize}
+\item \mynameref{def:bifunctor} $\otimes: \cat{C} \times \cat{C} \tof
+  \cat{C}$ called \textit{tensor product} or monoidal product
+\item an \mynameref{def:object} $id$ called unit object or identity object
+\end{itemize}
+
+The elements should satisfy (up to \mynameref{def:isomorphism}) several conditions:
+associativity: 
+\begin{equation}
+A \otimes \left( B \otimes C \right) \cong
+  \left( A \otimes B \right) \otimes C
+\nonumber
+\end{equation}
+and $id$ can be treated as left and right identity: 
+\begin{eqnarray}
+id \otimes A \cong A, 
+\nonumber \\
+A \otimes id \cong A
+\nonumber
+\end{eqnarray}
+\end{definition}
+
+\begin{definition}[Strict monoidal category]
+\label{def:strict_monoidal_category}
+TBD
+A \mynameref{def:monoidal_category} is said to be strict if the
+associator, left 
+unitor and right unitors are all identity morphisms. 
+\end{definition}
+
+In addition to the definition of \mynameref{def:monoidal_category} a
+separate definition for tensor product exists
+\begin{definition}[Tensor product]
+  \label{def:tensor_product}
+  TBD
+\end{definition}
+
+
 \section{Category of endofunctors}
 
 The \mynameref{ex:fun_category} is an example of a category. We can
@@ -97,6 +142,38 @@ def unit[A](x: A): M[A]
 I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
 \mintinline{scala}{unit} as $\eta$. 
 \end{example}
+
+TBD
+
+\subsection{Quantum mechanics}
+
+The tensor product in quantum mechanics is used for
+representing a system that consists of multiple systems. For instance
+if we have an interaction between an 2 level atom ($a$ is excited
+state $b$ as a ground state) and one mode light then the
+atom has its own Hilber space $\mathcal{H}_{at}$ with $\ket{a}$ and
+$\ket{b}$ as basis 
+vectors.  Light also has its own Hilber space $\mathcal{H}_f$ with Fock state
+$\{\ket{n}\}$ as the basis.
+\footnote{
+  Really the $\mathcal{H}_f$ is infinite dimensional Hilber space and
+  seems to be out of our assumption about \textbf{FdHilb} category as
+  a collection of finite dimensional Hilber spaces only.
+}
+The result system that describes both atom
+and light is represented as the tensor product $\mathcal{H}_{at}
+\otimes \mathcal{H}_f$.
+
+The morphisms of \textbf{FdHilb} category have a connection with
+\mynameref{def:tensor_product}. Consider the so called Hilbert-Schmidt
+correspondence for finite dimensional Hilbert spaces i.e. for given
+$\mathcal{A}$ and $\mathcal{B}$ there is a natural isomorphism between
+the tensor product and linear maps (aka morphisms) between
+$\mathcal{A}$ and $\mathcal{B}$:
+\[
+\mathcal{A}^\ast \otimes \mathcal{B} \cong \hom(\mathcal{A}, \mathcal{B})
+\]
+where $\mathcal{A}^\ast$ - \mynameref{def:dual_space}.
 
 
 TBD
