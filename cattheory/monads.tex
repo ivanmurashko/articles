@@ -16,7 +16,16 @@ will continue with programming languages examples later.
   where $\idf{C}$ is \mynameref{def:idfunctor}.
 
   The $\eta, \mu$ should satisfy the following conditions:
-  TBD
+  \begin{eqnarray}
+    \mu \circ M \mu = \mu \circ \mu M, 
+    \nonumber \\
+    \mu \circ M \eta = \mu \circ \eta M = \idnt{M},
+    \nonumber
+  \end{eqnarray}
+  where $M \mu, M \eta$ - \mynameref{def:rw}s, $\mu M, \eta M$ -
+  \mynameref{def:lw}s, $\idnt{M}$ - \mynameref{def:idnt} for $M$.
+  \mynameref{def:vertical_composition} is used in the equations
+  (???TBD verify).
 \end{definition}
 
 %% \section{Category of endofunctors}
@@ -31,5 +40,32 @@ will continue with programming languages examples later.
 %% Lets continue to add our limitations and consider the category of
 %% endofunctors that consists only one object
 %% i.e. \mynameref{def:monoid}. 
+
+TBD
+
+\section{Examples}
+
+\subsection{Programming languages}
+
+\subsubsection{Haskell}
+
+In Haskell monad can be defined from \mynameref{ex:functor_haskell} as follows 
+\footnote{real definition is quite different from the presented one}
+\begin{example}[Monad][\textbf{Hask}]
+\label{ex:monad_haskell}
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        (>>=)  :: m a -> (a -> m b) -> m b
+\end{minted} 
+\end{example}
+
+TBD
+
+\subsubsection{C++}
+
+TBD
+
+\subsubsection{Scala}
 
 TBD

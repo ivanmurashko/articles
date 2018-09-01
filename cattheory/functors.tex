@@ -192,7 +192,16 @@ TBD
 \subsection{Programming languages}
 
 \subsubsection{\textbf{Hask} category}
-TBD
+The functor can be defined in Haskell as follows
+\footnote{the real definition is quite different from the current one}
+\begin{example}[Functor][\textbf{Hask}]
+\label{ex:functor_haskell}
+\begin{minted}{haskell}
+class Functor f where
+    fmap :: (a -> b) -> f a -> f b
+\end{minted} 
+\end{example}
+
 
 \begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
 \label{ex:terminal_object_cat_hask}

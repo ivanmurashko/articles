@@ -241,14 +241,13 @@ morphism and verify \mynameref{axm:associativity}.
 For the composition consider 2 \mynameref{def:nt}s $\alpha, \beta$ and
 consider how they act on an object $a \in \catob{C}$ (see
 \cref{fig:nt_objects_mapping_composition}). We always can construct
-the composition $\beta_a \cdot \alpha_a$ i.e. we can define the
+the composition $\beta_a \circ \alpha_a$ i.e. we can define the
 composition of natural transformations $\alpha, \beta$ as 
 \(
-\beta \cdot \alpha = \left\{
+\beta \circ \alpha = \left\{
 \beta_a \circ \alpha_a | a \in \catob{C}
 \right\}
-\), note that we use $\cdot$ and not $\circ$ for the composition
-definition. 
+\). 
 
 \begin{figure}
   \centering
@@ -312,7 +311,7 @@ Also we have $\alpha : F \tont G, \beta: G \tont
 H$ - natural transformations. We can compose the $\alpha$ and $\beta$
 as follows 
 \[
-\alpha \cdot \beta: F \tont H.
+\alpha \circ \beta: F \tont H.
 \]
 This composition
 is called \textit{vertical composition}.
@@ -327,26 +326,12 @@ natural transformation between each pair: $\alpha : F \tont
 G$ for the first one and $\beta : J \tont
 K$ for the second one. We can create a new transformation
 \[
-\alpha \circ \beta: F \circ J \tont G \circ K
+\alpha \star \beta: F \circ J \tont G \circ K
 \] 
-that is called \textit{horizontal composition}.
+that is called \textit{horizontal composition}. Note that we use a
+special symbol $\star$ for the composition.
 \end{definition}
 
-\begin{definition}[Left composition]
-\label{def:lc}
-If we have 3 categories $\cat{C}, \cat{D}, \cat{E}$, 
-\mynameref{def:functor}s $F,G: \cat{C} \tof \cat{D}$, $H: \cat{D} \to
-\cat{E}$ and \mynameref{def:nt} 
-$\alpha: F \tont G$ then we can construct a new natural
-transformations:
-\[
-H \alpha : H \circ F \tont H \circ G
-\]
-that is called \textit{left composition} of functor and natural
-transformation. 
-\footnote{The definition is my own definition and it has to be relaced
-with the correct one TBD}
-\end{definition}
 
 \begin{definition}[Left whiskering]
 \label{def:lw}
@@ -391,12 +376,12 @@ With \mynameref{def:idnt} we can redefine \mynameref{def:lw} and
 
 For left whiskering:
 \[
-\alpha H = \alpha \circ \idnt{H}
+\alpha H = \alpha \star \idnt{H}
 \]
 
 For right whiskering:
 \[
-H \alpha = \idnt{H} \circ \alpha
+H \alpha = \idnt{H} \star \alpha
 \]
 \end{remark}
 
