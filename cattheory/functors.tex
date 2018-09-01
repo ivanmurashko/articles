@@ -253,6 +253,16 @@ class Profunctor p where
 TBD
 
 \subsubsection{\textbf{Scala} category}
+The functor can be defined in Haskell as follows
+\footnote{the real definition is quite different from the current one}
+\begin{example}[Functor][\textbf{Scala}]
+\label{ex:functor_scala}
+\begin{minted}{scala}
+trait Functor[F[_]] {
+  def fmap[A, B](f: A => B): F[A] => F[B]
+}\end{minted} 
+\end{example}
+
 TBD
 
 \subsection{Quantum mechanics}

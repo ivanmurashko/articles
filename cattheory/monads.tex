@@ -68,4 +68,21 @@ TBD
 
 \subsubsection{Scala}
 
+\begin{example}[Monad][\textbf{Scala}]
+The monad concept is Scala is more close to formal math definition for
+\mynameref{def:monad}. It can be defined as follows 
+\footnote{real definition is quite different from the presented one}
+\label{ex:monad_scala}
+\begin{minted}{scala}
+trait M[A] {
+  def flatMap[B](f: A => M[B]): M[B]
+}
+  
+def unit[A](x: A): M[A]
+\end{minted} 
+I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
+\mintinline{scala}{unit} as $\eta$. 
+\end{example}
+
+
 TBD
