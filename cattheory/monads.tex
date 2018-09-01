@@ -14,7 +14,8 @@ A category $\cat{C}$ is called \textit{monoidal category} if it is
 equipped with a \mynameref{def:monoid} structure i.e. there are
 \begin{itemize}
 \item \mynameref{def:bifunctor} $\otimes: \cat{C} \times \cat{C} \tof
-  \cat{C}$ called \textit{tensor product} or monoidal product
+  \cat{C}$ called \textit{monoidal product} \index{Monoidal
+    product!definition} 
 \item an \mynameref{def:object} $id$ called unit object or identity object
 \end{itemize}
 
@@ -42,8 +43,15 @@ associator, left
 unitor and right unitors are all identity morphisms. 
 \end{definition}
 
-In addition to the definition of \mynameref{def:monoidal_category} a
-separate definition for tensor product exists
+\begin{remark}[Monoidal product]
+\label{rem:monoidal_product}
+The monoidal product is a binary operation that specifies the exact
+monoidal structure. Often it is called as \textit{tensor product} but
+we will avoid the naming because it is not always the same as the
+\mynameref{def:tensor_product} as it is introduced for instance for
+\mynameref{def:hilbert_space}s 
+\end{remark}
+
 \begin{definition}[Tensor product]
   \label{def:tensor_product}
   TBD
