@@ -47,15 +47,31 @@ TBD
 
 \subsubsection{Haskell}
 
-In Haskell monad can be defined from \mynameref{ex:functor_haskell} as follows 
-\footnote{real definition is quite different from the presented one}
 \begin{example}[Monad][\textbf{Hask}]
 \label{ex:monad_haskell}
+In Haskell monad can be defined from \mynameref{ex:functor_haskell} as follows 
+\footnote{real definition is quite different from the presented one}
 \begin{minted}{haskell}
     class Functor m => Monad m where
         return :: a -> m a
         (>>=)  :: m a -> (a -> m b) -> m b
 \end{minted} 
+
+To show how this one can be get we can start from a definition that is
+similar to the math definition:
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        join  :: m (m a) -> m a
+\end{minted} 
+where \mintinline{haskell}{return} can be treated as $\eta$ and 
+\mintinline{haskell}{join} as $\mu$. In the case the bind operator 
+\mintinline{haskell}{>>=} can be implemented as follows
+\begin{minted}{haskell}
+(>>=)  :: m a -> (a -> m b) -> m b
+ma >>= f = join ( f ma )
+\end{minted} 
+
 \end{example}
 
 TBD
