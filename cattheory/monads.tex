@@ -91,11 +91,31 @@ Later we will give an explanation for that one.
   \mynameref{def:lw}s, $\idnt{M}$ - \mynameref{def:idnt} for $M$.
   \mynameref{def:vertical_composition} is used in the equations
   (???TBD verify).
+
+  The monad will be denoted later as $\left<M, \mu, \eta\right>$.
 \end{definition}
 
-TBD
+TBD add monad as monoid
 
 \section{Kleisli category. Monads in programming languages}
+
+\begin{definition}[Kleisli category]
+\label{def:kleisli_category}
+Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
+$\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
+construct a new category $\cat{C_M}$ that is called as \textit{Kleisli
+  category} as follows:
+\begin{eqnarray}
+\catob{C_M} = \catob{C},
+\nonumber \\
+\hom_{\cat{C_M}}\left(a, b\right) = 
+\hom_{\cat{C}}\left(a, M(b)\right)
+\nonumber
+\end{eqnarray}
+i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
+morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C_M}$:
+$\cathom{C_M} \subset \cathom{C}$.
+\end{definition}
 
 TBD
 
