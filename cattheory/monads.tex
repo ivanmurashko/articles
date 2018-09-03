@@ -22,25 +22,32 @@ equipped with a \mynameref{def:monoid} structure i.e. there are
 The elements should satisfy (up to \mynameref{def:isomorphism}) several conditions:
 associativity: 
 \begin{equation}
-A \otimes \left( B \otimes C \right) \cong
-  \left( A \otimes B \right) \otimes C
+A \otimes \left( B \otimes C \right) \cong_\alpha
+  \left( A \otimes B \right) \otimes C,
 \nonumber
 \end{equation}
-and $id$ can be treated as left and right identity: 
+where $\alpha$ is called associator. \index{Associator!definition}
+$id$ can be treated as left and right identity: 
 \begin{eqnarray}
-id \otimes A \cong A, 
+id \otimes A \cong_\lambda A, 
 \nonumber \\
-A \otimes id \cong A
+A \otimes id \cong_\rho A,
 \nonumber
 \end{eqnarray}
+where $\lambda, \rho$ are called as left and right unitors respectively. \index{Left unitor!definition} \index{Right unitor!definition}
 \end{definition}
+
 
 \begin{definition}[Strict monoidal category]
 \label{def:strict_monoidal_category}
-TBD
-A \mynameref{def:monoidal_category} is said to be strict if the
+\index{Associator}
+A \mynameref{def:monoidal_category} $\cat{C}$ is said to be strict if the
 associator, left 
-unitor and right unitors are all identity morphisms. 
+unitor and right unitors are all identity morphisms i.e.
+\[
+\alpha = \lambda = \rho = \idm{C}.
+\]
+\index{Left unitor} \index{Right unitor}
 \end{definition}
 
 \begin{remark}[Monoidal product]
