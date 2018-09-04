@@ -92,7 +92,7 @@ Later we will give an explanation for that one.
     \mu \circ M \mu = \mu \circ \mu M, 
     \nonumber \\
     \mu \circ M \eta = \mu \circ \eta M = \idnt{M},
-    \nonumber
+    \label{eq:monad}
   \end{eqnarray}
   where $M \mu, M \eta$ - \mynameref{def:rw}s, $\mu M, \eta M$ -
   \mynameref{def:lw}s, $\idnt{M}$ - \mynameref{def:idnt} for $M$.
@@ -101,6 +101,17 @@ Later we will give an explanation for that one.
 
   The monad will be denoted later as $\left<M, \mu, \eta\right>$.
 \end{definition}
+
+Lets look at the requirements \eqref{eq:monad} more closely. First of
+all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
+\begin{eqnarray}
+  \mu \circ \left( \idnt{M} \star \mu \right) = 
+  \mu \circ \left( \mu \star \idnt{M} \right), 
+  \nonumber \\
+  \mu \circ \left( \idnt{M} \star \eta \right) = 
+  \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M},
+  \nonumber
+\end{eqnarray}
 
 TBD add monad as monoid
 
