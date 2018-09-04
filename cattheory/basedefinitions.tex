@@ -999,14 +999,12 @@ several functions between them (see \cref{fig:pl_example}).
 \subsection{Quantum mechanics}
 The most critical property of quantum system is the superposition
 principle. The \mynameref{def:setcategory} cannot be used for it
-because it does not satisfied the principle. 
-
-A simple modification of the \textbf{Set} category can satisfy the
-principle. 
-\begin{example}[\textbf{Rel} category]
-  \label{ex:relcategory}
-  \index{Object!\textbf{Rel} example}
-  \index{Morphism!\textbf{Rel} example}
+because it does not satisfied the principle. but a simple modification
+of the \textbf{Set} category does. 
+\begin{definition}[\textbf{Rel} category]
+  \label{def:relcategory}
+  \index{Object!\textbf{Rel} category}
+  \index{Morphism!\textbf{Rel} category}
   We will consider a set of sets (same as \mynameref{def:setcategory})
   i.e. \mynameref{def:set}s as \mynameref{def:object}s. Instead of
   \mynameref{def:function}s we will use \mynameref{def:binary_relation}s as
@@ -1014,19 +1012,19 @@ principle.
 
   The \textbf{Rel} category is similar to the finite dimensional
   Hilber space especially because it assumes some kind of superposition.
-  Really consider $\cat{C_R}$ - the \textbf{Rel} category. $X, Y \in
-  \catob{C_R}$ - 2 sets which consists of different elements. Let $f: X
+  Really consider $\cat{Rel}$ - the \textbf{Rel} category. $X, Y \in
+  \catob{Rel}$ - 2 sets which consists of different elements. Let $f: X
   \to X$ - \mynameref{def:morphism}. Each element $x \in X$ is
   mapped to a subset $Y' \subset Y$. The $Y'$ can be
   \mynameref{def:singleton_set}  (in this case no differences with
   \mynameref{def:setcategory}) but there can be a situation when $Y'$
   consists of several elements. In the case we will get some kind of
-  superposition that is analogiest to quantum mechanics.
-\end{example}
+  superposition that is analogiest to quantum systems.
+\end{definition}
 
 In the quantum mechanics we say about Hilber spaces.
 \begin{definition}[Hilbert space]
-  \label{def:hilbert_space} The Hilbert space a complex vector space
+  \label{def:hilbert_space} The Hilbert space is a complex vector space
   with an inner product as a complex number ($\mathbb{C}$).
 
   Later we will consider only finite dimensional Hilber spaces.
@@ -1036,15 +1034,15 @@ In the quantum mechanics we say about Hilber spaces.
 
 \begin{definition}[Dual space]
 \label{def:dual_space}
-Each Hilber space $\mathcal{H}$ has an associated with it so called
-dual space $\mathcal{H}^\ast$ that consists of linear functionals 
+Each Hilber space $\mathcal{H}$ has an associated with it dual space
+$\mathcal{H}^\ast$ that consists of linear functionals  
 \end{definition}
 
 \begin{example}[Dirac notation]
 \label{ex:dirac_notation}
-Consider a so called ket-vector $\ket{\psi} \in \mathcal{H}$. Then the
+Consider a ket-vector $\ket{\psi} \in \mathcal{H}$. Then the
 corresponding vector from \mynameref{def:dual_space} is called
-bra-vector $\bra{psi} \in \mathcal{H}^\ast$. From the definition of
+bra-vector $\bra{\psi} \in \mathcal{H}^\ast$. From the definition of
 dual space the bra-vector is a linear functional i.e. 
 \[
 \bra{\psi} : \mathcal{H} \to \mathbb{C},
@@ -1075,6 +1073,12 @@ f(c \cdot a) = c \cdot f(a)
 where $a,a_{1,2} \in \mathcal{A}$ and $f(a), f(a_{1,2}) \in \mathcal{B}$.
 \end{definition}
 
+\begin{remark}[Linear map]
+\label{rem:linear_map} 
+Note that \mynameref{def:linear_map} does not preserve inner product.
+TBD (verify the statement ???)
+\end{remark}
+
 If we want to combine 2 Hilbert spaces into one we use a notion of
 direct sum.
 \begin{definition}[Direct sum of Hilber spaces]
@@ -1092,10 +1096,10 @@ direct sum.
   \]
 \end{definition}
 
-\begin{example}[\textbf{FdHilb} category]
-  \label{ex:fdhilbcategory}
-  \index{Object!\textbf{FdHilb} example}
-  \index{Morphism!\textbf{FdHilb} example}
+\begin{definition}[\textbf{FdHilb} category]
+  \label{def:fdhilbcategory}
+  \index{Object!\textbf{FdHilb} category}
+  \index{Morphism!\textbf{FdHilb} category}
 
   Most common case in quantum mechanics is the case of quantum states
   in the finite dimensional Hilbert space. We can consider the set of
@@ -1103,7 +1107,7 @@ direct sum.
   \mynameref{def:object}s in the category are finite dimensional
   \mynameref{def:hilbert_space}s and \mynameref{def:morphism}s are
   \mynameref{def:linear_map}s. The category is denoted as
-  \textbf{FdHilb}. It is very similar to   \mynameref{ex:relcategory}.
+  \textbf{FdHilb}. It is very similar to   \mynameref{def:relcategory}.
   The brief relation is   described in the
   \cref{tab:set_vs_rel_vs_fdhilb}.  
   \begin{table}
@@ -1134,15 +1138,17 @@ direct sum.
       \end{tabular}
     \end{adjustbox}
   \end{table}
-\end{example}
+\end{definition}
 
 \begin{example}[Rabi oscillations]  
+  \label{ex:rabioscillations}
   For our example we consider a 2 level atom with states $\ket{a}$ -
   excited and $\ket{b}$ - ground.
   As soon as we consider a 2-level system we are in the 2 dimensional
-  \mynameref{def:hilbert_space} i.e. have only one \mynameref{def:object}. Lets call
-  it as $\ket{\psi}$. The category will be called as
-  $\cat{R}$. I.e. $\catob{R} = \mathcal{H}_2
+  \mynameref{def:hilbert_space} i.e. have only one
+  \mynameref{def:object}. Lets call 
+  it as $\ket{\psi}$. The category in the example will be called as
+  $\cat{Rabi}$. I.e. $\catob{Rabi} = \mathcal{H}_2
   \{\ket{\psi}\}$.  
 
   The atom interacts with light beam of
@@ -1191,7 +1197,7 @@ direct sum.
           {$\idm{\ket{\psi}} = \hat{L}^4$} (0);
 
   \end{tikzpicture}
-  \caption{Rabi oscillations as a category $\cat{R}$}
+  \caption{Rabi oscillations as a category $\cat{Rabi}$}
   \label{fig:example_quantum}
 \end{figure}
 \end{example}
