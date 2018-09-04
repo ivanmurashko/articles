@@ -62,19 +62,19 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   \textit{target}.
 
   The \mynameref{def:set} of all morphisms between objects $a$ and $b$
-  is called as $\hom\left(a, b\right)$.
+  is denoted as $\hom\left(a, b\right)$.
 \end{definition}
 
 \begin{definition}[Domain]
   \label{def:domain}
   Given a \mynameref{def:morphism} $f: a \to b$, the
-  \mynameref{def:object} $a$ is called domain and is denoted as $\dom f$.
+  \mynameref{def:object} $a$ is called domain and denoted as $\dom f$.
 \end{definition}
 
 \begin{definition}[Codomain]
   \label{def:codomain}
   Given a \mynameref{def:morphism} $f: a \to b$, the
-  \mynameref{def:object} $b$ is called codomain and is denoted as $\cod f$.
+  \mynameref{def:object} $b$ is called codomain and denoted as $\cod f$.
 \end{definition}
 
 \mynameref{def:morphism}s have several properties. \footnote{The
@@ -140,7 +140,7 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
     f_{ba} \circ \idm{a}  = f_{ba}.
     \label{eq:rightid}
   \end{equation}
-  This morphism is called \textit{identity morphism}.
+  This morphism is called as \textit{identity morphism}.
 \end{definition}
 
 Note that \mynameref{def:id} is unique, see
@@ -150,7 +150,7 @@ Note that \mynameref{def:id} is unique, see
   A commutative diagram is a diagram of \mynameref{def:object}s (also known as
   vertices) and \mynameref{def:morphism}s (also known as arrows or
   edges) such that all directed paths in the diagram with the same
-  start and endpoints lead to the same result by composition
+  start and endpoint lead to the same result by composition
   \label{def:commutative_diagram}
 
   The following diagram commutes if $f_{ab} = f_{cb} \circ f_{ac}$.
@@ -267,8 +267,8 @@ can be treated as the same object.
   \end{itemize}
   For any \mynameref{def:object} $a$ there should be unique
   \mynameref{def:id} $\idm{a}$. Any morphism should satisfy
-  \mynameref{axm:composition} and \mynameref{axm:associativity}
-  properties. See \cref{fig:category}  
+  \mynameref{axm:composition} and \mynameref{axm:associativity}. See
+  \cref{fig:category}   
 \end{definition}
 
 \begin{figure}
@@ -314,7 +314,7 @@ can be treated as the same object.
 \end{definition}
 
 The \mynameref{def:category} can be considered as a way to represent a
-structured data. \mynameref{def:morphism}s are the ones to form the
+structured data. \mynameref{def:morphism}s are the ones which form the
 structure. 
 
 \begin{definition}[Opposite category]
@@ -389,7 +389,7 @@ $\cathom{C}$ are \nameref{def:set}s
 \index{Category!large}
 A category $\cat{C}$ is not \mynameref{def:small_category} then it is
 called \textit{large}. The example of large category is
-\mynameref{ex:setcategory} 
+\mynameref{def:setcategory} 
 \end{definition}
 
 \section{Examples}
@@ -414,17 +414,17 @@ There are several examples of categories that will also be used later
   \label{def:function}
   Function $f$ is a special type of \mynameref{def:binary_relation}. I.e.
   if $A$ and $B$ are 2 \mynameref{def:set}s then a subset of $A \times B$ is
-  called function $f$ between the 2 sets if $\forall a \in A \exists!
-  b \in B$ such that $(a,b) \in f$. In other words function does not
-  allowed ``multi value''.
+  called function $f$ between the 2 sets if $\forall a \in A \, \exists!
+  b \in B$ such that $(a,b) \in f$. In other words function definition
+  does not allow ``multi value''.
 \end{definition}
 
 
-\begin{example}[\textbf{Set} category]
-  \label{ex:setcategory}
-  \index{Object!\textbf{Set} example}
-  \index{Morphism!\textbf{Set} example}
-  \index{Category!\textbf{Set} example}
+\begin{definition}[\textbf{Set} category]
+  \label{def:setcategory}
+  \index{Object!\textbf{Set} category}
+  \index{Morphism!\textbf{Set} category}
+  \index{Category!\textbf{Set}}
   In the set category we consider a \mynameref{def:set} of
   \mynameref{def:set}s where 
   \mynameref{def:object}s are the \mynameref{def:set}s and
@@ -432,18 +432,18 @@ There are several examples of categories that will also be used later
   sets.
 
   The \mynameref{def:id} is trivial function such that $\forall x \in
-  X: \idm[X](x) = x$.
+  X: \idm{X}(x) = x$.
 
   In general case when we say \textbf{Set} category we assume the set
   of all sets. But the result is inconsistent because famous Russell's
-  paradox \cite{wiki:russell_paradox}can be applied. To avoid such
-  situations we assume the some 
-  kind of limitations are applied on our construction, for instance
+  paradox \cite{wiki:russell_paradox} can be applied. To avoid such
+  situations we consider a limitation that is applied on our
+  construction, for instance 
   ZFC \cite{wiki:zfc}. If we apply the limitation we have that set of
   all sets is not a set itself and as result the  \textbf{Set}
   category is a \mynameref{def:large_category}
   \index{Category!large}
-\end{example}
+\end{definition}
 
 \begin{remark}[Set vs Category]
   \label{rem:set_vs_category}
@@ -454,7 +454,7 @@ There are several examples of categories that will also be used later
   In the set theory we can get info about functions by looking inside
   the objects(sets) aka use ``microscope'' \cite{bib:milewski2018category} 
 
-  Contrary in the category theory we initially don't have info about object
+  Contrary in the category theory we initially don't have any info about object
   internal structure but can get it using the relation between the
   objects i.e. using \mynameref{def:morphism}s. In other words we can use
   ``telescope'' \cite{bib:milewski2018category}  there.
@@ -465,15 +465,17 @@ There are several examples of categories that will also be used later
 The \textit{singleton} is a \mynameref{def:set} with only one element.
 \end{definition}
 
-\begin{definition}[Domain]
-  \label{def:domain_set}
-  Given a function $f: X \to Y$, the set $X$ is the domain.
-\end{definition}
+\begin{example}[Domain]
+  \label{ex:domain_set}
+  Given a function $f: X \to Y$, the set $X$ is the domain. I.e. $\dom
+  f = X$
+\end{example}
 
-\begin{definition}[Codomain]
-  \label{def:codomain_set}
-  Given a function $f: X \to Y$, the set $Y$ is the codomain.
-\end{definition}
+\begin{example}[Codomain]
+  \label{ex:codomain_set}
+  Given a function $f: X \to Y$, the set $Y$ is the codomain. I.e.
+  $\cod f = Y$
+\end{example}
 
 
 \begin{definition}[Surjection]
@@ -524,12 +526,12 @@ The \textit{singleton} is a \mynameref{def:set} with only one element.
   $\exists g_1: Y' \to Y'$ and  $g_2 : Y \to Y$ such
   that $g_1 \ne g_2$ because they operates on different
   \mynameref{def:domain}s but from other hand $g_1(Y') = g_2(Y')$. For
-  instance we can choose $g_1 = \idm[Y'], g_2=\idm[Y]$. As
+  instance we can choose $g_1 = \idm{Y'}, g_2=\idm{Y}$. As
   soon as $Y'$ is \mynameref{def:codomain} of $f$ we always have
   $g_1(f(X)) = g_2(F(X))$.
   
   As result we can say that an \mynameref{def:surjection} is a
-  \mynameref{def:epimorphism} in \textbf{Set} category. Moreover
+  \mynameref{def:epimorphism} in the \textbf{Set} category. Moreover
   there is a proof 
   \cite{bib:proofwiki:Surjection_iff_Epimorphism_in_Category_of_Sets}
   of that fact.
@@ -726,7 +728,7 @@ The \textit{singleton} is a \mynameref{def:set} with only one element.
   \mynameref{def:surjection} (see \cref{fig:bijection}). 
 \end{definition}
 
-There is a question what's analog of a single
+There is a question what is the categorical analog of a single
 \mynameref{def:set}. Main characteristic of a category is a structure
 but the set by definition does not have a structure. Which category
 does not have any structure? The answer is
@@ -743,18 +745,45 @@ does not have any structure? The answer is
 In the programming languages we consider types as
 \mynameref{def:object}s and functions as
 \mynameref{def:morphism}s. The critical requirements for such
-consideration is that the functions have to be pure function (without
+consideration is that the functions have to be pure functions (without
 side effects). This requirement mainly is satisfied by functional
 languages such as Haskell and Scala. From other side the functional
-languages use lazy evaluation to improve the performance. The laziness
+languages use lazy evaluation to improve their performance. The laziness
 can also make category theory axiom invalid (see
 \mynameref{rem:hask_lazy_eval}). 
 
 Strictly speaking neither Haskell (pure functional language) nor C++
-can be considered as a category in general. As a first approximation
-the functional language (Haskell, Scala) can be considered as a
+can be considered as a category in general. For the first approximation
+a functional language (Haskell, Scala) can be considered as a
 category if we avoid to use functions with side effects (mainly for
-Scala) and use strict (for both Haskell and Scala) evaluations. 
+Scala) and use strict (for both Haskell and Scala) evaluations. Take
+the fact into consideration and define categories for 3 languages
+
+\begin{definition}[\textbf{Hask} category]
+\lable{def:haskcategory}
+The objects in the \textbf{Hask} category are Haskell types and
+morphisms are functions
+\end{definition}
+
+\begin{definition}[Pure function]
+\label{def:pure_function}
+The function is pure if it's execution give the same results
+independently from the environment. 
+\end{definition}
+
+\begin{definition}[\textbf{Scala} category]
+\lable{def:scalacategory}
+The objects in the \textbf{Scala} category are Scala types and
+morphisms are functions. We don't define functions that have a state
+in the category. I.e. the functions are \mynameref{def:pure_function}s. 
+\end{definition}
+
+\begin{definition}[\textbf{C++} category]
+\lable{def:cppcategory}
+The objects in the \textbf{C++} category are Scala types and
+morphisms are functions. We don't define functions that have a state
+in the category. I.e. the functions are \mynameref{def:pure_function}s. 
+\end{definition}
 
 
 In any case we can construct a simple toy category that can be easy
@@ -967,7 +996,7 @@ several functions between them (see \cref{fig:pl_example}).
 
 \subsection{Quantum mechanics}
 The most critical property of quantum system is superposition
-principle. The \mynameref{ex:setcategory} cannot be used for it
+principle. The \mynameref{def:setcategory} cannot be used for it
 because it does not satisfied the principle. 
 
 A simple modification of the \textbf{Set} category can satisfy the
@@ -976,7 +1005,7 @@ principle.
   \label{ex:relcategory}
   \index{Object!\textbf{Rel} example}
   \index{Morphism!\textbf{Rel} example}
-  We will consider a set of sets (same as \mynameref{ex:setcategory})
+  We will consider a set of sets (same as \mynameref{def:setcategory})
   i.e. \mynameref{def:set}s as \mynameref{def:object}s. Instead of
   \mynameref{def:function}s we will use \mynameref{def:binary_relation}s as
   \mynameref{def:morphism}s. 
@@ -988,7 +1017,7 @@ principle.
   \to X$ - \mynameref{def:morphism}. Each element $x \in X$ is
   mapped to a subset $Y' \subset Y$. The $Y'$ can be
   \mynameref{def:singleton_set}  (in this case no differences with
-  \mynameref{ex:setcategory}) but there can be a situation when $Y'$
+  \mynameref{def:setcategory}) but there can be a situation when $Y'$
   consists of several elements. In the case we will get some kind of
   superposition that is analogiest to quantum mechanics.
 \end{example}
