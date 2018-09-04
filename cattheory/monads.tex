@@ -112,6 +112,34 @@ all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
   \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M},
   \nonumber
 \end{eqnarray}
+The first equation can be represented as a
+\mynameref{def:commutative_diagram} (see \cref{fig:monad_monoid1})
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=left:$M^3$] (m3) at (0,4) {};    
+    \node[ele,label=left:$M^2$] (m21) at (0,0) {};    
+    \node[ele,label=right:$M^2$] (m22) at (4,4) {};
+    \node[ele,label=right:$M$] (m) at (4,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (m3) to
+    node[sloped,above]{$\idnt{M} \star \mu$} (m21);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m3) to
+    node[sloped,above]{$\mu \star \idnt{M}$} (m22); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m21) to
+    node[sloped,above]{$\mu$} (m); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (m22) to
+    node[sloped,above]{$\mu$} (m); 
+  \end{tikzpicture}
+  \caption{Monad as monoid in the category of endofunctors.}
+  \label{fig:monad_monoid1}
+\end{figure}
+
 
 TBD add monad as monoid
 
