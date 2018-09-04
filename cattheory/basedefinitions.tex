@@ -760,7 +760,7 @@ Scala) and use strict (for both Haskell and Scala) evaluations. Take
 the fact into consideration and define categories for 3 languages
 
 \begin{definition}[\textbf{Hask} category]
-\lable{def:haskcategory}
+\label{def:haskcategory}
 The objects in the \textbf{Hask} category are Haskell types and
 morphisms are functions
 \end{definition}
@@ -772,14 +772,14 @@ independently from the environment.
 \end{definition}
 
 \begin{definition}[\textbf{Scala} category]
-\lable{def:scalacategory}
+\label{def:scalacategory}
 The objects in the \textbf{Scala} category are Scala types and
 morphisms are functions. We don't define functions that have a state
 in the category. I.e. the functions are \mynameref{def:pure_function}s. 
 \end{definition}
 
 \begin{definition}[\textbf{C++} category]
-\lable{def:cppcategory}
+\label{def:cppcategory}
 The objects in the \textbf{C++} category are Scala types and
 morphisms are functions. We don't define functions that have a state
 in the category. I.e. the functions are \mynameref{def:pure_function}s. 
@@ -822,8 +822,8 @@ several functions between them (see \cref{fig:pl_example}).
 \end{figure}
 
 
-\subsubsection{\textbf{Hask} category}
-\begin{example}[\textbf{Hask} category]
+\subsubsection{\textbf{Hask} toy category}
+\begin{example}[\textbf{Hask} toy category]
   \label{ex:haskcategory}
   \index{Object!\textbf{Hask} example}
   \index{Morphism!\textbf{Hask} example}
@@ -832,7 +832,8 @@ several functions between them (see \cref{fig:pl_example}).
   We are going to implement \mynameref{def:category} from
   \cref{fig:pl_example}.
 
-  The function isEven that converts Int type
+  The function \mintinline{haskell}{isEven}
+  converts\mintinline{haskell}{Int} type 
   into Bool.
   \begin{minted}{haskell}
     isEven :: Int -> Bool
@@ -863,8 +864,9 @@ several functions between them (see \cref{fig:pl_example}).
 %http://math.andrej.com/2016/08/06/hask-is-not-a-category/
 \begin{remark}[Haskell lazy evaluation]
   \label{rem:hask_lazy_eval}
-  Each Haskell type has a special value $\bot$. The value presents
-  and lazy evaluations make several category law invalid, for instance
+  Each Haskell type has a special value $\bot$. The fact that the
+  value and lazy evaluations are part of the language, make several
+  category law invalid, for instance 
   \mynameref{def:id} behaviour become invalid in specific cases:
 
   The following code
@@ -889,8 +891,8 @@ several functions between them (see \cref{fig:pl_example}).
   \eqref{eq:rightid} are not satisfied.  
 \end{remark}
 
-\subsubsection{\textbf{C++} category}
-\begin{example}[\textbf{C++} category]
+\subsubsection{\textbf{C++} toy category}
+\begin{example}[\textbf{C++} toy category]
   \label{ex:cppcategory}
   \index{Object!\textbf{C++} example}
   \index{Morphism!\textbf{C++} example}
@@ -945,8 +947,8 @@ several functions between them (see \cref{fig:pl_example}).
   use pure function (functions without effects).
 \end{example}
 
-\subsubsection{\textbf{Scala} category}
-\begin{example}[\textbf{Scala} category]
+\subsubsection{\textbf{Scala} toy category}
+\begin{example}[\textbf{Scala} toy category]
   \label{ex:scalacategory}
   \index{Object!\textbf{Scala} example}
   \index{Morphism!\textbf{Scala} example}
@@ -995,7 +997,7 @@ several functions between them (see \cref{fig:pl_example}).
 
 
 \subsection{Quantum mechanics}
-The most critical property of quantum system is superposition
+The most critical property of quantum system is the superposition
 principle. The \mynameref{def:setcategory} cannot be used for it
 because it does not satisfied the principle. 
 

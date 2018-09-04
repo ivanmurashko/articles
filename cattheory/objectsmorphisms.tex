@@ -346,7 +346,7 @@ If we avoid lazy evaluations in Haskell (see
 \mynameref{rem:hask_lazy_eval}) then we can found the following types
 as candidates for initial and terminal object in haskell. 
 \label{ex:hask_initial_object}
-\mynameref{def:initial_object} in \mynameref{ex:haskcategory} is a
+\mynameref{def:initial_object} in \mynameref{def:haskcategory} is a
 type without values 
 \begin{minted}{haskell}
 data Void
@@ -369,7 +369,7 @@ used for the \mintinline{haskell}{Void} object creation.
 
 \begin{example}[Terminal object][\textbf{Hask}]
 \label{ex:hask_terminal_object}
-Terminal object (unit) in \mynameref{ex:haskcategory} keeps only one element
+Terminal object (unit) in \mynameref{def:haskcategory} keeps only one element
 \begin{minted}{haskell}
 data () = ()
 \end{minted}
@@ -383,7 +383,7 @@ unit _ = ()
 
 \begin{example}[Product][\textbf{Hask}]
 \label{ex:hask_product}
-The \mynameref{def:product} in \mynameref{ex:haskcategory} keeps a
+The \mynameref{def:product} in \mynameref{def:haskcategory} keeps a
 pair and the constructor defined as follows
 \begin{minted}{haskell}
 (,) :: a -> b -> (a, b)
@@ -400,7 +400,7 @@ snd (_, y) = y
 
 \begin{example}[Sum][\textbf{Hask}]
 \label{ex:hask_sum}
-The \mynameref{def:sum} in \mynameref{ex:haskcategory} defined as
+The \mynameref{def:sum} in \mynameref{def:haskcategory} defined as
 follows 
 \begin{minted}{haskell}
 data Either a b = Left a | Right b
@@ -437,7 +437,7 @@ namespace std {
 
 \begin{example}[Product][\textbf{C++}]
 \label{ex:cpp_product}
-The \mynameref{def:product} in \mynameref{ex:cppcategory} keeps a
+The \mynameref{def:product} in \mynameref{def:cppcategory} keeps a
 pair and the constructor defined as follows
 \begin{minted}{c++}
 namespace std {
@@ -569,7 +569,7 @@ TBD
 \begin{example}[Initial object][\textbf{Scala}]
 \label{ex:scala_initial_object}
 We used a same trick as for \mynameref{ex:hask_initial_object} and define
-\mynameref{def:initial_object} in \mynameref{ex:scalacategory} as a
+\mynameref{def:initial_object} in \mynameref{def:scalacategory} as a
 type without values 
 \begin{minted}{scala}
 sealed trait Void
@@ -580,7 +580,7 @@ i.e. you cannot construct a object of the type.
 \begin{example}[Terminal object][\textbf{Scala}]
 \label{ex:scala_terminal_object}
 We used a same trick as for \mynameref{ex:hask_terminal_object} and define
-\mynameref{def:terminal_object} in \mynameref{ex:scalacategory} as a
+\mynameref{def:terminal_object} in \mynameref{def:scalacategory} as a
 type with only one value
 \begin{minted}{scala}
 abstract final class Unit extends AnyVal
