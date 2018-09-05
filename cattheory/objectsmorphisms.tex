@@ -5,11 +5,12 @@
 
 The important question is how can we decide whenever an
 object/morphism is equal to another object/morphism? The trivial
-answer is possible for if an \mynameref{def:object} is a
-\mynameref{def:set}. In this case we can say that 2 objects are equal
-if they contains the same elements. Unfortunately we cannot do the
-same for default objects as soon as they don't have any internal
-structure. We can use the same trick as in
+answer is possible if an \mynameref{def:object} is a
+\mynameref{def:set}. In the case we can say that 2 objects are equal
+if they contain the equivalent collection of elements. Unfortunately
+we cannot do the same trick for categorical \mynameref{def:object}s as
+soon as they don't have any internal 
+structure but can use a similar approach as in
 \mynameref{rem:set_vs_category}: if we cannot use ``microscope'' lets
 use ``telescope'' and define the equality of objects and morphisms of
 a category $\cat{C}$ in the terms of whole $\cathom{C}$.
@@ -17,9 +18,10 @@ a category $\cat{C}$ in the terms of whole $\cathom{C}$.
 \begin{definition}[Objects equality]
 \label{def:object_equality}
 Two \mynameref{def:object}s $a$ and $b$ in \mynameref{def:category}
-$C$ are equal if there exists an unique \mynameref{def:isomorphism}
-$f: a \to b$. This also means that also exist unique isomorphism $g: b
-\to a$. These two \mynameref{def:morphism}s are related each other via
+$\cat{C}$ are equal if there exists an unique
+\mynameref{def:isomorphism} $a \cong_f b$. This also means that
+also exist unique isomorphism $b \cong_g a$. These two
+\mynameref{def:morphism}s ($f$ and $g$) are related each other via 
 the following equations: $f \circ g = \idm{a}$ and $g \circ f
 = \idm{b}$. 
 \end{definition}
@@ -31,13 +33,13 @@ for instance info about sets internals. i.e. which elements of the sets
 are connected by the considered functions
 }
 about \mynameref{def:morphism}s except
-category theory axioms which the morphisms satisfied
+category theory axioms which the morphisms satisfy 
 \cite{bib:stackexchange:morphism:equality}. This leads us to the
-following definition for morphims equality:
+following definition of morphims equality:
 \begin{definition}[Morphisms equality]
 \label{def:morphism_equality}
 Two \mynameref{def:morphism}s $f$ and $g$ in \mynameref{def:category}
-$C$ are equal if the equality can be derived from the base axioms: 
+$\cat{C}$ are equal if the equality can be derived from the base axioms: 
 \begin{itemize}
 \item \mynameref{axm:composition}
 \item \mynameref{axm:associativity}
@@ -45,7 +47,6 @@ $C$ are equal if the equality can be derived from the base axioms:
 \end{itemize}
 or \mynameref{def:commutative_diagram}s which postulate the equality.
 \end{definition}
-
 As an example lets proof the following theorem
 \begin{theorem}[Identity is unique]
 \label{thm:identity_unique}
@@ -61,7 +62,12 @@ From other side \eqref{eq:rightid} for $\idm{a}$ satisfied
 \[
 f \circ \idm{a} = f
 \]
-i.e. $f = \idm{a}$.
+i.e.
+\[
+f = f \circ \idm{a} = \idm{a}
+\] 
+or
+$f = \idm{a}$.
 \end{proof}
 \end{theorem}
 
