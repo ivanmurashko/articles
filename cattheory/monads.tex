@@ -110,7 +110,7 @@ all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
   \mu \circ \left( \mu \star \idnt{M} \right), 
   \nonumber \\
   \mu \circ \left( \idnt{M} \star \eta \right) = 
-  \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M},
+  \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M}.
   \label{eq:monad_p1}
 \end{eqnarray}
 The first equation can be represented as a
@@ -193,9 +193,38 @@ i.e. the first equation \eqref{eq:monad_p1} provides the associativity
 
 There should be an identity element for each \mynameref{def:monoid}.
 Lets show that the second equation of  \eqref{eq:monad_p1} provides us
-the required element.  
-
-TBD add monad as monoid
+the required element. Lets $I \in \cathom{C}$ and $U =
+\eta\left(I\right)$. We want to show that 
+\begin{equation}
+U \otimes M \cong M \otimes U \cong M, 
+\nonumber
+\end{equation}
+that is exactly required as identity presence in the
+\mynameref{def:monoid} definition.
+Consider the action of the left part of second equation
+\eqref{eq:monad_p1} on $M \circ I$:
+\begin{eqnarray}
+\mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ I\right] = 
+\nonumber \\
+=
+\mu \left[M \circ U\right] = M \otimes U
+\nonumber
+\end{eqnarray}
+For the middle part of  of second equation
+\eqref{eq:monad_p1}
+\begin{eqnarray}
+\mu \circ \left( \eta \star \idnt{M} \right) \left[I \circ M\right] = 
+\nonumber \\
+=
+\mu \left[U \circ M\right] = U \otimes M.
+\nonumber
+\end{eqnarray}
+We assume that $M \circ I \cong M$ and $I \circ M \cong M$  thus
+finally
+\[
+M \otimes U \cong U \otimes M \cong M
+\]
+that finals the proof of monoidal structure.
 
 \section{Kleisli category. Monads in programming languages}
 
