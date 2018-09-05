@@ -96,8 +96,7 @@ Later we will give an explanation for that one.
   \end{eqnarray}
   where $M \mu, M \eta$ - \mynameref{def:rw}s, $\mu M, \eta M$ -
   \mynameref{def:lw}s, $\idnt{M}$ - \mynameref{def:idnt} for $M$.
-  \mynameref{def:vertical_composition} is used in the equations
-  (???TBD verify).
+  \mynameref{def:vertical_composition} is used in the equations.
 
   The monad will be denoted later as $\left<M, \mu, \eta\right>$.
 \end{definition}
@@ -193,18 +192,19 @@ i.e. the first equation \eqref{eq:monad_p1} provides the associativity
 
 There should be an identity element for each \mynameref{def:monoid}.
 Lets show that the second equation of  \eqref{eq:monad_p1} provides us
-the required element. Lets $I \in \cathom{C}$ and $U =
-\eta\left(I\right)$. We want to show that 
+the required element. Lets $U =
+\eta\left(\idf{C}\right)$. 
+We want to show that 
 \begin{equation}
-U \otimes M \cong M \otimes U \cong M, 
+U \otimes M = M \otimes U = M, 
 \nonumber
 \end{equation}
 that is exactly required as identity presence in the
 \mynameref{def:monoid} definition.
 Consider the action of the left part of second equation
-\eqref{eq:monad_p1} on $M \circ I$:
+\eqref{eq:monad_p1} on $M = M \circ \idf{C}$:
 \begin{eqnarray}
-\mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ I\right] = 
+\mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ \idf{C}\right] = 
 \nonumber \\
 =
 \mu \left[M \circ U\right] = M \otimes U
@@ -213,16 +213,17 @@ Consider the action of the left part of second equation
 For the middle part of  of second equation
 \eqref{eq:monad_p1}
 \begin{eqnarray}
-\mu \circ \left( \eta \star \idnt{M} \right) \left[I \circ M\right] = 
+\mu \circ \left( \eta \star \idnt{M} \right) \left[M\right] = 
+\mu \circ \left( \eta \star \idnt{M} \right) \left[\idf{C} \circ M\right] = 
 \nonumber \\
 =
 \mu \left[U \circ M\right] = U \otimes M.
 \nonumber
 \end{eqnarray}
-We assume that $M \circ I \cong M$ and $I \circ M \cong M$  thus
+Thus
 finally
 \[
-M \otimes U \cong U \otimes M \cong M
+M \otimes U = U \otimes M = M
 \]
 that finals the proof of monoidal structure.
 
@@ -297,6 +298,24 @@ ma >>= f = join ( f ma )
 
 \end{example}
 
+\begin{example}[Maybe monad][\textbf{Hask}]
+\label{ex:maybe_monad_haskell}
+Consider the monad definition that is most close to math definition
+first:
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        join  :: m (m a) -> m a
+\end{minted} 
+the Maybe monad can be implemented as follows
+\begin{minted}{haskell}
+  instance Monad Maybe where
+    return = Just
+    join Just( Just x) = Just x
+    join _ = Nothing
+\end{minted} 
+
+\end{example}
 TBD
 
 \subsubsection{C++}
