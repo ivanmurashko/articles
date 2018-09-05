@@ -182,17 +182,17 @@ Just got to the \mynameref{def:op_category} and revert arrows in
 
 
 \section{Product and sum}
-The pair of 2 objects is defined via so called universal property in
+The pair of 2 objects is defined via the universal property in
 the following way:
 \begin{definition}[Product]
 \label{def:product}
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
-\mynameref{def:object}s the product of the objects $c_1, c_2$ is
+\mynameref{def:object}s then the product of the objects $c_1, c_2$ is
 another object in $\cat{C}$ $c = c_1 \times c_2$ with 2
-\mynameref{def:morphism}s $\pi_1, \pi_2$ such that $a = g_a c, b = g_b
-c$ and the 
+\mynameref{def:morphism}s $\pi_1, \pi_2$ such that $c_1 = \pi_1(c),
+c_2 = \pi(c_2)$ and the  
 following universal property is satisfied: $\forall c' \in \catob{C}$
-and morphisms $\pi'_1: \pi'_2 c' = c_1, \pi'_2: \pi'_2 c' = c_2$, exists unique
+and morphisms $\pi'_1: c' \to c_1, \pi'_2: c' \to c_2$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:product})
 commutes, i.e. $\pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.
 \begin{figure}
@@ -232,12 +232,12 @@ object definition that is called sum
 \begin{definition}[Sum]
 \label{def:sum}
 Let we have a category $\cat{C}$ and $c_1, c_2 \in \catob{C}$ -two
-\mynameref{def:object}s the sum of the objects $c_1, c_2$ is
+\mynameref{def:object}s then the sum of the objects $c_1, c_2$ is
 another object in $\cat{C}$ $c = c_1 \oplus c_2$ with 2
-\mynameref{def:morphism}s $i_1, i_2$ such that $c = i_1 c_1, c = i_2
-c_2$ and the 
+\mynameref{def:morphism}s $i_1, i_2$ such that $c = i_1(c_1), c = i_2
+(c_2)$ and the 
 following universal property is satisfied: $\forall c' \in \catob{C}$
-and morphisms $i'_1: i'_1 x_1 = c', i'_2: i'_2 x_2 = c'$, exists unique
+and morphisms $i'_1: c_1 \to c', i'_2: c_2 \to c'$, exists unique
 morphism $h$ such that the following diagram (see \cref{fig:sum})
 commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
 \begin{figure}
@@ -271,7 +271,7 @@ commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
 In other words $h$ factorizes $i'_{1,2}$.
 \end{definition}
 
-\section{Category as monoid}
+\section{Category as a monoid}
 Consider the following definition from abstract algebra
 \begin{definition}[Monoid]
   \label{def:monoid}
