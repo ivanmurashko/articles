@@ -101,7 +101,15 @@ Let $\cat{C}$ is a category and $i, i' \in \catob{C}$ two
 \mynameref{def:object_equality}) 
 \begin{proof}
 Consider the following \mynameref{def:commutative_diagram} (see
-\cref{fig:initial_object_unique}) 
+\cref{fig:initial_object_unique}). As soon as $i$ initial object
+$\exists! \, u: i \to i'$. From other side $i'$ is also initial object
+and therefore $\exists! \, u^{-1}: i' \to i$. Combining them together
+via composition we can get $u^{-1} \circ u: i \to i$ and $u \circ
+u^{-1}: i' \to i'$. From the fact that $i$ is initial object one can
+get that there exists
+only one morphism $\idm{i}: i \to i$. The same is the truth for $i'$.
+Therefore $u^{-1} \circ u = \idm{i}$ and $u \circ u^{-1} = \idm{i'}$.
+These complete the commutative diagram build and finishes the proof. 
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -126,7 +134,7 @@ Consider the following \mynameref{def:commutative_diagram} (see
     \draw[->,thick,shorten <=2pt,shorten >=2] (i2) to
     node[right]{$u^{-1}$} (i12); 
   \end{tikzpicture}
-  \caption{Commutative diagram for initial object unique proof}
+  \caption{Commutative diagram for initial object uniqueness  proof}
   \label{fig:initial_object_unique}
 \end{figure}
 \end{proof}
@@ -166,7 +174,7 @@ Just got to the \mynameref{def:op_category} and revert arrows in
     \draw[->,thick,shorten <=2pt,shorten >=2] (t12) to
     node[right]{$v^{-1}$} (t2); 
   \end{tikzpicture}
-  \caption{Commutative diagram for terminal object unique proof}
+  \caption{Commutative diagram for terminal object uniqueness proof}
   \label{fig:terminal_object_unique}
 \end{figure}
 \end{proof}
