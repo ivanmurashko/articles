@@ -102,7 +102,21 @@ Later we will give an explanation for that one.
 \end{definition}
 
 Lets look at the requirements \eqref{eq:monad} more closely. 
-First of
+First of all notice that 
+\[
+M \circ M \in \cat{C},
+\]
+but
+\[
+\mu(M \circ M) = M.
+\]
+Below we will use the following notation
+\[
+\mu(A \circ B) \equiv A \otimes B.
+\]
+
+
+Secondly 
 all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
 \begin{eqnarray}
   \mu \circ \left( \idnt{M} \star \mu \right) = 
@@ -152,7 +166,7 @@ Let look how the first equation acts on $M^3 = M \circ M \circ M$:
 where properties \mynameref{def:horizontal_composition} and the
 following equations were used:
 \[
-\mu \left(M \circ M\right) = M \otimes M \in [\cat{C}, \cat{C}]
+\mu \left(M \circ M\right) = M \otimes M
 \]
 and
 \[
