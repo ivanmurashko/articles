@@ -287,17 +287,17 @@ Consider the following definition from abstract algebra
   \end{enumerate}
 \end{definition}
 
-We can consider 2 \mynameref{def:monoid}s. The firs one has
+We can consider 2 \mynameref{def:monoid}s. The first one has
 \mynameref{def:product} as the binary operation and
 \mynameref{def:terminal_object} as the identity element. As result we
 just got an analog of multiplication in the category theory. This is why
-the terminal object is often called as $\mathbf{1}$ and the operation
-as the product. 
+the terminal object is often denoted as $\mathbf{1}$ and the operation
+is called as the product. 
 
 Another one is additional \mynameref{def:monoid} that has
 \mynameref{def:initial_object} as the identity element and the
 \mynameref{def:sum} as the binary operation. The initial object in
-that case  is often called as $\mathbf{0}$. I.e. we can see a direct
+that case  is often denoted as $\mathbf{0}$. I.e. we can see a direct
 connection with addition in algebra.
 
 \section{Exponential}
@@ -329,22 +329,27 @@ The \mynameref{def:product} of two sets $A$ and $B$ in
 as a Cartesian product: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
 \end{example}
 
-\begin{example}[Sum][\textbf{Set}]
-  \label{ex:set_sum}
-  \index{Disjoint union}
-  The \mynameref{def:sum} of two sets $A$ and $B$ in
-  \mynameref{def:setcategory} is defined as disjoint union
-  \cite{wiki:disjointunion}. Let $\{A_i: i \in I\}$ be a family of sets 
+\begin{definition}[Disjoint union]
+  \label{def:disjoint_union}
+  Let $\{A_i: i \in I\}$ be a family of sets 
   indexed by $I$. The 
-  disjoint union of this family is the set
+  \textit{disjoint union} \cite{wiki:disjointunion} of this family is
+  the set 
   \[
   \sqcup_{i \in I} A_i = \cup_{i \in I}\left\{
   \left(x, i\right): x \in A_i
   \right\}.
   \]
   The elements of the disjoint union are ordered pairs $(x, i)$. Here $i$
-  serves as an auxiliary index that indicates which Ai the element $x$
+  serves as an auxiliary index that indicates which $A_i$ the element $x$
   came from.
+\end{definition}
+
+\begin{example}[Sum][\textbf{Set}]
+  \label{ex:set_sum}
+  The \mynameref{def:sum} of two sets $A$ and $B$ in
+  \mynameref{def:setcategory} is defined as
+  \mynameref{def:disjoint_union}.  
 \end{example}
 
 \subsection{Programming languages}
@@ -357,8 +362,8 @@ initial and terminal objects.
 \subsubsection{\textbf{Hask} category}
 \begin{example}[Initial object][\textbf{Hask}]
 If we avoid lazy evaluations in Haskell (see
-\mynameref{rem:hask_lazy_eval}) then we can found the following types
-as candidates for initial and terminal object in haskell. 
+\mynameref{rem:hask_lazy_eval}) then we can found several types
+as candidates for initial and terminal object in Haskell. 
 \label{ex:hask_initial_object}
 \mynameref{def:initial_object} in \mynameref{def:haskcategory} is a
 type without values 
@@ -372,8 +377,8 @@ There is only one function from the initial object:
 absurd :: Void -> a
 \end{minted}
 The function is called absurd because it does absurd action. Nobody
-can proof that it does not exist. For the existence proof can be used
-the following absurd argument: ``Just provide me an object type
+can proof that it does not exist. For the existence proof the
+following absurd argument can be used: ``Just provide me an object type
 \mintinline{haskell}{Void} and I will provide you the result of
 evaluation''.  
 
@@ -433,8 +438,8 @@ factor _ g (Right y) = g y
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
 In C++ exists a special type that does not hold any values and as
-result that cannot be created: \mintinline{c++}{void}.
-You cannot create an object of that type: you will get a compiler
+result cannot be created: \mintinline{c++}{void}.
+You cannot create an object of that type i.e. you will get a compiler
 error if you try.
 \end{example}
 
@@ -456,8 +461,8 @@ pair and the constructor defined as follows
 \begin{minted}{c++}
 namespace std {
   template< class A, class B > struct pair {
-    T1 first;
-    T2 second;
+    A first;
+    B second;
   };
 }
 \end{minted}
@@ -471,7 +476,7 @@ There is a simple usage example
 
 \end{minted}
 Really any \mintinline{c++}{struct} or \mintinline{c++}{class} can be
-considered as the product. 
+considered as a product. 
 \end{example}
 
 \begin{example}[Sum][\textbf{C++}]
@@ -582,7 +587,8 @@ TBD
 \subsubsection{\textbf{Scala} category}
 \begin{example}[Initial object][\textbf{Scala}]
 \label{ex:scala_initial_object}
-We used a same trick as for \mynameref{ex:hask_initial_object} and define
+We used a same trick as for \mynameref{ex:hask_initial_object} in
+\mynameref{def:haskcategory} and define
 \mynameref{def:initial_object} in \mynameref{def:scalacategory} as a
 type without values 
 \begin{minted}{scala}
@@ -593,7 +599,8 @@ i.e. you cannot construct a object of the type.
 
 \begin{example}[Terminal object][\textbf{Scala}]
 \label{ex:scala_terminal_object}
-We used a same trick as for \mynameref{ex:hask_terminal_object} and define
+We used a same trick as for \mynameref{ex:hask_terminal_object}
+in \mynameref{def:haskcategory} and define
 \mynameref{def:terminal_object} in \mynameref{def:scalacategory} as a
 type with only one value
 \begin{minted}{scala}
