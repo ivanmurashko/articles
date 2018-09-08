@@ -279,7 +279,7 @@ Let $\cat{C}$ is a category and $a,a' \in \catob{C}$ and
 $b, b' \in \catob{C}$ are 2 pairs of \mynameref{def:object}s that admit
 \cref{def:product}. Consider 2 morphisms that connects the objects: 
 $f: a \to b, f': a' \to b'$ then we can create a new unique morphism that
-connects the products: $f \times f': a \times b \to a' \times b'$ and
+connects the products: $f \times f': a \times a' \to b \times b'$ and
 makes the diagram commute (see \cref{fig:product_of_morphisms}). 
 
 \begin{figure}
@@ -290,21 +290,29 @@ makes the diagram commute (see \cref{fig:product_of_morphisms}).
 
     % the texts
     
-    \node[ele,label=left:$c_1$] (a) at (0,0) {};    
-    \node[ele,label=right:$c_2$] (b) at (4,0) {};    
-    \node[ele,label=below:$c$] (c) at (2,0) {};
-    \node[ele,label=above:$c'$] (c') at (2,3) {};
+    \node[ele,label=above:$a$] (a) at (0,2) {};    
+    \node[ele,label=above:$a \times a'$] (aa') at (2,2) {};    
+    \node[ele,label=above:$a'$] (a') at (4,2) {};    
+    \node[ele,label=below:$b$] (b) at (0,0) {};    
+    \node[ele,label=below:$b \times b'$] (bb') at (2,0) {};    
+    \node[ele,label=below:$b'$] (b') at (4,0) {};    
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
-    node[sloped,above]{$i_1$} (c);
-    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
-    node[sloped,above]{$i_2$} (c); 
-    \draw[->,thick,shorten <=2pt,shorten >=2] (a) to
-    node[sloped,above]{$i'_1$} (c'); 
-    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
-    node[sloped,above]{$i'_2$} (c'); 
-    \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
-    node[right]{$h$} (c'); 
+    node[sloped,above]{$f$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a') to
+    node[sloped,above]{$f'$} (b');
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
+    node[sloped,above]{$f \times f'$} (bb');
+
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (aa') to
+    node[sloped,above]{$\pi_a$} (a);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (aa') to
+    node[sloped,above]{$\pi_{a'}$} (a'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (bb') to
+    node[sloped,above]{$\pi_b$} (b);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (bb') to
+    node[sloped,above]{$\pi_{b'}$} (b'); 
   \end{tikzpicture}
   \caption{Product of morphisms.}
   \label{fig:product_of_morphisms}
