@@ -65,6 +65,21 @@ Morphism is a kind of relation between 2 \mynameref{def:object}s.
   is denoted as $\hom\left(a, b\right)$.
 \end{definition}
 
+The important remark about morphisms is below
+\begin{remark}[Morphism]
+\label{rem:morphism}
+The morphism has to be considered as a relation between objects. We
+will avoid standard (from set theory) notation for morphisms: $f(a) =
+b$. The reason for this is the following. Let $f_1: a \to b$ and $f_2:
+a \to b$ are 2 different morphisms. The notation $f_1(a) = b, f_2(a) =
+b$ leads to incorrect conclusion that $f_1 = f_2$. 
+
+For instance if $a
+= b = \mathbb{R}$ then 2 functions $f_1(x) = x, f_2(x) = -x$ set 2
+different ordering on $\mathbb{R}$ and as result have not to be
+considered as the same functions.
+\end{remark}
+
 \begin{definition}[Domain]
   \label{def:domain}
   Given a \mynameref{def:morphism} $f: a \to b$, the

@@ -300,6 +300,7 @@ Another one is additional \mynameref{def:monoid} that has
 that case  is often denoted as $\mathbf{0}$. I.e. we can see a direct
 connection with addition in algebra.
 
+
 \section{Exponential}
 TBD
 
@@ -351,6 +352,48 @@ as a Cartesian product: $A \times B = \{(a,b)| a \in A, b \in B\}$.
   \mynameref{def:setcategory} is defined as
   \mynameref{def:disjoint_union}.  
 \end{example}
+
+\subsubsection{Monoid}
+Lets consider \mynameref{def:monoid} in the terms of Set theory and
+will try to give the definition that is based rather on morphisms then
+on internal set structure. Consider a set $M$ and by the definition
+$\forall m_1, m_2 \in M$ we can define a new element of the set
+$\mu(m_1, m_2) \in M$. Later we will use the following notation for
+the $\mu$:
+\[
+\mu(m_1, m_2) \equiv m_1 \cdot m_2.
+\]
+If the $(M, \cdot)$ is monoid then the following 2 conditions have to
+be satisfied. The first one (associativity) declares that $\forall
+m_1, m_2, m_3 \in M$ 
+\[
+m_1 \cdot ( m_2 \cdot m_3) = ( m_1 \cdot
+m_2 ) \cdot m_3.
+\]
+The second one (identity presence) says that
+\(
+\exists e \in M
+\) such that $\forall m \in M$:
+\[
+m \cdot e = e \cdot m = m.
+\]
+
+Lets start with the first one we can define $\mu$ as
+\mynameref{def:morphism} in the following way $\mu: M\times M \to M$
+where $M \times M$ is \mynameref{ex:set_product} in
+\mynameref{def:setcategory}. I.e. $M, M \times M \in \catob{Set}$ and
+$\mu \in \cathom{Set}$.  
+
+%% The monoid definition (\cref{def:monoid}) is not quite that we need
+%% because it uses internal structure of the monoid for the description
+%% i.e. it works in the terms of Set theory but not Category one. We will
+%% use another definition from \cite{bib:maclane71}. 
+%% \begin{definition}[Monoidal object]
+%% \label{def:monoidal_object}
+%% Consider a category $\cat{C}$ and an object $t$ that belongs to the
+%% category. 
+%% \end{definition}
+
 
 \subsection{Programming languages}
 In our toy example \cref{fig:pl_example} the type String is
