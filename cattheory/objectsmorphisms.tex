@@ -271,6 +271,46 @@ commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
 In other words $h$ factorizes $i'_{1,2}$.
 \end{definition}
 
+The \mynameref{def:product} of objects will provide also a definition
+for product of morphisms
+\begin{definition}[Product of morphisms]
+\label{def:product_of_morphisms}
+Let $\cat{C}$ is a category and $a,a' \in \catob{C}$ and 
+$b, b' \in \catob{C}$ are 2 pairs of \mynameref{def:object}s that admit
+\cref{def:product}. Consider 2 morphisms that connects the objects: 
+$f: a \to b, f': a' \to b'$ then we can create a new unique morphism that
+connects the products: $f \times f': a \times b \to a' \times b'$ and
+makes the diagram commute (see \cref{fig:product_of_morphisms}). 
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=left:$c_1$] (a) at (0,0) {};    
+    \node[ele,label=right:$c_2$] (b) at (4,0) {};    
+    \node[ele,label=below:$c$] (c) at (2,0) {};
+    \node[ele,label=above:$c'$] (c') at (2,3) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (a) to
+    node[sloped,above]{$i_1$} (c);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
+    node[sloped,above]{$i_2$} (c); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (a) to
+    node[sloped,above]{$i'_1$} (c'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (b) to
+    node[sloped,above]{$i'_2$} (c'); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (c) to
+    node[right]{$h$} (c'); 
+  \end{tikzpicture}
+  \caption{Product of morphisms.}
+  \label{fig:product_of_morphisms}
+\end{figure}
+\end{definition} 
+
 \section{Category as a monoid}
 Consider the following definition from abstract algebra
 \begin{definition}[Monoid]
@@ -382,7 +422,9 @@ Lets start with the first one we can define $\mu$ as
 \mynameref{def:morphism} in the following way $\mu: M\times M \to M$
 where $M \times M$ is \mynameref{ex:set_product} in
 \mynameref{def:setcategory}. I.e. $M, M \times M \in \catob{Set}$ and
-$\mu \in \cathom{Set}$.  
+$\mu \in \cathom{Set}$.  Consider another objects of $\cat{Set}$: $A =
+M \times \left( M \times M \right)$ and $A' = \left( M \times M \right)
+\times M$. 
 
 %% The monoid definition (\cref{def:monoid}) is not quite that we need
 %% because it uses internal structure of the monoid for the description
