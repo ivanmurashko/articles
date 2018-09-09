@@ -439,42 +439,45 @@ rewritten on \cref{fig:monad_monoid1}.
   \label{fig:monad_monoid1}
 \end{figure}
 
-There should be an identity element for each \mynameref{def:monoid}.
-Lets show that the second equation of  \eqref{eq:monad_p1} provides us
-the required element. Lets $U =
-\eta\left(\idf{C}\right)$. 
-We want to show that 
-\begin{equation}
-U \otimes M = M \otimes U = M, 
-\nonumber
-\end{equation}
-that is exactly required as identity presence in the
-\mynameref{def:monoid} definition.
-Consider the action of the left part of second equation
-\eqref{eq:monad_p1} on $M = M \circ \idf{C}$:
-\begin{eqnarray}
-\mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ \idf{C}\right] = 
-\nonumber \\
-=
-\mu \left[M \circ U\right] = M \otimes U
-\nonumber
-\end{eqnarray}
-For the middle part of  of second equation
-\eqref{eq:monad_p1}
-\begin{eqnarray}
-\mu \circ \left( \eta \star \idnt{M} \right) \left[M\right] = 
-\mu \circ \left( \eta \star \idnt{M} \right) \left[\idf{C} \circ M\right] = 
-\nonumber \\
-=
-\mu \left[U \circ M\right] = U \otimes M.
-\nonumber
-\end{eqnarray}
-Thus
-finally
-\[
-M \otimes U = U \otimes M = M
-\]
-that finals the proof of monoidal structure.
+For the identity element consider the same trick 
+TBD
+
+%% There should be an identity element for each \mynameref{def:monoid}.
+%% Lets show that the second equation of  \eqref{eq:monad_p1} provides us
+%% the required element. Lets $U =
+%% \eta\left(\idf{C}\right)$. 
+%% We want to show that 
+%% \begin{equation}
+%% U \otimes M = M \otimes U = M, 
+%% \nonumber
+%% \end{equation}
+%% that is exactly required as identity presence in the
+%% \mynameref{def:monoid} definition.
+%% Consider the action of the left part of second equation
+%% \eqref{eq:monad_p1} on $M = M \circ \idf{C}$:
+%% \begin{eqnarray}
+%% \mu \circ \left( \idnt{M} \star \eta \right) \left[M \circ \idf{C}\right] = 
+%% \nonumber \\
+%% =
+%% \mu \left[M \circ U\right] = M \otimes U
+%% \nonumber
+%% \end{eqnarray}
+%% For the middle part of  of second equation
+%% \eqref{eq:monad_p1}
+%% \begin{eqnarray}
+%% \mu \circ \left( \eta \star \idnt{M} \right) \left[M\right] = 
+%% \mu \circ \left( \eta \star \idnt{M} \right) \left[\idf{C} \circ M\right] = 
+%% \nonumber \\
+%% =
+%% \mu \left[U \circ M\right] = U \otimes M.
+%% \nonumber
+%% \end{eqnarray}
+%% Thus
+%% finally
+%% \[
+%% M \otimes U = U \otimes M = M
+%% \]
+%% that finals the proof of monoidal structure.
 
 \section{Kleisli category. Monads in programming languages}
 
