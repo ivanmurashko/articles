@@ -439,58 +439,6 @@ rewritten on \cref{fig:monad_monoid1}.
   \label{fig:monad_monoid1}
 \end{figure}
 
-
-Let look how the first equation acts on $M^3 = M \circ M \circ M$:
-\begin{eqnarray}
-\left( \idnt{M} \star \mu \right) \left[ M \circ M \circ M
-\right] = 
-\left( \idnt{M} \star \mu \right) \left[ M \circ \left( M \circ M \right)
-\right] = 
-\nonumber \\
-= M \circ \left(M \otimes M\right), 
-\nonumber
-\end{eqnarray}
-where properties \mynameref{def:horizontal_composition} and the
-following equations were used:
-\[
-\mu \left(M \circ M\right) = M \otimes M
-\]
-and
-\[
-\idnt{M}\left(M\right) = M.
-\]
-Therefore
-\begin{eqnarray}
-\mu \circ \left( \idnt{M} \star \mu \right) \left[ M \circ M \circ M
-\right] = 
-\nonumber \\
-=
-\mu \left[M \circ \left(M \otimes M\right)\right] = 
-M \otimes \left(M \otimes M\right).
-\label{eq:monad_p1_1_left}
-\end{eqnarray}
-The second part of the first equation \eqref{eq:monad_p1} gives us
-\begin{eqnarray}
-\mu \left( \mu \star \idnt{M} \right) \left[ M \circ M \circ M
-\right] = 
-\nonumber \\
-=
-\mu \left( \mu \star \idnt{M} \right) \left[ \left(M \circ M\right)
-  \circ M \right] = 
-\nonumber \\
-= \mu \left[\left(M \otimes M\right) \circ M \right] = 
-\left(M \otimes M\right) \otimes M. 
-\label{eq:monad_p1_1_right}
-\end{eqnarray}
-Combining \eqref{eq:monad_p1_1_left} and \eqref{eq:monad_p1_1_right}
-one can get
-\[
-M \otimes \left(M \otimes M\right) = 
-\left(M \otimes M\right) \otimes M
-\]
-i.e. the first equation \eqref{eq:monad_p1} provides the associativity
-(the first property that each \mynameref{def:monoid} should satisfy). 
-
 There should be an identity element for each \mynameref{def:monoid}.
 Lets show that the second equation of  \eqref{eq:monad_p1} provides us
 the required element. Lets $U =
