@@ -297,7 +297,8 @@ where $\lambda, \rho$ are called as left and right unitors respectively. \index{
 \end{definition}
 
 In the \mynameref{def:setcategory} we have
-\mynameref{def:cartesian_product} as monoidal product. There is a
+\mynameref{def:cartesian_product} as monoidal product. Note that there
+is also the \mynameref{def:product} in the category. There is a
 morphism $\eta$ from terminal object $t$ to $e$
 \cite{bib:stackexchange:terminalinmonoid} (see \cref{def:monoid_category}). 
 
@@ -375,21 +376,11 @@ The monoidal product in the category is the functor composition.
   The monad will be denoted later as $\left<M, \mu, \eta\right>$.
 \end{definition}
 
-Lets look at the requirements \eqref{eq:monad} more closely. 
-First of all notice that 
+Lets look at the requirements \eqref{eq:monad} more closely. Notice
+that the functor composition is associative:
 \[
-M \circ M \in \cat{C},
+M \circ ( M \circ M ) = (M \circ M) \circ M = M^3.
 \]
-but
-\[
-\mu(M \circ M) = M.
-\]
-Below we will use the following notation
-\[
-\mu(A \circ B) \equiv A \otimes B.
-\]
-
-
 Secondly 
 all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
 \begin{eqnarray}
@@ -400,8 +391,28 @@ all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
   \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M}.
   \label{eq:monad_p1}
 \end{eqnarray}
-The first equation can be represented as a
-\mynameref{def:commutative_diagram} (see \cref{fig:monad_monoid1})
+
+The morphism $\idnt{M} \star \mu$ acts on $M \circ ( M \circ M )$ as
+\[
+\idnt{M} \star \mu : M \circ ( M \circ M ) \tont M \circ (M \otimes M)
+\]
+thus
+\[
+\mu \circ (\idnt{M} \star \mu) : M \circ ( M \circ M ) \tont M \otimes (M \otimes M).
+\]
+Similarly 
+\[
+\mu \circ (\mu \star \idnt{M}) : (M \circ  M) \circ M  \tont ( M \otimes M) \otimes M.
+\]
+I.e. the both morphisms start at the same object $M^3$ and finish also
+at the same point. The equality 
+\[
+\mu \circ (\idnt{M} \star \mu) = 
+\mu \circ (\mu \star \idnt{M})
+\]
+is similar to the conditions on the \cref{fig:monoid_mu} and can be
+rewritten on \cref{fig:monad_monoid1}. 
+
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -427,6 +438,8 @@ The first equation can be represented as a
   \caption{Monad as monoid in the category of endofunctors.}
   \label{fig:monad_monoid1}
 \end{figure}
+
+
 Let look how the first equation acts on $M^3 = M \circ M \circ M$:
 \begin{eqnarray}
 \left( \idnt{M} \star \mu \right) \left[ M \circ M \circ M
