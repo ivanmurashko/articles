@@ -275,7 +275,7 @@ equipped with a \mynameref{def:monoid} structure i.e. there are
 \item \mynameref{def:bifunctor} $\otimes: \cat{C} \times \cat{C} \tof
   \cat{C}$ called \textit{monoidal product} \index{Monoidal
     product!definition} 
-\item an \mynameref{def:object} $id$ called unit object or identity object
+\item an \mynameref{def:object} $e$ called unit object or identity object
 \end{itemize}
 
 The elements should satisfy (up to \mynameref{def:isomorphism}) several conditions:
@@ -296,6 +296,10 @@ a \otimes e \cong_\rho a,
 where $\lambda, \rho$ are called as left and right unitors respectively. \index{Left unitor!definition} \index{Right unitor!definition}
 \end{definition}
 
+In the \mynameref{def:setcategory} we have
+\mynameref{def:cartesian_product} as monoidal product. There is a
+morphism $\eta$ from terminal object $t$ to $e$
+\cite{bib:stackexchange:terminalinmonoid} (see \cref{def:monoid_category}). 
 
 \begin{definition}[Strict monoidal category]
 \label{def:strict_monoidal_category}
