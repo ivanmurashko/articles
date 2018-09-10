@@ -246,7 +246,7 @@ conditions satisfied:
 \mu \circ (\eta \times \idm{M})
 \circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
 \idm{M}
-\nonumber
+\label{eq:monoid_def}
 \end{eqnarray}
 where $\alpha$ (associator) is an isomorphism between $m \times (m
 \times m)$ and $(m \times m) \times m$, $\lambda, \rho$ - 2 another
@@ -406,12 +406,17 @@ Similarly
 \]
 I.e. the both morphisms start at the same object $M^3$ and finish also
 at the same point. The equality 
-\[
+\begin{equation}
 \mu \circ (\idnt{M} \star \mu) = 
 \mu \circ (\mu \star \idnt{M})
-\]
+\label{eq:monoidalobject1}
+\end{equation}
 is similar to the conditions on the \cref{fig:monoid_mu} and can be
-rewritten on \cref{fig:monad_monoid1}. 
+rewritten on \cref{fig:monad_monoid1}. Thus if we compare
+\eqref{eq:monoidalobject1} and \eqref{eq:monoid_def} then we can say
+that they are same if we replace $\star$ sign with $\times$ one. I.e.
+in the case we can say that the monad looks like a
+\mynameref{def:monoid_category}. 
 
 \begin{figure}
   \centering
@@ -439,7 +444,7 @@ rewritten on \cref{fig:monad_monoid1}.
   \label{fig:monad_monoid1}
 \end{figure}
 
-For the identity element consider the same trick 
+For the identity element consider the same trick and replace 
 TBD
 
 %% There should be an identity element for each \mynameref{def:monoid}.
