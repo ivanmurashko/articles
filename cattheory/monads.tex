@@ -237,8 +237,12 @@ The 2 morphisms were combined into one using
 \[
 \mu \times \idm{M}: \left(M \times M\right) \times M \to M \times M
 \]
-The same structure is used by
-\mynameref{def:functor}s and especially by \mynameref{def:bifunctor}s. 
+The same structure 
+\footnote{not only objects mapping but also morphisms mapping}
+is used by
+\mynameref{def:functor} 
+and
+especially by \mynameref{ex:product_bifunctor}.  
 
 %% If we take into consideration that one-point set is
 %% \mynameref{ex:set_terminal_object} then we can conclude that the
@@ -248,13 +252,13 @@ Now we are ready to provide the monoid definition in the terms of morphisms.
 \begin{definition}[Monoid]
 \label{def:monoid_category}
 Consider \mynameref{def:setcategory} $\cat{C}$ with a
-\mynameref{def:singleton} $t \in \catob{C}$. 
+\mynameref{def:singleton_set} $t \in \catob{C}$. The \mynameref{def:cartesian_product}
+with \mynameref{def:product_of_morphisms} form a
+\mynameref{def:bifunctor} $\times$ (see \cref{ex:product_bifunctor}).
 The object $m \in
 \catob{C}$ is called \textit{monoid} if the following
 conditions satisfied:
 \begin{enumerate}
-\item the \mynameref{def:product}s $m \times m, m \times t, t \times
-  m$ exist 
 \item there is a \mynameref{def:morphism} $\mu: m \times m \to m$ in
   the category
 \item there is another morphism $\eta: t \to m$
@@ -269,9 +273,9 @@ conditions satisfied:
 \idm{M}
 \label{eq:monoid_def}
 \end{eqnarray}
-where $\alpha$ (associator) is an isomorphism between $m \times (m
-\times m)$ and $(m \times m) \times m$, $\lambda, \rho$ - 2 another
-isomorphisms: 
+where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
+$m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
+are another isomorphisms:  
 \[
 t \times m \cong_\lambda m
 \]
@@ -280,8 +284,6 @@ and
 m \times t \cong_\rho m
 \]
 \end{enumerate}
-Note that the first condition is always satisfied in the
-\mynameref{def:setcategory}. 
 \end{definition}
 
 \section{Monoidal category}
@@ -317,9 +319,8 @@ a \otimes e \cong_\rho a,
 where $\lambda, \rho$ are called as left and right unitors respectively. \index{Left unitor!definition} \index{Right unitor!definition}
 \end{definition}
 
-In the \mynameref{def:setcategory} we have
-\mynameref{def:cartesian_product} as monoidal product. Note that there
-is also the \mynameref{def:product} in the category. There is a
+In the \mynameref{def:setcategory} we have $\times$ as the monoidal
+product (see \cref{ex:product_bifunctor}). There is a
 morphism $\eta$ from terminal object $t$ to $e$
 \cite{bib:stackexchange:terminalinmonoid} (see \cref{def:monoid_category}). 
 
@@ -341,7 +342,8 @@ The monoidal product is a binary operation that specifies the exact
 monoidal structure. Often it is called as \textit{tensor product} but
 we will avoid the naming because it is not always the same as the
 \mynameref{def:tensor_product} as it is introduced for
-\mynameref{def:hilbert_space}s  
+\mynameref{def:hilbert_space}s. Note that the monoidal product is
+\mynameref{def:bifunctor}. 
 \end{remark}
 
 \begin{definition}[Tensor product]
