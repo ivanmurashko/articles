@@ -346,12 +346,6 @@ we will avoid the naming because it is not always the same as the
 \mynameref{def:bifunctor}. 
 \end{remark}
 
-\begin{definition}[Tensor product]
-  \label{def:tensor_product}
-  TBD
-\end{definition}
-
-
 \section{Category of endofunctors}
 
 The \mynameref{ex:fun_category} is an example of a category. We can
@@ -414,6 +408,9 @@ all rewrite it with \eqref{eq:lw} and \eqref{eq:rw} as follows
   \mu \circ \left( \eta \star \idnt{M} \right) = \idnt{M}.
   \label{eq:monad_p1}
 \end{eqnarray}
+Thus we can notice that the pair of operations (composition $\circ$
+and \mynameref{def:horizontal_compositions}) forms the bifunctor (see
+\mynameref{rem:bifunctor_fun_cat}). 
 
 The morphism $\idnt{M} \star \mu$ acts on $M \circ ( M \circ M )$ as
 \[
@@ -623,6 +620,11 @@ I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
 TBD
 
 \subsection{Quantum mechanics}
+
+\begin{definition}[Tensor product]
+  \label{def:tensor_product}
+  TBD
+\end{definition}
 
 The tensor product in quantum mechanics is used for
 representing a system that consists of multiple systems. For instance
