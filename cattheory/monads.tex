@@ -165,13 +165,13 @@ $I = \{0\}$ to a special element $e \in M$ such that
 $\forall m \in M: e \cdot m = m \cdot e = m$. I.e. $\eta: I \to M$ and
 $e = \eta(0)$. Consider 2 sets $B = I \times M$ and $B' = M \times I$. 
 We have 2 \mynameref{def:isomorphism}s: $B \cong_\lambda M$ and $B'
-\cong_\rho M$ where the isomorphisms are defined as follow
+\cong_\rho M$ where
 \[
-\lambda(0, m) = m
+\lambda(m) = 0 \times m
 \] 
 and
 \[
-\rho(m, 0) = m.
+\rho(m) = m \times 0.
 \] 
 
 If we apply \mynameref{def:product_of_morphisms} $\eta \times \mu$ and
@@ -184,9 +184,11 @@ $\mu \times \eta$ on $B$ and $B'$ respectively then we get
 \end{eqnarray}
 If we apply $\mu$ on the result then we get
 \begin{eqnarray}
-\mu \left(\eta \times \idm{M} \left(0 \times m\right) \right) = e \cdot m,
+\mu \left(\eta \times \idm{M} \left(0 \times m\right) \right) 
+= \mu \left( e \times m \right) = e \cdot m,
 \nonumber \\
-\idm{M} \times \eta \left(m \times 0\right) = m \times e.
+\mu \left( \idm{M} \times \eta \left(m \times 0\right) \right) = 
+\mu \left(m \times e \right) = m \cdot e.
 \nonumber
 \end{eqnarray}
 \begin{figure}
@@ -283,11 +285,11 @@ where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
 $m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
 are another isomorphisms:  
 \[
-t \times m \cong_\lambda m
+m \cong_\lambda t \times m
 \]
 and
 \[
-m \times t \cong_\rho m
+m \cong_\rho m \times t 
 \]
 \end{enumerate}
 \end{definition}
@@ -317,9 +319,9 @@ a \otimes \left( b \otimes c \right) \cong_\alpha
 where $\alpha$ is called associator. \index{Associator!definition}
 $e$ can be treated as left and right identity: 
 \begin{eqnarray}
-e \otimes a \cong_\lambda a, 
+a \cong_\lambda e \otimes a, 
 \nonumber \\
-a \otimes e \cong_\rho a,
+a \cong_\rho a \otimes e,
 \nonumber
 \end{eqnarray}
 where $\lambda, \rho$ are called as left and right unitors respectively. \index{Left unitor!definition} \index{Right unitor!definition}
@@ -347,9 +349,9 @@ unitor and right unitors are all identity morphisms i.e.
 The monoidal product is a binary operation that specifies the exact
 monoidal structure. Often it is called as \textit{tensor product} but
 we will avoid the naming because it is not always the same as the
-\mynameref{def:tensor_product} as it is introduced for
-\mynameref{def:hilbert_space}s. Note that the monoidal product is
-\mynameref{def:bifunctor}. 
+\mynameref{def:tensor_product} introduced for
+\mynameref{def:hilbert_space}s. We also note that the monoidal product is
+a \mynameref{def:bifunctor}. 
 \end{remark}
 
 \section{Category of endofunctors}
