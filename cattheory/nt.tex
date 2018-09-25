@@ -7,7 +7,7 @@ via a standard tool.
 
 \section{Definitions}
 
-The natural transformation is not an easy concept compare other one
+The natural transformation is not an easy concept compare other ones
 and requires some additional preparations before we can give the
 formal definition.
 
@@ -63,9 +63,10 @@ special characteristic of the considered functors and categories. For
 instance if we have such morphisms then we can say that the
 considered functors are related each other. Opposite example if there
 are no such morphisms then the functors can be considered as unrelated
-each other. Another example if the
-morphisms are \mynameref{def:isomorphism}s then the functors can be
-considered as very close each other.
+each other. 
+%% Another example if the
+%% morphisms are \mynameref{def:isomorphism}s then the functors can be
+%% considered as very close each other.
 
 \begin{figure}
   \centering
@@ -164,7 +165,11 @@ set of \mynameref{def:morphism}s $\alpha \subset \cathom{D}$ which
 satisfy the following conditions:
 \begin{itemize}
 \item For every \mynameref{def:object} $a \in \catob{C}$ $\exists
-\alpha_a \in \hom\left(a_F, a_G\right)$ - \mynameref{def:morphism}
+\alpha_a \in \hom\left(a_F, a_G\right)$
+\footnote{
+$a_F = F(a), a_G = G(a)$
+}
+- \mynameref{def:morphism}
 in category $\cat{D}$. The morphism $\alpha_a$ is called the component of
 the natural transformation.
 \item For every morphism $f \in \cathom{C}$ that connects 2 objects
@@ -176,7 +181,7 @@ the natural transformation.
     \label{eq:nt_definition}
   \end{equation}
   where $f_F = F(f), f_G = G(f)$.
-  In other words the morphisms the morphisms form a
+  In other words the morphisms form a
   \mynameref{def:commutative_diagram} shown on the \cref{fig:nt_def}. 
 \end{itemize}
 
