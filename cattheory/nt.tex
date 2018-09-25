@@ -298,8 +298,7 @@ composition of natural transformations $\alpha, \beta$ as
 
 
 The natural transformation is not just object mapping but also
-morphism mapping. We will require that all morphisms (see
-\cref{fig:nt_morphism_mapping_composition}) commutes. The composition
+morphism mapping. We will require that all morphisms shown on \cref{fig:nt_morphism_mapping_composition} commute. The composition
 defined in such way is called
 \mynameref{def:vertical_composition}. 
 
@@ -326,7 +325,7 @@ is called \textit{vertical composition}.
 \label{def:horizontal_composition}
 \index{Natural transformation!Horizontal composition}
 If we have 2 pairs of functors. The first one $F,G: \cat{C} \to
-\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. If we have a
+\cat{D}$ and another one $J,K: \cat{D} \tof \cat{E}$. We also have a
 natural transformation between each pair: $\alpha : F \tont
 G$ for the first one and $\beta : J \tont
 K$ for the second one. We can create a new transformation
@@ -350,7 +349,7 @@ objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
   $\otimes: \cat{\mathcal{A}} \times \cat{\mathcal{B}} \tof \cat{\mathcal{C}}$
   where for each pair of objects $F \in \catob{\mathcal{A}}, J \in
   \catob{\mathcal{B}}$ we got another object from $\cat{\mathcal{C}}$.
-  The operation that is used is an ordinary functor's composition.
+  The used operation is an ordinary functor's composition.
   I.e.
   \[
   \otimes: F \times G \to F \circ G \in \catob{\mathcal{C}}.
@@ -358,7 +357,7 @@ objects of 3 categories: $\cat{\mathcal{A}} = \left[\cat{C},
   
   The bifunctor is not just a map for objects. There is also a map
   between morphisms. Thus if we have 2 \mynameref{def:morphism}s:
-  $\alpha : F \to G$ and $\beta : J \to K$ the we can construct the
+  $\alpha : F \to G$ and $\beta : J \to K$ then we can construct the
   following mapping 
   \[
   \otimes: \alpha \times \beta \to \alpha \star \beta \in \cathom{\mathcal{C}}.
@@ -452,7 +451,7 @@ TBD
 
 \subsection{\textbf{Hask} category}
 
-In Haskell the most functions are \mynameref{def:pp_function}s 
+In Haskell most of functions are \mynameref{def:pp_function}s 
 \footnote{really in the run-time the functions are not
   \mynameref{def:pp_function}s}.  
 
@@ -513,8 +512,8 @@ The function is parametricaly polymorphic and by
   \label{fig:nt_pp_hask}
 \end{figure}
 
-From the definition of the natural transformation we have
-\eqref{eq:nt_definition} therefore
+Therefore from the definition of the natural transformation
+\eqref{eq:nt_definition} we have 
 \mintinline{haskell}{fmap f . safeHead = safeHead . fmap f}. I.e. it
 does not matter if we initially apply \mintinline{haskell}{fmap f} and
 then \mintinline{haskell}{safeHead} to the result or initially
@@ -558,6 +557,6 @@ Using the fact that \mintinline{haskell}{fmap f} is an expensive
 operation if it is applied to the list we can conclude that the second
 approach is more productive. Such transformation allows compiler to
 optimize the code.
-\footnote{It is not directly applied to Haskell because it lazy
+\footnote{It is not directly applied to Haskell because it has lazy
   evaluation that can perform optimization before that one}
 \end{example}
