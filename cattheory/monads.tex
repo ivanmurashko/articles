@@ -79,12 +79,12 @@ Monoid associativity requires
 x \cdot (y\cdot z) = 
 (x \cdot y) \cdot z
 \]
-i.e. the morphisms the corresponding morphisms commute:
+i.e. the corresponding morphisms commute:
 \[
 \mu\circ\left(\mu \times \idm{M}\right) =
 \mu \circ \left(\idm{M} \times \mu\right) \circ \alpha.
 \]
-This corresponds the diagram is at \cref{fig:monoid_mu_alpha}.
+This corresponding diagram is shown in \cref{fig:monoid_mu_alpha}.
 
 \begin{figure}
   \centering
@@ -127,7 +127,7 @@ equality is written as follow
 \mu\circ\left(\mu \times \idm{M}\right) =
 \mu \circ \left(\idm{M} \times \mu\right)
 \]
-The corresponding commutative diagram is shown on
+The corresponding commutative diagram is shown in
 \cref{fig:monoid_mu}.
 \begin{figure}
   \centering
@@ -157,7 +157,11 @@ The corresponding commutative diagram is shown on
 \end{figure}
 
 For \eqref{eq:monoid2} consider a morphism $\eta$ from
-a one point set $I = \{0\}$ to a special element $e \in M$ such that
+\mynameref{def:singleton_set} 
+\footnote{
+ It also is called \cite{bib:maclane98} as a one point set
+}
+$I = \{0\}$ to a special element $e \in M$ such that
 $\forall m \in M: e \cdot m = m \cdot e = m$. I.e. $\eta: I \to M$ and
 $e = \eta(0)$. Consider 2 sets $B = I \times M$ and $B' = M \times I$. 
 We have 2 \mynameref{def:isomorphism}s: $B \cong_\lambda M$ and $B'
@@ -357,7 +361,7 @@ $[\cat{C}, \cat{C}]$ - category of functors from category $\cat{C}$ to
 the same category. One of the most popular math definition of a monad
 is the following: 
 ``All told, a monad in X is just a monoid in the category of
-endofunctors of X''\cite{bib:maclane71}.
+endofunctors of X''\cite{bib:maclane98}.
 Later we will give an explanation for that one.
 
 We start with the formal definition of category of endofunctors and a
