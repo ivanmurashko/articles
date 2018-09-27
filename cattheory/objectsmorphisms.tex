@@ -372,7 +372,6 @@ universal construction for the object definition.
 
 \begin{definition}[Exponential]
 \label{def:exponential}
-TBD
 \begin{figure}
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -394,11 +393,20 @@ TBD
     \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
     node[sloped,above]{$g$} (z); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (zyy) to
-    node[sloped,above]{$eval$} (z); 
+    node[sloped,above]{$e$} (z); 
   \end{tikzpicture}
   \caption{Exponential object}
   \label{fig:exponential}
 \end{figure}
+Let $\cat{C}$ is a category and $z, y \in \catob{C}$. We also assume
+that $\cat{C}$ allows all \mynameref{def:product}s with $y$, i.e.
+$\forall z' \in \catob{C}, \exists z' \times y$. An object $z^y$
+together with a \mynameref{def:morphism} $e: z^y \times y \to z$ is 
+an \textit{exponential object} if $\forall g \in \cathom{C}$ and
+$\forall z' \in \catob{C}$ exists an
+unique morphism $h: z' \to z$ such that the
+\mynameref{def:commutative_diagram} shown in \cref{fig:exponential}
+commutes. 
 \end{definition}
 
 \begin{definition}[Cartesian closed category]
