@@ -80,6 +80,13 @@ Let $\cat{C}$ is a \mynameref{def:category}, the
 \exists! f_x: i \to x \in \cathom{C}$.
 \end{definition}
 
+\begin{example}[Initial object][\textbf{Set}]
+\label{ex:set_initial_object}
+Note that there is only one function from empty set to any other sets
+\cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
+as the \mynameref{def:initial_object} in \mynameref{def:setcategory}. 
+\end{example}
+
 \begin{definition}[Terminal object]
 \label{def:terminal_object}
 Let $\cat{C}$ is a \mynameref{def:category}, the
@@ -87,6 +94,12 @@ Let $\cat{C}$ is a \mynameref{def:category}, the
 \textit{terminal object} if $\forall x \in \catob{C}
 \exists! g_x: x \to t \in \cathom{C}$.
 \end{definition}
+
+\begin{example}[Terminal object][\textbf{Set}]
+\label{ex:set_terminal_object}
+\mynameref{def:terminal_object} in \mynameref{def:setcategory} is a set
+with one element i.e \mynameref{def:singleton_set}. 
+\end{example}
 
 As you can see the initial and terminal objects are opposite each
 other. I.e. if $i$ is an \mynameref{def:initial_object} in $\cat{C}$
@@ -226,6 +239,13 @@ commutes, i.e. $\pi'_1 = \pi_1 \circ h, \pi'_2 = \pi_2 \circ h$.
 In other words $h$ factorizes $\pi'_{1,2}$.
 \end{definition}
 
+\begin{example}[Product][\textbf{Set}]
+\label{ex:set_product}
+The \mynameref{def:product} of two sets $A$ and $B$ in
+\mynameref{def:setcategory} is defined 
+as a \mynameref{def:cartesian_product}: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
+\end{example}
+
 If we invert arrows in \mynameref{def:product} we will got another
 object definition that is called sum
 
@@ -270,6 +290,29 @@ commutes, i.e. $i'_1 = h \circ i_1, i'_2 = h \circ i_2$.
 \end{figure}
 In other words $h$ factorizes $i'_{1,2}$.
 \end{definition}
+
+\begin{definition}[Disjoint union]
+  \label{def:disjoint_union}
+  Let $\{A_i: i \in I\}$ be a family of sets 
+  indexed by $I$. The 
+  \textit{disjoint union} \cite{wiki:disjointunion} of this family is
+  the set 
+  \[
+  \sqcup_{i \in I} A_i = \cup_{i \in I}\left\{
+  \left(x, i\right): x \in A_i
+  \right\}.
+  \]
+  The elements of the disjoint union are ordered pairs $(x, i)$. Here $i$
+  serves as an auxiliary index that indicates which $A_i$ the element $x$
+  came from.
+\end{definition}
+
+\begin{example}[Sum][\textbf{Set}]
+  \label{ex:set_sum}
+  The \mynameref{def:sum} of two sets $A$ and $B$ in
+  \mynameref{def:setcategory} is defined as
+  \mynameref{def:disjoint_union}.  
+\end{example}
 
 The \mynameref{def:product} of objects will provide also a definition
 for product of morphisms
@@ -391,7 +434,7 @@ universal construction for the object definition.
     \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
     node[left]{$h \times \idm{y}$} (zyy); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
-    node[sloped,above]{$g$} (z); 
+    node[sloped,above]{$e'$} (z); 
     \draw[->,thick,shorten <=2pt,shorten >=2] (zyy) to
     node[sloped,above]{$e$} (z); 
   \end{tikzpicture}
@@ -402,12 +445,31 @@ Let $\cat{C}$ is a category and $z, y \in \catob{C}$. We also assume
 that $\cat{C}$ allows all \mynameref{def:product}s with $y$, i.e.
 $\forall z' \in \catob{C}, \exists z' \times y$. An object $z^y$
 together with a \mynameref{def:morphism} $e: z^y \times y \to z$ is 
-an \textit{exponential object} if $\forall g \in \cathom{C}$ and
+an \textit{exponential object} if $\forall e' \in \cathom{C}$ and
 $\forall z' \in \catob{C}$ exists an
 unique morphism $h: z' \to z$ such that the
 \mynameref{def:commutative_diagram} shown in \cref{fig:exponential}
-commutes. 
+commutes:
+\[
+e' = e \circ \left(h \times \idm{y} \right)
+\]
 \end{definition}
+
+\begin{example}[Exponential][\textbf{Set}]
+\label{ex:exponential_set}
+Lets look at the \mynameref{def:exponential} in $\cat{Set}$. We want
+to show that the object corresponds to the function. Really if we want
+to define a function $f: X \to Y$ then we should look at the
+\mynameref{ex:homset} $F = X \to Y$. $f \in F$ - is an element of the
+Hom-set. For the function application we have to take the argument $x
+\in X$ and the function we want to apply $f \in F$. Then we construct
+the pair $(f,x) \in F \times X$. For the function application we have
+to call a \mynameref{def:morphism} $e: F \times X \to Z$.
+\footnote{$e$ from the word ``eval''}
+I.e. the
+application $e(f, x)$ gives us $e(f, x) = y \in Y$ - the function
+value. 
+\end{example}
 
 \begin{definition}[Cartesian closed category]
 \label{def:cartesian_closed_category}
@@ -422,74 +484,14 @@ called \textit{Cartesian closed category}
 \end{enumerate}
 \end{definition}
 
-\section{Programming languages and algebraic data types}
-TBD
-
-\section{Examples}
-
-\subsection{\textbf{Set} category}
-\begin{example}[Initial object][\textbf{Set}]
-\label{ex:set_initial_object}
-Note that there is only one function from empty set to any other sets
-\cite{bib:proofwiki:Empty_Mapping_is_Unique} that makes the empty set
-as the \mynameref{def:initial_object} in \mynameref{def:setcategory}. 
-\end{example}
-
-\begin{example}[Terminal object][\textbf{Set}]
-\label{ex:set_terminal_object}
-\mynameref{def:terminal_object} in \mynameref{def:setcategory} is a set
-with one element i.e \mynameref{def:singleton_set}. 
-\end{example}
-
-\begin{example}[Product][\textbf{Set}]
-\label{ex:set_product}
-The \mynameref{def:product} of two sets $A$ and $B$ in
-\mynameref{def:setcategory} is defined 
-as a \mynameref{def:cartesian_product}: $A \times B = \{(a,b)| a \in A, b \in B\}$. 
-\end{example}
-
-\begin{definition}[Disjoint union]
-  \label{def:disjoint_union}
-  Let $\{A_i: i \in I\}$ be a family of sets 
-  indexed by $I$. The 
-  \textit{disjoint union} \cite{wiki:disjointunion} of this family is
-  the set 
-  \[
-  \sqcup_{i \in I} A_i = \cup_{i \in I}\left\{
-  \left(x, i\right): x \in A_i
-  \right\}.
-  \]
-  The elements of the disjoint union are ordered pairs $(x, i)$. Here $i$
-  serves as an auxiliary index that indicates which $A_i$ the element $x$
-  came from.
-\end{definition}
-
-\begin{example}[Sum][\textbf{Set}]
-  \label{ex:set_sum}
-  The \mynameref{def:sum} of two sets $A$ and $B$ in
-  \mynameref{def:setcategory} is defined as
-  \mynameref{def:disjoint_union}.  
-\end{example}
-
-%% The monoid definition (\cref{def:monoid}) is not quite that we need
-%% because it uses internal structure of the monoid for the description
-%% i.e. it works in the terms of Set theory but not Category one. We will
-%% use another definition from \cite{bib:maclane71}. 
-%% \begin{definition}[Monoidal object]
-%% \label{def:monoidal_object}
-%% Consider a category $\cat{C}$ and an object $t$ that belongs to the
-%% category. 
-%% \end{definition}
-
-
-\subsection{Programming languages}
+\section{Programming languages}
 In our toy example \cref{fig:pl_example} the type String is
 \mynameref{def:initial_object} and type Bool is the
 \mynameref{def:terminal_object}. From other side there are types in
 different programming languages that satisfies the definitions of
 initial and terminal objects.
 
-\subsubsection{\textbf{Hask} category}
+\subsection{\textbf{Hask} category}
 \begin{example}[Initial object][\textbf{Hask}]
 If we avoid lazy evaluations in Haskell (see
 \mynameref{rem:hask_lazy_eval}) then we can found several types
@@ -564,7 +566,7 @@ factor _ g (Right y) = g y
 \end{example}
 
 
-\subsubsection{\textbf{C++} category}
+\subsection{\textbf{C++} category}
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
 In C++ exists a special type that does not hold any values and as
@@ -714,7 +716,7 @@ considered as a product.
 
 \end{example}
 TBD
-\subsubsection{\textbf{Scala} category}
+\subsection{\textbf{Scala} category}
 \begin{example}[Initial object][\textbf{Scala}]
 \label{ex:scala_initial_object}
 We used a same trick as for \mynameref{ex:hask_initial_object} in
@@ -742,7 +744,7 @@ i.e. you can create only one element of the type.
 
 TBD
 
-\subsection{Quantum mechanics}
+\section{Quantum mechanics}
 \begin{example}[Initial object][\textbf{FdHilb}]
 \label{ex:quant_initial_object}
 We will use a Hilber space of dimensional 0 as the
