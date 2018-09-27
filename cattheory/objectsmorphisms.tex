@@ -368,13 +368,37 @@ category. I.e. if $\cat{C}$ is a category and $a, b \in \catob{C}$
 then the Hom-set $a \to b \in \catob{Set}$ but we now want to
 construct something like to the Home-set but that is an object in
 $\cat{C}$. This will be called as the function object. We will use the
-universal construction for the building. 
-
-TBD
+universal construction for the object definition.
 
 \begin{definition}[Exponential]
 \label{def:exponential}
 TBD
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    
+    \node[ele,label=above:$z'$] (z1) at (0,3) {};    
+    \node[ele,label=below:$z^y$] (zy) at (0,0) {};    
+    \node[ele,label=above:$z' \times y$] (z1y) at (3,3) {};
+    \node[ele,label=below:$z^y \times y$] (zyy) at (3,0) {};
+    \node[ele,label=below:$z$] (z) at (6,0) {};
+
+    \draw[->,thick,shorten <=2pt,shorten >=2pt] (z1) to
+    node[left]{$h$} (zy);
+    \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
+    node[left]{$h \times \idm{y}$} (zyy); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (z1y) to
+    node[sloped,above]{$g$} (z); 
+    \draw[->,thick,shorten <=2pt,shorten >=2] (zyy) to
+    node[sloped,above]{$eval$} (z); 
+  \end{tikzpicture}
+  \caption{Exponential object}
+  \label{fig:exponential}
+\end{figure}
 \end{definition}
 
 \begin{definition}[Cartesian closed category]
