@@ -193,6 +193,11 @@ Just got to the \mynameref{def:op_category} and revert arrows in
 \end{proof}
 \end{theorem}
 
+\begin{example}[Toy example]
+In our toy example \cref{fig:pl_example} the type String is
+\mynameref{def:initial_object} and type Bool is the
+\mynameref{def:terminal_object}.
+\end{example}
 
 \section{Product and sum}
 The pair of 2 objects is defined via the universal property in
@@ -484,12 +489,31 @@ called \textit{Cartesian closed category}
 \end{enumerate}
 \end{definition}
 
-\section{Programming languages}
-In our toy example \cref{fig:pl_example} the type String is
-\mynameref{def:initial_object} and type Bool is the
-\mynameref{def:terminal_object}. From other side there are types in
-different programming languages that satisfies the definitions of
-initial and terminal objects.
+\section{Type algebra and Curry-Howard-Lambek correspondence}
+There is an interesting correspondence between computer programs and
+mathematical proofs.
+
+The correspondence can be written in the form of the
+\cref{tab:curry_howard_lambek} 
+\begin{table}
+  \centering
+  \caption{Relation between logic proofs and programming languages}
+  \label{tab:curry_howard_lambek}
+  \begin{adjustbox}{width=1\textwidth}
+    \small
+    \begin{tabular}{l|l|l}
+      \toprule
+      Logic & Programming language & Categorical object\\
+      \midrule
+      Implication & Function type & \mynameref{def:exponential} \\
+      Conjunction & Product type & \mynameref{def:product} \\
+      Disjunction & Sum type & \mynameref{def:sum} \\
+      true & unit type & \mynameref{def:terminal_object} \\
+      false & botom type & \mynameref{def:initial_object} \\
+      \bottomrule
+    \end{tabular}
+  \end{adjustbox}
+\end{table}
 
 \subsection{\textbf{Hask} category}
 \begin{example}[Initial object][\textbf{Hask}]
