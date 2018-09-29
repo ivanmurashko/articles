@@ -68,6 +68,44 @@ The initial category can be considered as a pattern thus the mapping
 is some kind of searching of the pattern inside another category.
 \end{remark}
 
+Programming languages can be considered as a good platform for the
+functor examples. 
+The functor can be defined in Haskell as follows
+\footnote{the real definition is quite different from the current one}
+\begin{example}[Functor][\textbf{Hask}]
+\label{ex:functor_haskell}
+\begin{minted}{haskell}
+class Functor f where
+    fmap :: (a -> b) -> f a -> f b
+\end{minted} 
+\end{example}
+The concrete example is the following
+\begin{example}[Maybe as a functor][\textbf{Hask}]
+\label{ex:maybe_functor}
+Lets show how the \mintinline{haskell}{Maybe a} type can be
+constructed from different 
+\mynameref{def:functor}s and as result show that the
+\mintinline{haskell}{Maybe a} is also a
+\mynameref{def:functor}. 
+\begin{minted}{haskell}
+data Maybe a = Nothing | Just a
+-- This is equivalent to
+data Maybe a = Either () (Identity a)
+-- Either is a bifunctor and () == Const () a 
+-- Thus Maybe is a composition of 2 functors 
+\end{minted}
+\end{example}
+
+
+In Scala it can be defined in the same way
+\begin{example}[Functor][\textbf{Scala}]
+\label{ex:functor_scala}
+\begin{minted}{scala}
+trait Functor[F[_]] {
+  def fmap[A, B](f: A => B): F[A] => F[B]
+}\end{minted} 
+\end{example}
+
 \begin{definition}[Endofunctor]
 \label{def:endofunctor}
 Let $\cat{C}$ is a \mynameref{def:category}. The
@@ -110,6 +148,7 @@ called \textit{functor composition} and denoted as $H = G \circ F$.
 TBD
 \end{definition}
 
+\section{\textbf{Cat} category}
 The \mynameref{def:functor_composition} is associative by definition.
 Therefore \mynameref{def:idfunctor} with the associative composition
 allow us to define a category where other categories are considered as
@@ -141,6 +180,27 @@ a new category $\cat{C} \times \cat{D}$ with the following components:
 \end{itemize}
 \end{definition}
 
+\begin{definition}[Terminal object in \textbf{Cat} category]
+\label{def:terminal_object_cat}
+\index{Terminal object!\textbf{Cat} category}
+Let consider $\Delta_c$ is a trivial functor from \mynameref{def:category}
+$\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
+\Delta_c a = c$ -fixed object in $\cat{C}$ and 
+$\forall f \in \cathom{A}: \Delta_c f = \idm{c}$.
+\end{definition}
+
+The good example can be found in $\cat{Hask}$ category.
+\begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
+\label{ex:terminal_object_cat_hask}
+\begin{minted}{haskell}
+data Const c a = Const c
+fmap :: (a -> b) -> Const c a -> Const c b
+fmap f (Const c a) = Const c
+\end{minted}
+\end{example}
+
+\section{Bifunctors}
+
 \begin{definition}[Bifunctor]
 \label{def:bifunctor}
 Bifunctor is a \mynameref{def:functor} whose \mynameref{def:domain} is
@@ -151,39 +211,6 @@ F: \cat{C_1} \times \cat{C_2} \tof \cat{D}
 \) is called \textit{bifunctor}.
 \end{definition}
 
-\begin{definition}[Terminal object in \textbf{Cat} category]
-\label{def:terminal_object_cat}
-\index{Terminal object!\textbf{Cat} category}
-Let consider $\Delta_c$ is a trivial functor from \mynameref{def:category}
-$\cat{A}$ to category $\cat{C}$ such that $\forall a \in \catob{A}:
-\Delta_c a = c$ -fixed object in $\cat{C}$ and 
-$\forall f \in \cathom{A}: \Delta_c f = \idm{c}$.
-\end{definition}
-
-\begin{definition}[Contravariant functor]
-\label{def:contravariant_functor}
-If we have categories $\cat{C}$ and $\cat{D}$ then the
-\mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
-\textit{contravariant functor}. 
-\end{definition}
-
-\begin{definition}[Profunctor]
-\label{def:profunctor}
-If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
-$\cat{C^{op}} \times \cat{C} \tof \cat{C}$ is called
-\textit{profunctor}. 
-\end{definition}
-
-\section{Curry-Howard-Lambek correspondence}
-There is an interesting correspondence between computer programs and
-mathematical proofs.
-
-TBD
-
-\section{Examples}
-
-\subsection{\textbf{Set} category}
-
 \begin{example}[Bifunctor][\textbf{Set}]
 \label{ex:product_bifunctor}
 Lets $A,B,C$ and $D$ are sets and $f: A \to C, g: B \to D$ are two
@@ -192,44 +219,12 @@ with \mynameref{def:product_of_morphisms} form a
 \mynameref{def:bifunctor} $\times$.
 \end{example}
 
-\subsection{Programming languages}
-
-\subsubsection{\textbf{Hask} category}
-The functor can be defined in Haskell as follows
-\footnote{the real definition is quite different from the current one}
-\begin{example}[Functor][\textbf{Hask}]
-\label{ex:functor_haskell}
-\begin{minted}{haskell}
-class Functor f where
-    fmap :: (a -> b) -> f a -> f b
-\end{minted} 
-\end{example}
-
-
-\begin{example}[Terminal object in \textbf{Cat} category][\textbf{Hask}]
-\label{ex:terminal_object_cat_hask}
-\begin{minted}{haskell}
-data Const c a = Const c
-fmap :: (a -> b) -> Const c a -> Const c b
-fmap f (Const c a) = Const c
-\end{minted}
-\end{example}
-
-\begin{example}[Maybe as a functor][\textbf{Hask}]
-\label{ex:maybe_functor}
-Lets show how the \mintinline{haskell}{Maybe a} type can be
-constructed from different 
-\mynameref{def:functor}s and as result show that the
-\mintinline{haskell}{Maybe a} is also a
-\mynameref{def:functor}. 
-\begin{minted}{haskell}
-data Maybe a = Nothing | Just a
--- This is equivalent to
-data Maybe a = Either () (Identity a)
--- Either is a bifunctor and () == Const () a 
--- Thus Maybe is a composition of 2 functors 
-\end{minted}
-\end{example}
+\begin{definition}[Contravariant functor]
+\label{def:contravariant_functor}
+If we have categories $\cat{C}$ and $\cat{D}$ then the
+\mynameref{def:functor} $\cat{C^{op}} \tof \cat{D}$ is called
+\textit{contravariant functor}. 
+\end{definition}
 
 \begin{example}[Contravariant functor][\textbf{Hask}]
 \label{ex:contravariant_functor_hask}
@@ -239,6 +234,13 @@ class Contravariant f where
       contramap :: (a -> b) -> f b -> f a
 \end{minted}
 \end{example}
+
+\begin{definition}[Profunctor]
+\label{def:profunctor}
+If we have a category $\cat{C}$ then the \mynameref{def:bifunctor}
+$\cat{C^{op}} \times \cat{C} \tof \cat{C}$ is called
+\textit{profunctor}. 
+\end{definition}
 
 \begin{example}[Profunctor][\textbf{Hask}]
 \label{ex:contravariant_functor_hask}
@@ -252,22 +254,14 @@ class Profunctor p where
 \end{example}
 
 
-\subsubsection{\textbf{C++} category}
-TBD
-
-\subsubsection{\textbf{Scala} category}
-The functor can be defined in Haskell as follows
-\footnote{the real definition is quite different from the current one}
-\begin{example}[Functor][\textbf{Scala}]
-\label{ex:functor_scala}
-\begin{minted}{scala}
-trait Functor[F[_]] {
-  def fmap[A, B](f: A => B): F[A] => F[B]
-}\end{minted} 
-\end{example}
+\section{Curry-Howard-Lambek correspondence}
+There is an interesting correspondence between computer programs and
+mathematical proofs.
 
 TBD
 
-\subsection{Quantum mechanics}
 
-TBD
+
+
+
+
