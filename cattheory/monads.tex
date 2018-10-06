@@ -287,16 +287,18 @@ conditions satisfied:
   the category
 \item there is another morphism $\eta: t \to m$
 \item the morphisms satisfy the following conditions:
-\begin{eqnarray}
-\label{eq:monoid_def}
+\begin{equation}
 \mu\circ\left(\mu \times
     \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right) \circ
     \alpha,
-\nonumber \\
+\label{eq:monoid_def_mu}
+\end{equation}
+\begin{equation}
 \mu \circ (\eta \times \idm{M})
 \circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
 \idm{M}
-\end{eqnarray}
+\label{eq:monoid_def_eta}
+\end{equation}
 where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
 $m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
 are another isomorphisms:  
@@ -457,7 +459,7 @@ at the same point. The equality
 \end{equation}
 is similar to the conditions on the \cref{fig:monoid_mu} and can be
 rewritten on \cref{fig:monad_monoid1}. Thus if we compare
-\eqref{eq:monoidalobject1} and \eqref{eq:monoid_def} then we can say
+\eqref{eq:monoidalobject1} and \eqref{eq:monoid_def_mu} then we can say
 that they are same if we replace $\star$ sign with $\times$ one. I.e.
 in the case we can say that the monad looks like a
 \mynameref{def:monoid_category}. 
@@ -489,7 +491,7 @@ in the case we can say that the monad looks like a
 \end{figure}
 
 For the identity element consider the same trick: replace in
-\eqref{eq:monoid_def} tensor
+\eqref{eq:monoid_def_eta} tensor
 product $\times$ with \mynameref{def:horizontal_composition} $\star$ and
 identity morphism $\idm{M}, \rho, \lambda$ with identity natural transformation
 $\idnt{M}$. The result will e the following:
