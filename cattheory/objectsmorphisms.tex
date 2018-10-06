@@ -506,8 +506,10 @@ TBD
 
 \begin{definition}[\textbf{Proof} category]
 \label{def:proof_category}
-The $\cat{Proof}$ category is a category where statements are
-\mynameref{def:object}s and proofs are \mynameref{def:morphism}s
+The $\cat{Proof}$ category is a category where \mynameref{def:proposition}s are
+\mynameref{def:object}s and \mynameref{def:proof}s are
+\mynameref{def:morphism}s. I.e. proofs are used as connectors between
+different propositions.
 \end{definition}
 
 Consider different objects and constructions of the proof (logic)
@@ -549,7 +551,7 @@ The correspondence can be written in the form of the
       \mynameref{def:cartesian_closed_category}\\
       \midrule
       \mynameref{def:proposition} & Type & \mynameref{def:object} \\
-      Implication & Function type & \mynameref{def:exponential} \\
+      \mynameref{def:proof} & Function type & \mynameref{def:exponential} \\
       Conjunction & Product type & \mynameref{def:product} \\
       Disjunction & Sum type & \mynameref{def:sum} \\
       true & unit type & \mynameref{def:terminal_object} \\

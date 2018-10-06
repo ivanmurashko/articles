@@ -232,19 +232,35 @@ for the construction. The first one is the product of 2 objects:
 \[
 M \times M.
 \]
-We also have 2 morphisms:
-\[
-\mu: M \times M \to M
-\]
-and
-\[
+We also have 2 pairs of morphisms:
+\begin{eqnarray}
+\mu: M \times M \to M,
+\nonumber \\
 \idm{M}: M \to M.
-\]
-The 2 morphisms were combined into one using
-\mynameref{def:product_of_morphisms} for instance:
-\[
-\mu \times \idm{M}: \left(M \times M\right) \times M \to M \times M
-\]
+\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+\eta: I \to M, 
+\nonumber \\
+\idm{M}: M \to M.
+\nonumber
+\end{eqnarray}
+The pairs can be combined into one using
+\mynameref{def:product_of_morphisms} as follows:
+\begin{eqnarray}
+\mu \times \idm{M}: \left(M \times M\right) \times M \to M \times M,
+\nonumber \\
+\idm{M} \times \mu: M \times \left(M \times M\right) \to M \times M
+\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+\eta \times \idm{M}: I \times M \to M \times M,
+\nonumber \\
+\idm{M} \times \eta: M \times I \to M \times M.
+\nonumber
+\end{eqnarray}
 The same structure 
 \footnote{not only objects mapping but also morphisms mapping}
 is used by
@@ -272,6 +288,7 @@ conditions satisfied:
 \item there is another morphism $\eta: t \to m$
 \item the morphisms satisfy the following conditions:
 \begin{eqnarray}
+\label{eq:monoid_def}
 \mu\circ\left(\mu \times
     \idm{M}\right) = \mu \circ \left(\idm{M} \times \mu\right) \circ
     \alpha,
@@ -279,7 +296,6 @@ conditions satisfied:
 \mu \circ (\eta \times \idm{M})
 \circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
 \idm{M}
-\label{eq:monoid_def}
 \end{eqnarray}
 where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
 $m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
@@ -472,8 +488,23 @@ in the case we can say that the monad looks like a
   \label{fig:monad_monoid1}
 \end{figure}
 
-For the identity element consider the same trick and replace 
-TBD
+For the identity element consider the same trick: replace in
+\eqref{eq:monoid_def} tensor
+product $\times$ with \mynameref{def:horizontal_composition} $\star$ and
+identity morphism $\idm{M}, \rho, \lambda$ with identity natural transformation
+$\idnt{M}$. The result will e the following:
+\[
+\mu \circ (\eta \times \idm{M})
+\circ \lambda = \mu \circ (\idm{M} \times \mu) \circ \rho =
+\idm{M}
+\]
+will be replaced with
+\[
+\mu \circ (\eta \star \idnt{M}) = \mu \circ (\idnt{M} \star \mu) =
+\idnt{M}
+\]
+that is the exact we want to get (see second equation of
+\eqref{eq:monad_p1}). 
 
 %% There should be an identity element for each \mynameref{def:monoid}.
 %% Lets show that the second equation of  \eqref{eq:monad_p1} provides us
