@@ -491,7 +491,13 @@ called \textit{Cartesian closed category}
 
 \section{Type algebra and Curry-Howard-Lambek correspondence}
 There is an interesting correspondence between computer programs and
-mathematical proofs.
+mathematical proofs. First of all consider a category of proofs
+\subsection{\textbf{Proof} category}
+\begin{definition}[\textbf{Proof} category]
+\label{def:proof_category}
+The $\cat{Proof}$ category is a category where statements are
+\mynameref{def:object}s and proofs are \mynameref{def:morphism}s
+\end{definition}
 
 The correspondence can be written in the form of the
 \cref{tab:curry_howard_lambek} 
@@ -503,7 +509,8 @@ The correspondence can be written in the form of the
     \small
     \begin{tabular}{l|l|l}
       \toprule
-      Logic & Programming language & \mynameref{def:cartesian_closed_category}\\
+      \mynameref{def:proof_category} & Programming language & 
+      \mynameref{def:cartesian_closed_category}\\
       \midrule
       Proposition & Type & \mynameref{def:object} \\
       Implication & Function type & \mynameref{def:exponential} \\
