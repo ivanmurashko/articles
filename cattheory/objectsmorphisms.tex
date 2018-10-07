@@ -553,7 +553,7 @@ Conjunction or logical OR is the operation with following rules
   \end{table}
 \end{definition}
 
-The operation in Boolean logic follow the distributive low:
+Operations in Boolean logic follow the distributive low:
 \begin{equation}
 a \land ( b \lor c) = (a \land b) \lor (a \land c) 
 \nonumber
@@ -585,18 +585,21 @@ The \textit{true} statement can be considered as the terminal object
 
 \begin{example}[Product][\textbf{Proof}]
 \label{ex:proof_product}
-TBD
+\mynameref{def:conjunction} can be considered as
+\mynameref{def:product} in \mynameref{def:proof_category}.
 \end{example}
 
 \begin{example}[Sum][\textbf{Proof}]
 \label{ex:proof_sum}
-TBD
+\mynameref{def:disjunction} can be considered as
+\mynameref{def:sum} in \mynameref{def:proof_category}.
 \end{example}
 
-
-The correspondence can be written in the form of the
-\cref{tab:curry_howard_lambek} 
-\begin{table}
+Thus we can declare the following correspondence (see
+\cref{tab:curry_howard_lambek}) between logic 
+proofs and \mynameref{def:cartesian_closed_category} and therefore
+also between programming languages.
+\begin{table}[H]
   \centering
   \caption{Relation between logic proofs and programming languages}
   \label{tab:curry_howard_lambek}
