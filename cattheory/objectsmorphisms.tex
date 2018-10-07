@@ -499,11 +499,67 @@ mathematical proofs. First of all consider a category of proofs
 TBD
 \end{definition}
 
+There are 2 main propositions
+\begin{definition}[True]
+\label{def:true}
+TBD
+\end{definition}
+and
+\begin{definition}[False]
+\label{def:false}
+TBD
+\end{definition}
+
+
 \begin{definition}[Proof]
 \label{def:proof}
 TBD
 \end{definition}
 
+Propositions can be combined into new propositions via the following
+logical operations
+\begin{definition}[Conjunction]
+\label{def:conjunction}
+Conjunction or logical AND is the operation with following rules
+  \begin{table}[H]
+    \centering
+    \caption{Conjunction}
+    \label{tab:conjunction}
+      \begin{tabular}{|l|l|l|}
+        \hline
+        $a$ & $b$ & $a \land b$ \\ \hline
+        True & True & True \\ \hline
+        True & False & False \\ \hline
+        False & True & False \\ \hline
+        False & False & False \\ \hline
+      \end{tabular}
+  \end{table}
+\end{definition}
+\begin{definition}[Disjunction]
+\label{def:disjunction}
+Conjunction or logical OR is the operation with following rules
+  \begin{table}[H]
+    \centering
+    \caption{Disjunction}
+    \label{tab:disjunction}
+      \begin{tabular}{|l|l|l|}
+        \hline
+        $a$ & $b$ & $a \lor b$ \\ \hline
+        True & True & True \\ \hline
+        True & False & True \\ \hline
+        False & True & True \\ \hline
+        False & False & False \\ \hline
+      \end{tabular}
+  \end{table}
+\end{definition}
+
+The operation in Boolean logic follow the distributive low:
+\begin{equation}
+a \land ( b \lor c) = (a \land b) \lor (a \land c) 
+\nonumber
+\end{equation}
+i.e. the operation $\land$ corresponds to multiplication and $\lor$ to
+sum. 
 
 \begin{definition}[\textbf{Proof} category]
 \label{def:proof_category}
@@ -553,10 +609,10 @@ The correspondence can be written in the form of the
       \midrule
       \mynameref{def:proposition} & Type & \mynameref{def:object} \\
       \mynameref{def:proof} & Function type & \mynameref{def:exponential} \\
-      Conjunction & Product type & \mynameref{def:product} \\
-      Disjunction & Sum type & \mynameref{def:sum} \\
-      true & unit type & \mynameref{def:terminal_object} \\
-      false & botom type & \mynameref{def:initial_object} \\
+      \mynameref{def:conjunction} & Product type & \mynameref{def:product} \\
+      \mynameref{def:disjunction} & Sum type & \mynameref{def:sum} \\
+      \mynameref{def:true} & unit type & \mynameref{def:terminal_object} \\
+      \mynameref{def:false} & botom type & \mynameref{def:initial_object} \\
       \bottomrule
     \end{tabular}
   \end{adjustbox}
