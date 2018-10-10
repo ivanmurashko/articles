@@ -508,6 +508,29 @@ There is an example of incorrect (false) proposition
 TBD
 \end{example}
 
+\begin{definition}[Implication]
+\label{def:implication} \textit{An implication} is a
+\mynameref{def:proposition} of the form $P \implies Q$ i.e. if $P$
+then $Q$.
+\end{definition}
+
+The main logical deduction rule is the following
+\begin{definition}[Modus ponens]
+\label{def:modusponens}
+If $P$ is true and $P \implies Q$ is true then $Q$ is also true. The
+rule is often written as 
+\[
+\frac{
+\begin{array}{c}
+P \\
+P \implies Q
+\end{array}
+}{Q}
+\]
+where if statements above the line are true then the statement below
+the line is also true.
+\end{definition}
+
 There are 2 main propositions
 \begin{definition}[True]
 \label{def:true}
@@ -619,7 +642,8 @@ also between programming languages.
       \mynameref{def:proof_category} & Programming language & 
       \mynameref{def:cartesian_closed_category}\\
       \midrule
-      \mynameref{def:proposition} & Type & \mynameref{def:object} \\
+      \mynameref{def:proposition}/\mynameref{def:implication} & Type &
+      \mynameref{def:object} \\ 
       \mynameref{def:proof} & Function type & \mynameref{def:exponential} \\
       \mynameref{def:conjunction} & Product type & \mynameref{def:product} \\
       \mynameref{def:disjunction} & Sum type & \mynameref{def:sum} \\
