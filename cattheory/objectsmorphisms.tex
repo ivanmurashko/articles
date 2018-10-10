@@ -499,26 +499,45 @@ mathematical proofs. First of all consider a category of proofs
 \textit{Proposition} is a statement that either true or false.
 \end{definition}
 
+There are 2 main propositions
+\begin{definition}[True]
+\label{def:true}
+A true statement is one that is correct, either in all cases or at
+least in the sample case \cite{bib:studycom:truefalse}. 
+\end{definition}
+and
+\begin{definition}[False]
+\label{def:false}
+A false statement is one that is not correct \cite{bib:studycom:truefalse}. 
+\end{definition}
+
+
 \begin{example}[Proposition]
 \label{ex:proposition}
 There is an example of correct (true) proposition
-TBD
+\[
+\forall n \in \mathbb{R}: n^2 \ge 0
+\]
 
 There is an example of incorrect (false) proposition
-TBD
+\[
+\forall n \in \mathbb{C}: n^2 \ge 0,
+\]
+for instance $i \in \mathbb{C}$ gives $i^2 = -1$.
+
 \end{example}
 
 \begin{definition}[Implication]
 \label{def:implication} \textit{An implication} is a
 \mynameref{def:proposition} of the form $P \implies Q$ i.e. if $P$
-then $Q$.
+then $Q$ \cite{bib:whatisaproof}.
 \end{definition}
 
 The main logical deduction rule is the following
 \begin{definition}[Modus ponens]
 \label{def:modusponens}
 If $P$ is true and $P \implies Q$ is true then $Q$ is also true. The
-rule is often written as 
+rule is often written as \cite{bib:whatisaproof}
 \[
 \frac{
 \begin{array}{c}
@@ -530,18 +549,6 @@ P \implies Q
 where if statements above the line are true then the statement below
 the line is also true.
 \end{definition}
-
-There are 2 main propositions
-\begin{definition}[True]
-\label{def:true}
-TBD
-\end{definition}
-and
-\begin{definition}[False]
-\label{def:false}
-TBD
-\end{definition}
-
 
 \begin{definition}[Proof]
 \label{def:proof}
