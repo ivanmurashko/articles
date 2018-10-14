@@ -396,6 +396,37 @@ Another one is additional \mynameref{def:monoid} that has
 that case  is often denoted as $\mathbf{0}$. I.e. we can see a direct
 connection with addition in algebra.
 
+If we do such consideration then we can make a step forward and look
+at the distributive law that sum and multiplication satisfy.
+\begin{definition}[Distributive category]
+\label{def:distributive_category}
+A category $\cat{C}$ is \textit{distributive} if 
+\cite{wiki:distributive_category}
+it has finite
+\mynameref{def:product}s and \mynameref{def:sum}s such that 
+$\forall a,b,c \in \catob{C}$:
+\[
+a \times b \oplus a \times c \cong a \times ( b \oplus c )
+\]
+and 
+\[
+a \times 0 \cong 0
+\]
+where $\mathbf{0}$ is the \mynameref{def:initial_object}.
+\end{definition} 
+
+\begin{example}[Distributive category]
+\label{ex:distributive_category}
+\mynameref{def:setcategory} is an example 
+\cite{wiki:distributive_category}
+of \mynameref{def:distributive_category}
+
+From other hand not all categories which have both product and sum are
+distributive. One of such example is a category of all groups
+\cite{wiki:distributive_category} 
+$\cat{Grp}$ where groups are considered as objects and group
+homomorphisms as morphisms. 
+\end{example}
 
 \section{Exponential}
 We are going to talk about functions (aka morphisms) as
@@ -488,6 +519,16 @@ called \textit{Cartesian closed category}
   $a^b \in \catob{C}$
 \end{enumerate}
 \end{definition}
+
+\begin{theorem}[Cartesian closed category]
+\label{them:ccc}
+If $\cat{C}$ is a \mynameref{def:cartesian_closed_category} with
+finite \mynameref{def:sum} then it is a
+\mynameref{def:distributive_category}.
+\begin{proof}
+TBD
+\end{proof}
+\end{theorem}
 
 \section{Type algebra and Curry-Howard-Lambek correspondence}
 \label{sec:curry_howard_lambek}
@@ -600,7 +641,8 @@ a \land ( b \lor c) = (a \land b) \lor (a \land c)
 \nonumber
 \end{equation}
 i.e. the operation $\land$ corresponds to multiplication and $\lor$ to
-sum. 
+sum. Therefore the $\cat{Proof}$ can be considered as a
+\mynameref{def:distributive_category}. 
 
 \begin{definition}[\textbf{Proof} category]
 \label{def:proof_category}
