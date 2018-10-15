@@ -521,7 +521,7 @@ called \textit{Cartesian closed category}
 \end{definition}
 
 \begin{theorem}[Cartesian closed category]
-\label{them:ccc}
+\label{thm:ccc}
 If $\cat{C}$ is a \mynameref{def:cartesian_closed_category} with
 finite \mynameref{def:sum} then it is a
 \mynameref{def:distributive_category}.
@@ -779,6 +779,18 @@ factor _ g (Right y) = g y
 \end{minted}
 \end{example}
 
+\begin{example}[Distributive category][\textbf{Hask}]
+As soon as $\cat{Hask}$ is a \mynameref{def:cartesian_closed_category}
+then by \cref{thm:ccc} it is a \mynameref{def:distributive_category}
+i.e. one can conclude that
+\begin{minted}{haskell}
+(a,Either b c)
+\end{minted}
+is the same to
+\begin{minted}{haskell}
+Either (a, b) (a, c)
+\end{minted}
+\end{example}
 
 \subsection{\textbf{C++} category}
 \begin{example}[Initial object][\textbf{C++}]
