@@ -792,6 +792,33 @@ Either (a, b) (a, c)
 \end{minted}
 \end{example}
 
+\begin{example}[Exponential][\textbf{Hask}]
+\label{ex:exponential_hask}
+It's not surprisingly that the \mynameref{def:exponential} in
+$\cat{Hask}$ is a function object i.e. $b^a$ can be written as  
+\mintinline{haskell}{a -> b}.
+\end{example}
+
+\begin{example}[Type algebra]
+\cref{ex:exponential_hask} gives interesting results with types
+manipulations. For instance the type $a^{b+c}$ can be written as
+\begin{minted}{haskell}
+Either b c -> a
+\end{minted}
+for the function we should have both functions 
+\mintinline{haskell}{b -> a} and \mintinline{haskell}{b -> c}. I.e.
+the code is equivalent to the following one
+\begin{minted}{haskell}
+(b -> a, c -> a)
+\end{minted}
+These transformations correspond to the following simple algebraic
+equation 
+\[
+a^{b+c} = a^b a^c.
+\]
+This is also called as \textit{type algebra}.
+\end{example}
+
 \subsection{\textbf{C++} category}
 \begin{example}[Initial object][\textbf{C++}]
 \label{ex:cpp_initial_object}
