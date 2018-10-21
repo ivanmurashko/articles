@@ -83,12 +83,12 @@ Monoid associativity requires
 x \cdot (y\cdot z) = 
 (x \cdot y) \cdot z
 \]
-i.e. the morphisms commute:
-\[
+i.e. the morphisms is shown in \cref{fig:monoid_mu_alpha} commute:
+\begin{equation}
+\label{eq:monad_monoid_mu}
 \mu\circ\left(\mu \times \idm{M}\right) =
 \mu \circ \left(\idm{M} \times \mu\right) \circ \alpha.
-\]
-This corresponding diagram is shown in \cref{fig:monoid_mu_alpha}.
+\end{equation}
 
 \begin{figure}
   \centering
@@ -126,10 +126,10 @@ M\times\left(M \times M\right)
 = \left(M \times M\right)\times M = M^3
 \]
 and the morphism
-equality is written as follow
+equality \eqref{eq:monad_monoid_mu} is written as follow
 \[
 \mu\circ\left(\mu \times \idm{M}\right) =
-\mu \circ \left(\idm{M} \times \mu\right)
+\mu \circ \left(\idm{M} \times \mu\right).
 \]
 The corresponding commutative diagram is shown in
 \cref{fig:monoid_mu}.
@@ -165,11 +165,11 @@ For \eqref{eq:monoid2} consider a morphism $\eta$ from
 \footnote{
  It also is called \cite{bib:maclane98} as a one point set
 }
-$I = \{0\}$ to a special element $e \in M$ such that
+$I = \{0\}$ to the special element $e \in M$ such that
 $\forall m \in M: e \cdot m = m \cdot e = m$. I.e. $\eta: I \to M$ and
 $e = \eta(0)$. Consider 2 sets $B = I \times M$ and $B' = M \times I$. 
 We have 2 \mynameref{def:isomorphism}s: $B \cong_\lambda M$ and $B'
-\cong_\rho M$ where
+\cong_\rho M$ such that
 \[
 \lambda(m) = 0 \times m
 \] 
@@ -178,7 +178,7 @@ and
 \rho(m) = m \times 0.
 \] 
 
-If we apply \mynameref{def:product_of_morphisms} $\eta \times \mu$ and
+If we apply the products (see \mynameref{def:product_of_morphisms}) $\eta \times \mu$ and
 $\mu \times \eta$ on $B$ and $B'$ respectively then we get
 \begin{eqnarray}
 \eta \times \idm{M} \left(0 \times m\right) = e \times m,
@@ -186,7 +186,7 @@ $\mu \times \eta$ on $B$ and $B'$ respectively then we get
 \idm{M} \times \eta \left(m \times 0\right) = m \times e.
 \nonumber
 \end{eqnarray}
-If we apply $\mu$ on the result then we get
+After the application of $\mu$ on the result we obtain
 \begin{eqnarray}
 \mu \left(\eta \times \idm{M} \left(0 \times m\right) \right) 
 = \mu \left( e \times m \right) = e \cdot m,
