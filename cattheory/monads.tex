@@ -281,7 +281,7 @@ Now we are ready to provide the monoid definition in the terms of morphisms.
 \label{def:monoid_category}
 Consider \mynameref{def:setcategory} $\cat{C}$ with a
 \mynameref{def:singleton_set} $t \in \catob{C}$. The \mynameref{def:cartesian_product}
-with \mynameref{def:product_of_morphisms} form a
+with \mynameref{def:product_of_morphisms} forms a
 \mynameref{def:bifunctor} $\times$ (see \cref{ex:product_bifunctor}).
 The object $m \in
 \catob{C}$ is called \textit{monoid} if the following
@@ -289,7 +289,7 @@ conditions satisfied:
 \begin{enumerate}
 \item there is a \mynameref{def:morphism} $\mu: m \times m \to m$ in
   the category
-\item there is another morphism $\eta: t \to m$
+\item there is another morphism $\eta: t \to m$ in the category
 \item the morphisms satisfy the following conditions:
 \begin{equation}
 \mu\circ\left(\mu \times
@@ -305,7 +305,7 @@ conditions satisfied:
 \end{equation}
 where $\alpha$ (associator) is an \mynameref{def:isomorphism} between
 $m \times (m \times m)$ and $(m \times m) \times m$. $\lambda, \rho$
-are another isomorphisms:  
+are other isomorphisms:  
 \[
 m \cong_\lambda t \times m
 \]
@@ -331,7 +331,8 @@ equipped with a \mynameref{def:monoid} structure i.e. there are
 \item an \mynameref{def:object} $e$ called unit object or identity object
 \end{itemize}
 
-The elements should satisfy (up to \mynameref{def:isomorphism}) several conditions:
+The elements should satisfy (up to \mynameref{def:isomorphism})
+several conditions. The first one:
 associativity: 
 \begin{equation}
 a \otimes \left( b \otimes c \right) \cong_\alpha
@@ -339,6 +340,7 @@ a \otimes \left( b \otimes c \right) \cong_\alpha
 \nonumber
 \end{equation}
 where $\alpha$ is called associator. \index{Associator!definition}
+The second condition says that
 $e$ can be treated as left and right identity: 
 \begin{eqnarray}
 a \cong_\lambda e \otimes a, 
@@ -357,9 +359,8 @@ morphism $\eta$ from terminal object $t$ to $e$
 \begin{definition}[Strict monoidal category]
 \label{def:strict_monoidal_category}
 \index{Associator}
-A \mynameref{def:monoidal_category} $\cat{C}$ is said to be strict if the
-associator, left 
-unitor and right unitors are all identity morphisms i.e.
+A \mynameref{def:monoidal_category} $\cat{C}$ is said to be \textit{strict} if the
+associator, left and right unitors are all identity morphisms i.e.
 \[
 \alpha = \lambda = \rho = \idm{C}.
 \]
