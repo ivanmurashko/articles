@@ -36,14 +36,18 @@ m \cdot e = e \cdot m = m.
 \label{eq:monoid2}
 \end{equation}
 
-Lets start with the first one we can define $\mu$ as
-\mynameref{def:morphism} in the following way $\mu: M\times M \to M$
-where $M \times M$ is \mynameref{ex:set_product} in
-\mynameref{def:setcategory}. I.e. $M, M \times M \in \catob{Set}$ and
-$\mu \in \cathom{Set}$.  Consider another objects of $\cat{Set}$: $A =
+With the first one we can define $\mu$ as a
+\mynameref{def:morphism} in the following way 
+\[
+\mu: M\times M \to M,
+\]
+where $M \times M$ is the \mynameref{ex:set_product} in the
+\mynameref{def:setcategory}. I.e. $M \times M, M \in \catob{Set}$ and
+$\mu \in \cathom{Set}$.  Consider other objects of $\cat{Set}$: $A =
 M \times \left( M \times M \right)$ and $A' = \left( M \times M \right)
 \times M$. They are not the same but there is a trivial
 \mynameref{def:isomorphism} between them $A \cong_\alpha A'$, where
+the isomorphism $\alpha$ defined as
 \[
 \alpha(x,(y,z)) = ((x,y),z).
 \]
@@ -55,7 +59,7 @@ $\idm{M} \times \mu$ on $A$:
 \left(x, y \cdot z\right) \in M \times M
 \]
 i.e. $\idm{M} \times \mu: M \times \left( M \times M \right) \to M
-\times M$. If we act $\mu$ on the result we will get:
+\times M$. If we act $\mu$ on the result then we can obtain:
 \begin{eqnarray}
 \mu \left(\idm{M} \times \mu \left(x,\left(y,z\right)\right)\right) = 
 \left(\idm{M}(x),\mu\left(y,z\right)\right) = 
@@ -79,7 +83,7 @@ Monoid associativity requires
 x \cdot (y\cdot z) = 
 (x \cdot y) \cdot z
 \]
-i.e. the corresponding morphisms commute:
+i.e. the morphisms commute:
 \[
 \mu\circ\left(\mu \times \idm{M}\right) =
 \mu \circ \left(\idm{M} \times \mu\right) \circ \alpha.
@@ -101,7 +105,7 @@ This corresponding diagram is shown in \cref{fig:monoid_mu_alpha}.
     \node[ele,label=below:$M$] (M) at (3,0) {};    
 
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (M31) to
-    node[sloped,above]{$\alpha$} (M32);
+    node[sloped,above]{$\cong_\alpha$} (M32);
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (M31) to
     node[sloped,below]{$\idm{M} \times \mu$} (M21);
     \draw[->,thick,shorten <=2pt,shorten >=2pt] (M32) to
