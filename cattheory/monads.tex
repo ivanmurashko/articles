@@ -549,49 +549,11 @@ that is the exact we want to get (see second equation of
 %% \]
 %% that finals the proof of monoidal structure.
 
-\section{Kleisli category. Monads in programming languages}
+\section{Monads in programming languages}
+There are several examples of \mynameref{def:monad}s in different
+programming languages:
 
-\begin{definition}[Kleisli category]
-\label{def:kleisli_category}
-Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
-$\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
-construct a new category $\cat{C_M}$as follows:
-\begin{eqnarray}
-\catob{C_M} = \catob{C},
-\nonumber \\
-\hom_{\cat{C_M}}\left(a, b\right) = 
-\hom_{\cat{C}}\left(a, M(b)\right)
-\nonumber
-\end{eqnarray}
-i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
-morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
-$\cathom{C_M} \subset \cathom{C}$. The category is called as
-\textit{Kleisli category}. 
-\end{definition}
-
-\subsection{Programming languages}
-\mynameref{def:kleisli_category} widely spread in programming
-especially it provides good description for different types of
-computations, for instance \cite{bib:Moggi91, bib:milewski2018category} 
-\begin{itemize}
-\item \textbf{Partiality} i.e. then a function not defined for each input, for
-  instance the following expression is undefined (or partially
-  defined) for $x = 0$: $f(x) = \frac{1}{x}$
-\item \textbf{Non-Determinism} i.e. then multiply output are possible
-\item \textbf{Side-effects} i.e. TBD
-\item \textbf{Exception} i.e. TBD
-\item \textbf{Continuation} i.e. TBD
-\item \textbf{Interactive input} i.e. TBD
-\item \textbf{Interactive output} i.e. TBD
-\end{itemize}
-
-TBD
-
-\section{Examples}
-
-\subsection{Programming languages}
-
-\subsubsection{Haskell}
+\subsection{Haskell}
 
 \begin{example}[Monad][\textbf{Hask}]
 \label{ex:monad_haskell}
@@ -640,11 +602,11 @@ the Maybe monad can be implemented as follows
 \end{example}
 TBD
 
-\subsubsection{C++}
+\subsection{C++}
 
 TBD
 
-\subsubsection{Scala}
+\subsection{Scala}
 
 \begin{example}[Monad][\textbf{Scala}]
 The monad concept is Scala is more close to formal math definition for
@@ -663,6 +625,45 @@ I.e. \mintinline{scala}{flatMap} can be considered as $\mu$ and
 \end{example}
 
 TBD
+
+\section{Kleisli category}
+
+\begin{definition}[Kleisli category]
+\label{def:kleisli_category}
+Let $\cat{C}$ is a category, $M$ is an \mynameref{def:endofunctor} and
+$\left<M, \mu, \eta\right>$ is a \mynameref{def:monad}. Then we can
+construct a new category $\cat{C_M}$as follows:
+\begin{eqnarray}
+\catob{C_M} = \catob{C},
+\nonumber \\
+\hom_{\cat{C_M}}\left(a, b\right) = 
+\hom_{\cat{C}}\left(a, M(b)\right)
+\nonumber
+\end{eqnarray}
+i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
+morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
+$\cathom{C_M} \subset \cathom{C}$. The category is called as
+\textit{Kleisli category}. 
+\end{definition}
+
+\mynameref{def:kleisli_category} widely spread in programming
+especially it provides good description for different types of
+computations, for instance \cite{bib:Moggi91, bib:milewski2018category} 
+\begin{itemize}
+\item \textbf{Partiality} i.e. then a function not defined for each input, for
+  instance the following expression is undefined (or partially
+  defined) for $x = 0$: $f(x) = \frac{1}{x}$
+\item \textbf{Non-Determinism} i.e. then multiply output are possible
+\item \textbf{Side-effects} i.e. TBD
+\item \textbf{Exception} i.e. TBD
+\item \textbf{Continuation} i.e. TBD
+\item \textbf{Interactive input} i.e. TBD
+\item \textbf{Interactive output} i.e. TBD
+\end{itemize}
+
+TBD
+
+\section{Examples}
 
 \subsection{Quantum mechanics}
 
