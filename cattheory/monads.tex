@@ -582,24 +582,6 @@ ma >>= f = join ( f ma )
 
 \end{example}
 
-\begin{example}[Maybe monad][\textbf{Hask}]
-\label{ex:maybe_monad_haskell}
-Consider the monad definition that is most close to math definition
-first:
-\begin{minted}{haskell}
-    class Functor m => Monad m where
-        return :: a -> m a
-        join  :: m (m a) -> m a
-\end{minted} 
-the Maybe monad can be implemented as follows
-\begin{minted}{haskell}
-  instance Monad Maybe where
-    return = Just
-    join Just( Just x) = Just x
-    join _ = Nothing
-\end{minted} 
-
-\end{example}
 TBD
 
 \subsection{C++}
@@ -660,6 +642,28 @@ computations, for instance \cite{bib:Moggi91, bib:milewski2018category}
 \item \textbf{Interactive input} i.e. TBD
 \item \textbf{Interactive output} i.e. TBD
 \end{itemize}
+
+\subsection{Exception}
+
+\begin{example}[Maybe monad][\textbf{Hask}]
+\label{ex:maybe_monad_haskell}
+Consider the monad definition that is most close to math definition
+first:
+\begin{minted}{haskell}
+    class Functor m => Monad m where
+        return :: a -> m a
+        join  :: m (m a) -> m a
+\end{minted} 
+the Maybe monad can be implemented as follows
+\begin{minted}{haskell}
+  instance Monad Maybe where
+    return = Just
+    join Just( Just x) = Just x
+    join _ = Nothing
+\end{minted} 
+
+\end{example}
+
 
 TBD
 
