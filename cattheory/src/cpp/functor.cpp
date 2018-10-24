@@ -3,6 +3,7 @@
 #include <list>
 #include <string>
 
+using StringList = std::list<std::string>;
 
 template <class A, class B>
 std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
@@ -13,11 +14,11 @@ std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
 
 int main() 
 {
-  std::list<std::string> a = {"1", "2", "3"};
+  StringList a = {"1", "2", "3"};
   std::function<int(std::string)> f = [](std::string s) {
     return 2 * atoi(s.c_str());
   };
-  std::list<int> res = fmap<>(f, a);
+  auto res = fmap<>(f, a);
   for (auto i : res) {
     std::cout << i << " ";
   }
