@@ -403,10 +403,15 @@ functor composition.
   \label{def:monad}
   The monad $M$ is an \mynameref{def:endofunctor} with 2
   \mynameref{def:nt}s:
-  \begin{enumerate}
-  \item $\eta: \idf{C} \tont M$
-  \item $\mu: M \circ M \tont M$
-  \end{enumerate}
+  \begin{equation}
+    \label{eq:monad_mu}
+    \mu: M \circ M \tont M
+  \end{equation}
+  and
+  \begin{equation}
+    \label{eq:monad_eta}
+    \eta: \idf{C} \tont M,
+  \end{equation}
   where $\idf{C}$ is \mynameref{def:idfunctor}.
 
   The $\eta, \mu$ should satisfy the following conditions:
@@ -572,9 +577,10 @@ similar to the math definition:
         return :: a -> m a
         join  :: m (m a) -> m a
 \end{minted} 
-where \mintinline{haskell}{return} can be treated as $\eta$ and 
-\mintinline{haskell}{join} as $\mu$. In the case the bind operator 
-\mintinline{haskell}{>>=} can be implemented as follows
+where \mintinline{haskell}{return} can be treated as $\eta$
+\eqref{eq:monad_eta} and 
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+the bind operator \mintinline{haskell}{>>=} can be implemented as follows
 \begin{minted}{haskell}
 (>>=)  :: m a -> (a -> m b) -> m b
 ma >>= f = join ( f ma )
