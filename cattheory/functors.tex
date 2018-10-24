@@ -79,23 +79,6 @@ The functor can be defined in Haskell as follows
     fmap :: (a -> b) -> f a -> f b
   \end{minted} 
 \end{example}
-The concrete example is the following
-\begin{example}[Maybe as a functor][\textbf{Hask}]
-  \label{ex:maybe_functor}
-  Lets show how the \mintinline{haskell}{Maybe a} type can be
-  constructed from different 
-  \mynameref{def:functor}s and as result show that the
-  \mintinline{haskell}{Maybe a} is also a
-  \mynameref{def:functor}. 
-  \begin{minted}{haskell}
-    data Maybe a = Nothing | Just a
-    -- This is equivalent to
-    data Maybe a = Either () (Identity a)
-    -- Either is a bifunctor and () == Const () a 
-    -- Thus Maybe is a composition of 2 functors 
-  \end{minted}
-\end{example}
-
 
 In Scala it can be defined in the same way
 \begin{example}[Functor][\textbf{Scala}]
@@ -218,6 +201,23 @@ The good example can be found in $\cat{Hask}$ category.
   with \mynameref{def:product_of_morphisms} form a
   \mynameref{def:bifunctor} $\times$.
 \end{example}
+
+\begin{example}[Maybe as a bifunctor][\textbf{Hask}]
+  \label{ex:maybe_functor}
+  Lets show how the \mintinline{haskell}{Maybe a} type can be
+  constructed from different 
+  \mynameref{def:functor}s and as result show that the
+  \mintinline{haskell}{Maybe a} is also a
+  \mynameref{def:functor}. 
+  \begin{minted}{haskell}
+    data Maybe a = Nothing | Just a
+    -- This is equivalent to
+    data Maybe a = Either () (Identity a)
+    -- Either is a bifunctor and () == Const () a 
+    -- Thus Maybe is a composition of 2 functors 
+  \end{minted}
+\end{example}
+
 
 \begin{definition}[Contravariant functor]
   \label{def:contravariant_functor}
