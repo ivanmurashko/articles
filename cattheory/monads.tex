@@ -640,14 +640,24 @@ computations, for instance \cite{bib:Moggi91, bib:milewski2018category}
   instance the following expression is undefined (or partially
   defined) for $x = 0$: $f(x) = \frac{1}{x}$
 \item \textbf{Non-Determinism} i.e. then multiply output are possible
-\item \textbf{Side-effects} i.e. TBD
-\item \textbf{Exception} i.e. TBD
-\item \textbf{Continuation} i.e. TBD
-\item \textbf{Interactive input} i.e. TBD
-\item \textbf{Interactive output} i.e. TBD
+\item \textbf{Side-effects} i.e. then a function communicates with
+  an environment
+\item \textbf{Exception} i.e. when some input is incorrect and can
+  produce an abnormal result. Therefore it is the same as
+  \textbf{Partiality} and will be considered below as the same type of
+  computation. 
+\item \textbf{Continuation} i.e. then the result is unknown in the
+  time when the function is called and will be provided some later.
+  For instance if we make a request a network service then the
+  response will be got some later. In this case such type of
+  computations is similar to asynchronous programming.
+\item \textbf{Interactive input} i.e. a function that reads data from
+  an input device (keyboard, mouse, etc.)
+\item \textbf{Interactive output} i.e. a function that writes data to
+  an output device (monitor etc.)
 \end{itemize}
 
-\subsection{Exception}
+\subsection{Partiality and Exception}
 
 \begin{example}[Maybe monad][\textbf{Hask}]
 \label{ex:maybe_monad_haskell}
