@@ -112,6 +112,7 @@ In C++ the definition differs
   The template specialization for the \mintinline{c++}{std::list} can be
   written as follows
   \begin{minted}{c++}
+    // file: functor.h
     template <class A, class B>
     std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
       std::list<B> res;

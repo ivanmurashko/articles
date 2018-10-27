@@ -583,14 +583,35 @@ where \mintinline{haskell}{return} can be treated as $\eta$
 the bind operator \mintinline{haskell}{>>=} can be implemented as follows
 \begin{minted}{haskell}
 (>>=)  :: m a -> (a -> m b) -> m b
-ma >>= f = join ( f ma )
+ma >>= f = join ( fmap f ma )
 \end{minted} 
 
 \end{example}
 
 \subsection{C++}
+The monad in C++ use the functor definition from \mynameref{ex:functor_cpp}
+\begin{minted}{c++}
+// from functor.h
+template < template< class ...> class M, class A, class B> 
+M<B> fmap(std::function<B(A)>, M<A>);
 
-TBD
+// file: monad.h
+template < template< class ...> class M, class A> 
+M<A> pure(A);
+
+template < template< class ...> class M, class A> 
+M<A> join(M< M<A> >);
+\end{minted}
+where \mintinline{c++}{pure} can be treated as $\eta$
+\eqref{eq:monad_eta} and 
+\mintinline{haskell}{join} as $\mu$ \eqref{eq:monad_mu}. In the case
+the bind operator can be implemented as follows
+\begin{minted}{c++}
+template < template< class ...> class M, class A, class B> 
+M<B> bind(M<A> a, std::function< M<B> (A) > f) {
+  return join( fmap(f, a) );
+};
+\end{minted}
 
 \subsection{Scala}
 

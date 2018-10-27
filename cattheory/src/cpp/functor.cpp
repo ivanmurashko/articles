@@ -1,12 +1,10 @@
 #include <iostream>
-#include <functional>
 #include <list>
 #include <string>
 
-using StringList = std::list<std::string>;
+#include "functor.h"
 
-template < template< class ...> class F, class A, class B> 
-F<B> fmap(std::function<B(A)>, F<A>);
+using StringList = std::list<std::string>;
 
 template <class A, class B>
 std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
