@@ -101,9 +101,16 @@ In C++ the definition differs
     StringList a = {"1", "2", "3"};
   \end{minted} 
   i.e. we have \mynameref{def:object}s mapping out of the box.
-  Therefore a \mynameref{def:functor} we need to define fmap
-  operation for \mynameref{def:morphism}s mapping. It can be done as
+  Therefore we need to define fmap
+  operation for \mynameref{def:morphism}s mapping to complete the
+  \mynameref{def:functor} definition. It can be declared as 
   follows 
+  \begin{minted}{c++}
+    template < template< class ...> class F, class A, class B> 
+    F<B> fmap(std::function<B(A)>, F<A>);
+  \end{minted}
+  The template specialization for the \mintinline{c++}{std::list} can be
+  written as follows
   \begin{minted}{c++}
     template <class A, class B>
     std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {

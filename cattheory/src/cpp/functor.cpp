@@ -5,6 +5,9 @@
 
 using StringList = std::list<std::string>;
 
+template < template< class ...> class F, class A, class B> 
+F<B> fmap(std::function<B(A)>, F<A>);
+
 template <class A, class B>
 std::list<B> fmap(std::function<B(A)> f, std::list<A> a) {
   std::list<B> res;
