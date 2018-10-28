@@ -608,8 +608,8 @@ where \mintinline{c++}{pure} can be treated as $\eta$
 the bind operator can be implemented as follows
 \begin{minted}{c++}
 template < template< class ...> class M, class A, class B> 
-M<B> bind(M<A> a, std::function< M<B> (A) > f) {
-  return join( fmap(f, a) );
+M<B> bind(std::function< M<B> (A) > f, M<A> a) {
+  return join( fmap<>(f, a) );
 };
 \end{minted}
 
@@ -746,14 +746,7 @@ functions $f_1, f_2$ are partially defined.
 
 \begin{example}[Maybe monad][\textbf{Hask}]
 \label{ex:maybe_monad_haskell}
-Consider the monad definition that is most close to math definition
-first:
-\begin{minted}{haskell}
-    class Functor m => Monad m where
-        return :: a -> m a
-        join  :: m (m a) -> m a
-\end{minted} 
-the Maybe monad can be implemented as follows
+The Maybe monad can be implemented as follows
 \begin{minted}{haskell}
   instance Monad Maybe where
     return = Just
@@ -793,6 +786,68 @@ Nothing
 \end{minted}
 
 \end{example}
+
+\begin{example}[Maybe monad][\textbf{C++}]
+\label{ex:maybe_monad_cpp}
+The Maybe monad can be implemented as follows
+\begin{minted}{c++}
+template <class A> using Maybe = std::optional<A>;
+
+template < class A, class B> 
+Maybe<B> fmap(std::function<B(A)> f, Maybe<A> a) {
+  if (a) {
+    return f(a.value());
+  }
+  return {};
+}
+
+template < class A> 
+Maybe<A> pure(A a) {
+  return a;
+}
+
+template < class A> 
+Maybe<A> join(Maybe< Maybe<A> > a){
+  if (a) {
+    return a.value();
+  }
+  return {};
+}
+\end{minted} 
+
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{c++}
+std::function<Maybe<float>(float)> f1 =
+    [](float x) {
+      if (x >= 0) {
+        return Maybe<float>(sqrt(x));
+      }
+      return Maybe<float>();
+    };
+
+std::function<Maybe<float>(float)> f2 = [](float x) { return 2 * x; };
+
+std::function<Maybe<float>(float)> f3 =
+    [](float x) {
+      if (x != 0) {
+        return Maybe<float>(1 / x);
+      }
+      return Maybe<float>();
+    };
+}
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{c++}
+auto h(float x) {
+  Maybe<float> a = pure(x);
+  return bind(f3,bind(f2,bind(f1, a)));
+};
+\end{minted}
+
+\end{example}
+
 
 TBD
 

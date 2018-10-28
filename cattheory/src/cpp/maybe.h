@@ -1,22 +1,51 @@
+#pragma once
 
-#include <memory>
-#include "monad.h"
+#include <math.h>
 
-template <class A> 
-class Maybe
-{
-public:
-  Maybe(A a) : a_(std::make_unique_ptr(a)) {};
-  Maybe(A a) : isvalid_(true), a_(a) {};
+#include <functional>
+#include <optional>
 
 
 
-  /// Destructor
-  virtual ~Maybe();
-private:
-  /// Fake copy constructor
-  Maybe(const Maybe &);
+namespace monad {
+template <class A> using Maybe = std::optional<A>;
 
-  /// Fake assigment operator
-  Maybe &operator=(const Maybe &);
-};
+template < class A, class B> 
+Maybe<B> fmap(std::function<B(A)> f, Maybe<A> a) {
+  if (a) {
+    return f(a.value());
+  }
+  return {};
+}
+
+template < class A> 
+Maybe<A> pure(A a) {
+  return a;
+}
+
+template < class A> 
+Maybe<A> join(Maybe< Maybe<A> > a){
+  if (a) {
+    return a.value();
+  }
+  return {};
+}
+
+std::function<Maybe<float>(float)> f1 =
+    [](float x) {
+      if (x >= 0) {
+        return Maybe<float>(sqrt(x));
+      }
+      return Maybe<float>();
+    };
+
+std::function<Maybe<float>(float)> f2 = [](float x) { return 2 * x; };
+
+std::function<Maybe<float>(float)> f3 =
+    [](float x) {
+      if (x != 0) {
+        return Maybe<float>(1 / x);
+      }
+      return Maybe<float>();
+    };
+}
