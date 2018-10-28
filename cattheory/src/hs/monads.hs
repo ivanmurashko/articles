@@ -8,4 +8,4 @@ f3 :: (Eq a, Fractional a) => a -> Maybe a
 f3 x = if x /= 0 then Just(1/x) else Nothing
 
 h :: (Ord b, Floating b) => b -> Maybe b
-h x = (Just x) >>= f1 >>= f2 >>= f3
+h x = (return x) >>= f1 >>= f2 >>= f3

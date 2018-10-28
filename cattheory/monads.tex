@@ -777,7 +777,7 @@ The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
 operator:
 \begin{minted}{haskell}
 h :: (Ord a, Floating a) => a -> Maybe a
-h x = (Just x) >>= f1 >>= f2 >>= f3
+h x = (return x) >>= f1 >>= f2 >>= f3
 \end{minted}
 
 The usage example is the following:
