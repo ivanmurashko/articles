@@ -720,6 +720,30 @@ an output device (monitor etc.)
 
 \subsection{Partiality and Exception}
 
+Partial functions and exceptions can be processed via monad be called
+as Maybe. There will be implementations in different languages below.
+And the usage example for the following function implementation
+\[
+h(x) = \frac{1}{2 \sqrt{x}}.
+\]
+The function is a composition of 3 functions:
+\begin{eqnarray}
+f_1(x) = \sqrt{x},
+\nonumber \\
+f_2(x) = 2 \cdot x,
+\nonumber \\
+f_3(x) = \frac{1}{x}
+\label{eq:monadmaybe_ex_f}
+\end{eqnarray}
+and as result the goal can be implemented as the following
+composition:
+\begin{equation}
+h = f_3 \circ f_2 \circ f_1.
+\label{eq:monadmaybe_ex_h}
+\end{equation}
+The function $f_2$ is pure and defined $\forall x \in \mathbb{R}$. The
+functions $f_1, f_2$ are partially defined.
+
 \begin{example}[Maybe monad][\textbf{Hask}]
 \label{ex:maybe_monad_haskell}
 Consider the monad definition that is most close to math definition
@@ -737,8 +761,27 @@ the Maybe monad can be implemented as follows
     join _ = Nothing
 \end{minted} 
 
-\end{example}
+Our functions \eqref{eq:monadmaybe_ex_f} can be implemented as follows
+\begin{minted}{haskell}
+f1 :: (Ord a, Floating a) => a -> Maybe a
+f1 x = if x >= 0 then Just(sqrt x) else Nothing 
 
+f2 :: Num a => a -> Maybe a
+f2 x = Just (2*x)
+
+f3 :: (Eq a, Fractional a) => a -> Maybe a
+f3 x = if x /= 0 then Just(1/x) else Nothing
+\end{minted}
+
+The $h$ \eqref{eq:monadmaybe_ex_h} is the composition via bind
+operator:
+\begin{minted}{haskell}
+h :: (Ord a, Floating a) => a -> Maybe a
+h x = (Just x) >>= f1 >>= f2 >>= f3
+\end{minted}
+
+
+\end{example}
 
 TBD
 
