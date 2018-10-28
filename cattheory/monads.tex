@@ -780,6 +780,17 @@ h :: (Ord a, Floating a) => a -> Maybe a
 h x = (Just x) >>= f1 >>= f2 >>= f3
 \end{minted}
 
+The usage example is the following:
+\begin{minted}{bash}
+*Main> h 4
+Just 0.25
+*Main> h 1
+Just 0.5
+*Main> h 0
+Nothing
+*Main> h (-1)
+Nothing
+\end{minted}
 
 \end{example}
 
