@@ -651,7 +651,47 @@ i.e. objects of categories $\cat{C}$ and $\cat{C_M}$ are the same but
 morphisms from $\cat{C_M}$ form a subset of morphisms $\cat{C}$:
 $\cathom{C_M} \subset \cathom{C}$. The category is called as
 \textit{Kleisli category}. 
+
+The identity morphism in the Kleisli category is the
+\mynameref{def:nt} $\eta$ \eqref{eq:monad_eta} defined by the monad
+$\left<M, \mu, \eta\right>$: 
+\[
+\idm{C_M} = \eta
+\]
 \end{definition}
+
+\begin{remark}[Kleisli category composition]
+\mynameref{def:kleisli_category} has a non trivial composition rules.
+If we have 2 \mynameref{def:morphism}s from $\cathom{C_M}$:
+\[
+f_M: a \to b
+\]
+and
+\[
+g_M: b \to c.
+\]
+The morphisms have correspondent ones in $\cat{C}$:
+\[
+f: a \to M(b)
+\]
+and
+\[
+g: b \to M(c).
+\]
+The composition $g_M \circ f_M$ gives the new morphism
+\[
+h_M = g_M \circ f_M: a \to c.
+\]
+The corresponding one from $\cat{C}$ is
+\[
+h: a \to M(c).
+\]
+It has to be pointed that the compositions in $\cat{C}$ and
+$\cat{C_M}$ are not the same:
+\[
+g_M \circ f_M \ne g \circ f.
+\]
+\end{remark}
 
 \mynameref{def:kleisli_category} widely spread in programming
 especially it provides good description for different types of
