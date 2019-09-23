@@ -29,11 +29,38 @@
 \maketitle
 
 \section*{Introduction}
-TBD
-\cite{wiki:quicksort}
+The most tricky thing in C++ is an error catch. Most part of errors
+are located in the application level and you can be quite sure that
+the library, especially the well known STL, is error free. But what
+should you do if your application code is trivial i.e. seems to be
+error free but you got a SIGSEGV inside a system library. Most
+probably you just felt into a situation that is described in the
+article. 
 
 \section{Example}
-TBD
+Lets look at the following code:
+\inputminted{c++}{./src/sort.cpp}
+What's output does it produces? One can expect the following one:
+\begin{minted}{shell}
+$ 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+$
+\end{minted}
+i.e. the original array has to be displayed. In reality the following
+output is produced by gcc 5.5.0 
+\footnote{
+I used gcc:5 docker image for the compilation
+}
+\begin{minted}{shell}
+$ 
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+$
+\end{minted}
+As one can see the array is broken. How it can be if every
+function in the code snapshot seems to be correct?
+
+
+\cite{wiki:quicksort}
 
 \bibliographystyle{gost780s}  
 \bibliography{cppsort}     
