@@ -37,22 +37,27 @@ error free but you got a SIGSEGV inside a system library. Most
 probably you just felt into a situation that is described in the
 article. 
 
+The examples in the article uses gcc 5.5.0 from the docker image
+gcc:5: 
+\begin{minted}{shell}
+$ docker run gcc:5 gcc --version
+gcc (GCC) 5.5.0
+\end{minted}
+
+
 \section{Example}
 Lets look at the following code:
 \inputminted{c++}{./src/sort.cpp}
 What's output does it produces? One can expect the following one:
 \begin{minted}{shell}
-$ 
+$ ./src/sort
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
 i.e. the original array has to be displayed. In reality the following
 output is produced by gcc 5.5.0 
-\footnote{
-I used gcc:5 docker image for the compilation
-}
 \begin{minted}{shell}
-$ 
+$ ./src/sort
 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
