@@ -62,10 +62,25 @@ $ ./src/sort
 $
 \end{minted}
 As one can see the array is broken. How it can be if every
-function in the code snapshot seems to be correct?
+function in the code snapshot seems to be correct? The answer is
+below. 
 
+\section{STL requirements}
 
-\cite{wiki:quicksort}
+The STL library states the following requirements for std::sort 
+\cite{ISO:2013:IIP}(pp. 897-898): the compare function must follow so
+called strict weak ordering requirement. Especially it
+says that 
+\begin{minted}{c++}
+comp(x, x) == true;
+\end{minted}
+The requirement is violated
+by the $\le$ operand used in our example.  
+
+Why the requirement is so important?
+
+\section*{Conclusion}
+TBD
 
 \bibliographystyle{gost780s}  
 \bibliography{cppsort}     
