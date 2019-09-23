@@ -77,7 +77,39 @@ comp(x, x) == true;
 The requirement is violated
 by the $\le$ operand used in our example.  
 
-Why the requirement is so important?
+Why the requirement is so important? The answer is in the algorithm
+that is used for sorting. The algorithm is called Quick sort 
+\cite{wiki:quicksort}. 
+
+Using the following command
+\begin{minted}{shell}
+docker run gcc:5 tail -n +1892 \
+/usr/include/c++/4.9.2/bits/stl_algo.h | head -n 21
+\end{minted}
+one can get the following code 
+\begin{minted}{c++}
+  /// This is a helper function...
+  template<typename _RandomAccessIterator, typename _Compare>
+    _RandomAccessIterator
+    __unguarded_partition(_RandomAccessIterator __first,
+                          _RandomAccessIterator __last,
+                          _RandomAccessIterator __pivot, _Compare __comp)
+    {
+      while (true)
+        {
+          while (__comp(__first, __pivot))
+            ++__first;
+          --__last;
+          while (__comp(__pivot, __last))
+            --__last;
+          if (!(__first < __last))
+            return __first;
+          std::iter_swap(__first, __last);
+          ++__first;
+        }
+    }
+
+\end{minted}
 
 \section*{Conclusion}
 TBD
