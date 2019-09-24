@@ -130,20 +130,20 @@ The used comparator will always produce true as soon as $1 \le 1$.
 The size of the array is 17 
 \begin{minted}{shell}
 (gdb) (gdb) p data.size()
-$7 = 17
+$1 = 17
 \end{minted}
 and when we pass through whole array and reach the end of the array we
 will found $0$ on the next position: 
 \begin{minted}{shell}
 (gdb) p *(&data[0] + 17)
-$5 = 0
+$2 = 0
 \end{minted}
 The found element, that is located outside the array, but will be
 included into the search as soon as it also satisfied the required
 property: $0 \le 1$. The next element will be greater  
 \begin{minted}{shell}
 (gdb) p *(&data[0] + 18)
-$1 = 61777
+$3 = 61777
 \end{minted}
 and as result the result be 2 positions away from the array end.
 This will be assigned as new end of the array and as result the
@@ -173,7 +173,7 @@ via partial sort that is really is a heap sort from the following function
     }
 \end{minted}
 As result the element ($0$) outside array will be placed into beginning
-for the list. 
+for the vector. 
 
 \section*{Conclusion}
 TBD
