@@ -21,7 +21,7 @@
   pdfkeywords={STL, C++, quick sort}
 }
 
-\title{STL sort}
+\title{STL sort comparator requirements}
 \author{Murashko Ivan}
 \date{}
 \begin{document}
@@ -37,7 +37,7 @@ error free but you got a SIGSEGV inside a system library. Most
 probably you just felt into a situation that is described in the
 article. 
 
-The examples in the article uses gcc 5.5.0 from the docker image
+Note: All examples in the article uses gcc 5.5.0 from the docker image
 gcc:5: 
 \begin{minted}{shell}
 $ docker run gcc:5 gcc --version
@@ -48,14 +48,14 @@ gcc (GCC) 5.5.0
 \section{Example}
 Lets look at the following code:
 \inputminted{c++}{./src/sort.cpp}
-What's output does it produces? One can expect the following one:
+What output does it produces? One can expect the following one:
 \begin{minted}{shell}
 $ ./src/sort
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
 i.e. the original array has to be displayed. In reality the following
-output is produced by gcc 5.5.0 
+output will be produced by gcc 5.5.0 
 \begin{minted}{shell}
 $ ./src/sort
 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
@@ -65,7 +65,7 @@ As one can see the array is broken. How it can be if every
 function in the code snapshot seems to be correct? The answer is
 below. 
 
-\section{STL requirements}
+\section{Inside STL sort}
 
 The STL library states the following requirements for std::sort 
 \cite{ISO:2013:IIP}(pp. 897-898): the compare function must follow so
@@ -78,15 +78,15 @@ The requirement is violated
 by the $\le$ operand used in our example.  
 
 Why the requirement is so important? The answer is in the algorithm
-that is used for sorting. The algorithm is called Quick sort 
+that is used for sorting. STL uses an optimized version of Quicksort algorithm
 \cite{wiki:quicksort}. 
 
-Using the following command
+The code that produces the problem can be found via the following command
 \begin{minted}{shell}
 docker run gcc:5 tail -n +1888 \
 /usr/local/include/c++/5.5.0/bits/stl_algo.h | head -n 21
 \end{minted}
-one can get the following code 
+and looks as follow
 \begin{minted}{c++}
   /// This is a helper function...
   template<typename _RandomAccessIterator, typename _Compare>
@@ -109,8 +109,31 @@ one can get the following code
         }
     }
 \end{minted}
-
-The pivot in the function is chosen via the following helper function
+As soon as our example have all elements equal to 1 one can assume
+that \textbf{\_\_pivot} also keeps $1$. In the function we start to
+compare all elements with the pivot. The used comparator will always
+produce \textbf{true} as soon 
+as $1 \le 1$. The size of the array is 17 
+\begin{minted}{shell}
+(gdb) (gdb) p data.size()
+$1 = 17
+\end{minted}
+and when we pass through whole array and reach its end we
+will found $0$ on the last position (\textbf{\_\_last}): 
+\begin{minted}{shell}
+(gdb) p *(&data[0] + 17)
+$2 = 0
+\end{minted}
+The found element, that is located outside the array, will be
+included into the search as soon as it also satisfied the required
+property: $0 \le 1$. The next element will be greater  
+\begin{minted}{shell}
+(gdb) p *(&data[0] + 18)
+$3 = 61777
+\end{minted}
+and therefore the \textbf{\_\_first} iterator will be 1 position
+behind the original \textbf{\_\_last} iterator. The value will be
+returned into the following helper function
 \begin{minted}{c++}
   /// This is a helper function...
   template<typename _RandomAccessIterator, typename _Compare>
@@ -124,31 +147,7 @@ The pivot in the function is chosen via the following helper function
       return std::__unguarded_partition(__first + 1, __last, __first, __comp);
     }
 \end{minted}
-i.e. the median element is chosen and moved to the first position as
-the pivot. After that we start to compare all elements with the pivot.
-The used comparator will always produce true as soon as $1 \le 1$.
-The size of the array is 17 
-\begin{minted}{shell}
-(gdb) (gdb) p data.size()
-$1 = 17
-\end{minted}
-and when we pass through whole array and reach the end of the array we
-will found $0$ on the next position: 
-\begin{minted}{shell}
-(gdb) p *(&data[0] + 17)
-$2 = 0
-\end{minted}
-The found element, that is located outside the array, but will be
-included into the search as soon as it also satisfied the required
-property: $0 \le 1$. The next element will be greater  
-\begin{minted}{shell}
-(gdb) p *(&data[0] + 18)
-$3 = 61777
-\end{minted}
-and as result the result be 2 positions away from the array end.
-This will be assigned as new end of the array and as result the
-element $0$ will be included into the sort. The real sort will be done
-via partial sort that is really is a heap sort from the following function
+that will return the result as \textbf{\_\_cut} in 
 \begin{minted}{c++}
   /// This is a helper function for the sort routine.
   template<typename _RandomAccessIterator, typename _Size, typename _Compare>
@@ -172,11 +171,21 @@ via partial sort that is really is a heap sort from the following function
 	}
     }
 \end{minted}
-As result the element ($0$) outside array will be placed into beginning
-for the vector. 
+The \textbf{\_\_last} iterator will be replaced with \textbf{\_\_cut}
+that is \textbf{\_\_first + 18} or \textbf{\_\_last + 1}. Thus 
+\textbf{std::\_\_partial\_sort} will get the range for sort that is
+greater (by 1) then original one. As result the element ($0$) outside
+array will be placed into beginning for the vector. 
 
 \section*{Conclusion}
-TBD
+As you can see, the usage comparator that violates strict weak ordering
+requirements will lead to array boundary condition violations. In our
+example we were ``happy'' and just got incorrect data in the result. The
+SIGSEGV is more probable result for such error. The error can be easy
+fixed with using correct comparator, for instance the following one
+\begin{minted}{c++}
+  auto comp = [](int i1, int i2) { return i1 < i2; };
+\end{minted}
 
 \bibliographystyle{gost780s}  
 \bibliography{cppsort}     
