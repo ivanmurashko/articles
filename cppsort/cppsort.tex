@@ -83,8 +83,8 @@ that is used for sorting. The algorithm is called Quick sort
 
 Using the following command
 \begin{minted}{shell}
-docker run gcc:5 tail -n +1892 \
-/usr/include/c++/4.9.2/bits/stl_algo.h | head -n 21
+docker run gcc:5 tail -n +1888 \
+/usr/local/include/c++/5.5.0/bits/stl_algo.h | head -n 21
 \end{minted}
 one can get the following code 
 \begin{minted}{c++}
@@ -108,8 +108,72 @@ one can get the following code
           ++__first;
         }
     }
-
 \end{minted}
+
+The pivot in the function is chosen via the following helper function
+\begin{minted}{c++}
+  /// This is a helper function...
+  template<typename _RandomAccessIterator, typename _Compare>
+    inline _RandomAccessIterator
+    __unguarded_partition_pivot(_RandomAccessIterator __first,
+				_RandomAccessIterator __last, _Compare __comp)
+    {
+      _RandomAccessIterator __mid = __first + (__last - __first) / 2;
+      std::__move_median_to_first(__first, __first + 1, __mid, __last - 1,
+				  __comp);
+      return std::__unguarded_partition(__first + 1, __last, __first, __comp);
+    }
+\end{minted}
+i.e. the median element is chosen and moved to the first position as
+the pivot. After that we start to compare all elements with the pivot.
+The used comparator will always produce true as soon as $1 \le 1$.
+The size of the array is 17 
+\begin{minted}{shell}
+(gdb) (gdb) p data.size()
+$7 = 17
+\end{minted}
+and when we pass through whole array and reach the end of the array we
+will found $0$ on the next position: 
+\begin{minted}{shell}
+(gdb) p *(&data[0] + 17)
+$5 = 0
+\end{minted}
+The found element, that is located outside the array, but will be
+included into the search as soon as it also satisfied the required
+property: $0 \le 1$. The next element will be greater  
+\begin{minted}{shell}
+(gdb) p *(&data[0] + 18)
+$1 = 61777
+\end{minted}
+and as result the result be 2 positions away from the array end.
+This will be assigned as new end of the array and as result the
+element $0$ will be included into the sort. The real sort will be done
+via partial sort that is really is a heap sort from the following function
+\begin{minted}{c++}
+  /// This is a helper function for the sort routine.
+  template<typename _RandomAccessIterator, typename _Size, typename _Compare>
+    void
+    __introsort_loop(_RandomAccessIterator __first,
+		     _RandomAccessIterator __last,
+		     _Size __depth_limit, _Compare __comp)
+    {
+      while (__last - __first > int(_S_threshold))
+	{
+	  if (__depth_limit == 0)
+	    {
+	      std::__partial_sort(__first, __last, __last, __comp);
+	      return;
+	    }
+	  --__depth_limit;
+	  _RandomAccessIterator __cut =
+	    std::__unguarded_partition_pivot(__first, __last, __comp);
+	  std::__introsort_loop(__cut, __last, __depth_limit, __comp);
+	  __last = __cut;
+	}
+    }
+\end{minted}
+As result the element ($0$) outside array will be placed into beginning
+for the list. 
 
 \section*{Conclusion}
 TBD
