@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
-void print(std::vector<int>& data) {
-    for (int item : data) {
-      std::cout << item << " ";
-    }
-    std::cout << std::endl;
+void print(const std::vector<int>& data) {
+  std::ostream_iterator<int> out_it(std::cout, " ");
+  std::copy(data.begin(), data.end(), out_it);
 }
 
 

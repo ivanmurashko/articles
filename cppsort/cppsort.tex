@@ -119,7 +119,8 @@ as $1 \le 1$. The size of the array is 17
 $1 = 17
 \end{minted}
 and when we pass through whole array and reach its end we
-will found $0$ on the last position (\textbf{\_\_last}): 
+will found $0$ on the last position (\textbf{\_\_last}), i.e. 18th
+element of the array: 
 \begin{minted}{shell}
 (gdb) p *(&data[0] + 17)
 $2 = 0
@@ -131,9 +132,11 @@ property: $0 \le 1$. The next element will be greater
 (gdb) p *(&data[0] + 18)
 $3 = 61777
 \end{minted}
-and therefore the \textbf{\_\_first} iterator will be 1 position
-behind the original \textbf{\_\_last} iterator. The value will be
-returned into the following helper function
+The element is 19th element of the array and is located 1 position
+after the original \textbf{\_\_last}. Thus the \textbf{\_\_first}
+iterator will be 1 position behind the original \textbf{\_\_last}
+iterator. The value will be returned into the following helper
+function 
 \begin{minted}{c++}
   /// This is a helper function...
   template<typename _RandomAccessIterator, typename _Compare>
