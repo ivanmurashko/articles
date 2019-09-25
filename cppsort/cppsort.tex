@@ -33,7 +33,7 @@ One of the trickiest thing in C++ is an error catch. Most part of errors
 are located on the application level and you can be quite sure that
 the library, especially the well known STL, is error free. But what
 should you do if your application code is trivial i.e. it seems to be
-error free but you got a SIGSEGV inside a system library. Most
+error free but you get a SIGSEGV inside a system library. Most
 probably you just felt into a situation that is described in the
 article. 
 
@@ -61,13 +61,13 @@ $ ./src/sort
 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
-As one can see the array is broken. How it can be if every
+As one can see the array is broken. How it can happen if every
 function in the code snapshot seems to be correct? The answer is
 below. 
 
 \section{Inside STL sort}
 
-The STL library states the following requirements for std::sort 
+The STL library states the following requirements for \textbf{std::sort} 
 \cite{ISO:2013:IIP}(pp. 897-898): the compare function must follow so
 called strict weak ordering requirement. Especially it
 says that 
@@ -109,7 +109,7 @@ and looks as follow
         }
     }
 \end{minted}
-As soon as our example have all elements equal to 1 one can assume
+As soon as our example has all elements equal to 1 one can assume
 that \textbf{\_\_pivot} also keeps $1$. In the function we start to
 compare all elements with the pivot. The used comparator will always
 produce \textbf{true} as soon 
@@ -126,16 +126,16 @@ element of the array:
 $2 = 0
 \end{minted}
 The found element, that is located outside the array, will be
-included into the search as soon as it also satisfied the required
-property: $0 \le 1$. The next element will be greater  
+included into the search as soon as it also satisfies the required
+property: $0 \le 1$. The next element will be greater:  
 \begin{minted}{shell}
 (gdb) p *(&data[0] + 18)
 $3 = 61777
 \end{minted}
 The element is 19th element of the array and is located 1 position
-after the original \textbf{\_\_last}. Thus the \textbf{\_\_first}
-iterator will be 1 position behind the original \textbf{\_\_last}
-iterator. The value will be returned into the following helper
+after the original \textbf{\_\_last} iterator. Thus the \textbf{\_\_first}
+iterator will be 1 position behind the original \textbf{\_\_last} one.
+The value will be returned into the following helper 
 function 
 \begin{minted}{c++}
   /// This is a helper function...
@@ -181,11 +181,11 @@ greater (by 1) then original one. As result the element ($0$) outside
 array will be placed into beginning for the vector. 
 
 \section*{Conclusion}
-As you can see, the usage comparator that violates strict weak ordering
+As you can see, the comparator that violates strict weak ordering
 requirements will lead to array boundary condition violations. In our
 example we were ``happy'' and just got incorrect data in the result. The
-SIGSEGV is more probable result for such error. The error can be easy
-fixed with using correct comparator, for instance the following one
+SIGSEGV is more probable result for such errors. The error can be easy
+fixed by using correct comparator, for instance the following one
 \begin{minted}{c++}
   auto comp = [](int i1, int i2) { return i1 < i2; };
 \end{minted}
