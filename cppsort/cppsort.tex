@@ -175,10 +175,13 @@ that will return the result as \textbf{\_\_cut} in
     }
 \end{minted}
 The \textbf{\_\_last} iterator will be replaced with \textbf{\_\_cut}
-that is \textbf{\_\_first + 18} or \textbf{\_\_last + 1}. Thus 
-\textbf{std::\_\_partial\_sort} will get the range for sort that is
-greater (by 1) then original one. As result the element ($0$) outside
-array will be placed into beginning for the vector. 
+that is \textbf{\_\_first + 18} or \textbf{\_\_last + 1}. The range
+stays stable until \textbf{\_\_depth\_limit} becomes 0.
+
+Thus \textbf{std::\_\_partial\_sort} will get the range for sort that is
+greater (by 1) then original one.  The element ($0$) outside
+array will be placed into beginning for the vector as
+\textbf{std::\_\_partial\_sort}'s application result.   
 
 \section*{Conclusion}
 As you can see, the comparator that violates strict weak ordering
@@ -189,6 +192,11 @@ fixed by using correct comparator, for instance the following one
 \begin{minted}{c++}
   auto comp = [](int i1, int i2) { return i1 < i2; };
 \end{minted}
+
+The example shown in the article demonstrates the importance of
+requirements specified as C++ standard. Everyone who does not follow
+the requirements during an application development is in the risk of
+serious trouble with the application's undefined behaviour. 
 
 \bibliographystyle{gost780s}  
 \bibliography{cppsort}     
