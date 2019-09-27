@@ -37,27 +37,30 @@ error free but you get a SIGSEGV inside a system library. Most
 probably you just felt into a situation that is described in the
 article. 
 
-Note: All examples in the article use gcc 5.5.0 from the docker image
-gcc:5: 
+Note: All examples in the article use gcc 7.4.0 from the docker image
+gcc:7: 
 \begin{minted}{shell}
-$ docker run gcc:5 gcc --version
-gcc (GCC) 5.5.0
+docker run gcc:7 gcc --version
+gcc (GCC) 7.4.0
 \end{minted}
 
+The source code for examples can be found on the article git
+repository \cite{github:cppsort_ivanmurashko} in the folder 
+\textbf{cppsort/src}.
 
 \section{Example}
 Lets look at the following code:
 \inputminted{c++}{./src/sort.cpp}
 What output does it produce? One can expect the following one:
 \begin{minted}{shell}
-$ ./src/sort
+$ docker run -v "$PWD":/tmp/test -w /tmp/test gcc:7 ./src/sort
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
 i.e. the original array has to be displayed. In reality the following
-output will be produced by gcc 5.5.0 
+output will be produced by gcc 7.4.0
 \begin{minted}{shell}
-$ ./src/sort
+$ docker run -v "$PWD":/tmp/test -w /tmp/test gcc:7 ./src/sort
 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 $
 \end{minted}
@@ -83,8 +86,8 @@ that is used for sorting. STL uses an optimized version of Quicksort algorithm
 
 The code that produces the problem can be found via the following command
 \begin{minted}{shell}
-docker run gcc:5 tail -n +1888 \
-/usr/local/include/c++/5.5.0/bits/stl_algo.h | head -n 21
+docker run gcc:7 tail -n +1893 \
+/usr/local/include/c++/7.4.0/bits/stl_algo.h | head -n 21
 \end{minted}
 and looks as follow
 \begin{minted}{c++}
