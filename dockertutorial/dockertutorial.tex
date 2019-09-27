@@ -79,6 +79,18 @@ Execute \textbf{ls /var} command in the run docker
 $ docker exec -it 649dae02de59 ls /var
 backups  cache  lib  local  lock  log  mail  opt  run  spool  tmp
 \end{verbatim}
+Stop it with
+\begin{verbatim}
+$ docker stop 649dae02de59
+649dae02de59
+\end{verbatim}
+Check the result
+\begin{verbatim}
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND   ...
+\end{verbatim}
+
+
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     
