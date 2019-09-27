@@ -100,7 +100,21 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND   ...
 \end{verbatim}
 
-
+\subsection{Cleanup}
+The following command will remove everything
+\begin{verbatim}
+$ docker system prune -a
+WARNING! This will remove:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all images without at least one container associated to them
+        - all build cache
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+b5e8d82cce2942a24c709b630ff4e0dd705b89d78f2777065446ce97cf152cab
+...
+Total reclaimed space: 6.113GB
+\end{verbatim}
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     
