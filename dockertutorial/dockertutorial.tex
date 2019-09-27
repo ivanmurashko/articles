@@ -27,6 +27,7 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 \section*{Introduction}
 There are several examples of docker usage. They are collected in one
@@ -38,11 +39,46 @@ repository \cite{github:articles_ivanmurashko} in the folder
 
 \section{Base commands}
 
+\subsection{Simple program run}
 You can run a command (\textbf{uname -a}) with 
 \begin{minted}{shell}
 $ docker run ubuntu uname -a
 \end{minted}
 The container \textbf{ubuntu:latest} will be used in the case.
+
+\subsection{Interactive session}
+You can run an interactive shell with
+\begin{minted}{shell}
+$ docker run -it ubuntu /bin/bash
+\end{minted}
+where \textbf{-it} means \textbf{--interactive --tty}, 
+\textbf{ubuntu} the latest ubuntu image and \textbf{/bin/bash} - the
+command to be start 
+
+\subsection{Docker as a daemon}
+First of all run the docker in interactive mode and as daemon
+\begin{minted}{shell}
+$ docker run -itd ubuntu
+\end{minted}
+possible output
+\begin{verbatim}
+649dae02de59ea3eb065a40b1248b2d322986e563ab12af3126fa4bb4710008a
+\end{verbatim}
+Check the docker run in daemon mode with
+\begin{minted}{shell}
+$ docker ps
+\end{minted}
+output:
+\begin{verbatim}
+$ docker ps 
+CONTAINER ID        IMAGE               COMMAND     ...
+649dae02de59        ubuntu              "/bin/bash" ...
+\end{verbatim}
+Execute \textbf{ls /var} command in the run docker
+\begin{verbatim}
+$ docker exec -it 649dae02de59 ls /var
+backups  cache  lib  local  lock  log  mail  opt  run  spool  tmp
+\end{verbatim}
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     
