@@ -44,7 +44,17 @@ You can run a command (\textbf{uname -a}) with
 \begin{minted}{shell}
 $ docker run ubuntu uname -a
 \end{minted}
-The container \textbf{ubuntu:latest} will be used in the case.
+The container \textbf{ubuntu:latest} will be used in the case. 
+
+The command execution status can be viewed with
+\begin{verbatim}
+$ docker ps -a 
+CONTAINER ID   IMAGE   COMMAND     CREATED         ...
+b5e8d82cce29   ubuntu  "uname -a"  5 seconds ago  ...
+\end{verbatim}
+If you run the docker with \textbf{--rm} flag then the status info
+will not be stored.
+
 
 \subsection{Interactive session}
 You can run an interactive shell with
