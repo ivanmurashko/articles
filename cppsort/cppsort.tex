@@ -34,7 +34,7 @@ are located on the application level and you can be quite sure that
 the library, especially the well known STL, is error free. But what
 should you do if your application code is trivial i.e. it seems to be
 error free but you get a SIGSEGV inside a system library. Most
-probably you just felt into a situation that is described in the
+probably you just fell into a situation that is described in the
 article. 
 
 Note: All examples in the article use gcc 7.4.0 from the docker image
@@ -122,7 +122,7 @@ as $1 \le 1$. The size of the array is 17
 $1 = 17
 \end{minted}
 and when we pass through whole array and reach its end we
-will found $0$ on the last position (\textbf{\_\_last}), i.e. 18th
+will find $0$ on the last position (\textbf{\_\_last}), i.e. 18th
 element of the array: 
 \begin{minted}{shell}
 (gdb) p *(&data[0] + 17)
@@ -189,8 +189,14 @@ array will be placed into beginning for the vector as
 \section*{Conclusion}
 As you can see, the comparator that violates strict weak ordering
 requirements will lead to array boundary condition violations. In our
-example we were ``happy'' and just got incorrect data in the result. The
-SIGSEGV is more probable result for such errors. The error can be easy
+example we were ``lucky'' and just got incorrect data in the result. The
+SIGSEGV is more probable obvious result for such error.
+\footnote{
+In real life the broken data is more probable but often
+are not recognized as an error because the result is hidden compare to
+SIGSEGV one that is visible immediately.
+}
+The error can be easily
 fixed by using correct comparator, for instance the following one
 \begin{minted}{c++}
   auto comp = [](int i1, int i2) { return i1 < i2; };
