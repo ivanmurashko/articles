@@ -100,6 +100,39 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND   ...
 \end{verbatim}
 
+\subsection{Network daemon}
+You can run a nginx web server with the following command
+\begin{verbatim}
+$ docker run -p 8080:80 -d nginx
+\end{verbatim}
+This will make the nginx server available on the host machine via port
+8080:
+\begin{verbatim}
+$ telnet localhost 8080
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+HEAD / HTTP/1.0
+
+HTTP/1.1 200 OK
+Server: nginx/1.17.4
+Date: Sat, 28 Sep 2019 18:44:45 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Tue, 24 Sep 2019 14:49:10 GMT
+Connection: close
+ETag: "5d8a2ce6-264"
+Accept-Ranges: bytes
+
+Connection closed by foreign host.
+\end{verbatim}
+
+\subsection{Stop all}
+You can stop all containers with
+\begin{verbatim}
+$ docker container stop $(docker container ls -aq)
+\end{verbatim}
+
 \subsection{Cleanup}
 The following command will remove everything
 \begin{verbatim}
