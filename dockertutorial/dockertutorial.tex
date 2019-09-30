@@ -151,6 +151,8 @@ Total reclaimed space: 6.113GB
 \end{verbatim}
 
 \section{Creating docker images}
+
+\subsection{Build}
 In the example we will create a docker image that will help us to
 compile and run code that uses thrift protocol \cite{apache:thrift}.
 The necessary libs for us are C++ and PHP. 
@@ -159,7 +161,44 @@ The Dockerfile can be found in the article git
 repository \cite{github:articles_ivanmurashko} in the folder 
 \textbf{dockertutorial/src/thrift}.
 \inputminted{shell}{./src/thrift/Dockerfile}
+You can compile it with 
+\begin{verbatim}
+$ cd src/thrift/
+$ docker build -t thriftbuilder .
+...
+Successfully tagged thriftbuilder:latest
+$
+\end{verbatim}
+You can look at the image with 
+\begin{verbatim}
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
+thriftbuilder       latest              be1ccc48fb53        About a
+minute ago
+\end{verbatim}
+You can test the result with
+\begin{verbatim}
+$ docker run --rm thriftbuilder  thrift --version
+Thrift version 0.12.0
+\end{verbatim}
+The \textbf{--rm} option is used to be sure that the stopped container
+was removed.  
 
+\subsection{Cleanup}
+To remove the image you can use
+\begin{verbatim}
+$ docker image rm thriftbuilder
+\end{verbatim}
+If you got an error during the removal:
+\begin{verbatim}
+Error response from daemon: conflict: unable to remove repository
+reference "thriftbuilder" (must force) - container 9c0a1c600473 is
+using its referenced image be1ccc48fb53
+\end{verbatim}
+then try to remove the stoped container before
+\begin{verbatim}
+$ docker container prune
+\end{verbatim}
 TBD
 
 \section{Apps in docker}
