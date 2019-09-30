@@ -29,12 +29,11 @@ RUN buildDeps=" \
 	&& rm thrift.tar.gz \
 	&& cd /usr/src/thrift \
 	&& ./bootstrap.sh \
-	&& ./configure --disable-libs \
+	&& ./configure \
 	&& make \
 	&& make install \
 	&& cd / \
 	&& rm -rf /usr/src/thrift \
-	&& apt-get purge -y --auto-remove $buildDeps \
 	&& rm -rf /var/cache/apt/* \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /tmp/* \

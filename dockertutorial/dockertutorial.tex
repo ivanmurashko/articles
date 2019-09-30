@@ -192,12 +192,12 @@ $ docker image rm thriftbuilder
 If you got an error during the removal:
 \begin{verbatim}
 Error response from daemon: conflict: unable to remove repository
-reference "thriftbuilder" (must force) - container 9c0a1c600473 is
+reference "thriftbuilder" (must force) - container dc0836d6f65f is
 using its referenced image be1ccc48fb53
 \end{verbatim}
-then try to remove the stoped container before
+then try to remove the stopped container before
 \begin{verbatim}
-$ docker container prune
+$ docker container rm dc0836d6f65f
 \end{verbatim}
 TBD
 
