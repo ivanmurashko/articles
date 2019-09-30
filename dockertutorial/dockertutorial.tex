@@ -33,7 +33,7 @@
 There are several examples of docker usage. They are collected in one
 place mainly for future references.
 
-The source code for examples can be found on the article git
+The source code for examples can be found in the article git
 repository \cite{github:articles_ivanmurashko} in the folder 
 \textbf{dockertutorial/src}.
 
@@ -105,7 +105,8 @@ You can run a nginx web server with the following command
 \begin{verbatim}
 $ docker run -p 8080:80 -d nginx
 \end{verbatim}
-This will make the nginx server available on the host machine via port
+This will map docker container port 80 to the host port 8080 or in
+other words make the nginx server available on the host machine via port
 8080:
 \begin{verbatim}
 $ telnet localhost 8080
@@ -148,6 +149,28 @@ b5e8d82cce2942a24c709b630ff4e0dd705b89d78f2777065446ce97cf152cab
 ...
 Total reclaimed space: 6.113GB
 \end{verbatim}
+
+\section{Creating docker images}
+In the example we will create a docker image that will help us to
+compile and run code that uses thrift protocol \cite{apache:thrift}.
+The necessary libs for us are C++ and PHP. 
+
+The Dockerfile can be found in the article git
+repository \cite{github:articles_ivanmurashko} in the folder 
+\textbf{dockertutorial/src/thrift}.
+\inputminted{shell}{./src/thrift/Dockerfile}
+
+TBD
+
+\section{Apps in docker}
+I am going to create a small application that consists of 2 parts. The
+first one is front-end written in php that communicates with a back-end server
+written in C++. The communication is done via thrift protocol
+\cite{apache:thrift}. The front-end server as well as back-end server
+are run in different container and all communication is done via the
+network. 
+
+TBD
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     
