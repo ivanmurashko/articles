@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+ENV DEBIAN_FRONTEND=noninteractive 
+ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV THRIFT_VERSION v0.12.0
 ENV THRIFT_SRC https://github.com/apache/thrift/archive/${THRIFT_VERSION}.tar.gz
 
@@ -9,6 +11,10 @@ RUN buildDeps=" \
 		curl \
 		flex \
 		g++ \
+        php7.2-dev \
+        php7.2-xml \
+        git \
+        composer \
 		libboost-dev \
 		libboost-filesystem-dev \
 		libboost-program-options-dev \
