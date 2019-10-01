@@ -11,10 +11,10 @@ RUN buildDeps=" \
 		curl \
 		flex \
 		g++ \
-        php7.2-dev \
-        php7.2-xml \
-        git \
-        composer \
+		php7.2-dev \
+		php7.2-xml \
+		git \
+		composer \
 		libboost-dev \
 		libboost-filesystem-dev \
 		libboost-program-options-dev \
