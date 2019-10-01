@@ -1,22 +1,12 @@
-src = $(wildcard gen-cpp/*.cpp) main.cpp
-obj = $(src:.cpp=.o)
-LDFLAGS = -lthrift -L/usr/local/lib
+SRC = main.cpp \
+      gen-cpp/Time.cpp \
+      gen-cpp/proto_constants.cpp \
+      gen-cpp/proto_types.cpp
+LIBTHRIFT = /usr/local/lib/libthrift.a
+CPPFLAGS = -O0 -g -Wall -Igen-cpp -I/usr/local/include
 
-all: proto
+thrift: proto.thrift
+	thrift -r --gen cpp proto.thrift
 
-proto.thrift: ../thrift/proto.thrift
-	cp -f ../thrift/proto.thrift .
-
-gen-cpp/Time.cpp: proto.thrift
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp thriftbuilder thrift -r --gen cpp proto.thrift
-
-.cpp:
-   docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp thriftbuilder g++  -I/usr/local/include $< -o $@
-
-proto: gen-cpp/Time.o $(obj)
-   docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp thriftbuilder g++  -o $@ $^ $(LDFLAGS)
-
-clean:
-	docker run --rm -v "$$PWD":/usr/src/myapp -w /usr/src/myapp thriftbuilder rm -rf gen-cpp *.o
-	rm -rf proto.thrift proto
-	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \; 
+all: thrift 
+	g++ $(CPPFLAGS) -o server $(SRC) $(LIBTHRIFT) -lpthread
