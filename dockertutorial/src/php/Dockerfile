@@ -40,6 +40,10 @@ EXPOSE 80
 COPY ./php /var/www/site
 COPY ./thrift/proto.thrift /var/www/site
 
+# Generate the required thrift files
+RUN \
+	cd /var/www/site && \
+    thrift -r --gen php proto.thrift  
 
 # Update the default apache site with the config we created.
 ADD ./apache2/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
