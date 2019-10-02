@@ -209,7 +209,7 @@ written in C++. The communication is done via thrift protocol
 are run in different container and all communication is done via the
 network. 
 
-\subsection{Build and run server (C++) application}
+\subsection{Build and run back-end (C++) application}
 We are going to create a separate docker image for C++ application.
 The image Dockerfile can be found in the article git
 repository \cite{github:articles_ivanmurashko} in the folder 
@@ -228,7 +228,26 @@ follows
 $ docker run --rm -p 9090:9090 -d cppapp
 \end{verbatim}
 
-\subsection{Build and run client (php) application}
+\subsection{Build and run front-end (php) application}
+We are going to create a separate image for front-end application. The
+image will be based on the thriftbuilder image created before.
+It will install and setup apache web server to work with php content.
+The setup instruction was taken from \cite{apache:php}.
+The image Dockerfile can be found in the article git
+repository \cite{github:articles_ivanmurashko} in the folder 
+\textbf{dockertutorial/src/php}.
+\inputminted{shell}{./src/php/Dockerfile}
+The daemon can be built with the following command run from
+\textbf{./src} folder:
+\begin{verbatim}
+$ docker build -t phpapp -f php/Dockerfile .
+\end{verbatim}
+It also builds the application inside the docker. It can be run as
+follows
+\begin{verbatim}
+$ docker run --rm -p 8080:80 -d phpapp
+\end{verbatim}
+
 TBD
 
 \bibliographystyle{gost780s}  
