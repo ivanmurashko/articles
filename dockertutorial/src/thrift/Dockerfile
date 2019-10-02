@@ -12,6 +12,8 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV THRIFT_VERSION v0.12.0
 ENV THRIFT_SRC https://github.com/apache/thrift/archive/${THRIFT_VERSION}.tar.gz
 
+
+
 # The script install and setup all deps + build thrift
 RUN buildDeps=" \
 		automake \
@@ -43,7 +45,7 @@ RUN buildDeps=" \
 	&& rm thrift.tar.gz \
 	&& cd /usr/src/thrift \
 	&& ./bootstrap.sh \
-	&& ./configure \
+	&& PHP_PREFIX=/usr/lib/php/Thrift ./configure \
 	&& make \
 	&& make install \
 	&& cd / \

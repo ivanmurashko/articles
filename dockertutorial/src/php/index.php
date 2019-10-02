@@ -4,17 +4,16 @@
  </head>
  <body>
 <?php 
-namespace proto\php;
 error_reporting(E_ALL);
-
-require_once '/usr/lib/php/ClassLoader/ThriftClassLoader.php';
-
-use Thrift\ClassLoader\ThriftClassLoader;
 
 $GEN_DIR = __DIR__ . "/gen-php/";
 
+require_once '/usr/lib/php/Thrift/ClassLoader/ThriftClassLoader.php';
+use Thrift\ClassLoader\ThriftClassLoader;
+
 $loader = new ThriftClassLoader();
 $loader->registerNamespace('Thrift', '/usr/lib/php');
+$loader->registerNamespace('proto', $GEN_DIR);
 $loader->registerDefinition('proto', $GEN_DIR);
 $loader->register();
 
@@ -23,10 +22,8 @@ use \Thrift\Transport\TSocket;
 use \Thrift\Transport\TBufferedTransport;
 use \Thrift\Exception\TException;
 
-echo 'Hello World'; 
-
 try {
-  $socket = new TSocket('localhost', 9090);
+  $socket = new TSocket('172.17.0.1', 9090);
   $transport = new TBufferedTransport($socket, 1024, 1024);
   $protocol = new TBinaryProtocol($transport);
   $client = new \proto\TimeClient($protocol);
