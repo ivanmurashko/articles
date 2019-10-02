@@ -1,10 +1,18 @@
 FROM ubuntu:18.04
 
+# Don't interact during installation
+# This is espesially important for tz packet installation (php deps)
 ENV DEBIAN_FRONTEND=noninteractive 
+
+# Allow composer run from root user (default user in docker)
+# The composer is required by php lib installation
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Setup thrift version be used
 ENV THRIFT_VERSION v0.12.0
 ENV THRIFT_SRC https://github.com/apache/thrift/archive/${THRIFT_VERSION}.tar.gz
 
+# The script install and setup all deps + build thrift
 RUN buildDeps=" \
 		automake \
 		bison \
@@ -45,5 +53,6 @@ RUN buildDeps=" \
 	&& rm -rf /tmp/* \
 	&& rm -rf /var/tmp/*
 
-
+# By default start up apache in the foreground, 
+# override with /bin/bash for interative.
 CMD [ "thrift" ]
