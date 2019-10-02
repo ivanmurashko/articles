@@ -42,7 +42,7 @@ COPY ./thrift/proto.thrift /var/www/site
 
 
 # Update the default apache site with the config we created.
-ADD ./php/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+ADD ./apache2/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 # By default start up apache in the foreground, 
 # override with /bin/bash for interative.
