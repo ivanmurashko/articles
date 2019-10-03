@@ -18,9 +18,10 @@
   pdftitle={Docker tutorial},
   pdfsubject={Docker},
   pdfauthor={Ivan Murashkо},
-  pdfkeywords={Docker, tutorial}
+  pdfkeywords={Docker, tutorial, thrift, php, C++}
 }
-
+\usepackage{tikz}
+\usetikzlibrary{positioning} 
 \title{Docker tutorial}
 \author{Ivan Murashko}
 \date{}
@@ -209,6 +210,28 @@ written in C++. The communication is done via thrift protocol
 are run in different container and all communication is done via the
 network. 
 
+\begin{figure}
+  \centering
+\begin{tikzpicture}[block/.style={draw,minimum width=2cm,minimum height=1cm}, font=\sffamily] 
+\node[block](C) {Client}; 
+\node[block,right=3cm of C](F) {Front-end}; 
+\node[block,right=3cm of F](B) {Back-end}; 
+\draw[-latex] (C.15) -- (F.165)
+node[midway,above]{HTTP Request(8080)}; 
+\draw[-latex] (F.195) -- (C.-15) node[midway,below]{HTTP Response}; 
+\draw[-latex] (F.15) -- (B.165)
+node[midway,above]{Thrift Request(9191)}; 
+\draw[-latex] (B.195) -- (F.-15) node[midway,below]{Thrift Response}; 
+\end{tikzpicture} 
+  \caption{Applications}
+  \label{fig:apps}
+\end{figure}
+The client (see \cref{fig:apps}) is run on a host and communicates
+with front-end run in a docker container via HTTP protocol, port 8080
+is used. The front-end communicates with a back-end application that
+is run on another docker container. The communication is done via 9191
+port. 
+
 \subsection{Build and run back-end (C++) application}
 We are going to create a separate docker image for C++ application.
 The image Dockerfile can be found in the article git
@@ -255,6 +278,34 @@ $ docker run --rm -p 8080:80 -d phpapp
 The application code can be found in \textbf{dockertutorial/src/php} folder:
 \inputminted{php}{./src/php/index.php}
 
+\subsection{Test}
+First of all start the required containers if them have not been
+started before
+\begin{verbatim}
+$ docker run --rm -p 9191:9191 -d cppapp
+b6ae2f7687b56d9d68028a38aa5f3357cdf096cfa0ead83768e17b4d270edf23
+$ docker run --rm -p 8080:80 -d phpapp
+d8d3ea9415ac614df623c30abf70c48030f03c81ae922e541085cfb082d4e4c4
+\end{verbatim}
+The font-end can be tested via telnet as follow
+\begin{verbatim}
+$ telnet localhost 8080
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+GET / HTTP/1.0
+
+HTTP/1.1 200 OK
+Date: Thu, 03 Oct 2019 14:33:00 GMT
+Server: Apache/2.4.29 (Ubuntu)
+Content-Length: 54
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+Current time from back-end: Thu Oct  3 14:33:00 2019
+
+Connection closed by foreign host.
+\end{verbatim}
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     
