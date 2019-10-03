@@ -3,7 +3,7 @@
 - cppsort - Inside STL sort algorithm (in English) [![pdf](https://img.shields.io/badge/cppsort.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/cppsort/cppsort.pdf)
 - cppabi - C++ ABI report on St. Petersburg C++ meetup (in Russian) [![pdf](https://img.shields.io/badge/cppabi.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/cppabi/cppabi.pdf)
 - cattheory - Category Theory (in English) [![pdf](https://img.shields.io/badge/cattheory.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/cattheory/cattheory.pdf). 
-- dockertutorial - Docker tutorial (not finished yet) [![pdf](https://img.shields.io/badge/dockertutorial.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/dockertutorial/dockertutorial.pdf)
+- dockertutorial - Docker tutorial (in English) [![pdf](https://img.shields.io/badge/dockertutorial.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/dockertutorial/dockertutorial.pdf)
 
 
 Note: The book was moved to https://github.com/CatTheoryByExample/book 
