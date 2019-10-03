@@ -225,8 +225,12 @@ $ docker build -t cppapp -f cpp/Dockerfile .
 It also builds the application inside the docker. It can be run as
 follows
 \begin{verbatim}
-$ docker run --rm -p 9090:9090 -d cppapp
+$ docker run --rm -p 9191:9191 -d cppapp
 \end{verbatim}
+
+The application code can be found in \textbf{dockertutorial/src/cpp} folder:
+\inputminted{c++}{./src/cpp/main.cpp}
+
 
 \subsection{Build and run front-end (php) application}
 We are going to create a separate image for front-end application. The
@@ -248,7 +252,9 @@ follows
 $ docker run --rm -p 8080:80 -d phpapp
 \end{verbatim}
 
-TBD
+The application code can be found in \textbf{dockertutorial/src/php} folder:
+\inputminted{php}{./src/php/index.php}
+
 
 \bibliographystyle{gost780s}  
 \bibliography{dockertutorial}     

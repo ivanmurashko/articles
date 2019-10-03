@@ -1,8 +1,3 @@
-<html>
- <head>
-  <title>PHP Test</title>
- </head>
- <body>
 <?php 
 error_reporting(E_ALL);
 
@@ -23,8 +18,9 @@ use \Thrift\Transport\TBufferedTransport;
 use \Thrift\Exception\TException;
 
 try {
-  $socket = new TSocket('172.17.0.1', 9090);
+  $socket = new TSocket('172.17.0.1', 9191);
   $transport = new TBufferedTransport($socket, 1024, 1024);
+  $transport->open();
   $protocol = new TBinaryProtocol($transport);
   $client = new \proto\TimeClient($protocol);
   $nowtime = $client->getInfo();
@@ -32,7 +28,4 @@ try {
 } catch (TException $tx) {
   print 'TException: '.$tx->getMessage()."\n";
 }
-
-?> 
- </body>
-</html>
+?>
