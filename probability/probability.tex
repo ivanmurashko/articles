@@ -21,7 +21,9 @@
   pdfkeywords={probability, paradox}
 }
 \usepackage{tikz}
-\usetikzlibrary{positioning} 
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
 \title{Probability paradoxes}
 \author{Ivan Murashko}
 \date{}
@@ -35,6 +37,31 @@ The goal for the article is to demonstrate several paradoxes that are
 related to probability theory and how can they can be solved.
 
 \section{Base definitions of probability theory}
+We will start with several definitions.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,label=left:$a$] (a) at (2,2) {};    
+    \node[ele,label=left:$b$] (b) at (2,1) {};    
+    \node[ele,label=left:$c$] (c) at (0,2) {};
+    \node[ele,label=left:$d$] (d) at (0,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=4cm, minimum
+      height=4cm] {}  ;
+
+  \end{tikzpicture}
+  \caption{Probability space. It consists of elementary events: $a$,
+    $b$, $c$ and $d$, each
+    of them has equal probability $p_{a,b,c,d} = \frac{1}{4}$}
+  \label{fig:probabilityspace}
+\end{figure}
+
+
 TBD \cite{bib:kolmogorov74basic}
 
 \section{Monty Hall problem}
