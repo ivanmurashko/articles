@@ -46,10 +46,10 @@ We will start with several definitions.
         sep=-2pt}]
 
     % the texts
-    \node[ele,label=left:$a$] (a) at (2,2) {};    
-    \node[ele,label=left:$b$] (b) at (2,1) {};    
-    \node[ele,label=left:$c$] (c) at (0,2) {};
-    \node[ele,label=left:$d$] (d) at (0,1) {};
+    \node[ele,label=left:$a$] (a) at (0,2) {};    
+    \node[ele,label=left:$b$] (b) at (0,1) {};    
+    \node[ele,label=right:$c$] (c) at (2,2) {};
+    \node[ele,label=right:$d$] (d) at (2,1) {};
     
     \node[draw,fit= (a) (b) (c) (d),minimum width=4cm, minimum
       height=4cm] {}  ;
@@ -59,6 +59,28 @@ We will start with several definitions.
     $b$, $c$ and $d$, each
     of them has equal probability $p_{a,b,c,d} = \frac{1}{4}$}
   \label{fig:probabilityspace}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+
+    % the texts
+    \node[ele,color=red] (a) at (0,2) {};    
+    \node[ele,top color=green, bottom color=red] (a) at (1,1) {};    
+    \node[ele,color=green] (a) at (1,2) {};    
+    \node[ele] (b) at (0,1) {};    
+    \node[ele] (c) at (2,2) {};
+    \node[ele] (d) at (2,1) {};
+    
+    \node[draw,fit= (a) (b) (c) (d),minimum width=4cm, minimum
+      height=4cm] {}  ;
+
+  \end{tikzpicture}
+  \caption{Condition probability}
+  \label{fig:condprobability}
 \end{figure}
 
 
