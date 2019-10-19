@@ -19,6 +19,9 @@ and informal definitions and show how they are related each other.
 
 We will start with the simplest example. 
 \begin{example}
+In the example we have (see \cref{fig:simpleprobability}) $N=5$ balls.
+There are $N_G = 2$ green balls and $N_R$ red balls. I.e. $N = N_G +
+N_R$.  
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
@@ -38,6 +41,18 @@ We will start with the simplest example.
   \label{fig:simpleprobability}
 \end{figure}
 
+We can define the probability to get green ball as
+\[
+P_G = \frac{N_G}{N} = \frac{2}{5}
+\]
+and the probability to get red ball as
+\[
+P_R = \frac{N_R}{N} = \frac{3}{5}.
+\]
+We can get only a red or a green ball and 
+\[
+P_G + P_R = 1.
+\]
 \end{example}
 
 \begin{figure}
