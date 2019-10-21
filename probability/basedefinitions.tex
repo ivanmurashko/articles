@@ -103,6 +103,7 @@ P(A|B) = \frac{P\left(A \cap B\right)}{P(B)}
 \end{definition}
 
 \begin{example}[Conditional probability]
+\label{ex:conditionalprobability}
 Lets consider 6 balls each of them can be either two colors (see
 \cref{fig:excondprobability}). 
 \begin{figure}[H]
@@ -213,21 +214,74 @@ $B=green$ occurs.
     \frac{3}{4}$} 
   \label{fig:excondprobability_green}
 \end{figure}
-
 \end{example}
 
-\begin{definition}[Total probability]
+\begin{proposition}[Total probability]
+
 The \textit{total probability} is defined as follows
 \[
 P(A) = \sum_i P(A|B_i)
 \]
-\label{def:totalprobability}
-\end{definition}
+\label{thm:totalprobability}
+\end{proposition}
 
-\begin{example}
-TBD
+\begin{example}[Total probability]
+Lets assume in the \mynameref{ex:conditionalprobability} that we are
+interested in the event $A$ that the ball is green. The other color
+will be either blue or red. I.e. $B_1 = blue$, $B_2 = red$.
+\begin{eqnarray}
+P(A = green) = P(A = green|B = blue) P(B = blue) +
+\nonumber \\
++
+P(A = green|B = red) P(B = red) =
+\nonumber \\
+= \frac{1}{3} \cdot \frac{1}{2} + \frac{3}{5}\cdot \frac{5}{6} = \frac{4}{6}.
+\nonumber
+\end{eqnarray}
+I.e. formula works.
 \end{example}
 
+Consider another, not so simple example
+\begin{example}[Total probability paradox]
+Let we have 6 balls each of them has one color: red or green (see
+\cref{fig:excondprobability_add}). 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
+        width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
+        sep=-2pt}]
+    \tikzstyle{element}=[circle,fill=black!25,minimum size=17pt,inner sep=0pt]
+
+    \node[element,color=red] at (0,1) {};
+    \node[element,color=red] at (1,1) {};
+    \node[element,color=red] at (2,1) {};
+    \node[element,color=green] at (0,0) {};
+    \node[element,color=green] at (1,0) {};
+    \node[element,color=green] at (2,0) {};
+
+
+  \end{tikzpicture}
+  \caption{Total probability example}
+  \label{fig:excondprobability_add}
+\end{figure}
+Lets event $A$ is an event to get a ball. $P(A) = \frac{1}{6}$. The
+event $B_1$ is an event to get green ball: $P(B_1) = \frac{1}{2}$. The
+same one is for probability to get red ball: $P(B_2) = \frac{1}{2}$.
+Conditional probabilities can be calculated as follows:
+\begin{equation}
+P(A|B_1) = P(A|B_2) = \frac{1}{3}.
+\label{eq:condprob_wrong}
+\end{equation}
+As result the total probability is 
+\[
+P(A) = \frac{1}{2}\cdot\frac{1}{3} + \frac{1}{2}\cdot\frac{1}{3} =
+\frac{2}{6} \ne \frac{1}{6}.
+\]
+The error is in the \eqref{eq:condprob_wrong}. When we consider a
+concrete ball then it either green or blue and as result one of the
+conditional probabilities $P(A|B_1)$ or $P(A|B_2)$ is zero. In the
+case we will get correct answer $P(A) = \frac{1}{6}$.
+\end{example}
 
 
 TBD \cite{bib:kolmogorov74basic}
