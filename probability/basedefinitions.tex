@@ -3,6 +3,7 @@
 I am going to provide several definitions. I will give the both formal
 and informal definitions and show how they are related each other.
 
+\section{Example and motivation}
 We will start with the simplest example. 
 \begin{example}
 \label{ex:initial}
@@ -42,10 +43,21 @@ P_G + P_R = 1.
 \]
 \end{example}
 
+\section{Definitions}
 Now we are ready to give several formal definitions. 
+\subsection{$\sigma$-algebra}
+\begin{definition}[Power set]
+\label{def:powerset}
+Let $\Omega$ is a set than the set of all possible subsets of $\Omega$
+is called \textit{power set} and denoted as
+$\mathcal{P}\left(\omega\right)$. 
+\end{definition}
+
 \begin{definition}[$\sigma$ algebra]
-Let $\Omega$ is a set then a collection $\mathcal{F}$ of sub sets of
-$\Omega$ is called $\sigma$ algebra if the following conditions are
+Let $\Omega$ is a set then a subset $\mathcal{F}$ of
+\mynameref{def:powerset} $\mathcal{P}\left(\Omega\right)$ ($\mathcal{F}\subseteq
+\mathcal{P}\left(\Omega\right)$) is called $\sigma$ algebra if the
+following conditions are 
 satisfied:
 \begin{enumerate}
 \item $\mathcal{F}$ contains $\Omega$: $\Omega \in \mathcal{F}$
@@ -79,7 +91,20 @@ balls.
   \label{fig:probabilityspace}
 \end{figure}
 
-\begin{figure}
+\section{Conditional probability}
+
+\begin{definition}[Conditional probability]
+The \textit{conditional probability} of event $A$ on event $B$ is
+defined as follow
+\[
+P(A|B) = \frac{P\left(A \cap B\right)}{P(B)}
+\]
+\end{definition}
+
+\begin{example}[Conditional probability]
+Lets consider 6 balls each of them can be either two colors (see
+\cref{fig:excondprobability}). 
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -98,10 +123,16 @@ balls.
   \caption{Condition probability. Original probability space. $P(R) =
     \frac{5}{6}$, $P(B) = \frac{3}{6}$, $P(G) = \frac{4}{6}$
   }
-  \label{fig:condprobability}
+  \label{fig:excondprobability}
 \end{figure}
+You can see that the probability to get red ball is $P(R) =
+\frac{5}{6}$, blue one is $P(B) = \frac{3}{6}$, green one is $P(G) =
+\frac{4}{6}$. 
 
-\begin{figure}
+Now assume that event $A$ is to get a green ball but event $B$ is to
+get red ball, how we can define $P(A|B)$ in the case. 
+
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[ele/.style={fill=black,circle,minimum
         width=.8pt,inner sep=1pt},every fit/.style={ellipse,draw,inner
@@ -117,8 +148,23 @@ balls.
 
   \end{tikzpicture}
   \caption{Condition probability. $P(G|R) = \frac{3}{5}$, $P(B|R) = \frac{2}{5}$}
-  \label{fig:condprobability_red}
+  \label{fig:excondprobability_red}
 \end{figure}
+The situation is displayed on \cref{fig:excondprobability_red}. We have only 5
+possibilities to choose a ball now instead of 6 in the original case.
+This is because we just got an additional information - ``one of the
+color should be red''. Only 3 of the 5 balls are green. Therefore
+$P(A|B) = P(A=green|B=red) = \frac{3}{5}$. 
+
+This result is in correlation with the formal definition of
+\mynameref{def:conditionalprobability}:
+\begin{eqnarray}
+P(A|B) = \frac{P\left(A \cap B\right)}{P(B)} = 
+\nonumber \\
+\frac{P\left(A = green \cap B = red\right)}{P(B = red)} = 
+\frac{3/6}{5/6} = \frac{3}{5}.
+\nonumber
+\end{eqnarray}
 
 \begin{figure}
   \centering
@@ -132,8 +178,9 @@ balls.
     \node[element,top color=green, bottom color=blue] at (2,0) {};
 
 
-  \end{tikzpicture}
-  \caption{Condition probability. $P(R|B) = \frac{2}{3}$, $P(G|B) = \frac{1}{3}$}
+  \end{tikzpicture} 
+  \caption{Condition probability. $P(R|B) = \frac{2}{3}$, $P(G|B) =
+    \frac{1}{3}$} 
   \label{fig:condprobability_blue}
 \end{figure}
 
@@ -151,9 +198,27 @@ balls.
 
 
   \end{tikzpicture}
-  \caption{Condition probability. $P(B|G) = \frac{1}{4}$, $P(R|G) = \frac{3}{4}$}
+  \caption{Condition probability. $P(B|G) = \frac{1}{4}$, $P(R|G) =
+    \frac{3}{4}$} 
   \label{fig:condprobability_green}
 \end{figure}
+
+
+TBD
+\end{example}
+
+\begin{definition}[Total probability]
+The \textit{total probability} is defined as follows
+\[
+P(A) = \sum_i P(A|B_i)
+\]
+\label{def:totalprobability}
+\end{definition}
+
+\begin{example}
+TBD
+\end{example}
+
 
 
 TBD \cite{bib:kolmogorov74basic}
