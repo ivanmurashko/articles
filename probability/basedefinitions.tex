@@ -283,5 +283,59 @@ conditional probabilities $P(A|B_1)$ or $P(A|B_2)$ is zero. In the
 case we will get correct answer $P(A) = \frac{1}{6}$.
 \end{example}
 
+\begin{example}[Fish in a pond]
+The example from a Russian Biological Olympiad. Consider a pond with
+fishes. 15 of them were marked. After sometime we took 15 fishes and 5
+of them were marked. How many fishes in the pond.
+
+The accepted answer was 45 with the following explanation: 
+\[
+\frac{15}{5} = \frac{n}{15}
+\]
+therefore $n=45$.
+
+Lets try to solve the task with probability theory and convert the
+question to the following one: In every 15 fishes with max probability
+we find 5 marked ones. How many fishes in the pond.
+
+The probability to get a marked fish is
+\[
+P_1 = \frac{15}{n}
+\]
+but if we catch a fish then the probability (conditional) to get a new
+marked fish is
+\[
+P_2 = \frac{14}{n-1}
+\]
+i.e. the probability to catch $i$-th marked fish is
+\[
+P_i = \frac{15-i+1}{n - i + 1}.
+\]
+The probability to catch the first non marked fish is
+\[
+Q_1 = \frac{n - 15}{n - 5},
+\]
+$i$-th
+\[
+Q_i = \frac{n -15 -i + 1}{n - 5 - i + 1}
+\]
+The final probability is
+\[
+P = \frac{\prod_{k=11}^{15}k}{\prod_{i = 1}^{15}{\left(n - 15 - i +
+    1\right)}}\prod_{k=1}^{10}{\left(n -k + 1\right)}.
+\]
+
+Quick calculations show that $n=45$ is very close to real answer: 
+\begin{verbatim}
+Prelude> p1 n = foldl (\x y -> x * (n - y)) 1 [0 .. 14]
+Prelude> p2 n = foldl (\x y -> x * (n - 15 - y)) 1 [0 .. 9]
+Prelude> fn n = (product [11 .. 15])*(p2 n)/(p1 n)
+Prelude> map fn [50, 45, 35, 30, 25, 20]
+[8.156077120597312e-5,8.7120478105816e-5,5.688400039611531e-5,
+1.935951528879523e-5,3.0592640634368994e-7,0.0]
+Prelude> 
+\end{verbatim}
+
+\end{example}
 
 TBD \cite{bib:kolmogorov74basic}
