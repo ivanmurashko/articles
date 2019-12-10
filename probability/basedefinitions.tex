@@ -283,6 +283,31 @@ conditional probabilities $P(A|B_1)$ or $P(A|B_2)$ is zero. In the
 case we will get correct answer $P(A) = \frac{1}{6}$.
 \end{example}
 
+\begin{definition}[Independence]
+\label{def:independence}
+Two events $A$ and $B$ are independent if 
+\[
+P\left(A \cap B\right) = 
+P\left(A\right) P\left(B\right). 
+\]
+\end{definition}
+
+\begin{example}[Non independent events]
+Consider situation shown in \cref{fig:excondprobability_add}. Let
+event $A$ is that ball is green, event $B$ is that ball is red. We
+have
+\[
+A \cap B = \emptyset, 
+\]
+i.e. $P\left(A \cap B\right) = 0$. This means that the events cannot
+be considered as independent accordingly \cref{def:independence} as
+soon as $P\left(A\right) = 
+P\left(B\right) = \frac{1}{2}$.
+
+Really the events are dependent as soon as we can say that $A$ will
+not occur if $B$ occurs and vice versa.
+\end{example}
+
 \begin{example}[Fish in a pond]
 The example from a Russian Biological Olympiad. Consider a pond with
 fishes. 15 of them were marked. After sometime we took 15 fishes and 5
