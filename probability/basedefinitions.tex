@@ -216,6 +216,29 @@ $B=green$ occurs.
 \end{figure}
 \end{example}
 
+\begin{example}[The King's sibling]
+Suppose that we have a king from a family of 2 children. What's the
+probability that his sibling is a girl. The important assumption
+\footnote{
+For instance if the king family assume to get a new child until the
+first boy (king) get then we will have the sibling is girl with
+probability $1$.
+}
+that
+has to be made is the following: there is no any family planning in
+the king family and the probability to get a boy $P_b$ and probability
+to get a girl $P_b$ are equally likely:
+\[
+P_b = P_g = \frac{1}{2}.
+\] 
+We have 4 cases: $bb, bg, gb, gg$ and the condition that the king is a
+boy pick up only 3 options for us: $bb, bg, gb$. All of them are
+equally likely and 2 have a girl as sibling. I.e.
+\[
+P(sibling = girl|king) = \frac{2}{3}.
+\]
+\end{example}
+
 \begin{proposition}[Total probability]
 
 The \textit{total probability} is defined as follows
