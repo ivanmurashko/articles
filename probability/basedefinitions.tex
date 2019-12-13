@@ -43,6 +43,40 @@ P_G + P_R = 1.
 \]
 \end{example}
 
+\begin{example}[Birthday paradox]
+Consider $n$ people and give a prediction that there is at least one
+pair of people who have a birthday at the same day. We will call the
+event as $A$ and there fore are required to find $P(A)$. 
+The straightforward calculations are not easy and we will try to find
+a probability for another event $A^c$ that is the complement of event
+$A$. I.e. event $A^c$ states that there is no such pairs and all
+birthdays are different. We can calculate the desired probability via 
+\[
+P_n = P(A) = 1 - P(A^c).
+\]
+
+We will use the standard counting here. There are totally $365^n$
+possible options for different birthdays in the group on $n$ people.
+The number of outcomes that satisfied $A^c$ is 
+\[
+365 \cdot 364 \cdot \dots \cdot (365 -n +1) = 
+\prod_{i = 1}^n (365 - i + 1).
+\]
+Therefore
+\[
+P(A^c) = \frac{\prod_{i = 1}^n (365 - i + 1)}{365^n}
+\]
+and
+\[
+P(n) = 1 - \frac{\prod_{i = 1}^n (365 - i + 1)}{365^n}.
+\]
+Calculations gives us
+$P_{10} = 0.1169, P_{30} = 0.7063, P_{60} = 0.9941$. I.e. we can say
+with high probability
+that in the group of 60 people there will be at least 2 persons with
+the same birthday.
+\end{example}
+
 \section{Definitions}
 Now we are ready to give several formal definitions. 
 \subsection{$\sigma$-algebra}
