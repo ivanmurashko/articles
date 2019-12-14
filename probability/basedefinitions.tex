@@ -43,6 +43,62 @@ P_G + P_R = 1.
 \]
 \end{example}
 
+We will formalize the probability calculations for such cases via the
+counting principle and define the probability as a ratio of number
+desired outcomes $\left|A\right|$ to the number of all possible
+outcomes $\left|\Omega\right|$:
+\[
+P = \frac{\left|A\right|}{\left|\Omega\right|}.
+\]
+
+There is a simple example on counting principle below.
+\begin{example}[Fish in a pond]
+The example is from a Russian Biological Olympiad. Consider a pond with
+fishes. 15 of them were marked. After sometime we took 15 fishes and 5
+of them were marked. How many fishes are in the pond.
+
+The accepted answer was 45 with the following explanation: 
+\[
+\frac{15}{5} = \frac{n}{15}
+\]
+therefore $n=45$.
+
+Lets try to solve the task with probability theory and convert the
+question to the following one: How many fishes are in the pond if in
+every 15 fishes with high probability we get 5 marked ones?
+
+Let $n$ the number of fishes in the pond. Then the size of the sample
+space $\left|\Omega\right|$ is the following
+\[
+\left|\Omega\right| = \binom{n}{15}
+\]
+i.e. how many ways to get 15 fishes from $n$.
+
+The desired outcome has the size $\left|A\right|$ combined from 2
+ones: getting 5 fishes from 15 and get the rest (10) from non marked
+fishes: $n - 15$:
+\[
+\left|A\right| = \binom{15}{5} \cdot \binom{n - 15}{10}.
+\]
+Therefore the result can be calculated as follows
+\[
+P_n = \frac{\left|A\right|}{\left|\Omega\right|} = 
+\frac{\binom{15}{5} \cdot \binom{n - 15}{10}}{\binom{n}{15}}.
+\]
+
+Quick calculations 
+\cite{github:mathexperiments_ivanmurashko}
+show that $n=45$ is very close to real answer: 
+\begin{verbatim}
+$ stack repl
+> map fish_in_pond [55, 50, 45, 40, 35, 30]
+[0.21391501072376837,0.24492699593153727,0.26162279575176545,
+ 0.2440273978093778,0.17082265318953427,5.813662441225208e-2]
+\end{verbatim}
+
+\end{example}
+
+
 \begin{example}[Birthday paradox]
 Consider $n$ people and give a prediction that there is at least one
 pair of people who have a birthday at the same day. We will call the
@@ -363,61 +419,6 @@ P\left(B\right) = \frac{1}{2}$.
 
 Really the events are dependent as soon as we can say that $A$ will
 not occur if $B$ occurs and vice versa.
-\end{example}
-
-\begin{example}[Fish in a pond]
-The example from a Russian Biological Olympiad. Consider a pond with
-fishes. 15 of them were marked. After sometime we took 15 fishes and 5
-of them were marked. How many fishes in the pond.
-
-The accepted answer was 45 with the following explanation: 
-\[
-\frac{15}{5} = \frac{n}{15}
-\]
-therefore $n=45$.
-
-Lets try to solve the task with probability theory and convert the
-question to the following one: In every 15 fishes with max probability
-we find 5 marked ones. How many fishes in the pond.
-
-The probability to get a marked fish is
-\[
-P_1 = \frac{15}{n}
-\]
-but if we catch a fish then the probability (conditional) to get a new
-marked fish is
-\[
-P_2 = \frac{14}{n-1}
-\]
-i.e. the probability to catch $i$-th marked fish is
-\[
-P_i = \frac{15-i+1}{n - i + 1}.
-\]
-The probability to catch the first non marked fish is
-\[
-Q_1 = \frac{n - 15}{n - 5},
-\]
-$i$-th
-\[
-Q_i = \frac{n -15 -i + 1}{n - 5 - i + 1}
-\]
-The final probability is
-\[
-P = \frac{\prod_{k=11}^{15}k}{\prod_{i = 1}^{15}{\left(n - 15 - i +
-    1\right)}}\prod_{k=1}^{10}{\left(n -k + 1\right)}.
-\]
-
-Quick calculations show that $n=45$ is very close to real answer: 
-\begin{verbatim}
-Prelude> p1 n = foldl (\x y -> x * (n - y)) 1 [0 .. 14]
-Prelude> p2 n = foldl (\x y -> x * (n - 15 - y)) 1 [0 .. 9]
-Prelude> fn n = (product [11 .. 15])*(p2 n)/(p1 n)
-Prelude> map fn [50, 45, 35, 30, 25, 20]
-[8.156077120597312e-5,8.7120478105816e-5,5.688400039611531e-5,
-1.935951528879523e-5,3.0592640634368994e-7,0.0]
-Prelude> 
-\end{verbatim}
-
 \end{example}
 
 TBD \cite{bib:kolmogorov74basic}
