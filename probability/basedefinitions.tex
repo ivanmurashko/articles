@@ -53,6 +53,7 @@ P = \frac{\left|A\right|}{\left|\Omega\right|}.
 
 There is a simple example on counting principle below.
 \begin{example}[Fish in a pond]
+\label{ex:fishinpond}
 The example is from a Russian Biological Olympiad. Consider a pond with
 fishes. 15 of them were marked. After sometime we took 15 fishes and 5
 of them were marked. How many fishes are in the pond.
@@ -81,10 +82,14 @@ fishes: $n - 15$:
 \left|A\right| = \binom{15}{5} \cdot \binom{n - 15}{10}.
 \]
 Therefore the result can be calculated as follows
-\[
+\footnote{
+Alternative way to calculate it can be found in \mynameref{ex:fishinpond_cond}.
+}
+\begin{equation}
+\label{eq:fishinpond}
 P_n = \frac{\left|A\right|}{\left|\Omega\right|} = 
 \frac{\binom{15}{5} \cdot \binom{n - 15}{10}}{\binom{n}{15}}.
-\]
+\end{equation}
 
 Quick calculations 
 \cite{github:mathexperiments_ivanmurashko}
@@ -395,6 +400,63 @@ concrete ball then it either green or blue and as result one of the
 conditional probabilities $P(A|B_1)$ or $P(A|B_2)$ is zero. In the
 case we will get correct answer $P(A) = \frac{1}{6}$.
 \end{example}
+
+Lets calculate the required probability from \mynameref{ex:fishinpond}
+by means of conditional probability tools. This will show us that a
+same task can be solved in different ways
+\begin{example}[Fish in a pond (conditional)]
+\label{ex:fishinpond_cond}
+First of all calculate a probability of the following collection
+\[
+A = MMMMMNNNNNNNNNN
+\]
+where $M$ means marked fish and $N$ - non marked. I.e. first 5 fishes
+were marked and last 10 non marked.
+The probability to get a marked fish is
+\[
+P_1 = \frac{15}{n}
+\]
+but if we catch a fish then the probability (conditional) to get a new
+marked fish is
+\[
+P_2 = \frac{14}{n-1}
+\]
+i.e. the probability to catch $i$-th marked fish is
+\[
+P_i = \frac{15-i+1}{n - i + 1}.
+\]
+The probability to catch the first non marked fish is
+\[
+Q_1 = \frac{n - 15}{n - 5},
+\]
+$i$-th
+\[
+Q_i = \frac{n -15 -i + 1}{n - 5 - i + 1}.
+\]
+The final probability for event $A$ is
+\[
+P(A) = \frac{\prod_{k=11}^{15}k}{\prod_{i =
+    1}^{15}{\left(n -i + 1\right)}}\prod_{i=1}^{10}{\left(n - 15 - i + 1\right)}.
+\]
+The desired collection is any collection with 5 $M$s and 10 $N$s. All
+of them have the same probability i.e. the final probability is
+\begin{eqnarray}
+P = \binom{15}{5} P(A) = \binom{15}{5}
+\frac{ \prod_{k=11}^{15}k}{\prod_{i = 1}^{15}{\left(n - i +
+    1\right)}}\prod_{i=1}^{10}{\left(n - 15 - i + 1\right)} = 
+\nonumber \\
+= \binom{15}{5}
+\frac{\frac{15!}{10!}}{\frac{n!}{(n-15)!}}\frac{(n-15)!}{(n-25)!} = 
+\nonumber \\
+= \binom{15}{5}
+\frac{15!(n-15)!}{n!}
+\frac{(n-15)!}{10! (n-25)!} =
+\frac{\binom{15}{5} \cdot \binom{n - 15}{10}}{\binom{n}{15}}.
+\nonumber
+\end{eqnarray}
+That is the same as the equation got in \eqref{eq:fishinpond}.
+\end{example}
+
 
 \begin{definition}[Independence]
 \label{def:independence}
