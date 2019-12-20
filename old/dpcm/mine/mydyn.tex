@@ -1,0 +1,685 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[koi8-r]{inputenc}
+\usepackage[russian]{babel}
+
+\title{Динамика развития генерации в двойном некогерентном обращающем зеркале}
+
+\begin{document}
+\Russian
+\maketitle
+
+\section{Математическое введение}
+
+Давайте введем некоторые (в общем довольно известные операции с
+векторами). Во первых обозначим через 
+\[
+\overrightarrow {a} = \left( \begin{array} {c} a_{1} \\ \vdots \\ a_{n}
+\end{array} \right) 
+\qquad 
+\overrightarrow {a^{*}} = \left( \begin{array} {c} a_{1}^{*} \\ \vdots \\
+a_{n}^{*} \end{array} \right) . 
+\]
+соответсвенно
+\[
+\overrightarrow {a}^{T} = (a_{1},\ldots,a_{n}) \qquad \overrightarrow {a^{*}}^{T} =
+(a_{1}^{*},\ldots,a_{n}^{*}) , 
+\]
+
+
+ Обозначив через \( \overrightarrow {b} = (b_{1},\ldots,b_{n})  \) и \(
+\overrightarrow {c} = (c_{1},\ldots,c_{k})  \), несложно получить:
+\[
+\overrightarrow {a}^{T} \cdot \overrightarrow {b} = a_{1} b_{1} + \cdots +
+a_{n} b_{n} ,
+\]
+\[
+\overrightarrow {c} \cdot \overrightarrow {a}^{T} = \left( \begin{array} {ccc}
+c_{1} a_{1} & \cdots & c_{1} a_{n}  
+\\ 
+\vdots & \qquad & \vdots 
+\\ 
+c_{k} a_{1} & \cdots & c_{k} a_{n} \end{array} \right) .  
+\]
+
+\section{Основные уравнения}
+
+Рассмотрим в дальнейшем схему двойного некогерентного обращающего зеркала, в
+которой фоторефрактивный кристалл освещается двумя некогерентными между собой
+лазерными пучками, падающими на кристалл с двух разных сторон \(
+\overrightarrow {a_{1}} \) и \( \overrightarrow {a_{2}} \). Число компонент 
+\( \{ n \} \)  векторов  \( \overrightarrow {a_{1}} \) и \( \overrightarrow
+{a_{2}} \) определяется условиями Брэга. Обозначив через \( E_{sc} \)
+внутреннее поле кристалла получим, что \( E_{sc} \) - матрица размерности \(
+\{  n \times n \} \). 
+Граничные условия запишем в виде \( {\overrightarrow {a_{1}} |}_{z=0} =
+A_{1} \overrightarrow {e_{1}} \) и \( {\overrightarrow {a_{2}} |}_{z=L} =
+A_{2} \overrightarrow {e_{2}} \), где \( \left( \overrightarrow {e_{1}}^{T}
+\overrightarrow {e_{1}} \right) = \left( \overrightarrow {e_{2}}^{T}
+\overrightarrow {e_{2}} \right) =1 \). 
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+\put(70,10) {\framebox(60,150)}
+\put(5,5){\vector(1,1){50}}
+\put(5,45){\( a_{1}\left( \alpha_{1} \right) \)}
+\put(5,165){\vector(1,-1){50}}
+\put(5,120){\( a_{1}\left( \alpha_{2} \right) \)}
+\put(195,5){\vector(-1,1){50}}
+\put(170,45){\( a_{2}\left( \alpha_{2} \right) \)}
+\put(195,165){\vector(-1,-1){50}}
+\put(170,120){\( a_{2}\left( \alpha_{1} \right) \)}
+\put(100,25){\vector(0,1){120}}
+\put(71,90){\( E_{sc}\left( \alpha_{1}, \alpha_{2} \right) \)}
+\end{picture}
+\caption{Некоторые пояснения к уравнениям}
+\label{f1}
+\end{figure}
+
+Уравнения взаимодействия света в фоторефрактивном кристалле  в матричном виде
+несложно записать, как:
+\begin{eqnarray}
+\label{common}
+\frac {\partial \overrightarrow {a_{1}}}  {\partial z} = D E_{sc}
+\overrightarrow {a_{1}} , 
+\nonumber 
+\\
+- \frac {\partial \overrightarrow {a_{2}}}  {\partial z} = D E_{sc}^{*}
+\overrightarrow {a_{2}} , 
+\\
+\frac {\partial E_{sc}}  {\partial t} = - \frac {E_{sc} +E_{sc_{0}}} {\tau}
++ Q \frac {\overrightarrow {a_{1}} \overrightarrow {a_{1}^{*}}^{T}+
+\overrightarrow {a_{2}^{*}} \overrightarrow {a_{2}}^{T}} {\tau}. 
+\nonumber
+\end{eqnarray} 
+Как видно из данных уравнений (последнего уравнения) \( E_{sc}^{*} = E_{sc}^{T}
+ \). Член \( E_{sc_{0}} \) описывает постоянно присутствующие в кристалле
+дефекты (затравки).
+
+Система уравнений (\ref{common}) нуждается в некоторых пояснениях, в частности
+интересны ответы на следующие вопросы: Почему во втором уравнении данной
+системы было взято \( E_{sc}^{*} \)  а не  \( E_{sc} \)? Также в пояснениях
+нуждается следующая часть 3-его уравнения   системы (\ref{common}): 
+\( 
+\left( \overrightarrow {a_{1}} \overrightarrow {a_{1}^{*}}^{T} +
+\overrightarrow {a_{2}^{*}} \overrightarrow {a_{2}}^{T} \right) 
+\). Необходимые выводы могут быть сделаны из анализа (рис.\ref{f1}), из
+которого можно получить некоторые соответствия, первое из которых: 
+\(
+\left( 
+\overrightarrow a_{1}  \left( \alpha_{1} \right) 
+\cdotp
+\overrightarrow a_{1}^{*}  \left( \alpha_{2} \right)
+\right)
+\equiv
+\left( 
+\overrightarrow a_{2}^{*}  \left( \alpha_{1} \right) 
+\cdotp
+\overrightarrow a_{2}  \left( \alpha_{2} \right)
+\right)
+\)
+подтверждает справедливость предложенной в (\ref{common}) записи третьего уравнения.
+Следующие два соответствия
+\(
+\overrightarrow a_{1}  \left( \alpha_{1} \right) 
+\equiv
+E_{sc} \left( \alpha_{1}, \alpha_{2} \right) 
+\cdotp
+\overrightarrow a_{1}  \left( \alpha_{2} \right)
+\)
+и
+\(
+\overrightarrow a_{2}  \left( \alpha_{1} \right) 
+\equiv
+E_{sc} \left( \alpha_{2}, \alpha_{1} \right) 
+\cdotp
+\overrightarrow a_{2}  \left( \alpha_{2} \right)
+=
+E_{sc}^{*} \left( \alpha_{1}, \alpha_{2} \right) 
+\cdotp
+\overrightarrow a_{2}  \left( \alpha_{2} \right)
+\)
+подверждают справедливость 1-ого и 2-ого уравнений системы (\ref{common}).
+
+В дальнейшем из вектора \( \overrightarrow {a_{1}} \) выделим составляющие
+сигнала \( \overrightarrow {e_{1}} \), обращенной волны \( \overrightarrow
+{e_{2}^{*}} \) и фенинга - все остальное \( \overrightarrow {f_{1}} \). При
+этом считаем, что для \( \overrightarrow {f_{1}} \) выполнено следующее
+условие нормировки: \( \left( \overrightarrow {f_{1}^{*}}^{T} \overrightarrow
+{f_{1}} \right) \). Таким образом \( \overrightarrow {a_{1}} = A_{s1}
+\overrightarrow {e_{1}} + A_{c1} \overrightarrow {e_{2}^{*}} + A_{f1}
+\overrightarrow {f_{1}} \). Записав по аналогии \( \overrightarrow {a_{2}} = A_{s2}
+\overrightarrow {e_{2}} + A_{c2} \overrightarrow {e_{1}^{*}} + A_{f2}
+\overrightarrow {f_{2}} \) несложно получить для первого уравнения системы
+(\ref{common}): \begin{eqnarray} \label{first wave} \frac {\partial {A_{s1}}} 
+{\partial z} \overrightarrow {e_{1}} + \frac {\partial {A_{c1}}}  {\partial z}
+\overrightarrow {e_{2}^{*}} + \frac {\partial {A_{f1}}}  {\partial z}
+\overrightarrow {f_{1}} + A_{f1} \frac {\partial \overrightarrow {f_{1}}} 
+{\partial z} = \nonumber \\  D E_{sc} \left( A_{s1} \overrightarrow {e_{1}} +
+A_{c1} \overrightarrow {e_{2}^{*}} + A_{f1} \overrightarrow {f_{1}} \right),  
+\end{eqnarray}   второго уравнения системы (\ref{common}): \begin{eqnarray}
+\label{second wave}
+- \frac {\partial {A_{s2}}}  {\partial z} \overrightarrow {e_{2}} + \frac
+{\partial {A_{c2}}}  {\partial z} \overrightarrow {e_{1}^{*}} + \frac
+{\partial {A_{f2}}}  {\partial z} \overrightarrow {f_{2}} + A_{f2} \frac
+{\partial \overrightarrow {f_{2}}}  {\partial z} = \nonumber \\ 
+D E_{sc}^{*} \left( A_{s2} \overrightarrow {e_{2}} + A_{c2}
+\overrightarrow {e_{1}^{*}} + A_{f2} \overrightarrow {f_{2}} \right),  
+\end{eqnarray}  
+третьего уравнения системы (\ref{common}):
+\begin{eqnarray}
+\frac {\partial E_{sc}}  {\partial t} + \frac {E_{sc} + E_{sc_{0}}} {\tau} = 
+\nonumber 
+\\
+\frac {Q}{\tau} \left( A_{s1} \overrightarrow {e_{1}} + A_{c1}
+\overrightarrow {e_{2}^{*}} + A_{f1} \overrightarrow {f_{1}}
+\right) \left( A_{s1}^{*} \overrightarrow {e_{1}^{*}}^{T} + A_{c1}^{*}
+\overrightarrow {e_{2}}^{T} + A_{f1}^{*} \overrightarrow {f_{1}^{*}}^{T}  \right) + 
+\nonumber 
+\\
+\frac {Q}{\tau} \left( A_{s2}^{*} \overrightarrow {e_{2}^{*}} + A_{c2}^{*}
+\overrightarrow {e_{1}}+ A_{f2}^{*} \overrightarrow {f_{2}^{*}} \right)
+\left( A_{s2} \overrightarrow {e_{2}}^{T} + A_{c2} \overrightarrow
+{e_{1}^{*}}^{T} + A_{f2} \overrightarrow {f_{2}}^{T} \right), 
+\nonumber 
+\end{eqnarray}
+раскрывая скобки получим следующий результат:
+\begin{eqnarray}
+\label{field}
+\frac {\partial E_{sc}}  {\partial t} + \frac {E_{sc} + E_{sc_{0}}} {\tau} = 
+\nonumber 
+\\
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right) 
+\left( \overrightarrow {e_{1}} \overrightarrow {e_{2}}^{T}  \right) +
+\frac {Q}{\tau} \left( A_{c1} A_{s1}^{*} + A_{s2}^{*}  A_{c2} \right) 
+\left( \overrightarrow {e_{2}^{*}} \overrightarrow {e_{1}^{*}}^{T} \right) +
+\nonumber 
+\\   
+\frac {Q}{\tau} \left( A_{f1} A_{s1}^{*} \right) 
+\left( \overrightarrow {f_{1}} \overrightarrow {e_{1}^{*}}^{T} \right) +
+\frac {Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) 
+\left( \overrightarrow {e_{1}} \overrightarrow {f_{1}^{*}}^{T} \right) + 
+ \nonumber
+\\
+\frac {Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) 
+\left( \overrightarrow {f_{2}^{*}} \overrightarrow {e_{2}}^{T} \right) +
+\frac {Q}{\tau} \left( A_{f2} A_{s2}^{*} \right) 
+\left( \overrightarrow {e_{2}^{*}} \overrightarrow {f_{2}}^{T} \right) \ldotp
+\end{eqnarray}
+
+Полученные выше уравнения (\ref{field}) нуждаются в некоторых пояснениях, в
+частности в них не включены члены ответственные за взаимодействие "сигнальной"
+и "обращенной" волны с самой сабой \( \left( \overrightarrow {e_{1}} \overrightarrow
+{e_{1}^{*}}^{T} \right)\) и \( \left( \overrightarrow {e_{2}^{*}}
+\overrightarrow {e_{2}}^{T} \right)\), а также фенинга с самим
+собой \( \left( \overrightarrow {f_{1}} \overrightarrow
+{f_{1}^{*}}^{T} \right)\) и \( \left( \overrightarrow {f_{2}^{*}}
+\overrightarrow {f_{2}}^{T} \right)\). Связано это с тем что коэффициент \( Q
+\) зависит от углов по закону \( Q \sim \left( \alpha_{i} - \alpha_{k}
+\right)  \), так что для близких углов падения взаимодействующих плоских волн
+\( \alpha_i \approx \alpha_k \), \( Q \approx 0\).
+Кроме того не учитывается взаимодействие фенинга и "обращенной" волны \(
+\left( \overrightarrow {e_{2}^{*}} \overrightarrow {f_{1}^{*}}^{T} \right)\) и
+\( \left( \overrightarrow {e_{1}} \overrightarrow {f_{2}}^{T} \right)\).
+Связано это также с тем, что "угловое расположение" фенинга и обращенной волны
+совпадают, так что в силу сказаного выше коэффициент \( Q \) для
+взаимодействия фенинга и обращенной волны близок к \( 0 \).
+
+\section{Уравнения для световых пучков}
+
+В данной части мы рассмотрим первые два уравнения системы (\ref{common}).
+Прежде всего заметим что \( \left( \overrightarrow {e_{1}^{*}}^{T} \overrightarrow
+{e_{1}} \right) = \left( \overrightarrow {e_{2}^{*}}^{T} \overrightarrow
+{e_{2}} \right)= \left( \overrightarrow {f_{1}^{*}}^{T} \overrightarrow {f_{1}}
+\right)= \left( \overrightarrow {f_{2}^{*}}^{T} \overrightarrow {f_{2}}
+\right) = 1 \), вместе с тем \( \left( \overrightarrow {e_{1}^{*}}^{T} \overrightarrow
+{e_{2}} \right) = \left( \overrightarrow {e_{2}^{*}}^{T} \overrightarrow
+{e_{1}} \right)= \left( \overrightarrow {e_{1}^{*}}^{T} \overrightarrow {f_{1}}
+\right)= \left( \overrightarrow {e_{2}^{*}}^{T} \overrightarrow {f_{2}}
+\right) = 0 \). Используя данные соотношения и умножив (\ref{first wave})
+слева на \( \overrightarrow {e_{1}^{*}}^{T} \) несложно получить:
+\[
+\frac {\partial {A_{s1}}}  {\partial z} =D A_{c1}  
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{2}^{*}}
+\right) + D A_{f1} 
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {f_{1}} 
+\right). 
+\]
+
+Из приведенного выше уравнения (его правой части) исключен следующий член:
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{1}} 
+\right)
+\).
+Сделано это по той причине, что как это видно из (\ref{field})
+для 
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{1}} 
+\right)
+\):
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{1}} 
+\overrightarrow {e_{2}}^{T} \overrightarrow {e_{1}}  
+\right)
+=
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{1}} 
+\right)
+\left( 
+\overrightarrow {e_{2}}^{T} \overrightarrow {e_{1}}  
+\right)
+=
+1
+\left( 
+\overrightarrow {e_{2}}^{T} \overrightarrow {e_{1}}  
+\right)
+= 1 \cdotp 0 = 0
+\). 
+Аналогичным образом рассматриваются оставшиеся члены правой части уравнения 
+(\ref{field})
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{2}^{*}} 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{1}}  
+\right)
+\), 
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {f_{1}} 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{1}}  
+\right)
+\),
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {f_{2}^{*}} 
+\overrightarrow {e_{2}}^{T} \overrightarrow {e_{1}}  
+\right)
+\) и
+\(
+\left( 
+\overrightarrow {e_{1}^{*}}^{T} \overrightarrow {e_{2}^{*}} 
+\overrightarrow {f_{2}}^{T} \overrightarrow {e_{1}}  
+\right)
+\)\footnote{На самом деле этот член не должен выкидываться и как нетрудно
+показать он равен 
+\(
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{1}} 
+=
+\left(
+\overrightarrow {e_{1}^{*}}^{T} E_{sc_{0}} \overrightarrow {e_{1}} 
+\right)
+\cdotp
+\exp
+\left(
+-\frac{t}{\tau}
+\right)
+\).
+}.  
+
+После умножения (\ref{first wave})
+слева на \( \overrightarrow {e_{2}}^{T} \) получаем:
+\[
+\frac {\partial {A_{с1}}}  {\partial z} =D A_{s1}  
+\left( 
+\overrightarrow {e_{2}}^{T} E_{sc} \overrightarrow {e_{1}} 
+\right), 
+\]
+и слева на \( \overrightarrow {f_{1}^{*}}^{T} \) получаем:
+\[
+\frac {\partial {A_{f1}}}  {\partial z} =D A_{s1}  
+\left( 
+\overrightarrow {f_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{1}} 
+\right). 
+\]
+Последнее уравнение нуждается в некоторых пояснениях в частности из него
+исключен следующий член 
+\(
+A_{f1} \cdotp \overrightarrow {f_{1}^{*}}^{T} \cdotp \frac {\partial
+\overrightarrow {f_{1}}} {\partial z}  
+\). 
+Слелано это потому, что
+\(
+\overrightarrow {f_{1}^{*}}^{T} \cdotp \frac {\partial
+\overrightarrow {f_{1}}} {\partial z} = 
+\frac {\partial \left( \overrightarrow {f_{1}^{*}}^{T}
+\overrightarrow {f_{1}}
+\right) }
+{\partial z} = 0
+\). Таким образом мы можем сделать важнейший вывод о том что зависимость
+распределения фенинга по продольной координате не существенна для полученных 
+уравнений.
+
+По аналогии с изложенным выше перепишем (\ref {second wave}) в следующем виде
+для сигнала
+\[
+- \frac {\partial {A_{s2}}}  {\partial z} =D A_{c2}  
+\left( 
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {e_{1}^{*}}
+\right) + D A_{f2} 
+\left( 
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {f_{2}} 
+\right),
+\]
+для обращенной волны
+\[
+-\frac {\partial {A_{с2}}}  {\partial z} =D A_{s2}  
+\left( 
+\overrightarrow {e_{1}}^{T} E_{sc}^{*} \overrightarrow {e_{2}} 
+\right), 
+\]
+и для фенинга
+\[
+-\frac {\partial {A_{f2}}}  {\partial z} =D A_{s2}  
+\left( 
+\overrightarrow {f_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {e_{2}} 
+\right). 
+\]
+
+Введем следующие обозначения
+\[
+\begin{array}{c}
+N_{1} = \overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{2}^{*}}, \\
+N_{1f} = \overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {f_{1}}, \\
+N_{2f} = \overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {f_{2}}. 
+\end{array}
+\]
+Используя очивидные соотношения
+\(
+N_{1} = N_{1}^{T}, 
+\)
+\(
+N_{1f} = N_{1f}^{T},
+\) 
+\(
+N_{2f} = N_{2f}^{T},
+\)
+а также
+\(
+E_{sc}^{*} = E_{sc}^{T}
+\)
+несложно записать:
+\[
+\begin{array}{c}
+N_{1} = \overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{2}^{*}} =
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {e_{1}^{*}}, 
+\\
+N_{1}^{*} = \overrightarrow {e_{2}}^{T} E_{sc} \overrightarrow {e_{1}} =
+\overrightarrow {e_{1}}^{T} E_{sc}^{*} \overrightarrow {e_{2}}, 
+\\
+N_{1f} = \overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow {f_{1}},
+\\
+N_{1f}^{*} = \overrightarrow {f_{1}^{*}}^{T} E_{sc} \overrightarrow {e_{1}}, 
+\\ 
+N_{2f} = \overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow {f_{2}},
+\\
+N_{2f}^{*} = \overrightarrow {f_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow{e_{2}}.
+\end{array} 
+\]
+
+Таким образом окончательно получаем: 
+\begin{eqnarray}
+\frac {\partial {A_{s1}}}  {\partial z} =D A_{c1}  N_{1}
++ D A_{f1} N_{1f}, \nonumber 
+\\
+\frac {\partial {A_{с1}}}  {\partial z} =D A_{s1} N_{1}^{*} , \nonumber
+\\
+\frac {\partial {A_{f1}}}  {\partial z} =D A_{s1} N_{1f}^{*} , \nonumber
+\\
+-\frac {\partial {A_{s2}}}  {\partial z} =D A_{c2}  N_{1}
++ D A_{f2} N_{2f}, \nonumber 
+\\
+- \frac {\partial {A_{с2}}}  {\partial z} =D A_{s2} N_{1}^{*} , \nonumber
+\\
+- \frac {\partial {A_{f2}}}  {\partial z} =D A_{s2} N_{2f}^{*} , \nonumber
+\end{eqnarray}
+
+Полученные выше уравнения являются скалярными уравнениями, следующим шагом
+должно стать нахождение неизвестных скалярных функций двух аргументов  \(
+\left( z,t \right) \): \( N_{1} \), \( N_{1f} \) и \( N_{2f} \).
+
+\section{Уравнения для внутреннего поля кристалла}
+
+Для первого неизвестного коэфициента \( N_{1} \) имеем следующее определение
+\( N_{1} =\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow
+{e_{2}^{*}}\). Для этого умножим соотношение (\ref {field}) слева на \(
+\overrightarrow {e_{1}^{*}}^{T} \) и справа на \( \overrightarrow
+{e_{2}^{*}} \).
+\begin{eqnarray}
+\frac {\partial N_{1}}  {\partial t} + \frac {N_{1} + N_{1_{0}}} {\tau} = 
+\nonumber 
+\\
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right) 
+\overrightarrow {e_{1}^{*}}^{T} \left( \overrightarrow {e_{1}}
+\overrightarrow {e_{2}}^{T}  \right) \overrightarrow {e_{2}^{*}}  +       
+\frac {Q}{\tau} \left( A_{c1} A_{s1}^{*} + A_{s2}^{*}  A_{c2} \right) 
+\overrightarrow {e_{1}^{*}}^{T}  \left( \overrightarrow {e_{2}^{*}}
+\overrightarrow {e_{1}^{*}}^{T} \right) \overrightarrow {e_{2}^{*}} + 
+\nonumber  \\   
+\frac {Q}{\tau} \left( A_{f1} A_{s1}^{*} \right) 
+\overrightarrow {e_{1}^{*}}^{T}  \left( \overrightarrow {f_{1}}
+\overrightarrow {e_{1}^{*}}^{T} \right) \overrightarrow {e_{2}^{*}} + \frac
+{Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) \overrightarrow {e_{1}^{*}}^{T}  
+\left( \overrightarrow {e_{1}} \overrightarrow {f_{1}^{*}}^{T} \right)
+\overrightarrow {e_{2}^{*}} +  
+\nonumber \\
+\frac {Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) 
+\overrightarrow {e_{1}^{*}}^{T} \left( \overrightarrow {f_{2}^{*}}
+\overrightarrow {e_{2}}^{T} \right)\overrightarrow {e_{2}^{*}}  + \frac
+{Q}{\tau} \left( A_{f2} A_{s2}^{*} \right) \overrightarrow {e_{1}^{*}}^{T} 
+\left( \overrightarrow {e_{2}^{*}} \overrightarrow {f_{2}}^{T} \right)
+\overrightarrow {e_{2}^{*}} \ldotp  \nonumber 
+\end{eqnarray}
+Откуда нетрудно получить:
+\[
+\frac {\partial N_{1}}  {\partial t} + \frac {N_{1} + N_{1_{0}}} {\tau} = 
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right). 
+\]
+В данных уравнениях через \( N_{1_{0}}\) обозначено \( N_{1_{0}} =
+\overrightarrow {e_{1}^{*}}^{T} E_{sc_{0}} \overrightarrow {e_{2}^{*}}\).
+
+Для второго неизвестного коэфициента \( N_{1f} \) имеем следующее определение
+\( N_{1f} =\overrightarrow {e_{1}^{*}}^{T} E_{sc} \overrightarrow
+{f_{1}}\). Для этого умножим соотношение (\ref {field}) слева на \(
+\overrightarrow {e_{1}^{*}}^{T} \) и справа на \( \overrightarrow
+{f_{1}} \).
+\begin{eqnarray}
+\frac {\partial N_{1f}}  {\partial t} + \frac {N_{1f} + N_{1f_{0}}} {\tau} -
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \frac {\partial \overrightarrow
+{f_{1}}}  {\partial t}=   \nonumber 
+\\
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right) 
+\overrightarrow {e_{1}^{*}}^{T} \left( \overrightarrow {e_{1}}
+\overrightarrow {e_{2}}^{T}  \right) \overrightarrow {f_{1}}  +       
+\frac {Q}{\tau} \left( A_{c1} A_{s1}^{*} + A_{s2}^{*}  A_{c2} \right) 
+\overrightarrow {e_{1}^{*}}^{T}  \left( \overrightarrow {e_{2}^{*}}
+\overrightarrow {e_{1}^{*}}^{T} \right) \overrightarrow {f_{1}} + 
+\nonumber  \\   
+\frac {Q}{\tau} \left( A_{f1} A_{s1}^{*} \right) 
+\overrightarrow {e_{1}^{*}}^{T}  \left( \overrightarrow {f_{1}}
+\overrightarrow {e_{1}^{*}}^{T} \right) \overrightarrow {f_{1}} + \frac
+{Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) \overrightarrow {e_{1}^{*}}^{T}  
+\left( \overrightarrow {e_{1}} \overrightarrow {f_{1}^{*}}^{T} \right)
+\overrightarrow {f_{1}} +  
+\nonumber \\
+\frac {Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) 
+\overrightarrow {e_{1}^{*}}^{T} \left( \overrightarrow {f_{2}^{*}}
+\overrightarrow {e_{2}}^{T} \right)\overrightarrow {f_{1}}  + \frac
+{Q}{\tau} \left( A_{f2} A_{s2}^{*} \right) \overrightarrow {e_{1}^{*}}^{T} 
+\left( \overrightarrow {e_{2}^{*}} \overrightarrow {f_{2}}^{T} \right)
+\overrightarrow {f_{1}} \ldotp  \nonumber 
+\end{eqnarray}
+Таким образом:
+\[
+\frac {\partial N_{1f}}  {\partial t} + \frac {N_{1f} + N_{1f_{0}}} {\tau} -
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \frac {\partial \overrightarrow
+{f_{1}}}  {\partial t} = \frac {Q}{\tau} \left( A_{f1}^{*} A_{s1} \right), 
+\]
+где введено данное обозначение: 
+\(
+N_{1f_{0}} = \overrightarrow {e_{1}^{*}}^{T} E_{sc_{0}} \overrightarrow {f_{1}}
+\).
+Особый интерес представляет следующий член уравнения:
+\[
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \frac {\partial \overrightarrow
+{f_{1}}}  {\partial t}. 
+\]
+Попытаемся произвести приблизительные оценки данного члена. Во-первых заметим что
+\[
+\frac {\partial \overrightarrow {e_{1}^{*}}^{T} E_{sc}}  {\partial t} + \frac
+{\overrightarrow  {e_{1}^{*}}^{T} E_{sc}} {\tau} =
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right)
+\overrightarrow {e_{2}}^{T} 
++ \frac {Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) \overrightarrow
+{f_{1}^{*}}^{T}.
+\]
+Дальнейшие выкладки не могут быть сделаны без некоторых упрощений: предположим
+что скорость изменеия внутреннего поля кристалла \( E_{sc} \) много больше
+скорости изменения производной от функции распределения фенинга \( \frac
+{\partial \overrightarrow {f_{1}}} {\partial t} \), т. е. \( \left|\frac
+{\partial \overrightarrow {e_{1}^{*}}^{T} E_{sc}} {\partial t} \right| \gg
+\frac {{\partial}^{2} \overrightarrow {f_{1}}} {\partial t^{2}}\). Откуда
+несложно получить:
+\begin{eqnarray}
+\frac {\partial \left( \overrightarrow {e_{1}^{*}}^{T} E_{sc} \frac
+{\partial \overrightarrow {f_{1}}} {\partial t} \right)}  {\partial t} + \frac
+{\left( \overrightarrow  {e_{1}^{*}}^{T} E_{sc} \frac
+{\partial \overrightarrow {f_{1}}} {\partial t} \right)} {\tau} =
+\nonumber \\
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right)
+\overrightarrow {e_{2}}^{T} \frac {\partial \overrightarrow {f_{1}}}
+{\partial t}  + \frac {Q}{\tau} \left( A_{f1}^{*} A_{s1} \right)
+\overrightarrow {f_{1}^{*}}^{T} \frac {\partial \overrightarrow {f_{1}}}
+{\partial t} = 0. \nonumber 
+\end{eqnarray}
+Таким образом 
+\[
+\overrightarrow {e_{1}^{*}}^{T} E_{sc} \frac {\partial \overrightarrow
+{f_{1}}}  {\partial t} = \left. \left( \overrightarrow {e_{1}^{*}}^{T} E_{sc}
+\frac  {\partial \overrightarrow {f_{1}}}  {\partial t} \right) \right|_{t=0}
+\exp \left( -\frac {t} {\tau} \right).  
+\]
+Обозначив через
+\(
+N_{1 f_{0}}^{\partial}= \left. \left( \overrightarrow {e_{1}^{*}}^{T} E_{sc}
+\frac  {\partial \overrightarrow {f_{1}}}  {\partial t} \right) \right|_{t=0}
+\),
+окончательно получаем следующее соотношение:
+\[
+\frac {\partial N_{1f}}  {\partial t} + \frac {N_{1f} + N_{1f_{0}}} {\tau}  =  \frac
+{Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) + N_{1 f_{0}}^{\partial} \exp \left( -\frac
+{t} {\tau} \right).    
+\]
+
+Для третьего неизвестного коэфициента \( N_{2f} \) имеем следующее определение
+\( N_{2f} =\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \overrightarrow
+{f_{2}}\). Для этого комплексно сопряженное соотношение (\ref {field})
+умножим слева на \( \overrightarrow {e_{2}^{*}}^{T} \) и справа на \(
+\overrightarrow {f_{2}} \).
+\begin{eqnarray}
+\frac {\partial N_{2f}}  {\partial t} + \frac {N_{2f} + N_{2f_{0}} } {\tau} -
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \frac {\partial \overrightarrow
+{f_{2}}}  {\partial t}=   \nonumber 
+\\
+\frac {Q}{\tau} \left( A_{c1} A_{s1}^{*} + A_{s2} ^{*} A_{c2} \right) 
+\overrightarrow {e_{2}^{*}}^{T} \left( \overrightarrow {e_{1}^{*}}
+\overrightarrow {e_{2}^{*}}^{T}  \right) \overrightarrow {f_{2}}  +       
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right) 
+\overrightarrow {e_{2}^{*}}^{T}  \left( \overrightarrow {e_{2}}
+\overrightarrow {e_{1}}^{T} \right) \overrightarrow {f_{2}} + 
+\nonumber  \\   
+\frac {Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) 
+\overrightarrow {e_{2}^{*}}^{T}  \left( \overrightarrow {f_{1}^{*}}
+\overrightarrow {e_{1}}^{T} \right) \overrightarrow {f_{2}} + \frac
+{Q}{\tau} \left( A_{f1} A_{s1}^{*} \right) \overrightarrow {e_{2}^{*}}^{T}  
+\left( \overrightarrow {e_{1}^{*} } \overrightarrow {f_{1}}^{T} \right)
+\overrightarrow {f_{2}} +  
+\nonumber \\
+\frac {Q}{\tau} \left( A_{f2} A_{s2}^{*} \right) 
+\overrightarrow {e_{2}^{*}}^{T} \left( \overrightarrow {f_{2}}
+\overrightarrow {e_{2}^{*}}^{T} \right)\overrightarrow {f_{2}}  + \frac
+{Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) \overrightarrow {e_{2}^{*}}^{T} 
+\left( \overrightarrow {e_{2}} \overrightarrow {f_{2}^{*}}^{T} \right)
+\overrightarrow {f_{2}} \ldotp  \nonumber 
+\end{eqnarray}
+Таким образом:
+\[
+\frac {\partial N_{2f}}  {\partial t} + \frac {N_{2f} + N_{2f_{0}}} {\tau} - \overrightarrow
+{e_{2}^{*}}^{T} E_{sc}^{*} \frac {\partial \overrightarrow {f_{2}}}  {\partial
+t} = \frac {Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) 
+\]
+По аналогии с изложенным выше имеем для "интересного" члена 
+\(
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \frac {\partial \overrightarrow
+{f_{2}}}  {\partial t}
+\)
+следующее соотношение
+\[
+\overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*} \frac {\partial \overrightarrow
+{f_{2}}}  {\partial t} = \left. \left( \overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*}
+\frac  {\partial \overrightarrow {f_{2}}}  {\partial t} \right) \right|_{t=0}
+\exp \left( -\frac {t} {\tau} \right).  
+\]
+Обозначив через
+\(
+N_{2 f_{0}}^{\partial}= \left. \left( \overrightarrow {e_{2}^{*}}^{T} E_{sc}^{*}
+\frac  {\partial \overrightarrow {f_{2}}}  {\partial t} \right) \right|_{t=0}
+\), 
+получим:
+\[
+\frac {\partial N_{2f}}  {\partial t} + \frac {N_{2f} + N_{2f_{0}}} {\tau}  =  \frac
+{Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) + N_{2 f_{0}}^{\partial} \exp \left(
+-\frac {t} {\tau} \right).    
+\]
+В данных уравнениях введено следующее обозначение: 
+\(
+N_{2f_{0}} = \overrightarrow {e_{2}^{*}}^{T} E_{sc_{0}}^{*} \overrightarrow
+{f_{2}} 
+\).
+
+\section{Окончательные уравнения}
+
+Объеденив вместе изложенные выше результаты, несложно получить окончательную
+систему уравнений, описывающую взаимодействие света в фоторефрактивном
+кристалле.
+\begin{eqnarray}
+\label{final first wave}
+\frac {\partial {A_{s1}}}  {\partial z} =D A_{c1}  N_{1}
++ D A_{f1} N_{1f}, \nonumber 
+\\
+\frac {\partial {A_{с1}}}  {\partial z} =D A_{s1} N_{1}^{*} , 
+\\
+\frac {\partial {A_{f1}}}  {\partial z} =D A_{s1} N_{1f}^{*} , \nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\label{final second wave}
+-\frac {\partial {A_{s2}}}  {\partial z} =D A_{c2}  N_{1}
++ D A_{f2} N_{2f}, \nonumber 
+\\
+- \frac {\partial {A_{с2}}}  {\partial z} =D A_{s2} N_{1}^{*} , 
+\\
+- \frac {\partial {A_{f2}}}  {\partial z} =D A_{s2} N_{2f}^{*} , \nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\label{final field}
+\frac {\partial N_{1}}  {\partial t} + \frac {N_{1} + N_{1_{0}}} {\tau} = 
+\frac {Q}{\tau} \left( A_{c1}^{*} A_{s1} + A_{s2} A_{c2}^{*} \right)
+\nonumber
+\\
+\frac {\partial N_{1f}}  {\partial t} + \frac {N_{1f} + N_{1f_{0}}} {\tau}  =  \frac
+{Q}{\tau} \left( A_{f1}^{*} A_{s1} \right) + N_{1 f_{0}}^{\partial} \exp \left( -\frac
+{t} {\tau} \right)
+\\
+\frac {\partial N_{2f}}  {\partial t} + \frac {N_{2f} + N_{2f_{0}}} {\tau}  =  \frac
+{Q}{\tau} \left( A_{f2}^{*} A_{s2} \right) + N_{2 f_{0}}^{\partial} \exp \left(
+-\frac {t} {\tau} \right) 
+\nonumber
+\end{eqnarray}
+
+
+ 
+\end{document}

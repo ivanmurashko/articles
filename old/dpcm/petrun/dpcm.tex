@@ -1,0 +1,1049 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[koi8-r]{inputenc}
+\usepackage[russian]{babel}
+
+\title{Лемма Лоренца и ее применение для анализа взаимодействия сложных
+волновых фронтов в фоторефрактивных кристаллах}
+
+\begin{document}
+\Russian
+\maketitle
+
+
+
+\section{Введение}
+
+
+
+\section{Постановка задачи}
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+%E1
+\put(32,17){\vector(1,1){130}}
+\put(20,30){$\vec{E}_1$}
+\thicklines
+\put(52,37){\vector(1,1){15}}
+\put(45,45){$\vec{k}_1$}
+\thinlines
+\qbezier (28,50) (32,55) (34,45)
+\qbezier (34,45) (36,35) (38,40)
+\qbezier (38,40) (40,45) (42,35)
+\qbezier (42,35) (44,25) (46,30)
+\qbezier (48,30) (50,35) (52,25)
+\qbezier (52,25) (54,15) (56,20)
+\qbezier (56,20) (58,25) (60,15)
+%E2
+\put(168,17){\vector(-1,1){130}}
+\put(165,25){$\vec{E}_2$}
+\thicklines
+\put(148,37){\vector(-1,1){15}}
+\put(145,45){$\vec{k}_2$}
+\thinlines
+\qbezier (172,50) (170,55) (168,45)
+\qbezier (168,45) (166,35) (164,40)
+\qbezier (164,40) (162,45) (160,35)
+\qbezier (160,35) (158,25) (156,30)
+\qbezier (156,30) (154,35) (152,25)
+\qbezier (152,25) (150,15) (148,20)
+\qbezier (148,20) (146,25) (144,15)
+\thicklines
+%First line
+\put(70,25){\line(0,1){120}}
+%Last line
+\put(130,25){\line(0,1){120}}
+\thinlines
+%Axe
+\put(45,85){\vector(1,0){110}}
+\put(100,20){\vector(0,1){130}}
+\end{picture}
+\caption{Постановка задачи (общий случай)}
+\label{f1}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+%E1
+\put(32,17){\vector(1,1){130}}
+\put(20,30){$\vec{E}_1$}
+\put(30,55){$\vec{e}_1$}
+\put(165,125){$\vec{E}_{1s}$}
+\put(140,150){$\vec{e}_1$}
+\thicklines
+\put(52,37){\vector(1,1){15}}
+\put(45,45){$\vec{k}_1$}
+\thinlines
+%first
+\qbezier (34,45) (36,35) (38,40)
+\qbezier (38,40) (40,45) (42,35)
+\qbezier (42,35) (44,25) (46,30)
+\qbezier (48,30) (50,35) (52,25)
+\qbezier (52,25) (54,15) (56,20)
+\qbezier (56,20) (58,25) (60,15)
+%second
+\qbezier (134,145) (136,135) (138,140)
+\qbezier (138,140) (140,145) (142,135)
+\qbezier (142,135) (144,125) (146,130)
+\qbezier (148,130) (150,135) (152,125)
+\qbezier (152,125) (154,115) (156,120)
+\qbezier (156,120) (158,125) (160,115)
+%third
+\put(98,117){\vector(1,-1){90}}
+\thicklines
+\put(168,47){\vector(1,-1){15}}
+\put(175,40){$-\vec{k}_2$}
+\put(185,60){$\vec{E}_{1c}$}
+\put(170,70){$\vec{e}_2^\ast$}
+\thinlines
+\qbezier (164,70) (162,75) (160,65)
+\qbezier (160,65) (158,55) (156,60)
+\qbezier (156,60) (154,65) (152,55)
+\qbezier (152,55) (150,45) (148,50)
+%E2
+\put(168,17){\vector(-1,1){90}}
+\put(165,15){$\vec{E}_2$}
+\thicklines
+\put(148,37){\vector(-1,1){15}}
+\put(145,35){$\vec{k}_2$}
+\put(145,5){$\vec{e}_2$}
+\thinlines
+\qbezier (164,40) (162,45) (160,35)
+\qbezier (160,35) (158,25) (156,30)
+\qbezier (156,30) (154,35) (152,25)
+\qbezier (152,25) (150,15) (148,20)
+\thicklines
+%First line
+\put(70,25){\line(0,1){120}}
+%Last line
+\put(130,25){\line(0,1){120}}
+\thinlines
+%Axe
+\put(45,85){\vector(1,0){110}}
+\put(100,20){\vector(0,1){130}}
+\end{picture}
+\caption{Постановка задачи (разделение на компоненты)}
+\label{f2}
+\end{figure}
+
+На среду слева и справа направлены две волны, некогерентные между собой (см.
+рис. \ref{f1}). Поэтому рассмотрение этих волн и взаимодействие их с
+фоторефрактивной средой можно рассматривать независимо.
+Представим поле в среде (фоторефрактивном кристалле) в следующем виде
+(см. рис. \ref{f2}):
+\[ 
+\begin{array}{l} 
+\vec{E}_1=\vec{E}_{1s}+\vec{E}_{1c}+\vec{E}_{1f},\\ 
+\vec{E}_2=\vec{E}_{2s}+\vec{E}_{2c}+\vec{E}_{2f}, 
+\end{array} 
+\] 
+где \(\vec{E}_{1s}\) - прямая волна, имеющая структуру волны падающей на
+кристалл слева; \(\vec{E}_{1c}\) - обращенная волна, имеющая структуру
+обращенную по отношению к волне падающей на кристалл справа. Через 
+\(\vec{E}_{1f} \) обозначен остаток, имеющий смысл волны рассеяной на
+случайных неоднородностях показателя преломления. Компоненты волны 
+\(\vec{E}_2\), распространяющейся с другой стороны кристалла имеют аналогичный
+смысл.
+
+Примем
+\[
+\vec{E}_{1s}=A^{(1)}_s(z,t)\vec{e}_1(\vec{r})e^{-i(\vec{k}_1\vec{r})},
+\]
+\[
+\vec{E}_{1c}=A^{(1)}_c(z,t)\vec{e}_2^\ast(\vec{r})e^{i(\vec{k}_2\vec{r})}, 
+\]
+\[
+\vec{E}_{1f}=A^{(1)}_f(z,t)\vec{f}_f^{(1)}(\vec{r},t)e^{i(\vec{k}_2\vec{r})}, 
+\]
+где $\vec{e}_1(\vec{r})$ - распределение поля невозмущенной волны, падающей
+слева; $\vec{e}_2(\vec{r})$ - распределение поля невозмущенной волны, падающей
+справа; $\vec{f}_f^{(1)}(\vec{r})$ - распределение случайно рассеяного поля.
+
+Следует отметить тот факт, что усиление плоских волн в различных направлениях
+- разное, так что максимум функции распределения $\vec{f}_1(\vec{r})$ имеет
+место в направлении наибольшего усиления. Вместе с тем вполне разумным
+представляется выбирать направление распространения исходных волн так чтобы
+обращенные пучки распространялись бы в направлении наибольшего усиления. Это
+оправдывает тот факт, что за направление несущей для распределений полей
+компонент $\vec{E}_{1c}$ и $\vec{E}_{1f}$ мы выбрали один и тот же
+вектор $\vec{k}_2$. 
+
+Соотношения, описывающие компоненты поля \(\vec{E}_2\), можно записать по
+аналогии:
+\[
+\vec{E}_{2s}=A^{(2)}_s(z,t)\vec{e}_2(\vec{r})e^{-i(\vec{k}_2\vec{r})},
+\]
+\[
+\vec{E}_{2c}=A^{(2)}_c(z,t)\vec{e}_1^\ast(\vec{r})e^{i(\vec{k}_1\vec{r})}, 
+\]
+\[
+\vec{E}_{2f}=A^{(2)}_f(z,t)\vec{f}_f^{(2)}(\vec{r},t)e^{i(\vec{k}_1\vec{r})}, 
+\]
+
+Для функций распределения $\vec{e}_1(\vec{r})$, $\vec{e}_2(\vec{r})$ и 
+$\vec{f}_f^{(1,2)}(\vec{r})$ выполняются следующие условия нормировки:
+\begin{equation}
+{\int \limits_{S} \left( \vec{e}_1 \vec{e}_1^\ast \right) ds=1;{} 
+\int \limits_{S} \left( \vec{e}_2 \vec{e}_2^\ast \right) ds=1;{} 
+\left\langle \int \limits_{S} \left(\vec{f}_f^{(1,2)} 
+\vec{f}_f^{(1,2)\ast} \right) ds \right\rangle = 1},
+\label{fnorm} 
+\end{equation}
+где $\left\langle\right\rangle$ обозначает усреднение по ансамблю. Кроме
+того: 
+\begin{equation} 
+      \left\langle f_f^{(1,2)} \right\rangle = 0.
+\label{fzerof} 
+\end{equation}
+Полное поле для волны, распространяющейся слева имеет вид
+\begin{equation} 
+\vec{E}_1=A_s^{(1)}\vec{e}_1 e^{-i(\vec{k}_1 \vec{r})} + 
+A_c^{(1)}\vec{e}_2^\ast e^{i(\vec{k}_2 \vec{r})} + 
+A_f^{(1)}\vec{f}_f^{(1)} e^{i(\vec{k}_2 \vec{r})} \label{field_l} 
+\end{equation} 
+и для волны справа вид -
+\begin{equation} 
+\vec{E}_2=A_s^{(2)}\vec{e}_2 e^{-i(\vec{k}_2 \vec{r})} + 
+A_c^{(2)}\vec{e}_1^\ast e^{i(\vec{k}_1 \vec{r})} + 
+A_f^{(2)}\vec{f}_f^{(2)} e^{i(\vec{k}_1 \vec{r})} \label{field_r} 
+\end{equation} 
+
+
+\section{Вывод основных уравнений}
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+%middle line
+\put(72,130){\line(1,1){12}}
+\multiput(72,120)(0,-10){10}{\line(1,1){15}}
+\put(75,120){$V$}
+\put(92,125){$S$}
+%E1
+\put(25,20){\vector(1,1){130}}
+\put(20,30){$\vec{E}_1$}
+\thicklines
+\put(90,85){\vector(1,1){20}}
+\put(100,110){$\vec{k}_1$}
+\put(90,85){\vector(1,-1){20}}
+\put(95,50){$-\vec{k}_2$}
+\thinlines
+\qbezier (20,60) (22,65) (24,55)
+\qbezier (24,55) (26,45) (28,50)
+\qbezier (28,50) (32,55) (34,45)
+\qbezier (34,45) (36,35) (38,40)
+\qbezier (38,40) (40,45) (42,35)
+\qbezier (42,35) (44,25) (46,30)
+\qbezier (46,30) (50,35) (52,25)
+\qbezier (52,25) (54,15) (56,20)
+\qbezier (56,20) (58,25) (60,15)
+%First line
+\put(70,25){\line(0,1){120}}
+\put(70,85){\circle*{3}}
+\put(62,87){$0$}
+%middle line
+\put(90,25){\line(0,1){120}}
+%Last line
+\put(130,25){\line(0,1){120}}
+\put(130,85){\circle*{3}}
+\put(135,87){$d$}
+%Axe
+\put(45,85){\vector(1,0){110}}
+\put(160,85){$z$}
+\qbezier (105,85) (107,93) (100,95)
+\qbezier (105,85) (107,72) (100,75)
+\put(108,90){$\theta_1$}
+\put(108,73){$\theta_2$}
+\thicklines
+\put(90,85){\vector(1,0){25}}
+\put(122,75){$\vec{n}$}
+\end{picture}
+\caption{Лемма Лоренца (поля слева)}
+\label{f3}
+\end{figure}
+
+
+Будем считать что источником рассеянных полей являются эквивалентные токи. Для
+нахождения амплитуд этих полей применим лемму Лоренца (подобным образом это
+делается, например, в теории возбуждения волноводов см. \cite{Weinstein} ):
+\begin{equation}
+\int\limits_{S}{\left\{{\left[\vec{H}_a\vec{E}_b\right]}_n - 
+{\left[\vec{H}_b\vec{E}_a\right]}_n \right\}}ds = 
+\frac{4\pi}{c}\int\limits_{V}{\left\{\left(\vec{j}_a\vec{E}_b\right) 
+- \left(\vec{j}_b\vec{E}_a\right)\right\}}dv. 
+\label{lemmaLor}
+\end{equation}
+
+
+\subsection{Поля падающие на кристалл слева}
+
+Прежде всего найдем выражения, описывающие поля $E_1$.
+Для чего заметим, что возмущению диэлектрической проницаемости в среде
+\tiny{$\Delta$}\normalsize$\varepsilon$
+ соответствует эквивалентный ток:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_1\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{fj} 
+\end{equation}
+где
+\begin{equation} 
+\mbox{\tiny$\Delta$\normalsize}\varepsilon = 
+\varepsilon_m(\vec{r},t)e^{i(\vec{\kappa}\vec{r})} + 
+\varepsilon_m^\ast(\vec{r},t)e^{-i(\vec{\kappa}\vec{r})},
+\label{epsilon}
+\end{equation} 
+$\varepsilon_m$ - комплексная амплитуда решетки. Для волнового вектора решетки
+$\vec{\kappa}$ выполняется следующее соотношение:
+\begin{equation} 
+\vec{k}_1 + \vec{k}_2 + \vec{\kappa} = 0.\label{fvectors} 
+\end{equation} 
+Объем $V$, в этом случае, ограничен справа сечением $S$ (см. рис. \ref{f3}). 
+В качестве поля ($a$) в соотношении \ref{lemmaLor}
+примем поле $\vec{E}_1$ в виде разложения (\ref{field_l}) с
+источником $\vec{j}_{eq}$ в виде (\ref{fj}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$,
+$\vec{e}_2 e^{-i(\vec{k}_2\vec{r})}$ и 
+$\vec{f}_f^{(1)\ast}e^{-i(\vec{k}_2\vec{r})}$ -обращенные по отношению к
+искомым полям.  Например для нахождения амплитуды обращенной волны используем
+в качестве вспомогательного поля 
+$\vec{e}_2  e^{-i(\vec{k}_2\vec{r})}$ - поле имеющее распределение
+$\vec{e}_2$ и направленное по $\vec{k}_2$, т. е. против направления
+распространения обращенной волны. Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_2\right) 
+e^{-i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_2\right)e^{-i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_2 
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_2\vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}}.  \label{fexample} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{f3}.
+
+Для нахождения интеграла в правой части (\ref{fexample}), необходимо найти 
+$\vec{H}_1$ и $\vec{h}_2$. Считая волну квазиплоской, запишем связь между
+$\vec{E}$ и $\vec{H}$ в следующем виде:
+\begin{equation} 
+\vec{H} = 
+\sqrt{\frac{\varepsilon}{\mu}}\left[\frac{\vec{k}}{k}\vec{E}\right] 
+\label{fHandE} 
+\end{equation} 
+
+Если воспользоваться условиями нормировки (\ref{fnorm}) и нулевого среднего
+для фенинга (\ref{fzerof}) при усреднении по ансамблю, то для первого
+слагаемого во второй части (\ref{fexample}) имеем:
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_2 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_s^{(1)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_2 \right]}_n 
+e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} +
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_c^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^\ast\right]
+ \vec{e}_2 \right]}_n 
+} 
+{ds} +
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_f^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{f}_f^{(1)}\right]
+ \vec{e}_2 \right]}_n 
+} 
+{ds} 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+\left(
+{A_c^{(1)}
+\left[ 
+ \vec{e}_2 
+ \left[
+  \vec{e}_2^\ast \frac{\vec{k}_2}{k_2}
+ \right]
+\right]}_n +
+{A_f^{(1)}\left[ \vec{e}_2
+\left[\vec{f}_f^{(1)} \frac{\vec{k}_2}{k_2}\right]
+ \right]}_n 
+\right)
+} 
+{ds} =
+%\nonumber \\
+%=\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+%{\left[ 
+%\vec{e}_2
+%\left[\vec{E}_1\frac{\vec{k}_1}{k_1}\right]
+% \right]}_n 
+%e^{-i(\vec{k}_1\vec{r})} }{ds} = 
+%- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1
+%\int\limits_{S}{
+%\left(
+%\vec{e}_2 \vec{E}_1
+%\right)
+%e^{-i(\vec{k}_1\vec{r})} }{ds}=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left\{
+A_c^{(1)}
+\left(
+\vec{e}_2
+\vec{e}_2^\ast
+\right) 
+ + 
+A_f^{(1)}
+\left(
+\vec{e}_2
+\vec{f}_f^{(1)}   
+\right)
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_c^{(1)}
+\label{firstAddend}. 
+\end{eqnarray}
+
+
+
+При выводе данного соотношения
+пренебрегалось быстро осцилирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторых произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2\right) = 0.$ 
+
+
+
+Второе слагаемое в правой части (\ref{fexample}) добавит: 
+\begin{eqnarray} 
+- \int\limits_{S}{ {\left[ \vec{h}_2\vec{E}_1 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+- \sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+{\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]
+\vec{E}_1 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+\nonumber \\
+=- \sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+{\left[ 
+\vec{E}_1
+\left[\vec{e}_2\frac{\vec{k}_2}{k_2}\right]
+ \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left(
+\vec{e}_2 \vec{E}_1
+\right)
+e^{-i(\vec{k}_2\vec{r})} }{ds}=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left\{
+A_c^{(1)}
+\left(
+\vec{e}_2
+\vec{e}_2^\ast
+\right) 
+ + 
+A_f^{(1)}
+\left(
+\vec{e}_2
+\vec{f}_f^{(1)}   
+\right)
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_c^{(1)}
+\nonumber. 
+\end{eqnarray}
+При проведении данных выкладок предполагалось что
+$\left(\vec{k}_2 \vec{E}_1\right) = 0.$
+Таким образом в правой части (\ref{fexample}) имеем 
+$- 2\cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(1)}.$ 
+ 
+Остается рассмотреть объемный интеграл в правой части (\ref{fexample}). Для
+этого воспользуемся соотношением (\ref{fj}) для эквивалентных токов. В итоге
+получим: \begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{0}^{z}{dz'} 
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_1 \vec{e}_2\right)
+e^{-i(\vec{k}_2\vec{r})}} 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{0}^{z}{A_s^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e}_2\right)ds
+}= 
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(1)} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+$e^{-i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,$ согласно условию 
+(\ref{fvectors}), а остальными членами с осцилирующими множителями   
+пребрегалось. 
+
+Обозначим
+\[
+M = \int\limits_{S}{ \varepsilon_m^\ast \left(\vec{e}_1 \vec{e}_2\right)ds}, 
+\] 
+тогда
+\[
+A_c^{(1)} = -
+\frac{i\omega}{
+2 \quad c \quad \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}\int_{0}^{z}{A_s^{(1)}M  dz'}. 
+\]  
+Дифференцируя по $z$, получим
+\[
+\frac{\partial{A_c^{(1)}}}{\partial{z}} = - 
+\frac{i\omega}{2 \quad c \quad cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(1)}M. 
+\] 
+
+Во втором случае вспомогательное поле :
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$. 
+Запишем прежде всего лемму Лоренца (\ref{lemmaLor}) для этого случая:
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1^\ast \right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1^\ast \right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+=\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_1^\ast  
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{h}_1^\ast \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}},  
+\label{fexample_2} 
+\end{eqnarray} 
+и опять же бласть интегрирования изображена на рис. \ref{f3}.
+Первое слагаемое интеграла в правой части (\ref{fexample_2}) 
+можно вычислить по аналогии с (\ref{firstAddend}):
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_1^\ast \right]}_n 
+e^{-i(\vec{k}_1\vec{r})} }{ds} = 
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_s^{(1)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_1^\ast \right]}_n 
+} 
+{ds}=
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+\left(
+{A_s^{(1)}
+\left[ 
+ \vec{e}_1 
+ \left[
+  \vec{e}_1^\ast \frac{\vec{k}_1}{k_1}
+ \right]
+\right]}_n  
+\right)
+} 
+{ds} =
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_s^{(1)}
+\nonumber. 
+\end{eqnarray}
+Учитывая, что второе слагаемое удвоит данный результат,
+для (\ref{fexample_2}) можно получить:
+\begin{eqnarray}
+\frac{i\omega}{c}
+\int_{0}^{z}{A_c^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{e}_2^\ast
+\right) ds }+
+\frac{i\omega}{c}
+\int_{0}^{z}{A_f^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{f}_f^{(1)}
+\right) ds }=
+\nonumber \\
+- 2 \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_s^{(1)}.
+\nonumber
+\end{eqnarray}
+
+Обозначив через \[ M_f^{(1)}=\left\langle
+\int  \limits_S{\varepsilon_m(\vec{f}_f^{(1)}\vec{e}_1^\ast)ds} \right\rangle,
+\]
+окончательно, после дифференцирования, имеем
+\[
+\frac{\partial{A_s^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_c^{(1)}M^{\ast} + A_f^{(1)}M_f^{(1)} \right\}.
+\]
+
+Найдем третью компоненту поля $E_1$. Для этого в качестве второго поля выберем 
+свободно распространяющееся поле в направлении $-\vec{k}_2$, имеющее
+распределение поля на $S$ обращенное к 
+$\vec{f}_f^{(1)}e^{ i(\vec{k}_2\vec{r})}$,
+т. е.
+$\vec{f}_f^{(1)\ast} e^{- i(\vec{k}_2\vec{r})}.$
+При этом следует учесть зависимость $\vec{f}_f^{(1)}$ от продольной
+координаты, так что мы берем в качестве вспомогательного поля
+$\vec{f}_f^{(1)}$ в интересующем нас сечении $S$ с продольной координатой $z$.
+В этом случае лемма Лоренца (\ref{lemmaLor}) запишется следующим образом:
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{f}_f^{(1)} \right) 
+e^{-i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{f}_f^{(1)} \right)e^{-i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+=\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_f^{(1)}  
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_f^{(1)} \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}},  
+\label{fexample_3} 
+\end{eqnarray} 
+В этом случае объемный интеграл равен: 
+\[ 
+\frac{i\omega}{c}
+\int_{0}^{z}{A_s^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\vec{f}_f^{(1) \ast}
+\right) ds } .
+\]
+При дифференцировании
+по продольной координате координате следует учитывать, тот факт что
+$\vec{f}_f^{(1)}$ от $z'$ не зависит, так что при дифференцировании возникнет
+член вида:
+\[
+ \int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\frac{\partial \vec{f}_f^{(1) \ast}}{\partial z}
+\right) ds },
+\]
+которым в дальнейшем мы будем пренебрегать. Откуда получим:
+\[  
+\frac{\partial{A_f^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_s^{(1)}M_f^{(1)\ast} 
+\] 
+Таким образом имеем:
+\begin{eqnarray}
+\frac{\partial{A_s^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_c^{(1)}M^{\ast} + A_f^{(1)}M_f^{(1)} \right\},
+\nonumber \\
+\frac{\partial{A_c^{(1)}}}{\partial{z}} = - 
+\frac{i\omega}{2 c \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(1)}M,
+\nonumber \\
+\frac{\partial{A_f^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_s^{(1)}M_f^{(1)\ast}.
+\label{E1}
+\end{eqnarray}
+
+\subsection{Поля справа}
+Рассмотрим теперь поле $E_2$. Опять же применим лемму Лоренца (\ref{lemmaLor}) 
+для этого случая.
+Область интегрирования изображена на рис. \ref{figLor2}.
+ 
+В качестве эквмвалентного тока выберем:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_2\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{fj_r} 
+\end{equation} 
+где возмущение диэлектрической проницаемости
+\tiny{$\Delta$}\normalsize$\varepsilon$
+определяется соотношением (\ref{epsilon})
+
+
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+%middle multiline
+\put(111,130){\line(1,1){12}}
+\multiput(111,120)(0,-10){10}{\line(1,1){15}}
+\put(115,120){$V$}
+\put(100,125){$S$}
+%E1
+\put(175,20){\vector(-1,1){130}}
+\put(180,30){$\vec{E}_2$}
+\thicklines
+\put(110,85){\vector(-1,1){20}}
+\put(95,110){$\vec{k}_2$}
+\put(110,85){\vector(-1,-1){20}}
+\put(90,50){$-\vec{k}_1$}
+\thinlines
+%\qbezier (20,60) (22,65) (24,55)
+%\qbezier (24,55) (26,45) (28,50)
+%\qbezier (28,50) (32,55) (34,45)
+%\qbezier (34,45) (36,35) (38,40)
+%\qbezier (38,40) (40,45) (42,35)
+%\qbezier (42,35) (44,25) (46,30)
+%\qbezier (46,30) (50,35) (52,25)
+%\qbezier (52,25) (54,15) (56,20)
+%\qbezier (56,20) (58,25) (60,15)
+%First line
+\put(70,25){\line(0,1){120}}
+\put(70,85){\circle*{3}}
+\put(62,87){$0$}
+%middle line
+\put(110,25){\line(0,1){120}}
+%Last line
+\put(130,25){\line(0,1){120}}
+\put(130,85){\circle*{3}}
+\put(135,87){$d$}
+%Axe
+\put(45,85){\vector(1,0){110}}
+\put(160,85){$z$}
+\qbezier (100,85) (97,90) (100,95)
+\qbezier (100,85) (97,80) (100,75)
+\put(83,90){$\theta_2$}
+\put(83,73){$\theta_1$}
+\thicklines
+\put(110,85){\vector(-1,0){25}}
+\put(72,75){$\vec{n}$}
+\end{picture}
+\caption{Лемма Лоренца(волны падающие справа)}
+\label{figLor2}
+\end{figure}
+
+В качестве поля ($a$)в (\ref{lemmaLor}) примем поле $\vec{E}_2$ в виде разложения (\ref{field_r}) с
+источником $\vec{j}_{eq}$ в виде (\ref{fj_r}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_2^\ast e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$ и 
+$\vec{f}_f^{(2)\ast}e^{-i(\vec{k}_1\vec{r})}$ -обращенные по отношению к
+искомым полям.  
+Например для нахождения амплитуды обращенной волны используем
+в качестве вспомогательного поля 
+$\vec{e}_1  e^{-i(\vec{k}_1\vec{r})}$ - поле имеющее распределение
+$\vec{e}_1$ и направленное по $\vec{k}_1$, т. е. против направления
+распространения обращеной волны. Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1\right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1\right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e}_1 
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{h}_1\vec{E}_2  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}}.  
+\label{fexample_r} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{figLor2}.
+
+Для нахождения интеграла в правой части (\ref{fexample_r}), 
+будем считать волны квазиплоскими и пользоваться соотношением
+(\ref{fHandE}).
+
+Если воспользоваться условиями нормировки (\ref{fnorm}) и нулевого среднего
+для фенинга (\ref{fzerof}) при усреднении по ансамблю, то для первого
+слагаемого во второй части (\ref{fexample_r}) имеем:
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_2\vec{e}_1 \right]}_n 
+e^{-i(\vec{k}_1\vec{r})} }{ds} 
+=\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_s^{(2)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]
+ \vec{e}_1 \right]}_n 
+e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds}+
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_c^{(2)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1^\ast\right]
+ \vec{e}_1 \right]}_n 
+} 
+{ds} 
++
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_f^{(2)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{f}_f^{(2)}\right]
+ \vec{e}_1 \right]}_n 
+} 
+{ds} 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+\left(
+{A_c^{(2)}
+\left[ 
+ \vec{e}_1 
+ \left[
+  \vec{e}_1^\ast \frac{\vec{k}_1}{k_1}
+ \right]
+\right]}_n +
+{A_f^{(2)}\left[ \vec{e}_1
+\left[\vec{f}_f^{(2)} \frac{\vec{k}_1}{k_1}\right]
+ \right]}_n 
+\right)
+} 
+{ds} =
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1
+\int\limits_{S}{
+\left\{
+A_c^{(2)}
+\left(
+\vec{e}_1
+\vec{e}_1^\ast
+\right)  
+ + 
+A_f^{(2)}
+\left(
+\vec{e}_1
+\vec{f}_f^{(2)}   
+\right)
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_c^{(2)}
+\nonumber. 
+\end{eqnarray} 
+
+При выводе данного соотношения
+пренебрегалось быстро осцилирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторых произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2\right) = 0.$ 
+
+Второе слагаемое в правой части (\ref{fexample_r}) удвоит данный результат и 
+таким образом в правой части (\ref{fexample_r}) имеем  $- 2\cos{\theta_1} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(2)}.$ 
+
+
+Остается рассмотреть объемный интеграл в правой части (\ref{fexample_r}). Для
+этого воспользуемся соотношением (\ref{fj_r}) для эквивалентных токов. В итоге
+получим: 
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e}_1\right)
+e^{-i(\vec{k}_1\vec{r})}} 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{A_s^{(2)}dz'}
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_2 \vec{e}_1\right)ds
+}= 
+- 2 \cos{\theta_1} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(2)} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+$e^{-i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,$ согласно условию 
+(\ref{fvectors}), а остальными членами с осцилирующими множителями   
+пребрегалось. 
+
+Продифференцировав правую часть данного соотношения по $z$  
+несложно окончательно получить:
+\[
+\frac{\partial{A_c^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_1} }
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(2)}M. 
+\] 
+
+Аналогично рассматривая поле $E_2$ получим:
+\begin{eqnarray}
+\frac{\partial{A_s^{(2)}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_2}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_c^{(2)}M^{\ast} + A_f^{(1)}M_f^{(2)} \right\},
+\nonumber \\
+\frac{\partial{A_c^{(2)}}}{\partial{z}} =  
+\frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(2)}M,
+\nonumber \\
+\frac{\partial{A_f^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 c
+\cos{\theta_1}}
+\sqrt{\frac{\mu}{\epsilon}}A_s^{(2)}M_f^{(2)\ast}.
+\label{E2}
+\end{eqnarray}
+Смена знака в этих выражениях связана с тем что волна $E_2$ распространяется в
+сторону противоположную расспространению $E_1$
+
+
+
+\subsection{Вывод уравнений для среды}
+
+Будем исходить из следующего уравнения (см. \cite{material}): 
+\begin{equation}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right)\varepsilon_m{e}^{i\vec{\kappa}\vec{r}} = 
+i\frac{\Gamma}{2I_0}\left((\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)\right),\label{fmaterial} 
+\end{equation} 
+где $\tau$ время релаксации, $\Gamma\tau$ - константа нелинейной связи, $I_0$
+- полная интенсивность всех падающих пучков. $\varepsilon_m$ разложим на две
+компоненты: переменную часть, зависящую от интерференционной картины, и
+постоянную часть, определяемую дефектами кристалла, а также наличием некоторой
+долговременной памяти, так что некогда записанные решетки могут сохраняться в
+кристалле довольно продолжительное время. Поскольку двойное обращающее зеркало
+является в случае феннинга является не генератором а усилителем
+\cite{Zozulya}, то необходима ненулевая затравка для $\varepsilon_m$, чтобы
+описать присутствие фенинга в экспериментальной ситуации. В отличие от работы
+\cite{Zozulya} мы вводим эту затравку не в граничные условия, а в само
+материальное уравнение, тем самым вводя затравку и для обращенной волны
+\footnote{Следует отметить, что таким образом автоматически учитываются
+те решетки, которые сохраняются в образце благодаря наличию долговременной памяти}
+
+Сохраним только члены зависящие от $r$ по закону $e^{i(\vec{k}\vec{r})}$, учтя
+что, $\vec{k}_1+\vec{k}_2+\vec{\kappa}=0$. Если получившееся уравнение для 
+$\varepsilon_m$ домножить на $\vec{e}_1^\ast\vec{e}_2^\ast$, проинтегрировать
+по $S$ и усреднить по ансамблю (при этом исчезнут интегралы в которые входит
+$\vec{f}_f$, т. к. $\left\langle{\vec{f}_f}\right\rangle=0$), то придем к
+уравнению для величины $M^\ast$, которая входит в систему уравнений
+(\ref{E1}, \ref{E2}):
+\[
+\left(\frac{\partial}{\partial{t}} +\frac{1}{\tau}\right){M^\ast} 
+= 
+i\frac{\Gamma}{2I_0}B(A_s^{(1)}A_c^{(1)\ast}+A_s^{(2)}A_c^{(2)\ast}), 
+\] 
+где через $B$ обозначено
+\[
+B=\int 
+\limits_S{(\vec{e}_1^\ast\vec{e}_2^\ast)(\vec{e}_1\vec{e}_2)ds}.
+\]
+Таким образом $B$ - величина, определяемая известными распределениями полей.
+
+Чтобы вывести уравнение для $M_f^{(1)}$ нужно домножить уравнение
+(\ref{fmaterial}) на $(\vec{e}_1^\ast\vec{f}_f^{(1)})$ и усреднить по
+ансамблю. При этом следует учитывать, что $\vec{f}_f$ зависит от $t$ и от $z$.
+При усреднении по ансамблю можно считать, что 
+$\left\langle{ \vec\varepsilon_m
+\left(\vec{e}_1\frac{\partial\vec{f}_f^{(1)}}{\partial{t}}\right) 
+}\right\rangle=0$ 
+и что $\vec{f}_f^{(1)}$ и $\vec{f}_f^{(2)}$ не кореллируют, что эквивалентно
+пренебрежению обращенным фенингом, тогда 
+$\left\langle\int\limits_S 
+{(\vec{e}_2\vec{f}_f^{(2)\ast})(\vec{e}_1^\ast\vec{f}_f^{(1)})ds}\right\rangle 
+=0$,
+и в результате имеем:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right){M_f^{(1)}} = 
+i\frac{\Gamma}{2I_0}C_1A_p^{(1)}A_f^{(1)\ast},
+\]
+где
+\[
+C_1=\left\langle\int\limits_S 
+{(\vec{e}_1\vec{f}_f^{(1)\ast})(\vec{e}_1^\ast\vec{f}_f^{(1)})ds}\right\rangle.
+\]
+$C_1$ зависит от времени и координаты, но так как выполняются условия
+нормировки (\ref{fnorm}), то эта зависимость не очень сильная. При расчетах мы
+будем считать эту величину постоянной.
+
+Аналогично получается уравнение для $M_f^{(2)}$.
+
+\section{Окончательный вид уравнений}
+
+Приведем здесь окончательный вид уравнений:
+
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial t}+\frac{1}{\tau} \right) 
+\check N^{\ast}=QB\left(A_s^{(1)}A_c^{(1)\ast}+A_s^{(2)}A_c^{(2)\ast}\right)
+,\nonumber \\ 
+\left(\frac{\partial}{\partial t}+\frac 1 \tau \right) 
+\check N_f^{(1)}=QC_1A_s^{(1)}A_f^{(1)\ast}
+,\nonumber \\ 
+ \left(\frac\partial{\partial t}+\frac 1 \tau \right) 
+\check N_f^{(2)}=QC_2 A_s^{(2)}A_f^{(2)\ast}, 
+,\nonumber \\ 
+N=N_0 + \check N, \qquad N_f^{(1,2)}=N_{f0}^{(1,2)} + \check N_f^{(1,2)},
+\label{gratings} 
+\end{eqnarray} 
+где 
+$iM=\check N$, $-iM^\ast=\check N^\ast$, $-iM_f^{(1)}=\check N_f^{(1)}$, 
+$-M_f^{(2)}=\check N_f^{(2)}$;  $Q=\frac\Gamma{2I}$; а
+$N_0$ и $N_{f0}^{(1,2)}$ учитывают наличие постоянных во времени
+заправочных решеток.
+
+\begin{eqnarray}  
+\frac{\partial A_{s}^{(1)}}{\partial z} = D\left\{ 
+A_c^{(1)}N^{\ast} + A_f^{(1)}N_f^{(1)} \right\}   
+,\nonumber \\ 
+\frac{\partial A_{c}^{(1)}}{\partial z} = - D A_s^{(1)}N
+,\nonumber \\ 
+\frac{\partial A_{f}^{(1)}}{\partial z} = - D A_s^{(1)}N_f^{(1)\ast}, 
+\label{ampl1} 
+\end{eqnarray} 
+
+\begin{eqnarray}  
+\frac{\partial A_{s}^{(2)}}{\partial z} = -D\left\{ A_c^{(2)}N^\ast +
+A_f^{(2)}N_f^{(2)} \right\}   
+,\nonumber\\   
+\frac{\partial A_{c}^{(2)}}{\partial z} =
+D A_s^{(2)}N
+,\nonumber\\   
+\frac{\partial A_{f}^{(2)}}{\partial z} = D
+A_s^{(2)}N_f^{(2)},  
+\label{ampl2} 
+\end{eqnarray} 
+где в целях удобства полагалось, что $\theta_1 =\theta_2=\theta$, так что
+$D=\frac{\omega}c  
+\frac 1 {2 \cos \theta}\sqrt{\frac\mu\epsilon}$.
+
+
+
+\begin{thebibliography}{99} 
+
+\bibitem{Weinstein} П. А. Вайнштейн {\it Электромагнитные волны.} М: 
+Радио и связь, 1988.  
+\bibitem{material} М. П. Петров, С. И. Степанов, А. В. Хоменко
+{\it Фоторефрактивные кристаллы в когерентной оптике} СПб, Наука, 1992
+\bibitem{Zozulya} А. А. Зозуля {\it Влияние фенинга на характеристики
+самонакачивающихся систем четырехволнового смешения в фоторефрактивных
+средах,} Квантовая электроника, {\bf 19}, N 8, 1992   
+
+\end{thebibliography} 
+
+
+
+\end{document}
+ 
+
+
+
+
+
+
+

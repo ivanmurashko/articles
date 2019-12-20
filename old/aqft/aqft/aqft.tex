@@ -1,0 +1,1132 @@
+%% -*- coding:utf-8 -*- 
+\documentclass{llncs}
+
+\begin{document}
+
+\title{Analyze of Quantum Fourier Transform Circuit Implementation}
+\author{Ivan Murashko, Constantine Korikov}
+\institute{Peter the Great St. Petersburg Polytechnic University,
+  St. Petersburg, 195251. Russia,\\
+  \email{ivan.murashko@gmail.com},
+  \email{korikov.constantine@spbstu.ru}
+}
+\maketitle
+
+\begin{abstract}
+  Quantum Fourier transform circuit is the key element of quantum computation.
+  Originally it was introduced in the Shor's paper containing a classical
+  proof of correctness. We propose another corroboration that shows
+  the role of each element of the circuit and can be used for the scheme analyze.
+  \keywords{
+    quantum Fourier transform,
+    Shor's algorithm,
+    quantum computing 
+  }
+\end{abstract}
+
+\section{Introduction}
+Discrete Fourier transform (DFT) can be used for periodic sequence
+(functions) analysis. The transformation is defined by the following
+equation: 
+\begin{equation}
+\tilde{X}_k = \sum^{M - 1}_{m = 0} x_m e^{-i \frac{2 \pi}{M} k\cdot m},
+\label{eqPart4QuantCompShorFourierDiscretFourier}
+\end{equation}
+where the input sequence $\left\{x_m\right\}$ has $M$
+members.
+
+Shor \cite{shor} suggested a quantum circuit
+(see Fig. \ref{figQuantCompQuantFourier}d) 
+that can be used for DFT
+in quantum algorithms \cite{shor,kitaev,lanyon,ettinger} especially in the
+well known Shor's algorithm for factorization problem solving
+\cite{shor}.  
+
+Quantum Fourier transform \cite{shor} operates with the following states
+\begin{equation}
+\left|x\right> = \sum_{k = 0}^{M - 1}x_k \left|k\right>,
+\label{eqPart4QuantCompShorQuantFourierSeries}
+\end{equation}
+where the sequence of amplitudes $\left\{x_k\right\}$ forms initial
+sequence for the Fourier transform
+(\ref{eqPart4QuantCompShorFourierDiscretFourier}). 
+The basis vector $\left|k\right>$ keeps the number of a sequence's element.   
+
+The state (\ref{eqPart4QuantCompShorQuantFourierSeries})
+should be normalized:
+\[
+\sum_k\left|x_k\right|^2 = 1.
+\]
+
+Lets an operator $\hat{F}^{M}$ (quantum Fourier operator) transforms
+basis vector  $\left|k\right>$ by means of a rule defined by equation 
+(\ref{eqPart4QuantCompShorFourierDiscretFourier}):
+\begin{equation}
+\hat{F}^{M}\left|k\right> = \frac{1}{\sqrt{M}}\sum_{j = 0}^{M -1}
+e^{-i \omega k j}\left|j\right>_{inv}, 
+\label{eqPart4QuantCompShorQuantFourierBasis}
+\end{equation}
+where $\omega = \frac{2 \pi}{M}$.
+Basis vectors $\left\{\left|k\right>\right\}$ and
+$\left\{\left|k\right>_{inv}\right\}$ are the same set of vectors
+which are enumerated in a different order
+(see Fig. \ref{figQuantCompQuantFourier}a and Example
+\ref{exInputData}). 
+
+From (\ref{eqPart4QuantCompShorQuantFourierSeries}) and
+(\ref{eqPart4QuantCompShorQuantFourierBasis}) one can get
+\begin{eqnarray}
+\hat{F}^{M}\left|x\right> = \sum_{j = 0}^{M - 1}x_k \hat{F}^{M}
+\left|k\right> = 
+\nonumber \\
+= \frac{1}{\sqrt{M}}\sum_{k = 0}^{M -1}\sum_{j = 0}^{M - 1}
+e^{-i \omega k j}x_k\left|j\right>_{inv} = 
+\nonumber \\
+= \sum_{j = 0}^{M - 1} \left\{\frac{1}{\sqrt{M}}\left(
+\sum_{k = 0}^{M - 1}e^{-i \omega k j} x_k
+\right)\right\}\left|j\right>_{inv} = 
+\nonumber \\
+= \sum_{j = 0}^{M - 1}\tilde{X}_j\left|j\right>_{inv} = \left|\tilde{X}\right>_{inv},
+\label{eqPart4QuantCompShorQuantFourierEnd1}
+\end{eqnarray}
+where
+\begin{equation}
+\tilde{X}_j = \tilde{X}_j^{M} = 
+\frac{1}{\sqrt{M}}\sum_{k = 0}^{M - 1}e^{-i \omega k j} x_k.
+\label{eqPart4QuantCompShorQuantFourierEnd}
+\end{equation}
+The equation (\ref{eqPart4QuantCompShorQuantFourierEnd}) conforms the
+classical ones that is used for discrete Fourier transform
+(\ref{eqPart4QuantCompShorFourierDiscretFourier}), i.e. one can write
+\[
+ \left|x\right> \longleftrightarrow \left|\tilde{X}\right>_{inv}.
+\]
+
+We are going to show that the circuit shown on
+Fig. \ref{figQuantCompQuantFourier}d does the transformation
+defined by (\ref{eqPart4QuantCompShorQuantFourierEnd}). The subject of
+analyze consists of several elements: quantum Fourier transform gate for higher
+bits ($\hat{F}^{\frac{M}{2}}$), phase shift and Hadamard
+gate (see Fig. \ref{figQuantCompQuantFourier}). If the elements
+are added to the circuit step by step then the different
+transformations of initial data are performed. The transformations are
+described below in details.
+
+\section{Input data}
+
+Lets the input data for the system is a quantum state 
+(\ref{eqPart4QuantCompShorQuantFourierSeries}) that is a superposition
+of $M$ basis states $\left\{\left|k\right>\right\}$ 
+(see Fig. \ref{figQuantCompQuantFourier}a). 
+Lets the number of basis states is a power of 2, i.e. a basis state
+can be present as a tensor product of 
+$n = \log_2{M}$ qbits:
+\begin{equation}
+\left|k\right> = \left|a^{(k)}_0\right> \otimes  \left|a^{(k)}_1\right>
+\otimes \cdots \otimes \left|a^{(k)}_{n-1}\right>, 
+\nonumber
+\end{equation}
+where
+\begin{eqnarray}
+k = a^{(k)}_0 + 2^1 a^{(k)}_1 + \dots + 2^{n-1} a^{(k)}_{n-1},
+\nonumber \\
+a^{(k)}_i \in \left\{0, 1\right\}.
+\nonumber
+\end{eqnarray}
+
+There is a superposition of $M$ basis states 
+$\left\{\left|j\right>_{inv}\right\}$ on the input
+(see Fig. \ref{figQuantCompQuantFourier}a).
+For the state
+$\left|j\right>_{inv}$ one can get 
+\begin{equation}
+\left|j\right>_{inv} = \left|b^{(j)}_{n-1}\right> \otimes
+\left|b^{(j)}_{n-2}\right> 
+\otimes \cdots \otimes \left|b^{(j)}_{0}\right>, 
+\nonumber
+\end{equation}
+where
+\begin{eqnarray}
+j = b^{(j)}_0 + 2^1 b^{(j)}_1 + \dots + 2^{n-1} b^{(j)}_{n-1},
+\nonumber \\
+b^{(j)}_i \in \left\{0, 1\right\}.
+\nonumber
+\end{eqnarray}
+
+\begin{example}[Input data]
+  \label{exInputData}
+  Let $M=8$ i.e. $n=3$. In the case the number 3 is represented as
+  follows
+  \[
+  \left|3\right> = \left|1\right> \otimes  \left|1\right>
+  \otimes  \left|0\right>.
+  \]
+  and
+  \[
+  \left|3\right>_{inv} = \left|0\right> \otimes  \left|1\right>
+  \otimes  \left|1\right>.
+  \]
+\end{example}
+
+
+Using well known Cooley–Tukey fast Fourier transform algorithm
+\cite{fft} the (\ref{eqPart4QuantCompShorFourierDiscretFourier}) can be
+rewritten in the following form
+\begin{equation}
+\tilde{X}_k = \sum^{\frac{M}{2} - 1}_{m = 0} F_{k,m}^{\frac{M}{2}} x_{2m} +
+\exp{\left(-2\pi i \frac{k}{M}\right)}
+\sum^{\frac{M}{2} - 1}_{m = 0}  F_{k,m}^{\frac{M}{2}} x_{2m + 1}.
+\label{eqAddFourierDiscretFourierFFT}
+\end{equation}
+We can see (\ref{eqAddFourierDiscretFourierFFT}) that if an
+input signal $x$ consists of $n = \log_2{M}$ 
+bits when bit $a^{(k)}_0$ can be used to choose even 
+(the first part of sum (\ref{eqAddFourierDiscretFourierFFT}))
+or odd
+(the second part of sum (\ref{eqAddFourierDiscretFourierFFT}))
+members. 
+
+Thus the state
+(\ref{eqPart4QuantCompShorQuantFourierSeries}) 
+can be presented in the form of sum of even and odd components: 
+\begin{eqnarray}
+\left|x\right> = \sum_{k = 0}^{M - 1}x_k \left|k\right> = 
+\sum_{k = 0}^{M - 1}x_k \left|a^{(k)}_0\right> \otimes  \left|a^{(k)}_1\right>
+\otimes \cdots \otimes \left|a^{(k)}_{n-1}\right> = 
+\nonumber \\
+ = \sum_{m = 0}^{\frac{M}{2} - 1}x_{k=2m} \left|0\right> \otimes  \left|a^{(k)}_1\right>
+\otimes \cdots \otimes \left|a^{(k)}_{n-1}\right> +
+\nonumber \\
++
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{k=2m + 1} \left|1\right> \otimes  \left|a^{(k)}_1\right>
+\otimes \cdots \otimes \left|a^{(k)}_{n-1}\right> = 
+\nonumber \\
+ = \sum_{m = 0}^{\frac{M}{2} - 1}x_{k=2m} \left|0\right> \otimes  \left|m\right> +
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{k=2m + 1} \left|1\right> \otimes  \left|m\right> = 
+\nonumber \\
+= \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1} \left|2m+1\right>,
+\nonumber
+\end{eqnarray}
+where
+\begin{equation}
+m = a^{(k)}_1 + 2^1 a^{(k)}_2 + \dots + 2^{n-2} a^{(k)}_{n-1}.
+\nonumber
+\end{equation}
+
+\section{Fourier transform for high bits}
+
+With Fourier transform for high bits only in $\hat{F}^{\frac{M}{2}}$,
+i.e. with excluding $a^{(k)}_0$ we can obtain (see
+Fig. \ref{figQuantCompQuantFourier}b): 
+\begin{eqnarray}
+\left|x\right> \rightarrow
+\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1}
+\left|2m+1\right> = 
+\nonumber \\
+=
+\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} 
+\left|0\right> \otimes  \left|m\right> +
+\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1}
+\left|1\right> \otimes  \left|m\right>
+=
+\nonumber \\
+=
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} 
+\left|0\right> \otimes \hat{F}^{\frac{M}{2}} \left|m\right> +
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1}
+\left|1\right> \otimes \hat{F}^{\frac{M}{2}} \left|m\right>.
+\label{eqPart4QuantCompShorQuantFourierStep1}
+\end{eqnarray}
+Using (\ref{eqPart4QuantCompShorQuantFourierBasis}) it can be got
+\begin{equation}
+\hat{F}^{\frac{M}{2}} \left|m\right> = \sqrt{\frac{2}{M}}
+\sum_{j= 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j}\left|j\right>_{inv}.
+\nonumber
+\end{equation}
+Thus for (\ref{eqPart4QuantCompShorQuantFourierStep1}) it holds
+\begin{eqnarray}
+\left|x\right> \rightarrow
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} 
+\left|0\right> \otimes \hat{F}^{\frac{M}{2}} \left|m\right> +
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1}
+\left|1\right> \otimes \hat{F}^{\frac{M}{2}} \left|m\right> = 
+\nonumber \\
+=
+\sqrt{\frac{2}{M}} \sum_{j = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} 
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|0\right> \otimes
+\left|j\right>_{inv}
++
+\nonumber \\
++
+\sqrt{\frac{2}{M}} \sum_{j = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} 
+\sum_{m = 0}^{\frac{M}{2} - 1}x_{2m+1} \left|1\right> \otimes
+\left|j\right>_{inv}
+=
+\nonumber \\
+=
+\sum_{j = 0}^{\frac{M}{2} - 1}  
+\left( \sqrt{\frac{2}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} x_{2m} 
+\right) \left|j\right>_{inv}
++
+\nonumber \\
++
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\left( \sqrt{\frac{2}{M}}  
+\sum_{m = 0}^{\frac{M}{2} - 1}e^{-i \frac{4 \pi}{M} m j} x_{2m+1} 
+\right)
+\left|\frac{M}{2} + j\right>_{inv}
+=
+\nonumber \\
+= \sum^{\frac{M}{2} - 1}_{j = 0}  \tilde{A}_{j} \left|j\right>_{inv} +
+\sum^{\frac{M}{2} - 1}_{j = 0}  \tilde{B}_{j} \left|\frac{M}{2} + j\right>_{inv},
+\label{eqStep1}
+\end{eqnarray}
+where
+\begin{eqnarray}
+\tilde{A}_{j} = 
+\sqrt{\frac{2}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} x_{2m} 
+\nonumber \\
+\tilde{B}_{j} =
+\sqrt{\frac{2}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} x_{2m+1} 
+\label{eqPart4QuantCompShorAB}
+\end{eqnarray}
+
+\section{Phase shift}
+
+As we can see the equations (\ref{eqStep1}, \ref{eqPart4QuantCompShorAB}) do
+not correspond to the required Fourier transform
+(\ref{eqPart4QuantCompShorQuantFourierEnd1}).
+One of the problem is that components $x_{2m}$ and $x_{2m+1}$ in
+(\ref{eqPart4QuantCompShorAB}) have the same phase but it should
+differ. The problem can be fixed if a phase shift is added for odd
+components i.e.  for elements with $a_0^k = 1$. As result the circuit 
+shown on Fig. \ref{figQuantCompQuantFourier}c is got: 
+\begin{eqnarray}
+\left|x\right> \rightarrow
+\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+\hat{R}\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1} x_{2m + 1}
+\left|2m+1\right> =
+\nonumber \\
+= 
+\sum^{\frac{M}{2} - 1}_{j = 0} \tilde{A}_{j} \left|j\right>_{inv} +
+\sum^{\frac{M}{2} - 1}_{j = 0}  
+\tilde{B}_{j} \hat{R}\left|\frac{M}{2} + j\right>_{inv},
+\nonumber \\
+= 
+\sum^{\frac{M}{2} - 1}_{j = 0}  \tilde{A}_{j} \left|j\right>_{inv} +
+\sum^{\frac{M}{2} - 1}_{j = 0}  
+\tilde{C}_{j} \left|\frac{M}{2} + j\right>_{inv}.
+\label{eqPart4QuantCompShorFourierStep2}
+\end{eqnarray}
+With equation
+\begin{equation}
+\hat{R}_l \left|b^{(j)}_l\right> = 
+exp{\left(- 2 \pi i \frac{b^{(j)}_l}{2^{n-l}}\right)}
+\left|b^{(j)}_l\right>
+\nonumber
+\end{equation}
+we can get that operator $\hat{R}$ applied to state  
+$\left|\frac{M}{2} + j\right>_{inv}$ will produce the following result:
+\begin{eqnarray}
+\hat{R}\left|\frac{M}{2} + j\right>_{inv} = 
+\hat{R}\left|1\right> \otimes  \left|j\right>_{inv} = 
+\nonumber \\
+= 
+\left|1\right> \otimes \hat{R}_0 \left|b^{(j)}_0\right>
+\otimes \cdots \otimes \hat{R}_{n-2} \left|b^{(j)}_{n-2}\right> = 
+\nonumber \\
+= 
+\prod_{l = 0}^{n-2}exp{\left(- 2 \pi i \frac{2^lb^{(j)}_l}{2^n}\right)}
+\left|1\right> \otimes \left|j\right>_{inv} = 
+\nonumber \\
+=
+exp{\left(-2 \pi i \frac{j}{M}\right)}
+\left|\frac{M}{2} + j\right>_{inv} 
+\label{eqPart4QuantCompShorFourierStep2Pre}
+\end{eqnarray}
+We used the following fact
+\[
+j = b^{(j)}_0 + 2^1 b^{(j)}_1 + \dots + 2^{n-2} b^{(j)}_{n-2}
+\]
+for (\ref{eqPart4QuantCompShorFourierStep2Pre}) derivation.
+
+Thus for $\tilde{C}_{j}$ in 
+(\ref{eqPart4QuantCompShorFourierStep2}) it can be got
+\begin{eqnarray}
+\tilde{C}_{j} = 
+\sqrt{\frac{2}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} 
+e^{- 2 \pi i \frac{j}{M}}
+e^{-i \frac{4 \pi}{M} m j} x_{2m+1} =
+\nonumber \\
+=
+\sqrt{\frac{2}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} 
+e^{-i \frac{2 \pi}{M} \left(2m+1\right) j} x_{2m+1}
+\label{eqPart4QuantCompShorC}
+\end{eqnarray}
+
+\section{Hadamard transformation for the lowest bit}
+The result after phase shift still does not produce the required
+(Fourier) transform and additional manipulations are
+required. Especially the result of sum for even components is that
+required. Another situation with odd ones where sum should be done
+with additional phase shift. The required transformation is provided
+by Hadamard gate. 
+
+If the Hadamard transformation is applied for the qbit 
+$\left|a_0\right>$ then the circuit shown on 
+Fig. \ref{figQuantCompQuantFourier}d is got. 
+The initial state is transformed by the following law:
+\begin{eqnarray}
+\left|x\right> \rightarrow
+\hat{H}\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+\hat{H}\hat{R}\hat{F}^{\frac{M}{2}}\sum_{m = 0}^{\frac{M}{2} - 1} x_{2m + 1} =
+\nonumber \\
+=
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\tilde{A}_{j}
+\hat{H}\left|0\right> \otimes \left|j\right>_{inv}
++
+\sum_{j = 0}^{\frac{M}{2} - 1} 
+\tilde{C}_{j}
+\hat{H}\left|1\right> \otimes \left|j\right>_{inv} 
+=
+\nonumber \\
+= 
+\frac{1}{\sqrt{2}}\sum_{j = 0}^{\frac{M}{2} - 1}
+\tilde{A}_{j} 
+\left(\left|0\right> + \left|1\right> \right) \otimes  
+\left|j\right>_{inv}
++
+\frac{1}{\sqrt{2}}\sum_{j = 0}^{\frac{M}{2} - 1}
+\tilde{C}_{j} 
+\left(\left|0\right> - \left|1\right> \right) \otimes  
+\left|j\right>_{inv}
+=
+\nonumber \\
+=
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\frac{\tilde{A}_{j} + \tilde{C}_{j} }{\sqrt{2}} 
+\left|0\right> \otimes \left|j\right>_{inv} +
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\frac{ \tilde{A}_{j} - \tilde{C}_{j}}{\sqrt{2}} 
+\left|1\right> \otimes \left|j\right>_{inv}
+=
+\nonumber \\
+=
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\frac{\tilde{A}_{j} + \tilde{C}_{j} }{\sqrt{2}} \left|j\right>_{inv} +
+\sum_{j = 0}^{\frac{M}{2} - 1}
+\frac{ \tilde{A}_{j} - \tilde{C}_{j}}{\sqrt{2}} 
+\left|\frac{M}{2} + j \right>_{inv}.
+\label{eqPart4QuantCompShorFourierStep3}
+\end{eqnarray}
+For (\ref{eqPart4QuantCompShorFourierStep3}) members using 
+(\ref{eqPart4QuantCompShorAB}) and (\ref{eqPart4QuantCompShorC}) one
+can conclude:
+\begin{eqnarray}
+\frac{\tilde{A}_{j} + \tilde{C}_{j} }{\sqrt{2}} = 
+\sqrt{\frac{1}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} x_{2m}  +
+\sqrt{\frac{1}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} 
+e^{-i \frac{2 \pi}{M} \left(2m+1\right) j} x_{2m+1} = 
+\nonumber \\
+=
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} x_{m}
+\label{eqPart4QuantCompShorFourierStep3_1}
+\end{eqnarray}
+and
+\begin{eqnarray}
+\frac{\tilde{A}_{j} - \tilde{C}_{j} }{\sqrt{2}} = 
+\sqrt{\frac{1}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} e^{-i \frac{4 \pi}{M} m j} x_{2m}  -
+\sqrt{\frac{1}{M}} 
+\sum_{m = 0}^{\frac{M}{2} - 1} 
+e^{-i \frac{2 \pi}{M} \left(2m+1\right) j} x_{2m+1}
+= 
+\nonumber \\
+=
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} x_{m} \frac{1 + e^{-i \pi m}}{2}
+-
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} x_{m} \frac{1 - e^{-i \pi m}}{2} 
+=
+\nonumber \\
+=
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} e^{-i \pi m } x_{m} 
+=
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} e^{-i \frac{2 \pi}{M} m \frac{M}{2} } x_{m} 
+=
+\nonumber \\
+=
+\sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m \left(\frac{M}{2} + j\right)} x_{m}
+\label{eqPart4QuantCompShorFourierStep3_2}
+\end{eqnarray}
+
+Combine (\ref{eqPart4QuantCompShorFourierStep3}), 
+(\ref{eqPart4QuantCompShorFourierStep3_1}) and
+(\ref{eqPart4QuantCompShorFourierStep3_2}) finally it can be got  
+\begin{eqnarray}
+\left|x\right> \rightarrow
+\sum_{j = 0}^{\frac{M}{2} - 1} \sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m j} x_{m} \left|j\right>_{inv} +
+\nonumber \\
++
+\sum_{j = 0}^{\frac{M}{2} - 1} \sqrt{\frac{1}{M}} \sum_{m = 0}^{M - 1}
+e^{-i \frac{2 \pi}{M} m \left(\frac{M}{2} + j\right)} x_{m} 
+\left|\frac{M}{2} + j\right>_{inv} =
+\nonumber \\
+= \sum_{j = 0}^{M - 1} \tilde{X}_j^{M} \left|j\right>_{inv}
+\nonumber
+\end{eqnarray}
+
+Thus the final scheme (Fig. \ref{figQuantCompQuantFourier}d)
+provides us the required Fourier transformation
+(\ref{eqPart4QuantCompShorQuantFourierEnd1}).
+
+\section{Conclusion}
+As a result of the scheme analyze the proof of correctness was
+got. The scheme analyze was divided into several steps. The first one
+included Fourier transform for highest bits only. Unfortunately the
+result state did not conform the requested one. Especially a phase is
+not correct. The issue can be fixed with phase shift correction
+elements that were added in the second step. As result the correct
+Fourier transform was got for even components but not for odd
+ones. The problem can be resolved by means of the Hadamard gate that was
+added on the last step. It was shown that the final circuit performs
+the requested Fourier transform.   
+
+\begin{thebibliography}{}
+   \bibitem{shor} Shor, P.: Algorithms for Quantum Computation:
+     Discrete Logarithms and Factoring. FOCS, 124--134 (1994)
+   \bibitem{kitaev} Kitaev A. Yu: Quantum measurements and the
+     Abelian Stabilizer Problem, arXiv:quant-ph/9511026.
+   \bibitem{lanyon} Lanyon, B. P.; Weinhold, T. J.; Langford,
+     N. K.; Barbieri, M.; James, D. F. V.; Gilchrist, A.; White,
+     A. G. (2007): Experimental Demonstration of a Compiled Version
+     of Shor's Algorithm with Quantum Entanglement. Physical Review
+     Letters 99 (25): 250505      
+   \bibitem{ettinger} Mark Ettinger; Peter Høyer: A quantum
+     observable for the graph isomorphism problem, arXiv:quant-ph/9901029 
+   \bibitem{fft} Cooley, James W.; Tukey, John W. (1965): An
+     algorithm for the machine calculation of complex Fourier
+     series. Math. Comput. 19: 297-–301. doi:10.2307/2003354
+\end{thebibliography}
+
+\newpage
+\begin{figure}
+\ifx\JPicScale\undefined\def\JPicScale{1}\fi
+\unitlength \JPicScale mm
+\begin{picture}(127.57,94.5)(0,0)
+\linethickness{0.3mm}
+\put(4.61,79.5){\line(1,0){11.52}}
+\linethickness{0.3mm}
+\put(4.61,67){\line(1,0){11.52}}
+\linethickness{0.3mm}
+\put(4.61,62){\line(1,0){11.52}}
+\linethickness{0.3mm}
+\put(16.13,79.5){\line(1,0){11.53}}
+\linethickness{0.3mm}
+\put(27.66,79.5){\line(1,0){26.9}}
+\linethickness{0.3mm}
+\put(16.13,67){\line(1,0){23.06}}
+\linethickness{0.3mm}
+\put(39.19,67){\line(1,0){15.36}}
+\linethickness{0.3mm}
+\put(16.13,62){\line(1,0){28.82}}
+\linethickness{0.3mm}
+\put(44.95,62){\line(1,0){9.61}}
+\linethickness{0.3mm}
+\put(50.72,89.5){\line(1,0){3.84}}
+\put(0.77,62){\makebox(0,0)[cc]{$\left| a_{n-1} \right>$}}
+
+\put(0.77,67){\makebox(0,0)[cc]{$\left| a_{n -2} \right>$}}
+
+\put(0.77,89.5){\makebox(0,0)[cc]{$\left| a_0 \right>$}}
+\put(0.77,97.0){\makebox(0,0)[cc]{(a)}}
+
+\put(58.4,62){\makebox(0,0)[cc]{$\left| b_{0} \right>$}}
+
+\put(58.4,67){\makebox(0,0)[cc]{$\left| b_{1} \right>$}}
+
+\put(59.4,89.5){\makebox(0,0)[cc]{$\left| b_{n-1} \right>$}}
+
+\linethickness{0.3mm}
+\put(6.53,94.5){\line(1,0){46.11}}
+\put(6.53,57){\line(0,1){37.5}}
+\put(52.64,57){\line(0,1){37.5}}
+\put(6.53,57){\line(1,0){46.11}}
+\put(10.0,92){\makebox(0,0)[cc]{$\hat{F}^{M}$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(4.61,89.5){\line(1,0){15.37}}
+\linethickness{0.3mm}
+\put(31.5,89.5){\line(1,0){19.21}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(0.77,79.5){\makebox(0,0)[cc]{$\left| a_k \right>$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(61.0,79.5){\makebox(0,0)[cc]{$\left| b_{n - 1 - k} \right>$}}
+
+\linethickness{0.3mm}
+\put(19.98,89.5){\line(1,0){11.52}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(104.52,24.5){\line(1,0){3.84}}
+\put(104.52,19.5){\line(0,1){5}}
+\put(108.36,19.5){\line(0,1){5}}
+\put(104.52,19.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(110.27,19.5){\line(1,0){3.84}}
+\put(110.27,14.5){\line(0,1){5}}
+\put(114.11,14.5){\line(0,1){5}}
+\put(110.27,14.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,34.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,22){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,17){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(85.3,34.5){\line(1,0){7.68}}
+\linethickness{0.3mm}
+\put(96.82,34.5){\line(1,0){26.9}}
+\linethickness{0.3mm}
+\put(85.3,22){\line(1,0){19.21}}
+\linethickness{0.3mm}
+\put(108.36,22){\line(1,0){15.36}}
+\linethickness{0.3mm}
+\put(85.3,17){\line(1,0){24.97}}
+\linethickness{0.3mm}
+\put(114.11,17){\line(1,0){9.61}}
+\linethickness{0.3mm}
+\put(94.91,37){\line(0,1){7.5}}
+\linethickness{0.3mm}
+\put(106.43,24.5){\line(0,1){20}}
+\linethickness{0.3mm}
+\put(112.2,19.5){\line(0,1){25}}
+\linethickness{0.3mm}
+\put(95.35,44.27){\line(0,1){0.48}}
+\multiput(95.09,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(94.72,43.93){\line(1,0){0.37}}
+\multiput(94.46,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(94.46,44.27){\line(0,1){0.48}}
+\multiput(94.46,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(94.72,45.08){\line(1,0){0.37}}
+\multiput(95.09,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(106.87,44.27){\line(0,1){0.48}}
+\multiput(106.61,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(106.25,43.93){\line(1,0){0.37}}
+\multiput(105.99,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(105.99,44.27){\line(0,1){0.48}}
+\multiput(105.99,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(106.25,45.08){\line(1,0){0.37}}
+\multiput(106.61,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(112.64,44.27){\line(0,1){0.48}}
+\multiput(112.38,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(112.01,43.93){\line(1,0){0.37}}
+\multiput(111.75,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(111.75,44.27){\line(0,1){0.48}}
+\multiput(111.75,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(112.01,45.08){\line(1,0){0.37}}
+\multiput(112.38,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(116.04,47){\line(1,0){3.84}}
+\put(116.04,42){\line(0,1){5}}
+\put(119.88,42){\line(0,1){5}}
+\put(116.04,42){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(119.88,44.5){\line(1,0){3.84}}
+\put(117.96,44.5){\makebox(0,0)[cc]{$\hat{H}$}}
+
+\put(69.93,17){\makebox(0,0)[cc]{$\left| a_{n-1} \right>$}}
+
+\put(69.93,22){\makebox(0,0)[cc]{$\left| a_{n -2} \right>$}}
+
+\put(69.93,44.5){\makebox(0,0)[cc]{$\left| a_0 \right>$}}
+\put(69.93,52.5){\makebox(0,0)[cc]{(d)}}
+
+\put(127.57,17){\makebox(0,0)[cc]{$\left| b_{0} \right>$}}
+
+\put(127.57,22){\makebox(0,0)[cc]{$\left| b_{1} \right>$}}
+
+\put(128.57,44.5){\makebox(0,0)[cc]{$\left| b_{n-1} \right>$}}
+
+\put(81.0,37){\makebox(0,0)[cc]{$\hat{F}^{\frac{M}{2}}$}}
+
+\linethickness{0.3mm}
+\put(75.7,49.5){\line(1,0){46.11}}
+\put(75.7,12){\line(0,1){37.5}}
+\put(121.8,12){\line(0,1){37.5}}
+\put(75.7,12){\line(1,0){46.11}}
+\put(79.0,47){\makebox(0,0)[cc]{$\hat{F}^{M}$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(73.77,44.5){\line(1,0){15.37}}
+\linethickness{0.3mm}
+\put(100.67,44.5){\line(1,0){11.53}}
+\linethickness{0.3mm}
+\put(112.2,44.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(112.2,17){\makebox(0,0)[cc]{$\hat{R}_{0}$}}
+
+\put(106.43,22){\makebox(0,0)[cc]{$\hat{R}_{1}$}}
+
+\linethickness{0.3mm}
+\put(77.61,40.75){\line(1,0){7.69}}
+\put(77.61,13.25){\line(0,1){27.5}}
+\put(85.3,13.25){\line(0,1){27.5}}
+\put(77.61,13.25){\line(1,0){7.69}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(69.93,34.5){\makebox(0,0)[cc]{$\left| a_{k} \right>$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(130.0,34.5){\makebox(0,0)[cc]{$\left| b_{n - 1 - k} \right>$}}
+
+\linethickness{0.3mm}
+\put(92.98,37){\line(1,0){3.84}}
+\put(92.98,32){\line(0,1){5}}
+\put(96.82,32){\line(0,1){5}}
+\put(92.98,32){\line(1,0){3.84}}
+\linethickness{0.3mm}
+
+%\put(94.91,34.5){\makebox(0,0)[cc]{$\hat{R}_k$}}
+
+\linethickness{0.3mm}
+\put(92.98,44.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,79.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,67){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(73.77,62){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(85.3,79.5){\line(1,0){11.52}}
+\linethickness{0.3mm}
+\put(96.82,79.5){\line(1,0){26.9}}
+\linethickness{0.3mm}
+\put(85.3,67){\line(1,0){23.05}}
+\linethickness{0.3mm}
+\put(108.36,67){\line(1,0){15.36}}
+\linethickness{0.3mm}
+\put(85.3,62){\line(1,0){28.81}}
+\linethickness{0.3mm}
+\put(114.11,62){\line(1,0){9.61}}
+\linethickness{0.3mm}
+\put(119.88,89.5){\line(1,0){3.84}}
+\put(69.93,62){\makebox(0,0)[cc]{$\left| a_{n-1} \right>$}}
+
+\put(69.93,67){\makebox(0,0)[cc]{$\left| a_{n -2} \right>$}}
+
+\put(69.93,89.5){\makebox(0,0)[cc]{$\left| a_0 \right>$}}
+\put(69.93,97.0){\makebox(0,0)[cc]{(b)}}
+
+\put(127.57,62){\makebox(0,0)[cc]{$\left| b_{0} \right>$}}
+
+\put(127.57,67){\makebox(0,0)[cc]{$\left| b_{1} \right>$}}
+
+\put(128.57,89.5){\makebox(0,0)[cc]{$\left| b_{n-1} \right>$}}
+
+\put(81.0,82){\makebox(0,0)[cc]{$\hat{F}^{\frac{M}{2}}$}}
+
+\linethickness{0.3mm}
+\put(75.7,94.5){\line(1,0){46.11}}
+\put(75.7,57){\line(0,1){37.5}}
+\put(121.8,57){\line(0,1){37.5}}
+\put(75.7,57){\line(1,0){46.11}}
+\put(79.0,92){\makebox(0,0)[cc]{$\hat{F}^{M}$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(73.77,89.5){\line(1,0){15.37}}
+\linethickness{0.3mm}
+\put(100.67,89.5){\line(1,0){19.21}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(77.61,85.75){\line(1,0){7.69}}
+\put(77.61,58.25){\line(0,1){27.5}}
+\put(85.3,58.25){\line(0,1){27.5}}
+\put(77.61,58.25){\line(1,0){7.69}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(69.93,79.5){\makebox(0,0)[cc]{$\left| a_k \right>$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(130.0,79.5){\makebox(0,0)[cc]{$\left| b_{n - 1 - k} \right>$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(92.98,89.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(35.34,24.5){\line(1,0){3.85}}
+\put(35.34,19.5){\line(0,1){5}}
+\put(39.19,19.5){\line(0,1){5}}
+\put(35.34,19.5){\line(1,0){3.85}}
+\linethickness{0.3mm}
+\put(41.11,19.5){\line(1,0){3.84}}
+\put(41.11,14.5){\line(0,1){5}}
+\put(44.95,14.5){\line(0,1){5}}
+\put(41.11,14.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(4.61,34.5){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(4.61,22){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(4.61,17){\line(1,0){3.84}}
+\linethickness{0.3mm}
+\put(16.13,34.5){\line(1,0){7.69}}
+\linethickness{0.3mm}
+\put(27.66,34.5){\line(1,0){26.9}}
+\linethickness{0.3mm}
+\put(16.13,22){\line(1,0){19.21}}
+\linethickness{0.3mm}
+\put(39.19,22){\line(1,0){15.36}}
+\linethickness{0.3mm}
+\put(16.13,17){\line(1,0){24.98}}
+\linethickness{0.3mm}
+\put(44.95,17){\line(1,0){9.61}}
+\linethickness{0.3mm}
+\put(25.74,37){\line(0,1){7.5}}
+\linethickness{0.3mm}
+\put(37.27,24.5){\line(0,1){20}}
+\linethickness{0.3mm}
+\put(43.03,19.5){\line(0,1){25}}
+\linethickness{0.3mm}
+\put(26.19,44.27){\line(0,1){0.48}}
+\multiput(25.93,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(25.56,43.93){\line(1,0){0.37}}
+\multiput(25.29,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(25.29,44.27){\line(0,1){0.48}}
+\multiput(25.29,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(25.56,45.08){\line(1,0){0.37}}
+\multiput(25.93,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(37.71,44.27){\line(0,1){0.48}}
+\multiput(37.45,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(37.08,43.93){\line(1,0){0.37}}
+\multiput(36.83,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(36.83,44.27){\line(0,1){0.48}}
+\multiput(36.83,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(37.08,45.08){\line(1,0){0.37}}
+\multiput(37.45,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(43.48,44.27){\line(0,1){0.48}}
+\multiput(43.22,43.93)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(42.85,43.93){\line(1,0){0.37}}
+\multiput(42.59,44.27)(0.13,-0.17){2}{\line(0,-1){0.17}}
+\put(42.59,44.27){\line(0,1){0.48}}
+\multiput(42.59,44.74)(0.13,0.17){2}{\line(0,1){0.17}}
+\put(42.85,45.08){\line(1,0){0.37}}
+\multiput(43.22,45.08)(0.13,-0.17){2}{\line(0,-1){0.17}}
+
+\linethickness{0.3mm}
+\put(50.72,44.5){\line(1,0){3.84}}
+\put(0.77,17){\makebox(0,0)[cc]{$\left| a_{n-1} \right>$}}
+
+\put(0.77,22){\makebox(0,0)[cc]{$\left| a_{n -2} \right>$}}
+
+\put(0.77,44.5){\makebox(0,0)[cc]{$\left| a_0 \right>$}}
+\put(0.77,52.5){\makebox(0,0)[cc]{(c)}}
+
+\put(58.4,17){\makebox(0,0)[cc]{$\left| b_{0} \right>$}}
+
+\put(58.4,22){\makebox(0,0)[cc]{$\left| b_{1} \right>$}}
+
+\put(59.4,44.5){\makebox(0,0)[cc]{$\left| b_{n - 1} \right>$}}
+
+\put(12.0,37){\makebox(0,0)[cc]{$\hat{F}^{\frac{M}{2}}$}}
+
+\linethickness{0.3mm}
+\put(6.53,49.5){\line(1,0){46.11}}
+\put(6.53,12){\line(0,1){37.5}}
+\put(52.64,12){\line(0,1){37.5}}
+\put(6.53,12){\line(1,0){46.11}}
+\put(10.0,47){\makebox(0,0)[cc]{$\hat{F}^{M}$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+\put(4.61,44.5){\line(1,0){15.37}}
+\linethickness{0.3mm}
+\put(31.5,44.5){\line(1,0){11.53}}
+\linethickness{0.3mm}
+\put(43.03,44.5){\line(1,0){7.68}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(43.03,17){\makebox(0,0)[cc]{$\hat{R}_{0}$}}
+
+\put(37.27,22){\makebox(0,0)[cc]{$\hat{R}_{1}$}}
+
+\linethickness{0.3mm}
+\put(8.45,40.75){\line(1,0){7.68}}
+\put(8.45,13.25){\line(0,1){27.5}}
+\put(16.13,13.25){\line(0,1){27.5}}
+\put(8.45,13.25){\line(1,0){7.68}}
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(0.77,34.5){\makebox(0,0)[cc]{$\left| a_{k} \right>$}}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\linethickness{0.3mm}
+
+\put(61.0,34.5){\makebox(0,0)[cc]{$\left| b_{n-1-k} \right>$}}
+
+\linethickness{0.3mm}
+\put(23.82,37){\line(1,0){3.84}}
+\put(23.82,32){\line(0,1){5}}
+\put(27.66,32){\line(0,1){5}}
+\put(23.82,32){\line(1,0){3.84}}
+\linethickness{0.3mm}
+
+%\put(25.74,34.5){\makebox(0,0)[cc]{$\hat{R}_{n-k-1}$}}
+
+\linethickness{0.3mm}
+\put(23.82,44.5){\line(1,0){3.84}}
+\end{picture}
+\caption{
+  The quantum Fourier transform circuit based on the fast
+  Fourier transform algorithm.
+  Initial data on the input (a).
+  Step 1 (b): 
+  $\left|x\right> \rightarrow
+  \hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+  \hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m + 1}
+  \left|2m+1\right>$.
+  Step 2 (c): 
+  $\left|x\right> \rightarrow
+  \hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1}x_{2m} \left|2m\right> +
+  \hat{R}\hat{F}^{\frac{M}{2}} \sum_{m = 0}^{\frac{M}{2} - 1} x_{2m + 1}$.
+  Final circuit (d).
+}
+\label{figQuantCompQuantFourier}
+\end{figure}
+
+\end{document}

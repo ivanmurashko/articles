@@ -1,0 +1,129 @@
+\subsection{Вывод уравнений для среды}
+
+Будем исходить из следующего уравнения (см. \cite{material}): 
+\begin{equation}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right)\varepsilon_m{e}^{i\vec{\kappa}\vec{r}} = 
+i\frac{\Gamma}{2I_0}\left((\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)\right),\label{fmaterial} 
+\end{equation} 
+где $\tau$ время релаксации, $\Gamma\tau$ - константа нелинейной связи, $I_0$
+- полная интенсивность всех падающих пучков. $\varepsilon_m$ разложим на две
+компоненты: переменную часть, зависящую от интерференционной картины, и
+постоянную часть, определяемую дефектами кристалла, а также наличием некоторой
+долговременной памяти, так что некогда записанные решетки могут сохраняться в
+кристалле довольно продолжительное время. Поскольку двойное обращающее зеркало
+является в случае феннинга является не генератором а усилителем
+\cite{Zozulya}, то необходима ненулевая затравка для $\varepsilon_m$, чтобы
+описать присутствие фенинга в экспериментальной ситуации. В отличие от работы
+\cite{Zozulya} мы вводим эту затравку не в граничные условия, а в само
+материальное уравнение, тем самым вводя затравку и для обращенной волны
+\footnote{Следует отметить, что таким образом автоматически учитываются
+те решетки, которые сохраняются в образце благодаря наличию долговременной памяти}
+
+Сохраним в правой части (\ref{fmaterial}) только члены зависящие от
+$r$ по закону $e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}}$, учтя
+что, $\vec{k}_1+\vec{k}_2+\vec{\kappa}=0$. В результате для 
+правой части (\ref{fmaterial}) получим:
+\begin{eqnarray}
+(\vec{E}_1\vec{E}_1^\ast) + (\vec{E}_2\vec{E}_2^\ast) =
+\left( A_s^{(1)} A_c^{(1)\ast} + A_s^{(2)} A_c^{(2)\ast} \right)
+\left( \vec {e_1} \vec {e_2}\right) 
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+\nonumber \\
++ A_s^{(1)} A_c^{(1)\ast} 
+\left( \vec {e_1} \vec{f_f^{(1)\ast}}\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+A_s^{(2)} A_c^{(2)\ast} 
+\left( \vec {e_2} \vec{f_f^{(2)\ast}}\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}}.
+\nonumber
+\end{eqnarray}
+Таким образом, в пренебрежении быстро осцилирующими членами  имеем
+следующее уравнение для $\varepsilon_m$ 
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right)\varepsilon_m =i\frac{\Gamma}{2I_0} 
+\left( A_s^{(1)} A_c^{(1)\ast} + A_s^{(2)} A_c^{(2)\ast} \right)
+\left( \vec {e_1} \vec {e_2}\right) +
+\nonumber \\
++ i\frac{\Gamma}{2I_0} A_s^{(1)} A_c^{(1)\ast} 
+\left( \vec {e_1} \vec{f_f^{(1)\ast}}\right) +
+i\frac{\Gamma}{2I_0} A_s^{(2)} A_c^{(2)\ast} 
+\left( \vec {e_2} \vec{f_f^{(2)\ast}}\right).
+\label{fmatfin}
+\end{eqnarray}
+
+Если получившееся уравнение для 
+$\varepsilon_m$ домножить на $\vec{e}_1^\ast\vec{e}_2^\ast$, проинтегрировать
+по $S$ и усреднить по ансамблю (при этом исчезнут интегралы в которые входит
+$\vec{f}_f$, т. к. $\left\langle{\vec{f}_f}\right\rangle=0$), то придем к
+уравнению для величины $M^\ast$, которая входит в систему уравнений
+(\ref{E1}, \ref{E2}):
+\[
+\left(\frac{\partial}{\partial{t}} +\frac{1}{\tau}\right){M^\ast} 
+= 
+i\frac{\Gamma}{2I_0}B(A_s^{(1)}A_c^{(1)\ast}+A_s^{(2)}A_c^{(2)\ast}), 
+\] 
+где через $B$ обозначено
+\[
+B=\int 
+\limits_S{(\vec{e}_1^\ast\vec{e}_2^\ast)(\vec{e}_1\vec{e}_2)ds}.
+\]
+Таким образом $B$ - величина, определяемая известными распределениями полей.
+
+Чтобы вывести уравнение для $M_f^{(1)}$ нужно домножить уравнение
+(\ref{fmatfin}) на $(\vec{e}_1^\ast\vec{f}_f^{(1)})$ и усреднить по
+ансамблю. При этом следует учитывать, что $\vec{f}_f$ зависит от $t$ и от $z$.
+При усреднении по ансамблю можно считать, что 
+$\left\langle{ \vec\varepsilon_m
+\left(\vec{e}_1\frac{\partial\vec{f}_f^{(1)}}{\partial{t}}\right) 
+}\right\rangle=0$ 
+и что $\vec{f}_f^{(1)}$ и $\vec{f}_f^{(2)}$ не кореллируют, что эквивалентно
+пренебрежению обращенным фенингом, тогда 
+$\left\langle\int\limits_S 
+{(\vec{e}_2\vec{f}_f^{(2)\ast})(\vec{e}_1^\ast\vec{f}_f^{(1)})ds}\right\rangle 
+=0$,
+и в результате имеем:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right){M_f^{(1)}} = 
+i\frac{\Gamma}{2I_0} C_1 A_s^{(1)}A_f^{(1)\ast},
+\]
+где
+\[
+C_1=\left\langle\int\limits_S 
+{(\vec{e}_1\vec{f}_f^{(1)\ast})(\vec{e}_1^\ast\vec{f}_f^{(1)})ds}\right\rangle.
+\]
+$C_1$ зависит от времени и координаты, но так как выполняются условия
+нормировки (\ref{fnorm}), то эта зависимость не очень сильная. При расчетах мы
+будем считать эту величину постоянной.
+
+Аналогичным образом можно получить  уравнение для $M_f^{(2)}$. Для
+этого домножим уравнение(\ref{fmatfin}) на
+$(\vec{e}_2^\ast\vec{f}_f^{(2)})$ и усредним  полученное по
+ансамблю. В результате получим:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right){M_f^{(2)}} = 
+i\frac{\Gamma}{2I_0} C_2 A_s^{(2)}A_f^{(2)\ast},
+\]
+где
+\[
+C_2=\left\langle\int\limits_S 
+{(\vec{e}_2\vec{f}_f^{(2)\ast})(\vec{e}_2^\ast\vec{f}_f^{(2)})ds}\right\rangle.
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+%Common case
+\begin{figure}
+\centering
+\begin{picture}(250,170)
+%E1
+\thicklines
+\put(32,17){\vector(1,1){75}}
+\put(32,17){\line(1,1){160}}
+\put(20,30){$\vec{E}_1$}
+\qbezier (28,50) (32,55) (34,45)
+\qbezier (34,45) (36,35) (38,40)
+\qbezier (38,40) (40,45) (42,35)
+\qbezier (42,35) (44,25) (46,30)
+\qbezier (48,30) (50,35) (52,25)
+\qbezier (52,25) (54,15) (56,20)
+\qbezier (56,20) (58,25) (60,15)
+\thicklines
+%First line
+\put(70,25){\line(0,1){120}}
+%Last line
+\put(130,25){\line(0,1){120}}
+\thinlines
+\qbezier(70,25)(75,35)(90,25)
+\qbezier(90,25)(95,15)(110,25)
+\qbezier(110,25)(115,35)(130,25)
+\qbezier(70,145)(85,135)(90,145)
+\qbezier(90,145)(105,155)(110,145)
+\qbezier(110,145)(125,135)(130,145)
+%Axe
+%\put(45,85){\vector(1,0){110}}
+%\put(100,20){\vector(0,1){130}}
+%Mirror (old)
+%\thicklines
+%\put(210,15){\line(0,1){140}}
+%\thinlines
+%\multiput(212,140)(0,-10){13}{\line(1,1){15}}
+%\put(209,85){\vector(-1,1){60}}
+%\put(209,85){\vector(-1,-1){60}}
+%\put(209,85){\vector(-1,0){60}}
+%Mirror (new)
+\thicklines
+\qbezier (210,10) (260,25) (235,65)
+\thinlines
+%Mirror line
+\put(235,30){\vector(-4,3){60}}
+\put(150,80){\vector(4,-3){60}}
+\end{picture}
+\caption{Постановка задачи (общий случай)}
+\label{f1}
+\end{figure}
+
+
+

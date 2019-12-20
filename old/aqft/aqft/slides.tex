@@ -1,0 +1,71 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Analyze of Quantum Fourier Transform Circuit Implementation}
+  \framesubtitle{Ivan Murashko, Constantine Korikov. Peter the Great
+    St.Petersburg Polytechnic University, St. Petersburg, Russia}
+
+  Quantum Fourier transform circuit is the key element of quantum
+  computation. Originally it was introduced in the Shor's paper
+  that also contains a proof of correctness for it. There
+  is another proof of correctness that shows the role of each element
+  of the circuit and can be used for the scheme analyze. 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fourier transform}  
+  \begin{eqnarray}
+    \left\{x_m\right\} \rightarrow \left\{\tilde{X}_k\right\}
+    \nonumber \\
+    \tilde{X}_k = \sum^{M - 1}_{m = 0} x_m e^{-i \frac{2 \pi}{M} k\cdot m}
+    \nonumber
+  \end{eqnarray}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Quantum Fourier Transform}
+  \begin{eqnarray}
+    \left|x\right> = \sum_{k = 0}^{M - 1}x_k \left|k\right>
+    \nonumber \\
+    \left|\tilde{X}\right>_{inv} = \sum_{j = 0}^{M - 1}
+    \tilde{X}_j\left|j\right>_{inv}
+    \nonumber
+  \end{eqnarray}
+  \begin{eqnarray}
+    \hat{F}^{M}\left|k\right> = \frac{1}{\sqrt{M}}\sum_{j = 0}^{M -1}
+    e^{-i \frac{2 \pi}{M} k j}\left|j\right>_{inv}
+    \nonumber \\
+    \hat{F}^{M} \left|x\right> = \left|\tilde{X}\right>_{inv},
+    \nonumber
+  \end{eqnarray}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Input data}
+  \input ./figquantfourier0.tex
+\end{frame}
+
+\begin{frame}
+  \frametitle{Step 1}
+  \input ./figquantfourier1.tex
+\end{frame}
+
+\begin{frame}
+  \frametitle{Step 2}
+  \input ./figquantfourier2.tex
+\end{frame}
+
+\begin{frame}
+  \frametitle{Final circuit}
+  \input ./figquantfourier3.tex
+\end{frame}
+
+
+\end{document}

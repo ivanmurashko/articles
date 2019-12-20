@@ -1,0 +1,484 @@
+\subsection{Поля падающие на кристалл  справа}
+
+Рассмотрим теперь поле $E_2$. Опять же применим лемму Лоренца (\ref{lemmaLor}) 
+для этого случая.
+Область интегрирования изображена на рис. \ref{figLor2}.
+ 
+В качестве эквивалентного тока выберем:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_2\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{fj_r} 
+\end{equation} 
+где возмущение диэлектрической проницаемости
+\tiny{$\Delta$}\normalsize$\varepsilon$
+определяется соотношением (\ref{epsilon})
+
+\input f4.tex
+
+
+В качестве поля ($a$)в (\ref{lemmaLor}) примем поле $\vec{E}_2$ в виде разложения (\ref{field_r}) с
+источником $\vec{j}_{eq}$ в виде (\ref{fj_r}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_2^\ast e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e_d}^{\ast}  e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$ и 
+$\vec{f}_f^{(2)\ast}e^{-i(\vec{k}_1\vec{r})}$ -обращенные по отношению к
+искомым полям.
+
+Например для нахождения соотношения, описывающего динамику развития амплитуды
+поля $A_d^{(2)}$, примем  в качестве вспомогательного поля
+$\vec{e_d}^{\ast}  e^{i(\vec{k}_2\vec{r})}$ - поле имеющее распределение
+$\vec{e_d}^{\ast}$ и направленное по $-\vec{k}_2$, т. е. против направления
+распространения расеяного поля $\vec{E}_{2d}$. Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e_d}^{\ast}\right) 
+e^{i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e_d}^{\ast}\right)e^{i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e_d}^{\ast} 
+\right]}_n e^{i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_d^{\ast}\vec{E}_2  \right]}_n
+e^{i(\vec{k}_2\vec{r})} \right\}}.  
+\label{fexample_r} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{figLor2}.
+
+Для нахождения интеграла в правой части (\ref{fexample_r}), 
+будем считать волны квазиплоскими и пользоваться соотношением
+(\ref{fHandE}).
+
+Если воспользоваться условиями нормировки (\ref{fnorm}) и нулевого среднего
+для фенинга (\ref{fzerof}) при усреднении по ансамблю, то для
+усредненного по ансамблю  первого
+слагаемого во второй части (\ref{fexample_r}) имеем:
+\begin{eqnarray} 
+\left\langle
+\int\limits_{S}{ {\left[ \vec{H}_2\vec{e_d}^{\ast} \right]}_n 
+e^{i(\vec{k}_2\vec{r})} }{ds} 
+\right\rangle
+=\sqrt{\frac{\varepsilon}{\mu}} 
+\int\limits_{S}
+{ 
+A_s^{(2)}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle 
+} 
+{ds}+
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_c^{(2)}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1^\ast\right] \vec{e_d}^{\ast} 
+\right]_n
+\right\rangle 
+e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} 
++
+\nonumber \\
++
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_d^{(2)}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e_d}\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle 
+} 
+{ds} 
++ 
+\nonumber \\
++
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_f^{(2)}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{f}_f^{(2)}\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle  
+e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}}
+\int\limits_{S}
+{ 
+\left(
+A_s^{(2)}
+\left\langle 
+\left[ 
+ \vec{e_d}^{\ast} 
+ \left[
+  \vec{e}_2^\ast \frac{\vec{k}_2}{k_2}
+ \right]
+\right]_n 
+\right\rangle
++
+A_d^{(2)}
+\left\langle 
+\left[ \vec{e_d}^{\ast}
+\left[\vec{e_d} \frac{\vec{k}_2}{k_2}\right]
+ \right]_n 
+\right\rangle
+\right)
+} 
+{ds}
+=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1
+\int\limits_{S}{
+\left\{
+A_s^{(2)}
+\left\langle
+\left(
+\vec{e_d}^{\ast}
+\vec{e}_2^\ast
+\right)  
+\right\rangle
+ +
+A_d^{(2)}
+\left\langle
+\left(
+\vec{e_d}^{\ast}
+\vec{e_d}
+\right)
+\right\rangle
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_d^{(2)}
+\nonumber. 
+\end{eqnarray} 
+
+При выводе данного соотношения
+пренебрегалось быстро осцилирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторых произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2\right) = 0.$ 
+
+Второе слагаемое в правой части (\ref{fexample_r}) удвоит данный результат и 
+таким образом в правой части (\ref{fexample_r}) имеем  $- 2\cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_d^{(2)}.$ 
+
+
+Остается рассмотреть объемный интеграл в правой части (\ref{fexample_r}). Для
+этого воспользуемся соотношением (\ref{fj_r}) для эквивалентных токов. В итоге
+получим: 
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_d}^{\ast}\right)
+e^{i(\vec{k}_2\vec{r})}}
+\right\rangle 
+= 
+\nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{
+\left\{
+A_c^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{e}_1^\ast \vec{e_d}^{\ast}\right)
+ds}
+\right\rangle
++
+A_f^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m 
+\left(
+\vec{f}_f^{(2)} \vec{e_d}^\ast
+\right)
+ds}
+\right\rangle
+\right\}
+dz'}
+= 
+\nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_d^{(2)} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+\[e^{i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,\]
+согласно условию 
+(\ref{fvectors}), а остальными членами с осцилирующими множителями   
+пребрегалось. 
+
+Дифференцируя правую часть данного соотношения по $z$  
+несложно окончательно получить:
+\[
+\frac{\partial{A_d^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_1} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_c^{(2)}M_d^\ast
++
+A_f^{(2)}M_{fd}^\ast
+\right\}.
+\] 
+Здесь через $M_d$ обозначено
+\begin{equation}
+M_d = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e_d}\right)ds
+}\right\rangle,
+\label{fmatmd}
+\end{equation}
+а через $M_{fd}^{(2)}$
+\begin{equation}
+M_{fd} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{f}_f^{(2)\ast} \vec{e_d}\right)ds
+}\right\rangle,
+\label{fmatmfd}
+\end{equation}
+
+
+Для нахождения амплитуды поля сигнала $\vec{E}_{2s}$ будем использовать 
+в качестве вспомогательного поля $\vec{e}_2^\ast e^{i(\vec{k}_2\vec{r})}$ 
+ - поле имеющее распределение
+$\vec{e}_2^\ast$ и направленное по $-\vec{k}_2$, т. е. против направления
+распространения сигнальной волны. Действуя по аналогии с вышеизложенным
+запишем лемму Лоренца для этого случая
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_2^{\ast}\right) 
+e^{i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_2^{\ast}\right)e^{i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e}_2^{\ast} 
+\right]}_n e^{i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_{e_2}^{\ast}\vec{E}_2  \right]}_n
+e^{i(\vec{k}_2\vec{r})} \right\}}.  
+\label{fexample_r2} 
+\end{eqnarray} 
+
+Усредняя ({\ref{fexample_r2}}) по ансамблю и воспользовавшись соотношением
+(\ref{fj_r}) для эквивалентных токов имеем:
+
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_2}^{\ast}\right)
+e^{i(\vec{k}_2\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{
+\left\{
+A_c^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{e}_1^\ast \vec{e_2}^{\ast}\right)ds}
+\right\rangle
++
+A_f^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{f}_f^{(2)} \vec{e_2}^{\ast}\right)ds}
+\right\rangle
+\right\}
+dz'}
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_s^{(2)} 
+.\nonumber
+\end{eqnarray}
+
+Введя следующее обозначение:
+\begin{equation}
+M_f^{(2)} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{f}_f^{(2)\ast} \vec{e_2}\right)ds
+}\right\rangle,
+\label{fmatmf2}
+\end{equation}
+
+можно окончательно записать:
+\[
+\frac{\partial{A_s^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_c^{(2)}M^\ast
++
+A_f^{(2)}M_f^{(2)\ast}
+\right\}. 
+\] 
+
+Для нахождения амплитуды  поля обращенной
+волны $\vec{E}_{2c}$, используем в качестве
+вспомогательного поля $\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$.
+Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1\right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1\right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e}_1 
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{e}_1\vec{E}_2  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}}.  
+\label{fexample_rs} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{figLor2}.
+Действуя по аналогии с изложенным выше, усредняя выражение
+({\ref{fexample_rs} }) несложно получить:
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_1}\right)
+e^{-i(\vec{k}_1\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{A_s^{(2)}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e_1} \vec{e_2}\right)ds}
+\right\rangle
++
+\frac{i\omega}{c}
+\int_{z}^{d}{A_d^{(2)}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e_1} \vec{e_d}\right)ds}
+\right\rangle
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(2)} 
+,\nonumber
+\end{eqnarray}
+или же после дифференцирования -
+\[
+\frac{\partial{A_c^{(2)}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_s^{(2)}M + A_d^{(2)}M_d \right\},
+\]
+
+По аналогии с изложенным выше можно получить соотношение для амплитуды
+фенинга. 
+
+В качестве  вспомогательного поля примем
+$\vec{f}_f^{(2)\ast}e^{-i(\vec{k}_1\vec{r})}$. Усредняя по анасмблю
+выражение для леммы Лоренца, имеем: 
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{f}_f^{(2)\ast}\right)
+e^{-i(\vec{k}_1\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{
+\left\{
+A_s^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{f}_f^{(2)\ast} \vec{e_2}\right)ds}
+\right\rangle
++
+A_d^{(2)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{f}_f^{(2)\ast} \vec{e_d}\right)ds}
+\right\rangle
+\right\}
+dz'}
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_f^{(2)} 
+,\nonumber
+\end{eqnarray}
+или же после дифференцирования -
+\[
+\frac{\partial{A_f^{(2)}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_s^{(2)}M_f^{(2)} + A_d^{(2)}M_{fd} \right\},
+\]
+
+
+Таким образом окончательно можно записать:
+\begin{eqnarray}
+\frac{\partial{A_c^{(2)}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_s^{(2)}M + A_d^{(2)}M_d\right\},
+\nonumber \\
+\frac{\partial{A_s^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_c^{(2)}M^\ast
++
+A_f^{(2)}M_f^{(2)\ast}
+\right\}, 
+\nonumber \\
+\frac{\partial{A_d^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_1} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_c^{(2)}M_d^\ast
++
+A_f^{(2)}M_{fd}^\ast
+\right\},
+\nonumber \\
+\frac{\partial{A_f^{(2)}}}{\partial{z}} = 
+\frac{i\omega}{2 c
+\cos{\theta_1}}
+\sqrt{\frac{\mu}{\epsilon}}
+\left\{
+A_s^{(2)}M_f^{(2)} +
+A_d^{(2)}M_{fd}
+\right\}.
+\label{E2}
+\end{eqnarray}
+Смена знака в этих выражениях связана с тем что волна $E_2$ распространяется в
+сторону противоположную расспространению $E_1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+

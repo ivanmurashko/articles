@@ -1,0 +1,1017 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[koi8-r]{inputenc}
+\usepackage[russian]{babel}
+
+\title{Эффект фоторефракции}
+
+\begin{document}
+\Russian
+\maketitle
+\section{Введение}
+Явление фоторефракции было обнаружено в 1966 г. при изучении прохождения
+достаточно мощного лазерного излучения через электрооптические кристаллы \(Li
+Nb O_3\), \(Li Ta O_3\) и некоторые другие. Оказалось, что под воздействием
+лазерного излучения изменялся показатель преломления кристалла, что приводило
+к искажению волнового фронта луча. Таким образом луч света портил изначально
+высокое оптическое качество кристалла - появлялась неоднородность показателя
+преломления в освещенном участке. Данный факт послужил основанием для
+первоначального названия эффекта - optical damage (оптическое повреждение).
+Однако вскоре обратили внимание и на положительные стороны эффекта. Появились
+предложения о его практическом использовании. В дальнейшем само явление
+получило название фоторефракции.
+
+Поскольку при фоторефракции изменение показателя преломления является
+обратимым, то фоторефрактивные кристаллы стали рассматриваться как реверсивные
+светочувствительные среды. Довольно быстро была выявлена и физическая суть
+эффекта фоторефракции, состоящая в следующем: под воздействием падающего на
+кристалл света электроны преносятся в зону проводимости, далее под воздействием
+процессов диффузии и дрейфа они преносятся в другие места, где захватываются
+на ловушки. В результате в кристалле образуется неоднородное распределение
+пространственного заряда, а следовательно и поля. В силу того факта, что
+рассматриваемые кристаллы обладают электрооптическим эффектом, в кристалле
+образуется  неоднородное распределение показателя преломления, таким образом
+производится запись изображения.
+
+При выводе уравнений, описывающих процесс формирования поля пространственного
+заряда, будем пользоваться классической работой \cite{Kukhtarev}.
+
+\section{Процесс формирования поля пространственного заряда} 
+Как на то указывалось выше, процесс формирования поля пространственного заряда
+условно можно разделить на три составляющие, которые происходят одновременно и,
+следовательно, уравнения их описывающие, должны решаться совместно: генерации
+свободных носителей заряда; переноса свободных носителей заряда; формирование
+поля пространственного заряда. Рассмотрим эти составляющие подробнее. При этом будем
+предполагать, что свободными носителями заряда являются электроны.
+
+\subsection{Процессы генерации и рекомбинации свободных носителей заряда}
+
+\begin{figure}
+\centering
+\begin{picture}(100,100)
+\put(10,60) {\line(1,0){80}}
+\put(10,10) {\line(1,0){80}}
+\put(30,20) {\vector(0,1){50}}
+\put(70,70) {\vector(0,-1){40}}
+\put(33,70) {\oval(5,5)[tl]}
+\put(67,70) {\oval(5,5)[tr]}
+\put(33,73) {\line(1,0){33}}
+\put(27,20) {\line(1,0){6}}
+\put(67,30) {\line(1,0){6}}
+\put(10,23) {\(N\)}
+\put(75,33) {\(N^{+}\)}
+\end{picture}
+\caption{
+Схема переноса заряда в фоторефрактивном кристалле
+} 
+\label{Generation}
+\end{figure}
+
+Как указывалось выше, падающий на кристалл луч света возбуждает в освещенной
+области кристалла фотоэлектроны. При этом возбуждение происходит с примесных
+центров, \( N \). Рекомбинация проходит на ловушки \( N^{+}\) (см. рис
+\ref{Generation}). Обозначим через \(N_D\) - концентрацию всех примесей в
+кристалле (\(N_D\) - величина постоянная для данного кристалла), через
+\(N_D^{+}\) - концентрацию ионизированных доноров (они же - ловушки).
+
+Скорость "генерации" ловушек (она же - скорость генерации фотоэлектронов)
+пропорциональна концентрации доноров \(N_D - N_D^{+}\) и интенсивности
+падающего света \( I \). Коэффициент пропорциональности \( s \) называется
+сечением фотоионизации.
+
+Скорость рекомбинации электронов пропорциональна концентрации ловушек
+\(N_D^{+}\) и концентрации свободных носителей заряда (электронов в нашем
+случае) \( n \). Коэффициент пропорциональности обозначим через \( \gamma_R
+\) (так называемая константа рекомбинации).
+
+Объединяя вышеизложенное можно записать:
+
+\begin{equation}
+\label{ND}
+\frac{\partial N_D^{+}}{\partial t}  =
+ s I \left( N_D - N_D^{+} \right) - \gamma_R n N_D^{+}, 
+\end{equation}
+
+При выводе данного соотношения не учитывалась так называемая "темновая"
+(тепловая) генерация носителей заряда.
+
+\subsection{Процессы переноса свободных носителей заряда} 
+
+В дальнейшем при рассмотрении процессов переноса свободного заряда будем
+учитывать только дрейф и диффузию электронов. Это означает, что мы
+пренебрегаем в частности фотовольтаическим эффектом.
+
+Для описания процессов переноса носителей заряда запишем два уравнения.
+Первое, так называемое уравнение баланса, описывает изменение концентрации
+носителей заряда за счет процессов генерации - рекомбинации, а также за счет
+переноса носителей
+
+\begin{equation}
+\label{n}
+\frac{\partial n}{\partial t}  = \frac{\partial N_D^{+} }{\partial t} +
+\frac{1}{e} \nabla j.  
+\end{equation}
+
+Следующее - уравнение для тока в котором учитывается перенос зарядов
+посредстом диффузионного и дрейфового механизмов
+\begin{equation}
+\label{j}
+j = e \mu n E + D \nabla n, 
+\end{equation}
+
+\begin{equation}
+\label{E}
+E=E_0 + E_{sc}, 
+\end{equation}
+где обозначено через \(\mu\) - подвижность электронов, \(D\) - коэффициент диффузии.
+Электрическое поле \(E\), определяемое соотношением (\ref{E}) состоит из двух
+частей: постоянного поля \(E_0\), определяемого внешними условиями и искомого
+поля пространственного заряда \(E_{sc}\).
+
+\subsection{Процесс формирования поля пространственного заряда} 
+Процесс формирования поля пространственного заряда описывается уравнением Пуассона
+\begin{equation}
+\label{puasson}
+\nabla E = - \frac{4 \pi e} {\varepsilon} \left( n + N_A - N_D^{+} \right),
+\end{equation}
+в левой части которого записана суммарная плотность заряда. Через \( N_A \)
+обозначена концентрация отрицательных зарядов (акцепторов).
+
+В темновых условиях некоторая часть примесных центров свободна от электронов,
+т. е. \( \left. N_D^{+} \right|_{I=0} \ne 0 \) Компенсирующие акцепторные
+уровни полностью заполнены электронами, так чтобы в темновых условиях
+компенсировать  \( N_D^{+} \), т. е. \( \left. N_D^{+} \right|_{I=0} = N_A \).
+Так в частности для кристаллов \( BSO \): \( N_D = 10^{19} см^{-3} \) \cite
+{ND} ,  \( N_A = 10^{16} см^{-3} \) \cite {NA}
+
+\subsection{Система уравнений, описывающая процесс формирования
+голографических решеток в ФРК}
+Как на то указывалось выше уравнения (\ref{ND} - \ref{puasson}) должны
+решаться совместно, т. о. система уравнений, описывающая процесс формирования
+голографических решеток в ФРК выглядит следующим образом:
+
+\[
+\frac{\partial N_D^{+}}{\partial t}  =
+ s I \left( N_D - N_D^{+} \right) - \gamma_R n N_D^{+}, 
+\]
+
+\[
+\frac{\partial n}{\partial t}  = \frac{\partial N_D^{+} }{\partial t} +
+\frac{1}{e} \nabla j,  
+\]
+
+\[
+j = e \mu n E + D \nabla n, 
+\]
+
+\[
+\nabla E = - \frac{4 \pi e} {\varepsilon} \left( n + N_A - N_D^{+} \right),
+\qquad E=E_0 + E_{sc}, 
+\]
+
+\[
+N_A = \left. N_D^{+} \right|_{I=0}, \qquad N_D = \left. const \right|_t, \qquad
+N_A = \left. const \right|_t.
+\]
+
+В дальнейшем нас будут интересовать кристаллы \( BSO \), для которых можно
+привести некоторые параметры, входящие в рассматриваемые уравнения. Прежде
+всего напомним типичные значения концентраций \( N_D\) и \(N_A\): \( N_D =
+10^{19}\)  \(см^{-3} \)  \cite {ND} ,  \( N_A = 10^{16}\) \( см^{-3} \)  \cite
+{NA}. Диэлектрическая постоянная \(\varepsilon\) : \( \varepsilon = 56 \) \cite
+{epsilon}; сечение фотоионизации \(s\) : \( s = 1.6 \cdot 10^{-19}\) \( 
+см^{2}\)\cite {ND}; коэффициент рекомбинации \(\tau_R\): \(\gamma_R = 2 \cdot
+10^{-11} \frac {см^{3}}{с}\) \cite {ND} ; подвижность \(\mu\): \(\mu = 0.03
+\frac{см^{2}}{В с}\)\cite {ND}.
+
+\section{Решение системы уравнений, описывающей  процесс формирования поля
+пространственного заряда}
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+\put(70,10) {\framebox(60,150)}
+\put(5,5){\vector(1,1){50}}
+\put(0,20){\( E_{1}\)}
+\put(40,25){\overrightarrow{k_{1}}}
+\put(5,45){\vector(3,2){50}}
+\put(0,60){\( E_{2}\)}
+\put(40,55){\overrightarrow{k_{2}}}
+\put(15,75){\circle*3}
+\put(15,105){\circle*3}
+\put(15,135){\circle*3}
+\put(5,165){\vector(1,-1){50}}
+\put(0,140){\( E_{n}\)}
+\put(40,140){\overrightarrow{k_{n}}}
+\end{picture}
+\caption{Постановка задачи}
+\label{common}
+\end{figure}
+
+Предположим, что кристалл освещается лазерным пучком 
+\(
+ a\left( \overrightarrow r \right) 
+\)
+(см. рис \ref{common}), представляющим
+собой некоторую совокупность плоских волн: 
+\[
+a\left( \overrightarrow r \right) = 
+E_1 e^{  i \overrightarrow k_1 \overrightarrow r }
++ E_2 e^{ i \overrightarrow k_2 \overrightarrow r }+ \ldots
++ E_n e^ { i \overrightarrow k_n \overrightarrow r } = 
+\sum_{k=1}^n E_k e^ { i \overrightarrow k_k \overrightarrow r }.  
+\]
+Суммарная интенсивность падающего света: 
+\[
+I = \left| a \left( \overrightarrow r \right) \right|^{2} = 
+\left|
+ \sum_{k=1}^{n} E_k e^ { i \overrightarrow k_k \overrightarrow r }
+\right|^{2},
+\]
+т. е.
+\[
+I\left( \overrightarrow r \right) =
+I_0 
+\left(
+ 1+ 
+\sum_{K} m \left(K \right) e^ { i \overrightarrow K \overrightarrow r} +
+\sum_{K} m^{*} \left(K \right) e^ { - i \overrightarrow K \overrightarrow r}
+\right),  
+\]
+где через \( I_0 \) обозначено
+\[
+I_0 = \sum_{k=1}^n \left| E_k \right|^{2} 
+\]
+и через \( m\left(K \right) \) обозначена глубина модуляции светового поля
+\[
+m\left(K \right) = \frac {E_{k_1} \, E_{k_2}^{*}} {I_0}, \qquad 
+\overrightarrow K = \overrightarrow k_1 - \overrightarrow k_2
+\]
+
+Далее представляется удобным использовать комплексную форму
+записи электрического поля 
+\[
+E \left( \overrightarrow r \right) = 
+E_0 + E_{sc} \left( \overrightarrow r \right) = E_0 + 
+\sum_{K} E_{sc}\left(K\right) e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} E_{sc}^{*}\left(K\right) e^{- i\overrightarrow K \overrightarrow r}
+,     
+\] 
+а также других величин входящих в рассматриваемую систему уравнений
+\[
+n \left( \overrightarrow r \right) =  n_0 + 
+\sum_{K} \check n\left(K\right) e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check n^{*}\left(K\right) e^{- i\overrightarrow K \overrightarrow r}
+,
+\]
+\[
+j \left( \overrightarrow r \right) =  j_0 + 
+\sum_{K} \check j\left(K\right) e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check j^{*}\left(K\right) e^{- i\overrightarrow K \overrightarrow r}
+,
+\]
+\[
+N_D^{+}\left( \overrightarrow r \right) =  {N_D^{+}}_0 + 
+\sum_{K} \check N_D^{+}\left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check {N_D^{+}}^{*}\left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+, 
+\]
+\[
+N_D\left( \overrightarrow r \right) =  {N_D}_0 + 
+\sum_{K} \check N_D\left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check {N_D}^{*}\left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+, 
+\]
+\[
+N_A\left( \overrightarrow r \right) =  {N_A}_0 + 
+\sum_{K} \check N_A\left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check {N_A}^{*}\left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+. 
+\]
+В дальнейшем будем полагать \( \left|m\left(K\right)\right| \ll 1\), при этом
+как показано в \cite{Petrov} 
+\(
+\left|\check n \left(K\right) \right|  \ll 
+\left| n_0\right|
+\)
+и
+\(
+\left| \check N_D^{+} \left(K\right) \right| \ll  
+\left| {N_D^{+}}_0\right|
+\).
+Данное предположение справедливо, в частности, при сложном характере исходного
+светового пучка 
+\(
+ a\left( \overrightarrow r \right) 
+\)
+, т. е. если \( n \gg 1\), либо при не больших величинах перекачки
+интенсивности между отдельными плоскими волнами в исходном световом пучке.
+
+\subsection{Решение для нулевого порядка малости}
+
+Прежде всего получим выражение для \( n_0 \). Для этого запишем (\ref {ND})
+в случае нулевого порядка : 
+\[
+\frac{\partial {N_D^{+}}_0}{\partial t}  =
+ s I_0 \left( {N_D}_0 - {N_D^{+}}_0 \right) - \gamma_R n_0 {N_D^{+}}_0.
+\]
+Уравнение (\ref {n}) запишем как
+\[
+\frac{\partial n_0}{\partial t}  = \frac{\partial {N_D^{+}}_0 }{\partial t}.
+\]
+Из последнего соотношения исключен член \( \frac {\partial j_0}{\partial x}\)
+в силу того что \( j_0 = const_x\).
+
+Таким образом
+\[
+\frac{\partial n_0}{\partial t} =
+ s I_0 \left( {N_D}_0 - {N_D^{+}}_0 \right) - \gamma_R n_0 {N_D^{+}}_0.
+\]
+Для упрощения дальнейшего рассмотрения оказывается удобным сделать
+дополнительное предположение о квазистационарном распределении электронов в
+зоне проводимости \cite{Petrov}, отвечающем распределению по образцу
+электрического поля
+\( 
+E \left( \overrightarrow r \right)
+\)
+в рассматриваемый момент времени, при котором написанное
+выше соотношение переходит в   
+\[
+ s I_0 \left( {N_D}_0 - {N_D^{+}}_0 \right) = \gamma_R n_0 {N_D^{+}}_0.
+\]
+Возможность такого предположения связана с тем, что среднее время жизни
+электрона в зоне проводимости фоторефрактивного кристалла 
+\(
+\tau \approx 10^{-6} - 10^{-9} 
+\)
+с., поэтому среднее время установления стационарного распределения 
+\( 
+n \left( \overrightarrow r \right)
+\),
+для заданных 
+\( 
+I \left( \overrightarrow r \right)
+\)
+и
+\( 
+E \left( \overrightarrow r \right)
+\)
+оказывается, как правило, намного меньшим времени записи голограммы, т. е.
+характерного времени заметного изменения 
+\( 
+E_{sc} \left( \overrightarrow r \right)
+\)
+
+Таким образом
+\[
+n_0= \frac{s I_0 \left( {N_D}_0 - {N_D^{+}}_0 \right)}{\gamma_R  {N_D^{+}}_0}.
+\]
+Учитывая очевидное соотношение \(n_0= const_x\), имеем 
+\begin{equation}
+\label{save} 
+n_0 + {N_A}_0 -
+{N_D^{+}}_0 = 0,
+\end{equation}
+откуда 
+\[
+n_0= \frac{s I_0 \left( {N_D}_0 - n_0 - {N_A}_0 \right)}{\gamma_R  \left( n_0
++ {N_A}_0 \right)}. 
+\]
+Учитывая \cite{Gunter}, где сделана оценка для 
+\( n_0 = 10^{9} - 10^{12}\) \( см^{-3} \). Вспомнив, что для кристаллов
+\( BSO \): \( N_D = 10^{19} см^{-3} \)  ,  \( N_A = 10^{16} см^{-3} \) имеем
+
+\begin{equation}
+\label{ll}
+n_0 \ll {N_D}_0 - {N_A}_0,\qquad n_0 \ll {N_A}_0 
+\end{equation}
+несложно окончательно записать
+\begin{equation}
+\label{n0} 
+n_0= \frac{s I_0 \left( {N_D}_0  - {N_A}_0  \right)}{\gamma_R  {N_A}_0}. 
+\end{equation}
+
+\subsection{Решение для первого порядка малости}
+
+\begin{figure}
+\centering
+\begin{picture}(200,170)
+\put(70,10) {\framebox(60,150)}
+\put(5,5){\vector(1,1){50}}
+\put(5,45){\( E_{1}\left( \alpha_{1} \right) \)}
+\put(40,20){\overrightarrow{k_{1}}}
+\put(5,165){\vector(1,-1){50}}
+\put(5,120){\( E_{1}\left( \alpha_{2} \right) \)}
+\put(40,140){\overrightarrow{k_{2}}}
+\put(100,25){\vector(0,1){120}}
+\put(71,90){\( E_{sc}\left( \alpha_{1}, \alpha_{2} \right) \)}
+\put(95,65){\overrightarrow{K}}
+\end{picture}
+\caption{Запись синусоидальной решетки в ФРК(частный случай)}
+\label{first}
+\end{figure}
+
+В дальнейшем предполагается получить выражение для \( E_{sc} \left( K
+\right)\), при этом будет предполагаться малость соответствующих величин
+\(
+\left|\check m \left(K\right) \right|  \ll 
+1
+\)
+,
+\(
+\left|\check n \left(K\right) \right|  \ll 
+\left| n_0\right|
+\)
+,
+\(
+\left| \check N_D \left(K\right) \right| \ll  
+\left| {N_D}_0\right|
+\)
+и
+\(
+\left| \check N_D^{+} \left(K\right) \right| \ll  
+\left| {N_D^{+}}_0\right|
+\)
+, так что в уравнениях будем пренебрегать членами квадратичными по малому
+параметру \( m \) ( \(\check n\), 
+\(\check N_D \), \( \check {N_D}^{+}\) ).  
+Таким образом при рассмотрении взаимодействия двух плоских волн можно пренебречь
+воздействием на \( E_{sc} \left( K \right)\) других плоских волн из
+рассматриваемого лазерного пучка \(a\left(\overrightarrow r\right)\). Кроме
+того   в целях удобства будем считать , что вектор \( \overrightarrow K \),
+соответствующий рассматриваемым плоским волнам, направлен вдоль оси \( OX \)
+(см. рис \ref{first}), а также в формулах будем опускать \( \left( K \right)
+\). 
+
+Запишем уравнения для первого порядка малости. Уравнение (\ref {ND})
+запишется в этом случае в виде:   
+\[
+\frac{\partial \check N_D^{+}}{\partial t}  =
+ s I_0 m \left( N_D - {N_D^{+}}_0 \right) -
+ \gamma_R \check n {N_D^{+}}_0 -
+s I_0  \check N_D^{+}  + 
+s I_0  \check N_D  - 
+\gamma_R n_0 \check N_D^{+}  
+,
+\]
+Откуда с учетом (\ref {save})
+\[
+\frac{\partial \check N_D^{+}}{\partial t}  =
+ s I_0 m \left( N_D - n_0 - {N_A}_0 \right) + s I_0  \check N_D  -  \gamma_R
+\check n \left( n_0 + {N_A}_0 \right) - s I_0  \check N_D^{+}  - \gamma_R n_0
+\check N_D^{+}  , 
+\]
+далее вспомнив про (\ref {ll}) окончательно получаем
+\begin{equation}
+\label{ND1}
+\frac{\partial \check N_D^{+}}{\partial t}  =
+ s I_0 m \left( N_D  - {N_A}_0 \right) + s I_0  \check N_D  - \gamma_R \check n
+{N_A}_0 - \left( s I_0  + \gamma_R n_0 \right) \check N_D^{+} .
+\end{equation}
+
+Уравнение (\ref {n}) перепишем в виде
+\begin{equation}
+\label{n1}
+\frac{\partial\check n}{\partial t}  = \frac{\partial \check N_D^{+}}
+{\partial t} +  i K \frac{1}{e} \check j. 
+\end{equation}
+Уравнение (\ref {j}) в виде
+\begin{equation}
+\label{j1}
+\check j = e \mu n_0 E_{sc} + e \mu \check n E_0 + i K e D \check n. 
+\end{equation}
+Уравнение (\ref {puasson}) в виде
+\begin{equation}
+\label{Esc1}
+i K E_{sc} = - \frac{4 \pi e} {\varepsilon} \left( \check n - \check N_D^{+}
+\right),  
+\end{equation}
+или с учетом (\ref{n1} ) в виде
+\begin{equation}
+\label{Esc}
+\frac {\partial E_{sc}} {\partial t} = - \frac{4 \pi} {e \varepsilon} \check
+j.   
+\end{equation}
+
+
+Вводя следующие обозначения
+\[
+\tau_R = \frac {1}{\gamma_R N_A}
+\]
+и
+\[
+\tau_I = \frac {1}{s I_0 + \gamma_R n_0 }
+\]
+Запишем с учетом (\ref{n0} ) выражение (\ref{ND1} ) в виде
+\begin{equation}
+\label{ND11}
+\frac{\partial \check N_D^{+}}{\partial t}  =
+\frac{\left(m + m_0\right) n_0}{\tau_R} -  \frac{\check n}{\tau_R}  -
+ \frac{ \check N_D^{+}}{\tau_I} ,
+\end{equation}
+где
+\[
+m_0=\frac{ \check N_D }{{N_D}_0 - {N_A}_0}.
+\]
+
+Далее из (\ref{Esc1} ) несложно получить
+\[
+\check N_D^{+} = i K \frac {\varepsilon}{4 \pi e} E_{sc} + \check n
+\]
+и обозначая 
+\[
+E_q= \frac{4 \pi e {N_A}_0}{\varepsilon K \left(1 + \frac{{N_A}_0}{{N_D}_0 -
+{N_A}_0}\right)} 
+\]
+окончательно получим из (\ref{ND11} )
+\begin{equation}
+\label{ND2}
+\frac{\partial \check N_D^{+}}{\partial t}  =
+\frac{\left(m + m_0 \right) n_0}{\tau_R} -  \frac{\check n}{\tau_R}  -
+ \frac{ \check n}{\tau_I} - i \frac {n_0}{\tau_R} \frac {E_{sc}}{E_q},
+\end{equation}
+
+Подставив (\ref{ND2} ) и (\ref{j1} ) в (\ref{n1} ) можно получить уравнение для
+\( \check n\)
+\[
+\frac{\partial\check n}{\partial t}  =
+\frac{\left(m + m_0 \right)n_0}{\tau_R} 
+-  \frac{\check n}{\tau_R}  -  \frac{ \check n}{\tau_I} - 
+ i \frac {n_0}{\tau_R} \frac {E_{sc}}{E_q} +
+ i \frac {n_0}{\tau_E} \frac {E_{sc}}{E_0} + i \frac {\check n}{\tau_E}
+ - \frac {\check n}{\tau_D},   
+\]
+где введены следующие обозначения
+\[
+\tau_E = \frac {1}{K \mu E_0}
+\]
+и
+\[
+\tau_D = \frac {1}{K^{2} D}.
+\]
+Снова учитывая предположение о квазистационарности распределения свободных
+носителей заряда в зоне проводимости, т. е. предполагая что 
+\( \frac{\partial\check n}{\partial t} = 0 \)
+имеем для \( \check n\)
+\[
+\check n = \tau n_0  \left( \frac{m + m_0}{\tau_R} + i E_{sc}
+\left( \frac{1}{E_0 \tau_E} - \frac{1}{E_q \tau_R} \right)\right), 
+\]
+где через \( \tau \) обозначено
+\[
+\frac{1}{\tau} = \frac{1}{\tau_R} + \frac{1}{\tau_I} + \frac{1}{\tau_D} - i
+\frac{1}{\tau_E}  
+\]
+
+Подставим теперь (\ref{j1}) в (\ref{Esc})
+\[
+\frac {\partial E_{sc}} {\partial t} = - \frac{4 \pi \mu n_0} { \varepsilon}
+\left( E_{sc} + \frac{\check n}{n_0} E_0 + i \frac{\check n}{n_0} E_D \right),
+\]
+где обозначено
+\[
+E_D = \frac {K D}{\mu}.
+\]
+Записав
+\[
+\frac{1}{\tau_m} = \frac{4 \pi \mu n_0} { \varepsilon}
+\]
+окончательно имеем
+\begin{eqnarray}
+\label{ref}
+\tau_m \frac{\tau_R}{\tau} \frac {\partial E_{sc}} {\partial t} =
+ - \left(m + m_0\right) \left( E_0 + i E_D\right) 
+ - \nonumber \\ 
+- E_{sc} 
+\left( 1+
+\frac {E_D}{ E_q} -
+\frac {i E_0}{E_q} -
+\frac {\tau_R E_D}{\tau_E E_0} +
+\frac {i \tau_R}{\tau_E} 
+\right)
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Случай примесей двух сортов}
+
+
+
+\subsection{Постановка задачи}
+
+Рассмотрим задачу при которой в кристалле присутствуют два сорта примесей \(
+N_D^{(1)}\) и \( N_D^{(2)}\). Для каждого из этих сортов примесей свои
+параметры:  сечение фотоионизации \( s^{(1)} \) и \( s^{(2)}\) , а также
+коэффициент рекомбинации   \(\gamma_R^{(1)} \) и \( \gamma_R^{(2)}\). Система
+уравнений, описывающая процесс формирования поля пространственного заряда \(
+E_{sc}\) в данном случае выглядит следующим образом
+
+\begin{equation}
+\label{ND21}
+\frac{\partial {N_D^{(1)}}^{+}}{\partial t}  =
+ s^{(1)} I \left( N_D^{(1)} - {N_D^{(1)}}^{+} \right) - \gamma_R^{(1)} n
+{N_D^{(1)}}^{+},  
+\end{equation}
+
+\begin{equation}
+\label{ND22}
+\frac{\partial {N_D^{(2)}}^{+}}{\partial t}  =
+ s^{(2)} I \left( N_D^{(2)} - {N_D^{(2)}}^{+} \right) - \gamma_R^{(2)} n
+{N_D^{(2)}}^{+}, 
+\end{equation}
+
+\begin{equation}
+\label{n2}
+\frac{\partial n}{\partial t}  = \frac{\partial {N_D^{(1)}}^{+} }{\partial t} +
+\frac{\partial {N_D^{(2)}}^{+} }{\partial t} +
+\frac{1}{e} \nabla j,  
+\end{equation}
+
+\begin{equation}
+\label{j2}
+j = e \mu n E + D \nabla n, 
+\end{equation}
+
+\begin{equation}
+\label{E2}
+\nabla E = - \frac{4 \pi e} {\varepsilon} 
+\left( 
+n + N_A^{(1)} - {N_D^{(2)}}^{+} + N_A^{(2)} -
+{N_D^{(2)}}^{+} 
+\right),
+\end{equation}
+\[
+E=E_0 + E_{sc}, 
+\]
+\[
+N_A^{(1,2)} = \left. {N_D^{(1,2)}}^{+} \right|_{I=0},  
+\qquad N_D^{(1,2)} = \left. const \right|_t, 
+\qquad N_A^{(1,2)}  = \left. const \right|_t. 
+\]
+
+Решение будем искать в виде
+\[
+E_{sc} \left( \overrightarrow r \right) = 
+\sum_{K} E_{sc} \left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} E_{sc}^{*} \left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+,     
+\] 
+\[
+I\left( \overrightarrow r \right) =
+I_0 
+\left(
+ 1+ 
+\sum_{K} m \left(K \right) e^ { i \overrightarrow K \overrightarrow r} +
+\sum_{K} m^{*} \left(K \right) e^ { - i \overrightarrow K \overrightarrow r}
+\right),  
+\]
+\[
+n \left( \overrightarrow r \right) =  n_0 + 
+\sum_{K} \check n\left(K\right) e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check n^{*}\left(K\right) e^{- i\overrightarrow K \overrightarrow r}
+,
+\]
+\[
+j \left( \overrightarrow r \right) =  j_0 + 
+\sum_{K} \check j\left(K\right) e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K} \check j^{*}\left(K\right) e^{- i\overrightarrow K \overrightarrow r}
+,
+\]
+\[
+{N_D^{(1,2)}}^{+}\left( \overrightarrow r \right) =  
+{{N_D}_0^{(1,2)}}^{+}
++  \sum_{K}  { {  \overline N_D}^{(1,2)}}^{+} \left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K}  {{\overline N_D^{(1,2)}}^{+}}^{*} \left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+, 
+\]
+\[
+N_D^{(1,2)}\left( \overrightarrow r \right) =  
+{N_D}_0^{(1,2)}
++  \sum_{K}  { {  \overline N_D}^{(1,2)}} \left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K}  {\overline N_D^{(1,2)}}^{*} \left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+, 
+\]
+\[
+N_A^{(1,2)}\left( \overrightarrow r \right) =  
+{N_A}_0^{(1,2)}
++  \sum_{K}  { {  \overline N_A}^{(1,2)}} \left(K\right) 
+e^{ i \overrightarrow K \overrightarrow r} +
+\sum_{K}  {\overline N_A^{(1,2)}}^{*} \left(K\right) 
+e^{- i\overrightarrow K \overrightarrow r}
+. 
+\]
+При этом аналогично рассмотренному выше будем предполагать, что
+\[
+\left|\check m \left(K\right) \right|  \ll 
+1, \qquad 
+\left|\check n \left(K\right) \right|  \ll 
+\left| n_0\right|,
+\]
+\[
+\left|  {\overline N_A^{(1,2)}} \left(K\right) \right| \ll  
+\left| {{N_A}_0}^{(1,2)}\right|,
+\]
+\[
+\left|  {\overline N_D^{(1,2)}} \left(K\right) \right| \ll  
+\left| {{N_D}_0}^{(1,2)}\right|
+\]
+и
+\[
+\left|  {\overline N_D^{(1,2)}}^{+} \left(K\right) \right| \ll  
+\left| {{{N_D}_0}^{(1,2)}}^{+}\right|.
+\]
+ Кроме того   в целях удобства будем считать , что вектор \( \overrightarrow
+K \), соответствующий рассматриваемым плоским волнам, направлен вдоль оси \(
+OX \) (см. рис \ref{first}), а также в формулах будем опускать \( \left( K
+\right) \). 
+
+\subsection{Решение для первого порядка малости}
+Запишем уравнения для первого порядка малости. Уравнение (\ref {ND21}, \ref
+{ND22}) запишется в этом случае в виде:   
+\begin{eqnarray}
+\label{ND_2}
+\frac{\partial {\overline N_D^{(1,2)}}^{+}}{\partial t}  =
+ s^{(1,2)} I_0 m \left( N_D^{(1,2)}  - {{N_A}_0}^{(1,2)} \right) +
+ s^{(1,2)} I_0  \overline N_D^{(1,2)}  - \nonumber \\
+{\gamma_R}^{(1,2)} \check n {{N_A}_0^{(1,2)}} - 
+\left( s^{(1,2)} I_0  + {\gamma_R}^{(1,2)} n_0 \right) 
+ {\overline N_D^{(1,2)}}^{+} . 
+\end{eqnarray}
+При выводе (\ref {ND_2}) были учтены следующие законы сохранения
+\[
+{{N_A}_0}^{(1)} + n_1 = {{N_D}_0^{(1)}}^{+},
+\]
+\[
+{{N_A}_0}^{(2)} + n_2 = {{N_D}_0^{(2)}}^{+},
+\]
+\[
+n_0= n_1+ n_2,
+\]
+а также следующее отношения
+\(
+{{N_A}_0}^{(1,2)} \gg n_0.
+\)
+
+Обозначив
+\[
+n_0^{(1,2)}= \frac{s^{(1,2)} I_0 \left( {{N_D}_0}^{(1,2)}
+ - {{N_A}_0 }^{(1,2)} 
+\right)}{{\gamma_R}^{(1,2)}   {{N_A}_0}^{(1,2)} }.  
+\]
+\[
+\tau_R^{(1,2)} = \frac {1}{{\gamma_R}^{(1,2)} {{N_A}_0}^{(1,2)} },
+\]
+\[
+\tau_I^{(1,2)} = \frac {1}{s^{(1,2)}  I_0 + {\gamma_R }^{(1,2)} n_0 },
+\]
+\[
+m_0^{(1,2)} =\frac{ {\overline N_D}^{(1,2)} }{{{N_D}_0}^{(1,2)} -
+{{N_A}_0}^{(1,2)}}. 
+\]
+Запишем (\ref{ND_2}) в следующем виде
+\begin{equation}
+\label{ND2fin}
+\frac{\partial {\overline N_D^{(1,2)}}^{+}}{\partial t}  =
+\frac{n_0^{(1,2)} \left(m+m_0^{(1,2)}\right) }{\tau_R^{(1,2)}} 
+- \frac{\check n}{\tau_R^{(1,2)}}  - 
+\frac{{\overline N_D^{(1,2)}}^{+}}{\tau_I^{(1,2)}}
+ . 
+\end{equation}
+Следующим шагом будет нахождение \( \check n\).
+Для этого уравнение (\ref{n2}) перепишем в виде 
+\begin{equation}
+\label{n12}
+\frac{\partial\check n}{\partial t}  = \frac{\partial 
+{\overline N_D^{(1)}}^{+}} {\partial t} 
++ \frac{\partial {\overline N_D^{(2)}}^{+}} 
+{\partial t}+  i K \frac{1}{e} \check j. 
+\end{equation}
+Уравнение (\ref {j2}) в виде
+\begin{equation}
+\label{j12}
+\check j = e \mu n_0 E_{sc} + e \mu \check n E_0 + i K e D \check n. 
+\end{equation}
+
+Подставив (\ref{ND2fin} ) и (\ref{j12} ) в (\ref{n12} ) можно получить
+уравнение для \( \check n\)
+\begin{eqnarray}
+\label {dn}
+\frac{\partial\check n}{\partial t}  =
+\frac{n_0^{(1)} \left(m + m_0^{(1)} \right)}{\tau_R^{(1)} }
++ \frac{n_0^{(2)} \left(m + m_0^{(2)} \right)}{\tau_R^{(2)}} -
+\nonumber \\ 
+- \frac{{\overline N_D^{(1)}}^{+}}{\tau_I^{(1)}}
+- \frac{{\overline N_D^{(2)}}^{+}}{\tau_I^{(2)}} +
+i K \mu n_0 E_{sc} -
+\nonumber \\
+-  \frac{\check n}{\tau_R^{(1)}}  -  \frac{\check n}{\tau_R^{(2)}}  
+ - \frac {\check n}{\tau_D}+ i \frac {\check n}{\tau_E}
+ ,    
+\end{eqnarray}
+где введены следующие обозначения
+\[
+\tau_E = \frac {1}{K \mu E_0}
+\]
+и
+\[
+\tau_D = \frac {1}{K^{2} D}.
+\]
+
+Снова учитывая предположение о квазистационарности распределения свободных
+носителей заряда в зоне проводимости, т. е. предполагая что 
+\( \frac{\partial\check n}{\partial t} = 0 \)
+имеем из (\ref{dn})
+\begin{eqnarray}
+\label{nfin}
+\check n = \tau 
+\left( 
+\frac{n_0^{(1)} \left(m + m_0^{(1)} \right)}{\tau_R^{(1)} }
++ \frac{n_0^{(2)} \left(m + m_0^{(2)} \right)}{\tau_R^{(2)}} 
+\right)
+\nonumber \\
++ \tau 
+\left( 
+i K \mu n_0 E_{sc} -
+\frac{{\overline N_D^{(1)}}^{+}}{\tau_I^{(1)}}
+- \frac{{\overline N_D^{(2)}}^{+}}{\tau_I^{(2)}}
+\right),  
+\end{eqnarray}
+где через \( \tau \) обозначено
+\[
+\frac{1}{\tau} = \frac{1}{\tau_R^{(1)}} + \frac{1}{\tau_R^{(2)}}
+ + \frac{1}{\tau_D} - i \frac{1}{\tau_E}. 
+\]
+Таким образом (\ref {ND2fin}) с учетом (\ref {nfin}) перепишется в виде
+\begin{eqnarray}
+\label{NDfin}
+\frac{\partial {\overline N_D^{(1)}}^{+}}{\partial t}  =
+\frac{n_0^{(1)} \left(m+m_0^{(1)}\right) }{\tau_R^{(1)}}
+\left( 1 - \frac{\tau}{\tau_R^{(1)}} \right) 
+- \frac{n_0^{(2)} \left(m+m_0^{(2)}\right) }{\tau_R^{(2)}}
+\frac{\tau}{\tau_R^{(1)}} -
+\nonumber \\
+- i K \mu n_0 E_{sc} \frac{\tau}{\tau_R^{(1)}} -
+\frac{{\overline N_D^{(1)}}^{+}}{\tau_I^{(1)}}
+\left( 1 - \frac{\tau}{\tau_I^{(1)}} \right)
++ \frac{{\overline N_D^{(2)}}^{+}}{\tau_I^{(2)}}
+\frac{\tau}{\tau_R^{(1)}},
+\\
+\frac{\partial {\overline N_D^{(2)}}^{+}}{\partial t}  =
+\frac{n_0^{(2)} \left(m+m_0^{(2)}\right) }{\tau_R^{(2)}}
+\left( 1 - \frac{\tau}{\tau_R^{(2)}} \right) 
+- \frac{n_0^{(1)} \left(m+m_0^{(1)}\right) }{\tau_R^{(1)}}
+\frac{\tau}{\tau_R^{(2)}} -
+\nonumber \\
+- i K \mu n_0 E_{sc} \frac{\tau}{\tau_R^{(2)}} -
+\frac{{\overline N_D^{(2)}}^{+}}{\tau_I^{(2)}}
+\left( 1 - \frac{\tau}{\tau_I^{(2)}} \right)
++ \frac{{\overline N_D^{(1)}}^{+}}{\tau_I^{(1)}}
+\frac{\tau}{\tau_R^{(2)}}.
+\end{eqnarray}
+
+\[
+\tau_m= \frac{ \varepsilon}{4 \pi \mu n_0} 
+\]
+
+Запишем уравнения   (\ref {E2e} - \ref {E22}) в виде
+\begin{equation}
+\label{Esc2e}
+i K {E_{sc}}_e= - \frac {4 \pi e} {\varepsilon} \check n    
+\end{equation}
+\begin{equation}
+\label{Esc2A}
+i K {E_{sc}}_A= - \frac {4 \pi e} {\varepsilon} \left( \check {N_A}_1 +\check
+{N_A}_2 \right),   
+\end{equation}
+\begin{equation}
+\label{Esc21}
+i K {E_{sc}}_1= \frac {4 \pi e} {\varepsilon} \check
+{N_D^{+}}_1 ,  
+\end{equation}
+\begin{equation}
+\label{Esc22}
+i K {E_{sc}}_2= \frac {4 \pi e} {\varepsilon} \check
+{N_D^{+}}_2.  
+\end{equation}
+
+
+\[
+\alpha = \frac {\varepsilon K}{4 \pi e},
+\]
+\[
+\check N_A = \check {N_A}_1 +  \check {N_A}_2,
+\]
+с учетом
+\[
+\check {N_D}_{1,2} = i \alpha {E_{sc}}_{1,2}
+\]
+получим
+\[
+\frac{\partial {E_{sc}}_{1,2}}{\partial t} =  \frac{i} {\alpha}
+\frac{n_0^{(1,2)} \left( m - m_0^{(1,2)}\right)}{\tau_R^{(1,2)}} +
+\frac{{E_{sc}}_e}{\tau_R^{(1,2)}}   -
+\frac{{E_{sc}}_{1,2}}{\tau_I^{(1,2)}} 
+\]
+\[
+{E_{sc}}_{e} = \frac {i \check n}{\alpha} 
+\]
+\[
+{E_{sc}}_{A} = \frac {i \check N_A}{\alpha} 
+\]
+
+Таким образом осталось найти только \( \check n\). 
+Таким образом окончательно имеем
+\[
+E_{sc} =
+{E_{sc}}_1+
+{E_{sc}}_2+
+{E_{sc}}_A+
+{E_{sc}}_e,
+\]
+\[
+\frac{\partial {E_{sc}}_{1,2}}{\partial t} =  \frac{i} {\alpha}
+\frac{n_0^{(1,2)} \left( m - m_0^{(1,2)}\right)}{\tau_R^{(1,2)}} +
+\frac{{E_{sc}}_e}{\tau_R^{(1,2)}}   -
+\frac{{E_{sc}}_{1,2}}{\tau_I^{(1,2)}} ,
+\]
+\begin{eqnarray}
+{E_{sc}}_{e} = \frac {i \tau}{\alpha} 
+\left( 
+\frac{\left(m - m_0^{(1)} \right) n_0^{(1)}}{\tau_R^{(1)} }
++ \frac{\left(m - m_0^{(2)} \right) n_0^{(2)}}{\tau_R^{(2)}} 
+\right)
+\nonumber \\
+-
+\tau 
+\left( 
+\frac {E_{sc}}{\tau_m} -
+ \frac {{E_{sc}}_1}{\tau_I^{(1)}} -
+ \frac {{E_{sc}}_2}{\tau_I^{(2)}} 
+\right),  
+\nonumber 
+\end{eqnarray}
+\[
+{E_{sc}}_{A} = \frac {i \check N_A}{\alpha} 
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{thebibliography}{99}
+\bibitem{Kukhtarev} N.V. Kukhtarev, V.B. Markov, S.G. Odulov, M.S. Soskin and
+V.L. Vinetskii. {\it Holographic storage in electrooptic crystals. I. Steady
+state.} Ferroelectrics, v 22, pp. 949-960, 1979  
+\bibitem{Gunter} George C. Valley, Juan F. Lam. {\it Theory of photorefractive
+effects in electro-optic crystals.} Topic in Applied Physics v.61
+Photorefractive Materials and their applications I. Findamental phenomena, p.
+75  Springer-Verlag Berlin Heidelberg, 1988 
+\bibitem{Valley} George C. Valley, Martin B. Klein {\it
+Optimal properties of photorefractive materials for optical data processing},
+Optical Engineering, v. 22(6), pp. 704-711, 1983
+\bibitem{ND} Peltier M., Micheron F.  J. Appl.
+Physics, 1977, v. 48, p. 3683
+\bibitem{NA} Feinberg J., Heiman D., Tanguary A. R., Hellwarth R. W. J. Appl.
+Physics, 1980, v. 51, p. 1297
+\bibitem{epsilon} Gunter P.  Physics Reports, 1983, v. 9, p. 200
+\bibitem{Petrov} М.П. Петров, С.И. Степанов, А.В. Хоменко. {\it
+Фоторефрактивные кристаллы в когерентной оптике.} С. Петербург, Наука, 1992.
+\end{thebibliography}
+
+\end{document}

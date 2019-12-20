@@ -1,0 +1,59 @@
+%% -*- coding:cp1251 -*- 
+\section{Окончательный вид уравнений}
+Полученные нами девять уравнений (\ref{eqA1c}), (\ref{eqA1s}),
+(\ref{eqA1f}), (\ref{eqsE2}), (\ref{eqM} - \ref{eqM2f}) образуют
+систему для девяти неизвестных: шести компонентов исходных
+световых волн и трех величин, определяющих возмущения (решетки)
+диэлектрической проницаемости. При получении этих уравнений
+учитывался сложный характер волновых фронтов, а также были
+применены методы (усреднение по ансамблю реализаций и лемма
+Лоренца), которые обычно не используются в фоторефрактивной
+теории. При выводе предполагалось, что фоторефрактивная среда
+идеальна, т.е. любая неоднородность показателя преломления может
+изменяться во времени и либо является случайной флуктуацией, либо
+вызвана взаимодействием среды со световыми полями. В реальном
+материале всегда присутствуют малые неоднородности диэлектрической
+проницаемости, случайно распределенные в пространстве и постоянные
+во времени. Выделим из них составляющие с волновыми векторами,
+близкими $\kappa$, и введем в (\ref{eqEpsilon_dpcm}) как малую
+постоянную добавку
+$\mbox{\tiny$\Delta$\normalsize}\varepsilon_{0}=\varepsilon_0(\vec{r})e^{i(\vec{\kappa}\vec{r})}
++ \varepsilon_0^\ast(\vec{r})e^{-i(\vec{\kappa}\vec{r})}$. Тогда
+система уравнений примет вид:
+\begin{eqnarray} \frac{\partial{A_{1c,2c}}}{\partial{z}} =
+\mp \frac{i\omega}{2  c \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_{1s,2s} (M+M_{0})\nonumber\\
+\frac{\partial{A_{1s,2s}}}{\partial{z}} = \mp \frac{i\omega}{2 c
+\cos{\theta_1}} \sqrt{\frac{\mu}{\varepsilon}} \left\{
+A_{1c,2c}\left(M^{\ast}+M_{0}^{\ast}\right) +
+A_{1f,2f}\left(M_{1f,2f}^{\ast}+M_{1f_{0},2f_{0}}^{\ast}\right)\right\}\nonumber\\
+\frac{\partial{A_{1f,2f}}}{\partial{z}} = \mp \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_{1s,2s}\left(M_{1f,2f}+M_{1f_{0},2f_{0}}\right)
+\nonumber\\
+\tau_e\frac{\partial{M^\ast}}{\partial{t}}= - i\frac{\lambda
+n}{2\pi}\Gamma \frac{A_{1s} A_{1c}^{\ast}+A_{2s}
+A_{2c}^{\ast}}{I_0}B+ \left(M^\ast+M_{0}^{\ast}\right)\left( 1 +
+\frac{|\vec{E}_e|}{E_q} \right)\nonumber\\
+\tau_e\frac{\partial M_{1f,2f}^{\ast}}{\partial t}=
+-i\frac{\lambda n}{2\pi}\Gamma \frac{A_{1s,2s}
+A_{1f,2f}^{\ast}}{I_0}C_{1,2}+
+\left(M_{1f,2f}^{\ast}+M_{1f_{0},2f_{0}}\right)\left( 1 +
+\frac{|\vec{E}_e|}{E_q} \right) \label{system}
+\end{eqnarray}
+где
+\[M_{0}=\int\limits_{S}{\varepsilon_0^\ast\left(\vec{e}_1\vec{e}_2\right)ds}\],
+\[M_{1f_{0},2f_{0}}=\left\langle
+\int  \limits_S{\varepsilon_0^\ast(\vec{e}_{1f,2f}^\ast
+\vec{e}_{1,2})ds}
+ \right\rangle\]
+
+Отметим, что малые постоянные шумовые затравки $M_{1f_{0},2f_{0}}$
+отличны от нуля при
+$\mbox{\tiny$\Delta$\normalsize}\varepsilon_{0}\neq0$, так как
+шумовые поля $e_{1f,2f}$ должны иметь составляющие, коррелирующие
+с $\mbox{\tiny$\Delta$\normalsize}\varepsilon_{0}$; однако
+затравка "обращающей"  решетки $M_{0}$ может оказаться исчезающе
+малой, так как корреляция между
+$\mbox{\tiny$\Delta$\normalsize}\varepsilon_{0}$ и полями исходных
+волн совсем не обязательна.

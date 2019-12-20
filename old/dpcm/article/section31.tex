@@ -1,0 +1,491 @@
+\subsection{Поля падающие на кристалл слева}
+
+\input f3.tex
+
+Прежде всего найдем выражения, описывающие поля $E_1$. 
+Для чего заметим, что возмущению диэлектрической проницаемости в среде
+\tiny{$\Delta$}\normalsize$\varepsilon$
+ соответствует эквивалентный ток:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_1\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{fj} 
+\end{equation}
+где
+\begin{equation} 
+\mbox{\tiny$\Delta$\normalsize}\varepsilon = 
+\varepsilon_m(\vec{r},t)e^{i(\vec{\kappa}\vec{r})} + 
+\varepsilon_m^\ast(\vec{r},t)e^{-i(\vec{\kappa}\vec{r})},
+\label{epsilon}
+\end{equation} 
+$\varepsilon_m$ - комплексная амплитуда решетки. Для волнового вектора решетки
+$\vec{\kappa}$ выполняется следующее соотношение:
+\begin{equation} 
+\vec{k}_1 + \vec{k}_2 + \vec{\kappa} = 0.\label{fvectors} 
+\end{equation} 
+Объем $V$, в этом случае, ограничен справа сечением $S$ (см. рис. \ref{f3}). 
+В качестве поля ($a$) в соотношении \ref{lemmaLor}
+примем поле $\vec{E}_1$ в виде разложения (\ref{field_l}) с
+источником $\vec{j}_{eq}$ в виде (\ref{fj}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$,
+$\vec{e}_2 e^{-i(\vec{k}_2\vec{r})}$ и 
+$\vec{f}_f^{(1)\ast}e^{-i(\vec{k}_2\vec{r})}$ -обращенные по отношению к
+искомым полям.  Например для нахождения амплитуды обращенной волны используем
+в качестве вспомогательного поля 
+$\vec{e}_2  e^{-i(\vec{k}_2\vec{r})}$ - поле имеющее распределение
+$\vec{e}_2$ и направленное по $\vec{k}_2$, т. е. против направления
+распространения обращенной волны. Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_2\right) 
+e^{-i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_2\right)e^{-i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_2 
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_2\vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}}.  \label{fexample} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{f3}.
+
+Для нахождения интеграла в правой части (\ref{fexample}), необходимо найти 
+$\vec{H}_1$ и $\vec{h}_2$. Считая волну квазиплоской, запишем связь между
+$\vec{E}$ и $\vec{H}$ в следующем виде:
+\begin{equation} 
+\vec{H} = 
+\sqrt{\frac{\varepsilon}{\mu}}\left[\frac{\vec{k}}{k}\vec{E}\right] 
+\label{fHandE} 
+\end{equation} 
+
+Если воспользоваться условиями нормировки (\ref{fnorm}) и нулевого среднего
+для фенинга (\ref{fzerof}) при усреднении по ансамблю, то для первого
+слагаемого во второй части (\ref{fexample}) имеем:
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_2 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_s^{(1)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_2 \right]}_n 
+e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} +
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_c^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^\ast\right]
+ \vec{e}_2 \right]}_n 
+} 
+{ds} +
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_f^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{f}_f^{(1)}\right]
+ \vec{e}_2 \right]}_n 
+} 
+{ds} 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+\left(
+{A_c^{(1)}
+\left[ 
+ \vec{e}_2 
+ \left[
+  \vec{e}_2^\ast \frac{\vec{k}_2}{k_2}
+ \right]
+\right]}_n +
+{A_f^{(1)}\left[ \vec{e}_2
+\left[\vec{f}_f^{(1)} \frac{\vec{k}_2}{k_2}\right]
+ \right]}_n 
+\right)
+} 
+{ds} =
+%\nonumber \\
+%=\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+%{\left[ 
+%\vec{e}_2
+%\left[\vec{E}_1\frac{\vec{k}_1}{k_1}\right]
+% \right]}_n 
+%e^{-i(\vec{k}_1\vec{r})} }{ds} = 
+%- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1
+%\int\limits_{S}{
+%\left(
+%\vec{e}_2 \vec{E}_1
+%\right)
+%e^{-i(\vec{k}_1\vec{r})} }{ds}=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left\{
+A_c^{(1)}
+\left(
+\vec{e}_2
+\vec{e}_2^\ast
+\right) 
+ + 
+A_f^{(1)}
+\left(
+\vec{e}_2
+\vec{f}_f^{(1)}   
+\right)
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_c^{(1)}
+\label{firstAddend}. 
+\end{eqnarray}
+
+
+
+При выводе данного соотношения
+пренебрегалось быстро осцилирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторых произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2\right) = 0.$ 
+
+
+
+Второе слагаемое в правой части (\ref{fexample}) добавит: 
+\begin{eqnarray} 
+- \int\limits_{S}{ {\left[ \vec{h}_2\vec{E}_1 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+- \sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+{\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]
+\vec{E}_1 \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+\nonumber \\
+=- \sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+{\left[ 
+\vec{E}_1
+\left[\vec{e}_2\frac{\vec{k}_2}{k_2}\right]
+ \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left(
+\vec{e}_2 \vec{E}_1
+\right)
+e^{-i(\vec{k}_2\vec{r})} }{ds}=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left\{
+A_c^{(1)}
+\left(
+\vec{e}_2
+\vec{e}_2^\ast
+\right) 
+ + 
+A_f^{(1)}
+\left(
+\vec{e}_2
+\vec{f}_f^{(1)}   
+\right)
+\right\}
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_c^{(1)}
+\nonumber. 
+\end{eqnarray}
+При проведении данных выкладок предполагалось что
+$\left(\vec{k}_2 \vec{E}_1\right) = 0.$
+Таким образом в правой части (\ref{fexample}) имеем 
+$- 2\cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(1)}.$ 
+ 
+Остается рассмотреть объемный интеграл в правой части (\ref{fexample}). Для
+этого воспользуемся соотношением (\ref{fj}) для эквивалентных токов. В итоге
+получим: \begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{0}^{z}{dz'} 
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_1 \vec{e}_2\right)
+e^{-i(\vec{k}_2\vec{r})}} 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{0}^{z}{A_s^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e}_2\right)ds
+}= 
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(1)} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+$e^{-i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,$ согласно условию 
+(\ref{fvectors}), а остальными членами с осцилирующими множителями   
+пребрегалось. 
+
+Обозначим
+\[
+M = \int\limits_{S}{ \varepsilon_m^\ast \left(\vec{e}_1 \vec{e}_2\right)ds}, 
+\] 
+тогда
+\[
+A_c^{(1)} = -
+\frac{i\omega}{
+2 \quad c \quad \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}\int_{0}^{z}{A_s^{(1)}M  dz'}. 
+\]  
+Дифференцируя по $z$, получим
+\[
+\frac{\partial{A_c^{(1)}}}{\partial{z}} = - 
+\frac{i\omega}{2 \quad c \quad cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(1)}M. 
+\] 
+
+Во втором случае вспомогательное поле :
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$. 
+Запишем прежде всего лемму Лоренца (\ref{lemmaLor}) для этого случая:
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1^\ast \right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1^\ast \right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+=\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_1^\ast  
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{h}_1^\ast \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}},  
+\label{fexample_2} 
+\end{eqnarray} 
+и опять же бласть интегрирования изображена на рис. \ref{f3}.
+Первое слагаемое интеграла в правой части (\ref{fexample_2}) 
+можно вычислить по аналогии с (\ref{firstAddend}):
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_1^\ast \right]}_n 
+e^{-i(\vec{k}_1\vec{r})} }{ds} = 
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_s^{(1)}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_1^\ast \right]}_n 
+} 
+{ds}=
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+\left(
+{A_s^{(1)}
+\left[ 
+ \vec{e}_1 
+ \left[
+  \vec{e}_1^\ast \frac{\vec{k}_1}{k_1}
+ \right]
+\right]}_n  
+\right)
+} 
+{ds} =
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_s^{(1)}
+\nonumber. 
+\end{eqnarray}
+Учитывая, что второе слагаемое удвоит данный результат,
+для (\ref{fexample_2}) можно получить:
+\begin{eqnarray}
+\frac{i\omega}{c}
+\int_{0}^{z}{A_c^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{e}_2^\ast
+\right) ds }+
+\nonumber \\
++
+\frac{i\omega}{c}
+\int_{0}^{z}{A_f^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{f}_f^{(1)}
+\right) ds }=
+- 2 \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_s^{(1)}.
+\nonumber
+\end{eqnarray}
+
+Обозначив через 
+\[ 
+M_f^{(1)}=\left\langle
+\int  \limits_S{\varepsilon_m(\vec{f}_f^{(1)}\vec{e}_1^\ast)ds} \right\rangle,
+\]
+окончательно, после дифференцирования, имеем
+\[
+\frac{\partial{A_s^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_c^{(1)}M^{\ast} + A_f^{(1)}M_f^{(1)} \right\}.
+\]
+
+Найдем третью компоненту поля $E_1$. Для этого в качестве второго поля выберем 
+свободно распространяющееся поле в направлении $-\vec{k}_2$, имеющее
+распределение поля на $S$ обращенное к 
+$\vec{f}_f^{(1)}e^{ i(\vec{k}_2\vec{r})}$,
+т. е.
+$\vec{f}_f^{(1)\ast} e^{- i(\vec{k}_2\vec{r})}.$
+При этом следует учесть зависимость $\vec{f}_f^{(1)}$ от продольной
+координаты, так что мы берем в качестве вспомогательного поля
+$\vec{f}_f^{(1)\ast}$ в интересующем нас сечении $S$ с продольной координатой $z$.
+В этом случае лемма Лоренца (\ref{lemmaLor}) запишется следующим образом:
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{f}_f^{(1)\ast} \right) 
+e^{-i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{f}_f^{(1)\ast} \right)e^{-i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+=\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{f}_f^{(1)\ast}  
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_f^{(1)\ast} \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}},  
+\label{fexample_3} 
+\end{eqnarray}
+
+Рассмотрим первое слагаемое в правой части выражения
+(\ref{fexample_3}):
+
+\begin{eqnarray} 
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{f}_f^{(1)\ast} \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds} = 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_c^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^\ast\right]
+ \vec{f}_f^{(1)\ast} \right]}_n 
+} 
+{ds} +
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+{A_f^{(1)}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{f}_f^{(1)}\right]
+ \vec{f}_f^{(1)\ast} \right]}_n 
+} 
+{ds}
+=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left(
+A_c^{(1)}
+\left(
+\vec{f}_f^{(1)\ast}
+\vec{e}_2^\ast
+\right) 
+ + 
+A_f^{(1)}
+\left(
+\vec{f}_f^{(1)\ast}
+\vec{e}_f^{(1)}   
+\right)
+\right)
+}{ds}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_f^{(1)}
+\nonumber. 
+\end{eqnarray}
+
+Второе слагаемое удвоит данный результат:
+
+\[
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{f}_f^{(1)\ast}  
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_f^{(1)\ast} \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}}
+= - 2 \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_f^{(1)}
+\]
+ 
+Объемный интеграл в (\ref{fexample_3})  равен: 
+\[ 
+\frac{i\omega}{c}
+\int_{0}^{z}{A_s^{(1)}dz'}
+\int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\vec{f}_f^{(1) \ast}
+\right) ds } .
+\]
+При дифференцировании
+по продольной координате координате следует учитывать, тот факт что
+$\vec{f}_f^{(1)}$ - функция от $z$, кторая от $z'$ не зависит, так что при дифференцировании возникнет
+член вида:
+\[
+ \int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\frac{\partial \vec{f}_f^{(1) \ast}}{\partial z}
+\right) ds },
+\]
+которым, как несложно показать, можно пренебречь. Откуда получим:
+\[  
+\frac{\partial{A_f^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_s^{(1)}M_f^{(1)\ast} 
+\] 
+Таким образом имеем:
+\begin{eqnarray}
+\frac{\partial{A_s^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_c^{(1)}M^{\ast} + A_f^{(1)}M_f^{(1)} \right\},
+\nonumber \\
+\frac{\partial{A_c^{(1)}}}{\partial{z}} = - 
+\frac{i\omega}{2 c \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_s^{(1)}M,
+\nonumber \\
+\frac{\partial{A_f^{(1)}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_s^{(1)}M_f^{(1)\ast}.
+\label{E1}
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

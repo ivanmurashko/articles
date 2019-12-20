@@ -1,0 +1,411 @@
+\section{Derivation of equations}
+\subsection{Impurity centers in photorefractive crystals}
+Impurity centers have a big effect on the dynamic gratings formation in
+photorefractive crystals. We will consider the following model of
+photorefractive effect. Two coherent light beams are superimposed in a
+photorefractive crystal and as result we have an interference pattern,
+i.e. spatial space distribution with are of high and low intensity of
+the light inside photorefractive crystal. Photoelectrons are excited
+from  impurity centers $N_D$ 
+in the areas of hight intensity. The photoelectrons migrate through
+crystal by means of diffusion and trapped at donator cites $N_D^{+}$ in the
+crystal. The process produces an inhomogeneous distribution of electric
+charges and as result the electric space change field. The
+electro-optic effect invokes the space distribution of refractive
+index. 
+
+There are several parameters that are used for impurity centers
+description. The most important are the photoionization
+cross-section $s$ and the recombination constant $\gamma_R$. The
+photoionization 
+cross-section $s$ is a characteristic of photoelectrons exciting
+process. The recombination constant $\gamma_R$ is a characteristic of
+recombination process.
+
+The additional parameters that are used for impurity centers
+description are concentration of impurity centers $N_D$ and acceptors
+$N_A$. The necessity of $N_A$ introducing is the following. There are
+ionized impurity centers at the dark conditions thus
+\(\left.N_D^{+}\right|_{I=0} \ne 
+0\). But the crystal is neutral itself, thus there have to be
+additional impurity centers $N_A$ that compensate $N_D^{+}$ at the
+dark conditions \(N_A = \left.N_D^{+}\right|_{I=0}\).
+
+Fig.~\ref{fig:td_phr} shows two types
+of crystal that we consider. The first one is a photorefractive
+crystal with one impurity center (left figure) and the second one with
+2 impurity center (right figure).
+
+\input ./fig_td_phr.tex
+
+The electric space change field $E_{sc}$ can be described by the following
+equation in the case of one impirity center:
+\begin{eqnarray}
+\label{eqEnd_1_phr}
+\tau_{eff} \frac {\partial E_{sc}} {\partial t} =
+- i E_D \left(m + m_0\right) 
+- \nonumber \\ 
+- E_{sc} 
+\left( 1 - i \frac{E_D}{E_q}\right),
+\end{eqnarray}
+where $E_D$ is the diffusion field, $E_q$ is the maximum
+saturation field.  The $m_0$ describes is initial refractive index grating that
+always presents in a photorefractive crystal.
+
+The refractive index can be gotten from space charge field $E_{sc}$ 
+with Pockels equation
+\begin{equation}
+\delta \varepsilon = \alpha E_{sc},
+\label{eqElectroOpt_phr}
+\end{equation}
+where $\alpha$ is the electro-optical coefficient.
+
+There are several typical times that describe the system. The speed of
+photoelectrons excitation is described by $tau_I$:
+\[
+\tau_I = \frac{1}{s I_0 + \gamma_R n_0},
+\]
+where $I_0$ the light intensity, $n_0$ is the photoelectrons
+density at the conduction band:
+\[
+n_0 = \frac{s I (N_D - N_A)}{\gamma_R N_A}.
+\]
+The photoelectrons recombination process is described by $tau_R$:
+\[
+\tau_R = \frac{1}{\gamma_R N_A}.
+\]
+In addition to $tau_I$ and $tau_R$ we introduce the Maxwell relaxation
+time $\tau_m$: 
+\[
+\tau_m = \frac{\varepsilon}{4 \pi \mu n_0}
+\]
+and a value $tau_D$ that describes the diffusion process 
+\[
+\tau_D = \frac{1}{K^2 D},
+\]
+where $D$ is the coefficient of diffusion and $K$ is the propagation
+vector of refractive index grating. 
+
+At (\ref{eqEnd_1_phr}) we introduced a time that describes the system
+integrally:
+\[
+\tau_{eff} = \tau_m \frac{\tau_R}{\tau},
+\]
+where for $\tau$ we have:
+\[
+\frac{1}{\tau} = \frac{1}{\tau_I} + \frac{1}{\tau_R} + \frac{1}{\tau_D}.
+\]
+
+For a crystal with 2 impurity centers the space charge field $E_{sc}$
+is a sum of two fields that describe influence of different impurity
+centers: 
+\[
+E_{sc} =  E_{sc}^{(1)} + E_{sc}^{(2)},
+\]
+For main class of impurity centers $E_{sc}^{(1)}$ we have the following
+equation:  
+\begin{eqnarray}
+\label{eqEsc_1_End_2_phr}
+\tau_{eff} 
+\frac {\partial E_{sc}^{(1)}} {\partial t} =
+- i E_D \left(m + m_0^{(1)}\right) 
+- \nonumber \\ 
+- E_{sc}^{(1)} 
+\left( 1 - i \frac{E_D}{E_q^{(1)}} \right)
+ -  E_{sc}^{(2)} 
+\left( 1+ i \frac{E_D}{E_m^{(1)}} 
+\right),
+\nonumber \\ 
+\left. {E_{sc}}^{(1)} \right|_{t=0} = 0.
+\end{eqnarray}
+For the second one $E_{sc}^{(2)}$ we have the following:
+\begin{eqnarray}
+\label{eqEsc_2_End_2_phr}
+\frac {\partial E_{sc}^{(2)}} {\partial t} =
+- \frac{i \left( m+ m_0^{(2)} \right) E_m^{(2)}}{\tau_m^{(2)}}
+- \frac{E_{sc}^{(2)}}{\tau_I^{(2)}},
+\nonumber \\ 
+\left. {E_{sc}}^{(2)} \right|_{t=0} = 0.
+\end{eqnarray}
+
+We introduced a new parameter $E_m^{(1,2)}$ at (\ref{eqEsc_1_End_2_phr}) and
+(\ref{eqEsc_2_End_2_phr}) that is defined by
+\[
+E_m^{(1,2)} = \frac{\gamma_R^{(1,2)} N_{A_0}^{(1,2)}}{K \mu}.
+\] 
+
+\subsection{Problem statement}
+
+\input ./fig_td1_dpcm.tex
+
+We will consider a double phase conjugate mirror model. At the model
+two incoherent light beams drop on a photorefractive 
+crystal from different sides as it is shown at
+Fig.~\ref{fig:td1_dpcm}. As well as the light beams are incoherent
+they can be considered independently.
+
+\input ./fig_td2_dpcm.tex
+
+The light field in photorefractive crystal is represented in the
+following form (see Fig.~\ref{fig:td2_dpcm}):
+\[ 
+\begin{array}{l} 
+\vec{E}_1=\vec{E}_{1s}+\vec{E}_{1c}+\vec{E}_{1f},\\ 
+\vec{E}_2=\vec{E}_{2s}+\vec{E}_{2c}+\vec{E}_{2f}, 
+\end{array} 
+\] 
+where $\vec{E}_{1s}$ is the signal wave that has a structure of the
+light beam drops on the crystal from the left side; $\vec{E}_{1c}$ is the
+conjugated wave that has a structure of the
+light beam drops on the crystal from the right side; $\vec{E}_{1f}$ is
+the rest that can be considered as a wave is scattered on the
+crystal's inhomogeneities. The components of 
+$\vec{E}_2$ that propagates from right side of the crystal have the
+same meaning.
+
+Assume
+\[
+\vec{E}_{1s}=A_{1s}(z,t)\vec{e}_1(\vec{r})e^{-i(\vec{k}_1\vec{r})},
+\]
+\[
+\vec{E}_{1c}=A_{1c}(z,t)\vec{e}_2^\ast(\vec{r})e^{i(\vec{k}_2\vec{r})}, 
+\]
+\[
+\vec{E}_{1f}=A_{1f}(z,t)\vec{e}_{1f}(\vec{r},t)e^{i(\vec{k}_2\vec{r})}, 
+\]
+where $\vec{e}_1(\vec{r})$ is the distribution for a wave drops on the
+crystal from the left side; $\vec{e}_2(\vec{r})$ is the distribution for a
+wave drops on the crystal from the right side; $\vec{e}_{1f}(\vec{r})$
+is the distribution for stochastically scattered light.
+
+It should be mentioned that gain for plane waves are different in
+different directions. Thus the distribution function
+$\vec{e}_{1f}(\vec{r})$ has a maximum in maximum gain direction.
+We assume that the initial light beams directions are chosen as the
+conjugated beams propagate in maximum gain direction. Therefore we
+choose one propagation vector $\vec{k}_2$ for both $\vec{E}_{1c}$ and
+$\vec{E}_{1f}$. 
+
+Equations for $\vec{E}_2$ are same:
+\[
+\vec{E}_{2s}=A_{2s}(z,t)\vec{e}_2(\vec{r})e^{-i(\vec{k}_2\vec{r})},
+\]
+\[
+\vec{E}_{2c}=A_{2c}(z,t)\vec{e}_1^\ast(\vec{r})e^{i(\vec{k}_1\vec{r})}, 
+\]
+\[
+\vec{E}_{2f}=A_{2f}(z,t)\vec{e}_{2f}(\vec{r},t)e^{i(\vec{k}_1\vec{r})}, 
+\]
+
+The distribution functions $\vec{e}_1(\vec{r})$, $\vec{e}_2(\vec{r})$ and 
+$\vec{e}_{1f,2f}(\vec{r})$ should be normalized:
+\begin{eqnarray}
+\int \limits_{S} \left( \vec{e}_1 \vec{e}_1^\ast \right) ds=1, 
+\int \limits_{S} \left( \vec{e}_2 \vec{e}_2^\ast \right) ds=1,
+\nonumber \\
+\left\langle \int \limits_{S} \left(\vec{e}_{1f} 
+\vec{e}_{1f}^{\ast} \right) ds \right\rangle = 1,
+\left\langle \int \limits_{S} \left(\vec{e}_{2f} 
+\vec{e}_{2f}^{\ast} \right) ds \right\rangle = 1,
+\label{eqNorm_dpcm} 
+\end{eqnarray}
+where $\left\langle\right\rangle$ means ensemble averaging. In addition 
+\begin{eqnarray} 
+\left\langle e_{1f} \right\rangle = 0,
+\left\langle e_{2f} \right\rangle = 0.
+\label{eqZeroF_dpcm} 
+\end{eqnarray}
+The light beam from the left side of the crystal has the following form
+\begin{equation} 
+\vec{E}_1=A_{1s}\vec{e}_1 e^{-i(\vec{k}_1 \vec{r})} + 
+A_{1c}\vec{e}_2^\ast e^{i(\vec{k}_2 \vec{r})} + 
+A_{1f}\vec{e}_{1f} e^{i(\vec{k}_2 \vec{r})} 
+\label{eqFieldLeft} 
+\end{equation} 
+and for the beam from the right side
+\begin{equation} 
+\vec{E}_2=A_{2s}\vec{e}_2 e^{-i(\vec{k}_2 \vec{r})} + 
+A_{2c}\vec{e}_1^\ast e^{i(\vec{k}_1 \vec{r})} + 
+A_{2f}\vec{e}_{2f} e^{i(\vec{k}_1 \vec{r})}. 
+\label{eqFieldRight} 
+\end{equation} 
+
+\subsection{Equations derivation}
+
+The equations for refractive index gratings can be devided into to sub
+classes. The first one is for a crystal with one impurity center:
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M} 
+= 
+i B \Gamma \frac{(A_{1s}^\ast A_{1c}+A_{2s}^\ast A_{2c})}{I_0}
++ \frac{M_0}{\tau_{eff}}
+, \nonumber \\ 
+\left(\frac{\partial}{\partial{t}}
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M_{1f}} = 
+i C_1 \Gamma \frac{ A_{1s}^{\ast} A_{1f}}{I_0}
++ \frac{M_{1f_0}}{\tau_{eff}}
+, \nonumber \\ 
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M_{2f}} = 
+i C_2 \Gamma  \frac{A_{2s}^{\ast} A_{2f}}{I_0}
++ \frac{M_{2f_0}}{\tau_{eff}}
+, 
+\label{eqGrating_1_dpcm} 
+\end{eqnarray} 
+where
+\[
+B = \left.const\right|_t,
+C_{1,2} = \left.const\right|_t,
+M_0 = \left.const\right|_t,
+M_{1f_0} = \left.const\right|_t,
+M_{2f_0} = \left.const\right|_t.
+\] 
+
+For the second case (crystal with 2 impurity centers) we will write
+equations that are conjugated to 
+(\ref{eqM_2_dpcm}, \ref{eqM1f_2_dpcm}, 
+\ref{eqM2f_2_dpcm}):
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M^{(1)}} 
+= 
+i B \Gamma \frac{(A_{1s}^{\ast} A_{1c}+A_{2s}^{\ast} A_{2c})}{I_0}
+-
+\nonumber \\
+-\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_m^{(1)}}
+\right) M^{(2)}
++ \frac{M_0^{(1)}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M^{(2)}} 
+= i \frac{\tau_{eff}}{\tau_m^{(2)}}
+ B \Gamma^{(2)} \frac{(A_{1s}^{\ast} A_{1c}+A_{2s}^{\ast} A_{2c})}{I_0}
++ \frac{M_0^{(2)}}{\tau_{m}^{(2)}}
+,
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M_{1f}^{(1)}} 
+= 
+i C_1 \Gamma \frac{(A_{1s}^{\ast} A_{1f})}{I_0}
+-
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_m^{(1)}}
+\right) M_{1f}^{(2)}
++ \frac{M_{1f_0}^{(1)}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M_{1f}^{(2)}} 
+= i \frac{\tau_{eff}}{\tau_m^{(2)}}
+C_1 \Gamma^{(2)} \frac{(A_{1s}^{\ast} A_{1f})}{I_0}
++ \frac{M_{1f_0}^{(2)}}{\tau_{m}^{(2)}}
+,
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right){M_{2f}^{(1)}} 
+= 
+i C_2 \Gamma \frac{(A_{2s}^{\ast} A_{2f})}{I_0}
+-
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_m^{(1)}}
+\right) M_{2f}^{(2)}
++ \frac{M_{2f_0}^{(1)}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M_{2f}^{(2)}} 
+= i \frac{\tau_{eff}}{\tau_m^{(2)}}
+C_2 \Gamma^{(2)} \frac{(A_{2s}^{\ast} A_{2f})}{I_0}
++ \frac{M_{2f_0}^{(2)}}{\tau_{m}^{(2)}}
+.
+\label{eqGrating_2_dpcm} 
+\end{eqnarray}
+Where
+\[
+B = \left.const\right|_t,
+C_{1,2} = \left.const\right|_t,
+\]
+\[
+M_0^{(1,2)} = \left.const\right|_t,
+M_{1f_0}^{(1,2)} = \left.const\right|_t,
+M_{2f_0}^{(1,2)} = \left.const\right|_t.
+\] 
+
+The coefficients $B$ and $C_{1,2}$ at (\ref{eqGrating_1_dpcm},
+\ref{eqGrating_2_dpcm}) can be understood as overlap ratios. Thus they
+define the part of the crystal where interaction occurs. The the
+coefficients should  satisfy the following conditions:
+$B < 1$ and $C_{1,2} < 1$.
+
+The equations for scattered fields were gotten in our previouse paper
+\cite{OurDPCM}. 
+
+For the left light beam's components we got the following result
+\begin{eqnarray}
+\frac{\partial{A_{1s}}}{\partial{z}} = 
+- i D \left\{ 
+A_{1c} M^{\ast} + A_{1f} M_{1f}^{\ast} \right\},
+\nonumber \\
+\frac{\partial{A_{1c}}}{\partial{z}} = - 
+i D A_{1s} M,
+\nonumber \\
+\frac{\partial{A_{1f}}}{\partial{z}} = 
+- i D A_{1s} M_{1f},
+\label{eqAmpl_left_dpcm}
+\end{eqnarray}
+
+For the right light beam's components we got the following result
+\begin{eqnarray}
+\frac{\partial{A_{2s}}}{\partial{z}} = 
+ i D
+ \left\{ 
+A_{2c} M^{\ast} + A_{2f} M_{2f}^{\ast} \right\},
+\nonumber \\
+\frac{\partial{A_{2c}}}{\partial{z}} =  
+i D
+A_{2s} M,
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+i D
+A_{2s} M_{2f},
+\label{eqAmpl_right_dpcm}
+\end{eqnarray}
+
+At (\ref{eqAmpl_right_dpcm}) and (\ref{eqAmpl_left_dpcm}) we assumed
+that $\theta_1 =\theta_2=\theta$ thus
+$D=\frac{\omega}c\frac 1 {2 \cos \theta}\sqrt{\frac\mu\epsilon}$.

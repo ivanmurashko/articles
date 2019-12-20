@@ -1,0 +1,59 @@
+\subsubsection{Поля падающие на кристалл  справа}
+
+Рассмотрим теперь поле $E_2$. Опять же применим лемму Лоренца для этого случая.
+Область интегрирования изображена на рис. \ref{figRight_dpcm}.
+ 
+В качестве эквивалентного тока выберем:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_2\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{eqJ_right_dpcm} 
+\end{equation} 
+где возмущение диэлектрической проницаемости
+\tiny{$\Delta$}\normalsize$\varepsilon$
+определяется соотношением (\ref{eqEpsilon_dpcm})
+
+\input ./theory/fig_right_dpcm.tex
+
+В качестве одного из полей в Лемме Лоренца примем поле $\vec{E}_2$ в виде
+разложения (\ref{eqFieldRight}) с источником $\vec{j}_{eq}$ в виде
+(\ref{eqJ_right_dpcm}), а в качестве произвольного вспомогательного поля,
+не имеющего источников, примем поочередно 
+$\vec{e}_2^\ast e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$ и 
+$\vec{e}_{2f}^{\ast}e^{-i(\vec{k}_1\vec{r})}$ - обращенные по отношению к
+искомым полям.  
+Действуя по аналогии с изложенным выше и вводя следующее обозначение 
+\[
+M_{2f}=\left\langle
+\int  \limits_S{\varepsilon_m^\ast(\vec{e}_{2f}^\ast\vec{e}_2)ds} \right\rangle,
+\]
+ для полей справа можно записать
+\begin{eqnarray}
+\frac{\partial{A_{2s}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_2}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+A_{2c}M^{\ast} + A_{2f}M_{2f}^\ast \right\},
+\nonumber \\
+\frac{\partial{A_{2c}}}{\partial{z}} =  
+\frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}}A_{2s} M,
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+\frac{i\omega}{2 c
+\cos{\theta_1}}
+\sqrt{\frac{\mu}{\epsilon}}A_{2s}M_{2f}.
+\label{eqE2_dpcm}
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+

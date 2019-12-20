@@ -1,0 +1,175 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[koi8-r]{inputenc}
+\usepackage[russian]{babel}
+
+
+\title{Приложение 1}
+
+\begin{document}
+\Russian
+\maketitle
+
+Рассмотрим следующий интегралл:
+\[
+ \int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\frac{\partial \vec{f}_f^{(1) \ast}}{\partial z}
+\right) ds },
+\]
+которым мы пренебрегали и докажем следующее равенство:
+\[
+ \int\limits_{S}{
+\varepsilon_m^\ast
+\left(
+\vec{e}_1
+\frac{\partial \vec{f}_f^{(1) \ast}}{\partial z}
+\right) ds }=0.
+\]
+Это соотношение эквивалентно
+\begin{equation}
+ \int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right) ds }=0.
+\label{common}
+\end{equation}
+
+Вспомнив уравнение для $\varepsilon_m$:
+\[  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau}\right)\varepsilon_m{e}^{i\vec{\kappa}\vec{r}} = 
+i\frac{\Gamma}{2I_0}\left((\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)\right),
+\]
+где
+\[
+\vec{\kappa} = - \vec{k}_1 - \vec{k}_2
+\]
+имеем:
+\[  
+\varepsilon_m = 
+i\frac{\Gamma}{2I_0} e^{-\frac{t}{\tau}}
+\int\limits_{0}^t{
+\left((\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)\right){e}^{-i\vec{\kappa}\vec{r}} dt'},
+\]
+откуда
+\begin{eqnarray}
+ \int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right) ds }=
+i\frac{\Gamma}{2I_0} e^{-\frac{t}{\tau}}
+\int\limits_{0}^t{dt'
+\int\limits_{S}{
+\left((\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)\right)
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right){e}^{-i\vec{\kappa}\vec{r}}  
+ds }
+} =
+\nonumber \\
+=
+i\frac{\Gamma}{2I_0} e^{-\frac{t}{\tau}}
+\int\limits_{0}^t{dt'
+\int\limits_{S}{
+\left(\vec{E}_1\vec{E}_1^\ast
+\right) 
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right){e}^{-i\vec{\kappa}\vec{r}} 
+ds }
+}. 
+\nonumber
+\end{eqnarray}
+При выводе данного соотношения была учтена очевидная некореллированость 
+$\frac{\partial \vec{f}_f^{(1)}}{\partial z}$ с полем $E_2$.
+
+Используя разложение
+\[
+\vec{E}_1=A_s^{(1)}\vec{e}_1 e^{-i(\vec{k}_1 \vec{r})} + 
+A_c^{(1)}\vec{e}_2^\ast e^{i(\vec{k}_2 \vec{r})} + 
+A_f^{(1)}\vec{f}_f^{(1)} e^{i(\vec{k}_2 \vec{r})},
+\]
+пренебрегая быстро осцилирующими членами и учитывая некореллированость 
+$\frac{\partial \vec{f}_f^{(1)}}{\partial z}$ с распределениями полей 
+$\vec{e}_{1,2}$ имеем
+\[
+ \int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right) ds }=
+i\frac{\Gamma}{2I_0} e^{-\frac{t}{\tau}}
+\int\limits_{0}^t{dt'
+A_s^{(1)} A_f^{(1) \ast}
+\int\limits_{S}{
+\left|\vec{e}_1\right|^2
+\vec{f}_f^{(1) \ast}\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+ds }
+}. 
+\]
+При выводе данного соотношения в целях удобства предполагалось, что
+$\vec{e}_{1,2}$ и $\vec{f}_1$ сонаправленны.
+Таким образом для выполнения соотношения (\ref{common}) необходимо чтобы
+\[
+F(t', t)=\vec{f}_f^{(1) \ast}(t') \cdot \frac{\partial
+\vec{f}_f^{(1)}(t,z)}{\partial z} \]
+имела бы случайное распределение фазы на сечении $S$.
+
+Записав
+\[
+\vec{f}_f^{(1)} = A(t,z) \cdot e^{i \varphi(t,z)}
+\]
+получим
+\begin{equation}
+\frac{\partial \vec{f}_f^{(1)}}{\partial z} = 
+A'_z(t,z) \cdot e^{i \varphi(t,z)}
++
+i A(t,z) \cdot e^{i \varphi(t,z)} \varphi'_z(t,z).
+\label{def}
+\end{equation}
+Таким образом имеем
+\begin{eqnarray}
+ \int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\frac{\partial \vec{f}_f^{(1)}}{\partial z}
+\right) ds }=
+\nonumber \\
+=
+i\frac{\Gamma}{2I_0} e^{-\frac{t}{\tau}}
+\int\limits_{0}^t{dt'
+A_s^{(1)} A_f^{(1) \ast}
+\int\limits_{S}{
+\left|\vec{e}_1\right|^2
+A\cdot A'_z \cdot e^{i(\varphi(t)-\varphi(t'))}
+ds }
+}.
+\label{integralS} 
+\end{eqnarray}
+Здесь сразу же пренебрегалось вторым слагаемым в (\ref{def}) в силу
+случайность распределения фазы $\varphi(t,z)$ на сечении $S$.
+Таким образом для выполнения соотношения (\ref{common}) нам необходимо чтобы
+фаза $\varphi$ не коррелировала бы сама с собой в различные моменты времени,
+при выполнении этого условия интеграл по поверхности в (\ref{integralS})
+обращается в нуль.
+
+
+
+
+
+
+
+\end{document}

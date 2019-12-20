@@ -1,0 +1,238 @@
+%% -*- coding:cp1251 -*-
+\section{Вывод основных уравнений}
+
+Система, полученная в этом разделе, состоит из двух частей: одни уравнения
+выводятся из общих законов электординамики, другие - из соотношений, описывающих
+взаимодействие света с фоторефрактивной средой. Предполагается, что исходное
+распределение показателя преломления в среде является случайной функцией,
+поэтому в уравнения входят усредненные по ансамблю значения шумовых
+составляющих.
+
+\subsection{Уравнения, полученные на основе леммы Лоренца.}
+
+Лемма Лоренца, следующая непосредственно из уравнений Максвелла, связывает в 
+некотором объеме V комплексные  амплитуды двух независимых гармонических полей
+одной частоты. Вообще говоря, лемма Лоренца справедлива для стационарных
+гармонических полей, а в нашем случае амплитуды полей медленно меняются во
+времени. Но так как характерное время изменения амплитуд (медленное время)  на
+много порядков больше периода колебаний, мы можем рассматривать его как параметр
+(т. е. считать поля квазистационарными).
+
+Лемма Лоренца дает (см., например, \cite{bWeinstein}):
+\begin{eqnarray}
+\frac{4\pi}{c} \int\limits_{V}{\left\{
+\left(\vec{j}_{\alpha}\vec{E}_{\beta}\right)-\left(\vec{j}_{\beta}
+\vec{E}\sb{\alpha} \right)\right\}}d v = \int\limits_{S'}{ds \left\{
+{\left[\vec{H}_{\alpha}\vec{E}_{\beta}\right]}_n -
+{\left[\vec{H}_{\beta}\vec{E}_{\alpha}\right]}_n \right\}} \label{Lorents}
+\end{eqnarray} Здесь $\vec{E}_{\alpha,\beta}$ и $\vec{H}_{\alpha,\beta}$ -
+соответственно электрические и магнитные  компоненты полей $\alpha$ и $\beta$,
+$\vec{j}_{\alpha,\beta}$ - токи в объеме V, соответственно являющиеся
+источниками полей $\alpha$ и $\beta$, $S'$ -  поверхность, ограничивающая этот
+объем, $n$ - нормаль к этой поверхности. В качестве токов, возбуждающих поля
+$\vec{E}_1$ и $\vec{E}_2$, введем величины, эквивалентные возмущению
+диэлектрической проницаемости, вызванному фоторефрактивной решеткой:
+\begin{equation}
+\vec{j}_{1}=i\vec{E}_1\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, \label{LorJleft} \end{equation} для полей волны, падающей
+слева, и \begin{equation}
+\vec{j}_{2}=i\vec{E}_2\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, \label{LorJright}
+\end{equation}
+для полей волны, падающей справа.
+Будем считать, что все волны являются квазиплоскими, так что их
+электрические и магнитные компоненты удовлетворяют соотношению
+\begin{equation}
+\vec{H} =
+\sqrt{\frac{\varepsilon}{\mu}}\left[\frac{\vec{k}}{k}\vec{E}\right]
+\label{LorEH}
+\end{equation}
+Подставляя вместо $\vec{E}_{\alpha}$ в (\ref{Lorents})  $\vec{E}_1$ или
+$\vec{E}_2$ в виде разложений (\ref{dir1} - \ref{dirf2}), можно последовательно
+получить уравнения для всех шести медленно меняющихся амплитуд.
+
+Для нахождения полей волны $\vec{E}_1$ в качестве
+объема интегрирования будем использовать область, лежащую слева от
+поперечного сечения S (см. рис. FIX ME!!! add a picture). Поверхность интегрирования, кроме
+плоскости S, включит некоторую замыкающую поверхность слева от
+S, лежащую вне области пересечения световых волн, так что поверхностный интеграл
+сведется к интегралу по S. В качестве вспомогательного поля
+$\beta$, не имеющего возбуждающих токов внутри объема интегрирования, будем
+использовать поля единичной амплитуды, фазово-сопряженные искомым. Например, для
+нахождения амплитуды $A_{1c}$ примем $\vec{E}_{\beta}= \vec{e}_2
+e^{-i(\vec{k}_2\vec{r})}$, $\vec{j}_{\beta}=0$. Тогда, с учетом (\ref{LorEH}),
+подинтегральное выражение в правой части (\ref{Lorents}) запишется в виде
+\begin{eqnarray}
+\left(\left[ \vec{H}_1\vec{e}_2
+\right]_n  - \left[ \vec{h}_2\vec{E}_1
+ \right]_n\right)e^{-i(\vec{k}_2\vec{r})}=
+\nonumber \\
+=A_{1s}\sqrt{\frac{\varepsilon}{\mu}}\left(\left[\left[\frac{\vec{k}_1}{k
+_1}\vec{e}_1\right]
+\vec{e}_2\right]_n+\left[\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]
+\vec{e}_1\right]_n\right)e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}+\nonumber\\+A_{1c}
+\sqrt{\frac{\varepsilon}{\mu}}
+\left(\left[\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^\ast\right]\vec{e}_2\right]+
+\left[\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]\vec{e}_2^\ast\right]
+\right)+\nonumber\\+A_{1f}\sqrt{\frac{\varepsilon}{\mu}}
+\left(\left[\left[\frac{\vec{k}_1}{k_1}\vec{e}_{1f}\right]\vec{e}_2\right]+
+\left[\left[\frac{\vec{k}_2}{k_2}\vec{e}_2\right]\vec{e}_{1f}\right]
+\right)
+\label{underintS}
+\end{eqnarray}
+
+Первое слагаемое в правой части (\ref{underintS}) не дает вклада в интеграл
+из-за быстрых осцилляций по оси x. Третье слагаемое занулится при усреднении по
+ансамблю вследствие принятых условий нормировки (\ref{ZeroF}). Так
+что в этом случае интеграл по S сведется к
+\begin{equation}
+- 2\sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{A_{1c}\left(\vec{e}_2\vec{e}_2^\ast\right)}{ds}=
+- 2\sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_{1c}
+\label{intS1c}
+\end{equation}
+
+Для вычисления объемного интеграла используем выражение для эквивалентных токов
+(\ref{LorJleft}). Учитывая равенство (\ref{Vectors}), исключим из
+подинтегрального выражения все осциллирующие члены и в результате получим
+\begin{equation}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{0}^{z}{dz'}
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_1 \vec{e}_2\right)
+e^{-i(\vec{k}_2\vec{r})}}=
+\frac{i\omega}{c}
+\int_{0}^{z}{A_{1s}Mdz'}
+\label{intV1c}
+\end{equation}
+где \[M=\int\limits_{S}{\varepsilon_m^\ast\left(\vec{e}_1\vec{e}_2\right)ds}\]
+В выражении (\ref{intV1c}) $z$ обозначает координату плоскости $S$, а $z'$ -
+текущую координату.
+
+Подставляя (\ref{intS1c}) и (\ref{intV1c}) в (\ref{Lorents}) и дифференцируя по
+$z$, получаем одно из искомых уравнений
+\begin{equation}
+\frac{\partial{A_{1c}}}{\partial{z}} = -
+\frac{i\omega}{2  c \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_{1s} M
+\label{eqA1c}
+\end{equation}
+
+Чтобы найти уравнение для $A_{1s}$, примем
+$\vec{E}_{\beta}=\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$. Действуя аналогично
+(\ref{underintS})-(\ref{eqA1c}), в этом случае можно получить
+\begin{equation}
+\frac{\partial{A_{1s}}}{\partial{z}} =
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{
+A_{1c}M^{\ast} + A_{1f}M_{1f}^{\ast} \right\}
+\label{eqA1s}
+\end{equation}
+где \[M_{1f}=\left\langle
+\int  \limits_S{\varepsilon_m^\ast(\vec{e}_{1f}^\ast \vec{e}_1)ds}
+ \right\rangle.
+\]
+Заметим, что усредненный по ансамблю интеграл $M_{1f}$ заведомо
+не равен нулю, так как амплитуда решетки $\varepsilon_m$ должна содержать
+компоненты, коррелирующие со всеми (в том числе и шумовыми) составляющими полей
+$\vec{E}_1$ и $\vec{E}_2$.
+
+Для получения третьего уравнения следует использовать поле, фазово-сопряженное
+фенингу. Сложность состоит в том, что вспомогательное поле не должно иметь
+источников внутри объема интегрирования, а фенинг возникает в среде именно
+благодаря внутренним источникам - шумовым решеткам, представленным нами в виде
+эквивалентных токов; следовательно, поле, сопряженное фенингу, также должно
+иметь источники внутри среды. Поэтому в качестве вспомогательного поля мы
+выберем волну, фазово-сопряженную фенингу только в области, лежащей вне объема
+интегрирования (правее плоскости $S$). Не имея источников внутри объема $V$,
+такая волна свободно распространяется там в направлении
+$\vec{k}_2$, но на поверхности $S$
+имеет распределение, фазово-сопряженное рассеянному полю: $\vec{E}_{\beta}(z,
+z')=\vec{e}_{1f}^\ast(z) e^{-i(\vec{k}_2\vec{r})}$.
+
+Проведя
+вычисления, полностью аналогичные предыдущим,
+получим, что поверхностный интеграл в этом случае равен $- 2
+\sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_{1f}$.
+
+Однако при таком выборе вспомогательного поля его распределение внутри объема
+интегрирования зависит от положения плоскости $S$, т. е. от координаты $z$.
+Производная объемного
+интеграла в этом случае будет равна
+\begin{eqnarray}
+\frac{i\omega}{c}
+\frac{\partial \left( \int_{0}^{z}{A_{1s}dz'} \int\limits_{S}{
+\varepsilon_m^\ast \left( \vec{e}_1 \vec{e}_{1f}^{\ast} \right) ds } \right)
+}{\partial z} = \frac{i\omega}{c} A_{1s} \int\limits_{S}{ \varepsilon_m^\ast
+\left( \vec{e}_1 \vec{e}_{1f}^{\ast}
+\right) ds }
++
+\nonumber\\
++ \frac{i\omega}{c}
+\int_{0}^{z}{A_{1s}dz'}
+\int\limits_{S}{
+\left(
+\vec{e}_1
+\frac{\partial\left(\varepsilon_m^\ast \vec{e}_{1f}^{\ast}\right)}{\partial z}
+\right) ds }.
+\label{Partial}
+\end{eqnarray}
+
+Покажем, что вторым слагаемым в (\ref{Partial}) можно пренебречь. Действительно,
+мы можем принять без ограничения общности, что величина $\left\langle \left(
+\vec{e}_{1f}
+\vec{e}_{1f}^{\ast}
+\right)\right\rangle$ слабо зависит от $z$, т. е. ее производная близка к нулю;
+отсюда
+\begin{equation}
+\left\langle\left(\frac{\textstyle\partial\vec{e}_{1f}}{\textstyle\partial
+z}\vec{e}_{1f}^{\ast}\right)\right\rangle\simeq0
+\label{zero}
+\end{equation}
+ что эквивалентно
+слабой корреляции между  $\vec{e}_{1f}$ и
+$\frac{\textstyle\partial\vec{e}_{1f}}{\textstyle\partial z}$. Так как "шумовая"
+часть амплитуды решетки $\varepsilon_m$ определяется функцией $\vec{e}_{1f}$, из
+этого также следует слабая корреляция между величинами $\varepsilon_m$ и
+$\frac{\textstyle\partial\vec{e}_{1f}}{\textstyle\partial z}$,  т.е. близость к
+нулю производной $\frac{\textstyle\partial\left(\varepsilon_m^\ast
+\vec{e}_{1f}^{\ast}\right)}{\textstyle\partial z}$.
+
+Отбросив второе слагаемое в правой
+части (\ref{Partial}), получим уравнение, аналогичное
+предыдущим:
+
+\begin{equation} \frac{\partial{A_{1f}}}{\partial{z}} = -
+\frac{i\omega}{2 c \cos{\theta_2}} \sqrt{\frac{\mu}{\epsilon}}A_{1s}M_{1f}
+\label{eqA1f} \end{equation}
+
+Действуя таким же образом, можно получить уравнения для компонент волны
+$\vec{E}_2$. В этом случае в качестве объема интегрирования берем область,
+лежащую справа от плоскости $S$, и используем выражение (\ref{LorJright}) для
+эквивалентных токов. Вследствие полной зеркальной симметричности задачи
+полученные уравнения будут полностью аналогичны
+(\ref{eqA1c}), (\ref{eqA1s}) и (\ref{eqA1f}) за исключением знака производной по
+$z$:
+
+\begin{eqnarray} \frac{\partial{A_{2s}}}{\partial{z}} = \frac{i\omega}{2 c
+\cos{\theta_2}} \sqrt{\frac{\mu}{\varepsilon}} \left\{ A_{2c}M^{\ast} +
+A_{2f}M_{2f}^\ast \right\} \nonumber \\ \frac{\partial{A_{2c}}}{\partial{z}} =
+\frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}}A_{2s} M
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} =
+\frac{i\omega}{2 c
+\cos{\theta_1}}
+\sqrt{\frac{\mu}{\epsilon}}A_{2s}M_{2f}
+\label{eqsE2}
+\end{eqnarray}
+где
+\[
+M_{2f}=\left\langle
+\int  \limits_S{\varepsilon_m^\ast(\vec{e}_{2f}^\ast\vec{e}_2)ds} \right\rangle.
+\]
+
+Используя лемму Лоренца, мы получили систему из шести уравнений,
+включающих шесть компонент исходных волн, и три новые неизвестные $M, M_{1f}$ и
+$M_{2f}$.

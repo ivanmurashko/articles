@@ -1,0 +1,32 @@
+%% -*- coding:utf-8 -*- 
+\input preamble.tex
+\title{Квантовые вычисления}
+\author{Иван Мурашко}
+\date{}
+\begin{document}
+\Russian
+
+% Redefine plain style for the TOC part:
+\makeatletter
+\renewcommand{\ps@plain}{%
+\renewcommand\@oddhead{\hfil\normalfont\textrm{\thepage}\hfil}%
+\renewcommand\@evenhead{\hfil\normalfont\textrm{\thepage}\hfil}%
+\renewcommand\@oddfoot{}%
+\renewcommand\@evenfoot{}%
+}
+
+\pagestyle{plain}% Centered page numbers in footer for TOC pages after the first one
+
+
+\maketitle
+
+\tableofcontents
+\input intro.tex
+\input quantmech.tex
+\input part4/quantcomp/grover.tex
+\input part4/quantcomp/shor.tex
+
+
+\input ./bibliography.tex
+
+\end{document}

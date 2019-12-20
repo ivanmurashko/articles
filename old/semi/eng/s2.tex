@@ -1,0 +1,225 @@
+
+\section{DERIVATION OF THE EQUATIONS.}
+
+\noindent The geometry of the semilinear generator is
+presented on the Fig. 1. In the given geometry, the pump wave from
+one side (at the left) is supplied by a laser, and on the other
+side (on the right) the pump is the wave reflected from the
+resonator's mirror.
+
+\begin{figure}
+\centering
+\input semi1_pic.tex
+\label{semi} \caption{\footnotesize Geometry of the semilinear
+generator: experimental setup. BS - Beam Splitter, BSO -
+photorefractive crystal. $\vec{E_1}$ waves propagate from the left
+to the right, $\vec{E_2}$ waves do the opposite way. The signal
+wave is supposed to have complex structure after passing through
+the transparent plate T.}
+\end{figure}
+
+The theory of the semilinear generator was developed
+proceeding from the theory of the double phase conjugation mirror
+\cite{ourDPCM} at our earlier paper \cite{ourSemi}. The system of
+equation \cite{ourSemi} was deduced for singlemode oscillations.  The
+main goal  of the present investigation was to research semilinear
+generator with multimode oscillations. 
+
+\input ./fig_td3_gen.tex
+
+In addition to those assumptions which were accepted in
+\cite{ourSemi}, we assume, that field $\vec{E_2}$ can be expanded over
+the system of the resonator modes. Let's assume that the phase
+distribution of a mode is $\vec{e_2}^{(i)}$, where $i$ is the index of
+the mode. Also we'll assume that some modes are
+allocated. Thus field $\vec{E_2}$ is  described by the following
+equation (see Fig.
+\ref{figTD3_gen}):
+\[ 
+\vec{E}_2=\sum_i \vec{E}_{2s}^{(i)} +\vec{E}_{2c} + \vec{E}_{2d} + \vec{E}_{2f}, 
+\] 
+\noindent where $\vec{E}_{2s}^{(i)}$ is a set of allocated modes
+(signal wave), all
+non-allocated modes considered in $\vec{E}_{2d}$ (with distribution
+$\vec{e_d}$),  $\vec{E}_{2c}$ and
+$\vec{E}_{2f}$ can are described by analogy with \cite{ourSemi}.
+
+\input ./fig_td2_gen.tex
+
+We write the field on the left as well as \cite{ourSemi}(see Fig.
+\ref{figTD2_gen}):
+\[
+\vec{E}_1=\vec{E}_{1s}+\sum_i \vec{E}_{1c}^{(i)}+\vec{E}_{1f}, 
+\]
+\noindent where $\vec{E}_{1s}$ - is the signal wave having
+structure of a wave falling on the crystal at the left (with
+distribution $\vec {e_1}$); $\vec {E}_{1c}^{(i)}$ is the set of
+conjugated waves (resonator's modes), $\vec {E}_{1f}$ has the meaning 
+of the rest which is a wave scattered on
+the on the random inhomogeneities of the refraction index.
+
+The fields contained in $\vec {E}_1$, we consider in the following form:
+\[
+\vec{E}_{1s}=A_{1s}(z,t)\vec{e}_1(\vec{r})e^{-i(\vec{k}_1\vec{r})},
+\]
+\[
+\vec{E}_{1c}^{(i)}=A^{(i)}_{1c}(z,t)\vec{e}_2^{(i)\ast}
+(\vec{r})e^{i(\vec{k}_2\vec{r})}, 
+\]
+\[
+\vec{E}_{1f}=A_{1f}(z,t)\vec{e}_{1f}(\vec{r},t)e^{i(\vec{k}_2\vec{r})}, 
+\]
+\noindent where $\vec{e}_1(\vec{r})$ - is the distribution of the
+undistorted (signal) wave incident from the left side of the
+crystal; $\vec{e}_2(\vec{r})$ is the distribution of the signal
+wave from the right side; $\vec{e}_{1f}(\vec{r},t)$ is the
+distribution of fanning.
+
+The components of $\vec{E}_2$ can be written similarly:
+\[
+\vec{E}_{2s}^{(i)}=A^{(i)}_{2s}(z,t)\vec{e}_2^{(i)}(\vec{r})
+e^{-i(\vec{k}_2\vec{r})},
+\]
+\[
+\vec{E}_{2c}=A_{2c}(z,t)\vec{e}_1^\ast(\vec{r})e^{i(\vec{k}_1\vec{r})}, 
+\]
+\[
+\vec{E}_{2d}=A_{2d}(z,t)\vec{e}_d(\vec{r})e^{-i(\vec{k}_2\vec{r})}, 
+\]
+\[
+\vec{E}_{2f}=A_{2f}(z,t)\vec{e}_{2f}(\vec{r},t)e^{i(\vec{k}_1\vec{r})}.
+\]
+
+Thus we can get the following system of equations by analogy with
+\cite{ourSemi}.
+First is a set of material equations:
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right) M^{(i)}
+= 
+i \Gamma B^{(i)} 
+\frac{A_{1s}^{\ast}A_{1c}^{(i)}+A_{2s}^{(i)\ast}A_{2c}}{I_0}
++ \frac{M_0^{(i)}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{1f}} = 
+i\Gamma C_1 \frac{A_{1s}^{\ast}A_{1f}}{I_0}
++ \frac{M_{1f_0}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{2f}^{(i)}} = 
+i\Gamma C_2^{(i)} \frac{A_{2s}^{(i)\ast}A_{2f}}{I_0}
++ \frac{M_{2f_0}^{(i)}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_d} = 
+i \Gamma C_d \frac{A_{2c} A_{2d}^{\ast}}{I_0}
++ \frac{M_{d_0}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{fd}} = 
+i \Gamma C_{fd} \frac{A_{2f} A_{2d}^{\ast}}{I_0} +
+\frac{M_{fd_0}}{\tau_{eff}},
+\label{eqGrating_gen} 
+\end{eqnarray} 
+\noindent where coefficients $B^{(i)}$, $C_1$ and $C_2^{(i)}$ (see
+\cite{ourSemi}) meet the conditions: 
+\[
+B^{(i)} = \left.const\right|_t < 1,
+C_1 = \left.const\right|_t < 1,
+C_2^{(i)} = \left.const\right|_t < 1.
+\]
+These  coefficients
+depend upon the spatial distributions of the light fields as well as \cite{ourSemi}. The
+value of $B^{(i)}$ is determined by $\vec{e}_1$ and $\vec{e}_2^{(i)}$. The
+values of $C_1$ and $C_2^{(i)}$ can be estimated taking into account
+reasonable assumptions concerning the fanning distributions.
+
+Second is a system that describes $\vec E_1$ field:
+\begin{eqnarray}
+\frac{\partial{A_{1s}}}{\partial{z}} = 
+- i D \left\{ 
+ A_{1f} M_{1f}^\ast + \sum_i A_{1c}^{(i)}M^{(i)\ast}\right\},
+\nonumber \\
+\frac{\partial{A_{1c}^{(i)}}}{\partial{z}} = - 
+i D A_{1s} M^{(i)},
+\nonumber \\
+\frac{\partial{A_{1f}}}{\partial{z}} = 
+- i D A_{1s} M_{1f}.
+\label{eqAmpl_left_gen}
+\end{eqnarray}
+
+Third is a system that describes $\vec E_2$ field:
+\begin{eqnarray}
+\frac{\partial{A_{2c}}}{\partial{z}} = 
+i D \left\{ 
+ A_{2d} M_d + \sum_i A_{2s}^{(i)} M^{(i)} \right\},
+\nonumber \\
+\frac{\partial{A_{2s}^{(i)}}}{\partial{z}} = 
+i D \left\{
+A_{2c} M^{(i)\ast}
++
+A_{2f} M_{2f}^{(i)\ast}
+\right\}, 
+\nonumber \\
+\frac{\partial{A_{2d}}}{\partial{z}} = 
+i D \left\{
+A_{2c} M_d^\ast
++
+A_{2f} M_{fd}^\ast
+\right\},
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+i D  \left\{ 
+ A_{2d} M_{fd} + \sum_i A_{2s}^{(i)} M_{2f}^{(i)} \right\}.
+\label{eqAmpl_right_gen}
+\end{eqnarray}
+
+The initial conditions of the equation set are zero ones. The
+boundary conditions from left are the following:
+\begin{eqnarray}
+\left. A_{1s} \right|_{z=0} = A_{1s_0},
+\nonumber \\
+\left. A_{1c}^{(i)} \right|_{z=0} = 0,
+\nonumber \\
+\left. A_{1f} \right|_{z=0} = 0.
+\label{eqBoundary_left_gen}
+\end{eqnarray}
+Boundary condition from right side are the following:
+\begin{eqnarray}
+\left. A_{2s}^{(i)} \right|_{z=d} = r \left. A_{1c}^{(i)} \right|_{z=d},
+\nonumber \\ 
+\left. A_{2c} \right|_{z=d} = 0,
+\nonumber \\ 
+\left. A_{2d} \right|_{z=d} = r \left. A_{1f} \right|_{z=d},
+\nonumber \\ 
+\left. A_{2f} \right|_{z=d} = 0,
+\label{eqBoundary_right_gen}
+\end{eqnarray}
+where $r$ take into account resonator losses.
+
+

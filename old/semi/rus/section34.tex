@@ -1,0 +1,102 @@
+\subsection{Окончательный вид уравнений}
+
+Приведем здесь окончательный вид уравнений:
+
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial t}+\frac{1}{\tau} \right) 
+\check N^{\ast}=QB\left(A_s^{(1)}A_c^{(1)\ast}+A_s^{(2)}A_c^{(2)\ast}\right)
+,\nonumber \\ 
+\left(\frac{\partial}{\partial t}+\frac 1 \tau \right) 
+\check N_d=QC_dA_c^{(2)}A_d^{(2)\ast}
+,\nonumber \\ 
+\left(\frac{\partial}{\partial t}+\frac 1 \tau \right) 
+\check N_{fd}=QC_{fd}A_f^{(2)}A_d^{(2)\ast}
+,\nonumber \\ 
+\left(\frac{\partial}{\partial t}+\frac 1 \tau \right) 
+\check N_f^{(1)}=QC_1A_s^{(1)\ast}A_f^{(1)}
+,\nonumber \\ 
+ \left(\frac\partial{\partial t}+\frac 1 \tau \right) 
+\check N_f^{(2)}=QC_2 A_s^{(2)\ast}A_f^{(2)}
+,\nonumber \\ 
+N=N_0 + \check N, \qquad N_d = N_{d0} + \check N_d
+, \qquad N_{fd} = N_{fd0} + \check N_{fd}
+,\nonumber \\ 
+N_f^{(1,2)}=N_{f0}^{(1,2)} + \check N_f^{(1,2)},
+\nonumber \\
+B=\int 
+\limits_S{(\vec{e}_1^\ast\vec{e}_2^\ast)(\vec{e}_1\vec{e}_2)ds},
+\nonumber \\
+C_1=\left\langle\int\limits_S 
+{(\vec{e}_1\vec{f}_f^{(1)\ast})(\vec{e}_1^\ast\vec{f}_f^{(1)})ds}\right\rangle,
+\nonumber \\
+C_2=\left\langle\int\limits_S 
+{(\vec{e}_2^\ast\vec{f}_f^{(2)})(\vec{e}_2\vec{f}_f^{(2)\ast})ds}\right\rangle,
+\nonumber \\
+C_d=\left\langle\int\limits_S 
+{(\vec{e}_1^\ast\vec{e_d}^{\ast})(\vec{e}_1 \vec{e_d})ds}\right\rangle,
+\nonumber \\
+C_{fd}=\left\langle\int\limits_S 
+{(\vec{f}_f^{(2)}\vec{e_d}^{\ast})(\vec{f}_f^{(2)\ast} \vec{e_d})ds}\right\rangle,
+\label{gratings} 
+\end{eqnarray} 
+где 
+$iM=\check N$, $-iM^\ast=\check N^\ast$, $-iM_f^{(1)}=\check N_f^{(1)}$, 
+$-M_f^{(2)}=\check N_f^{(2)}$, $-M_d=\check N_d$, $-M_{fd}=\check
+N_{fd}$ ;  $Q=\frac\Gamma{2I}$; а 
+$N_0$, $N_{d0}$, $N_{fd0}$ и $N_{f0}^{(1,2)}$ учитывают наличие
+постоянных во времени заправочных решеток.
+
+\begin{eqnarray}  
+\frac{\partial A_{s}^{(1)}}{\partial z} = F\left\{ 
+A_c^{(1)}N^{\ast} + A_f^{(1)}N_f^{(1)\ast} \right\}   
+,\nonumber \\ 
+\frac{\partial A_{c}^{(1)}}{\partial z} = - F A_s^{(1)}N
+,\nonumber \\ 
+\frac{\partial A_{f}^{(1)}}{\partial z} = - F A_s^{(1)}N_f^{(1)}, 
+\label{ampl1} 
+\end{eqnarray} 
+
+\begin{eqnarray}  
+\frac{\partial A_{s}^{(2)}}{\partial z} = -F\left\{ 
+A_c^{(2)}N^\ast + + A_f^{(2)}N_f^{(2)\ast}
+\right\}   
+,\nonumber\\   
+\frac{\partial A_{c}^{(2)}}{\partial z} =
+F \left(A_s^{(2)}N + A_{d}^{(2)} N_d
+\right)
+,\nonumber\\   
+\frac{\partial A_{d}^{(2)}}{\partial z} = F
+\left\{
+A_c^{(2)}N_d^\ast + A_{f}^{(2)}N_{fd}^\ast
+\right\}
+,\nonumber\\   
+\frac{\partial A_{f}^{(2)}}{\partial z} = F
+\left\{
+A_s^{(2)}N_f^{(2)} + A_{d}^{(2)} N_{fd}
+\right\},  
+\label{ampl2} 
+\end{eqnarray} 
+где в целях удобства полагалось, что $\theta_1 =\theta_2=\theta$, так что
+$F=\frac{\omega}c  
+\frac 1 {2 \cos \theta}\sqrt{\frac\mu\epsilon}$.
+
+Особые слова следует сказать о граничных условиях. Для полей, падающих
+на кристалл слева:
+\begin{eqnarray}
+\left. A_s^{(1)} \right|_{z=0} = A_{s0}^{(1)},
+\nonumber \\
+\left. A_c^{(1)} \right|_{z=0} = 0,
+\nonumber \\
+\left. A_f^{(1)} \right|_{z=0} = 0.
+\end{eqnarray}
+Справа картина несколько иная:
+\begin{eqnarray}
+\left. A_s^{(2)} \right|_{z=d} =\left. A_c^{(1)} \right|_{z=d},
+\nonumber \\ 
+\left. A_c^{(2)} \right|_{z=d} = 0,
+\nonumber \\ 
+\left. A_d^{(2)} \right|_{z=d} = \left. A_f^{(1)} \right|_{z=d},
+\nonumber \\ 
+\left. A_f^{(2)} \right|_{z=d} = 0,
+\end{eqnarray}
+Данные соотношения составлены в предположении отсутствия потерь в резонаторе!
