@@ -1,0 +1,377 @@
+%% -*- coding:koi8-r -*-
+\subsection{Поля падающие на кристалл слева}
+
+\input ./gen/fig_left_gen.tex
+
+Рассмотрим  выражения, описывающие поля $E_1$. 
+Эквивалентный ток, соответствующий 
+возмущению диэлектрической проницаемости в среде
+\begin{equation} 
+\mbox{\tiny$\Delta$\normalsize}\varepsilon = 
+\varepsilon_m(\vec{r},t)e^{i(\vec{\kappa}\vec{r})} + 
+\varepsilon_m^\ast(\vec{r},t)e^{-i(\vec{\kappa}\vec{r})},
+\label{eqEpsilon_gen}
+\end{equation} 
+задается следующим выражением
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_1\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{eqJ_left_gen} 
+\end{equation}
+Для волнового вектора решетки в (\ref{eqEpsilon_gen})
+$\vec{\kappa}$ выполняется следующее соотношение:
+\begin{equation} 
+\vec{k}_1 + \vec{k}_2 + \vec{\kappa} = 0.
+\label{eqVectors_gen} 
+\end{equation} 
+Объем $V$, в этом случае, ограничен справа сечением $S$ 
+(см. рис. \ref{fig_left_gen}). 
+В качестве поля ($a$) в соотношении \ref{eqLemmaLor_tw}
+примем поле $\vec{E}_1$ в виде разложения (\ref{eqE_left_gen}) с
+источником $\vec{j}_{eq}$ в виде (\ref{eqJ_left_gen}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$,
+$\vec{e}_2^{(i)} e^{-i(\vec{k}_2\vec{r})}$ и 
+$\vec{e}_{1f}^{\ast}e^{-i(\vec{k}_2\vec{r})}$ -обращенные по отношению к
+искомым полям.  Например для нахождения амплитуды обращенной волны используем
+в качестве вспомогательного поля 
+$\vec{e}_2^{(i)} e^{-i(\vec{k}_2\vec{r})}$ - поле имеющее распределение
+$i$-ой моды резонатора $\vec{e}_2^{(i)}$ и направленное по $\vec{k}_2$. 
+Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_2^{(i)}\right) 
+e^{-i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_2^{(i)}\right)
+e^{-i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_2^{(i)} 
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_2^{(i)}\vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}}.  
+\label{eqExample_left_1_gen} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{fig_left_gen}.
+
+Для нахождения интеграла в правой части (\ref{eqExample_left_1_gen}), 
+необходимо найти $\vec{H}_1$ и $\vec{h}_2^{(i)}$, для этого будем считать 
+волны квазиплоскими и использовать для связи $\vec{E}$ и $\vec{H}$ 
+соотношение (\ref{eqEH_tw}).
+
+Если воспользоваться условиями нормировки (\ref{eqNorm_gen}) и нулевого среднего
+для фенинга (\ref{eqZero_gen}) при усреднении по ансамблю, то для первого
+слагаемого во второй части (\ref{eqExample_left_1_gen}) имеем:
+\begin{eqnarray} 
+\left\langle\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_2^{(i)} \right]}_n 
+e^{-i(\vec{k}_2\vec{r})} }{ds}\right\rangle = 
+\sqrt{\frac{\varepsilon}{\mu}} 
+\left\langle 
+\int\limits_{S}
+{ 
+{A_{1s}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_2^{(i)} \right]}_n 
+e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} 
+\right\rangle
++
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} 
+ \sum_j \left\langle
+\int\limits_{S}
+{
+{A_{1c}^{(j)}\left( 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^{(j)\ast}\right]
+ \vec{e}_2^{(i)} \right]}_n
+} 
+{ds} \right\rangle +
+\sqrt{\frac{\varepsilon}{\mu}} 
+\left\langle
+\int\limits_{S}
+{ 
+{A_{1f}\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_{1f}\right]
+ \vec{e}_2^{(i)} \right]}_n 
+} 
+{ds}
+\right\rangle 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}}
+\sum_j 
+\left\langle
+\int\limits_{S}
+{ 
+{A_{1c}^{(j)}
+\left[ 
+ \vec{e}_2^{(i)} 
+ \left[
+  \vec{e}_2^{(j)\ast} \frac{\vec{k}_2}{k_2}
+ \right]
+\right]}_n 
+} 
+{ds}
+\right\rangle + 
+\left\langle
+\int\limits_{S}
+{ 
+{A_{1f}\left[ \vec{e}_2^{(i)}
+\left[\vec{e}_{1f} \frac{\vec{k}_2}{k_2}\right]
+ \right]}_n 
+} 
+{ds}
+\right\rangle 
+=
+%\nonumber \\
+%=\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}{ 
+%{\left[ 
+%\vec{e}_2
+%\left[\vec{E}_1\frac{\vec{k}_1}{k_1}\right]
+% \right]}_n 
+%e^{-i(\vec{k}_1\vec{r})} }{ds} = 
+%- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1
+%\int\limits_{S}{
+%\left(
+%\vec{e}_2 \vec{E}_1
+%\right)
+%e^{-i(\vec{k}_1\vec{r})} }{ds}=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\int\limits_{S}{
+\left\{
+\sum_j
+\left(
+A_{1c}^{(j)}
+\left\langle
+\left(
+\vec{e}_2^{(i)}
+\vec{e}_2^{(j)\ast}
+\right) 
+\right\rangle
+\right)
+ + 
+A_{1f}
+\left\langle
+\left(
+\vec{e}_2^{(i)}
+\vec{e}_{1f}
+\right)
+\right\rangle   
+\right\}
+}{ds}=
+\nonumber \\
+=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_{1c}^{(i)} \quad
+\label{eqFirstAddend_left_gen}. 
+\end{eqnarray}
+
+
+
+При выводе данного соотношения
+пренебрегалось быстро осциллирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{-i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторных произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2^{(i)}\right) = 0.$ 
+
+Второе слагаемое  в правой части (\ref{eqExample_left_1_gen}) 
+, как нетрудно показать, удвоит данный результат. 
+Таким образом в правой части (\ref{eqExample_left_1_gen}) имеем
+\[
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_2^{(i)} 
+\right]}_n e^{-i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_2^{(i)}\vec{E}_1  \right]}_n
+e^{-i(\vec{k}_2\vec{r})} \right\}} = 
+- 2\cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_c^{(1)}.
+\] 
+ 
+Остается рассмотреть объемный интеграл в правой части (\ref{eqExample_left_1_gen}). 
+Для этого воспользуемся соотношением (\ref{eqJ_left_gen}) для эквивалентных токов. 
+В итоге получим: 
+\begin{eqnarray}
+\left\langle
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{0}^{z}{dz'} 
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_1 \vec{e}_2^{(i)}\right)
+e^{-i(\vec{k}_2\vec{r})}} 
+\right\rangle
+= 
+\nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{0}^{z}{A_{1s}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e}_2^{(i)}\right)ds
+} \right\rangle = 
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_{1c}^{(i)} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+$e^{-i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,$ согласно условию 
+(\ref{eqVectors_gen}), а остальными членами с осциллирующими множителями   
+пренебрегалось. 
+
+Обозначим
+\begin{equation}
+M^{(i)} = 
+\left\langle
+\int\limits_{S}{ \varepsilon_m^\ast \left(\vec{e}_1
+\vec{e}_2^{(i)}\right)ds}
+\right\rangle,
+\label{eqM_i_gen} 
+\end{equation}
+тогда
+\[
+A_{1c}^{(i)} = -
+\frac{i\omega}{
+2  c  \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}\int_{0}^{z}{A_{1s} M^{(i)}  dz'}. 
+\]  
+Дифференцируя по $z$, получим
+\[
+\frac{\partial{A_{1c}^{(i)}}}{\partial{z}} = - 
+\frac{i\omega}{2  c  cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_{1s}M^{(i)}. 
+\] 
+
+Во втором случае вспомогательное поле :
+$\vec{e}_1^\ast e^{i(\vec{k}_1\vec{r})}$. 
+Запишем прежде всего лемму Лоренца (\ref{eqLemmaLor_tw}) для этого случая:
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1^\ast \right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{0}^{z}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1^\ast \right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+=\int\limits_{S}{ds \left\{ {\left[ \vec{H}_1\vec{e}_1^\ast  
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{h}_1^\ast \vec{E}_1  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}},  
+\label{eqExample_left_2_gen}
+\end{eqnarray} 
+и опять же область интегрирования изображена на рис. \ref{fig_left_gen}.
+Первое слагаемое интеграла в правой части (\ref{eqExample_left_2_gen}), 
+учитывая усреднение по ансамблю,  можно вычислить 
+по аналогии с (\ref{eqFirstAddend_left_gen}):
+\begin{eqnarray} 
+\left\langle
+\int\limits_{S}{ {\left[ \vec{H}_1\vec{e}_1^\ast \right]}_n 
+e^{-i(\vec{k}_1\vec{r})} }{ds} 
+\right\rangle
+= 
+\sqrt{\frac{\varepsilon}{\mu}} 
+\left\langle
+\int\limits_{S}
+{ 
+{A_{1s}\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1\right]
+ \vec{e}_1^\ast \right]}_n 
+} 
+{ds}
+\right\rangle
+=
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}} 
+\left\langle
+\int\limits_{S}
+{ 
+\left(
+{A_{1s}
+\left[ 
+ \vec{e}_1 
+ \left[
+  \vec{e}_1^\ast \frac{\vec{k}_1}{k_1}
+ \right]
+\right]}_n  
+\right)
+} 
+{ds} 
+\right\rangle
+=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_{1s}
+\nonumber. 
+\end{eqnarray}
+Учитывая, что второе слагаемое удвоит данный результат,
+для (\ref{eqExample_left_2_gen}) можно получить:
+\begin{eqnarray}
+\frac{i\omega}{c}
+\sum_i
+\int_{0}^{z}{A_{1c}^{(i)}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{e}_2^{(i)\ast}
+\right) ds }
+\right\rangle+
+\nonumber \\
++
+\frac{i\omega}{c}
+\int_{0}^{z}{A_{1f}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m
+\left(
+\vec{e}_1^\ast
+\vec{e}_{1f}
+\right) ds }
+\right\rangle=
+- 2 \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_1 A_{1s}.
+\nonumber
+\end{eqnarray}
+
+Обозначив через 
+\begin{equation} 
+M_{1f}=\left\langle
+\int  \limits_S{\varepsilon_m^\ast(\vec{e}_{1f}^{\ast}\vec{e}_1)ds}
+\right\rangle,
+\label{eqM_F1_gen}
+\end{equation}
+окончательно, после дифференцирования, имеем
+\[
+\frac{\partial{A_{1s}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{1f}M_{1f}^\ast + \sum_i A_{1c}^{(i)}M^{(i)\ast}\right\}.
+\]
+
+Для нахождения третей компоненты 
+поля $E_1$ выберем в качестве вспомогательного поля в (\ref{eqLemmaLor_tw}) 
+поле, свободно распространяющееся в направлении $-\vec{k}_2$ без
+источников и имеющее
+распределение поля на $S$ обращенное к 
+$\vec{e}_{1f}e^{ i(\vec{k}_2\vec{r})}$,
+т. е.
+$\vec{e}_{1f}^{\ast} e^{- i(\vec{k}_2\vec{r})}.$
+Действуя по аналогии с (\ref{eqLorLeft_3_dpcm} - \ref{eqAnalogy_left_dpcm}),
+можно записать:
+\[  
+\frac{\partial{A_{1f}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_{1s}M_{1f} 
+\] 
+Таким образом, имеем:
+\begin{eqnarray}
+\frac{\partial{A_{1s}}}{\partial{z}} = 
+- \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{1f} M_{1f}^\ast + \sum_i A_{1c}^{(i)}M^{(i)\ast}\right\},
+\nonumber \\
+\frac{\partial{A_{1c}^{(i)}}}{\partial{z}} = - 
+\frac{i\omega}{2 c \cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}A_{1s} M^{(i)},
+\nonumber \\
+\frac{\partial{A_{1f}}}{\partial{z}} = 
+- \frac{i\omega}{2 c
+\cos{\theta_2}}
+\sqrt{\frac{\mu}{\epsilon}}A_{1s} M_{1f}.
+\label{eqE1_gen}
+\end{eqnarray}

@@ -1,0 +1,158 @@
+%% -*- coding:koi8-r -*-
+\subsection{Окончательный вид уравнений}
+
+Окончательный вид уравнений для полулинейного генератора выглядит следующим
+образом:
+
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right) M^{(i)}
+= 
+i \Gamma B^{(i)} 
+\frac{A_{1s}^{\ast}A_{1c}^{(i)}+A_{2s}^{(i)\ast}A_{2c}}{I_0}
++ \frac{M_0^{(i)}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{1f}} = 
+i\Gamma C_1 \frac{A_{1s}^{\ast}A_{1f}}{I_0}
++ \frac{M_{1f_0}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{2f}^{(i)}} = 
+i\Gamma C_2^{(i)} \frac{A_{2s}^{(i)\ast}A_{2f}}{I_0}
++ \frac{M_{2f_0}^{(i)}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_d} = 
+i \Gamma C_d \frac{A_{2c} A_{2d}^{\ast}}{I_0}
++ \frac{M_{d_0}}{\tau_{eff}},
+\nonumber \\
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{fd}} = 
+i \Gamma C_{fd} \frac{A_{2f} A_{2d}^{\ast}}{I_0} +
+\frac{M_{fd_0}}{\tau_{eff}}.
+\label{eqGrating_gen} 
+\end{eqnarray} 
+где коэффициенты перекрытия удовлетворяют следующим соотношениям
+\[
+B = \left.const\right|_t < 1,
+C_1 = \left.const\right|_t < 1,
+C_2^{(i)} = \left.const\right|_t < 1,
+\]
+\[
+C_d = \left.const\right|_t < 1,
+C_{fd} = \left.const\right|_t < 1,
+\]
+а 
+\[
+M_0^{(i)} = \left.const\right|_t,
+M_{1f_0} = \left.const\right|_t,
+M_{2f_0}^{(i)} = \left.const\right|_t,
+\]
+\[
+M_{d_0} = \left.const\right|_t,
+M_{fd_0} = \left.const\right|_t,
+\]
+представляют собой постоянные во времени затравочные решетки.
+
+Для полей падающих на кристалл слева:
+\begin{eqnarray}
+\frac{\partial{A_{1s}}}{\partial{z}} = 
+- i D \left\{ 
+ A_{1f} M_{1f}^\ast + \sum_i A_{1c}^{(i)}M^{(i)\ast}\right\},
+\nonumber \\
+\frac{\partial{A_{1c}^{(i)}}}{\partial{z}} = - 
+i D A_{1s} M^{(i)},
+\nonumber \\
+\frac{\partial{A_{1f}}}{\partial{z}} = 
+- i D A_{1s} M_{1f}.
+\label{eqAmpl_left_gen}
+\end{eqnarray}
+
+Для полей падающих на кристалл справа (поле в резонаторе)
+\begin{eqnarray}
+\frac{\partial{A_{2c}}}{\partial{z}} = 
+i D \left\{ 
+ A_{2d} M_d + \sum_i A_{2s}^{(i)} M^{(i)} \right\},
+\nonumber \\
+\frac{\partial{A_{2s}^{(i)}}}{\partial{z}} = 
+i D \left\{
+A_{2c} M^{(i)\ast}
++
+A_{2f} M_{2f}^{(i)\ast}
+\right\}, 
+\nonumber \\
+\frac{\partial{A_{2d}}}{\partial{z}} = 
+i D \left\{
+A_{2c} M_d^\ast
++
+A_{2f} M_{fd}^\ast
+\right\},
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+i D  \left\{ 
+ A_{2d} M_{fd} + \sum_i A_{2s}^{(i)} M_{2f}^{(i)} \right\}.
+\label{eqAmpl_right_gen}
+\end{eqnarray}
+
+В (\ref{eqAmpl_left_gen}, \ref{eqAmpl_right_gen}) по аналогии с 
+(\ref{eqAmpl_left_dpcm}, \ref{eqAmpl_right_dpcm}) 
+в целях удобства полагалось, что $\theta_1 =\theta_2=\theta$, так что
+$D=\frac{\omega}c  
+\frac 1 {2 \cos \theta}\sqrt{\frac\mu\epsilon}$.
+
+Особые слова следует сказать о граничных условиях. Для полей, падающих
+на кристалл слева:
+\begin{eqnarray}
+\left. A_{1s} \right|_{z=0} = A_{1s_0},
+\nonumber \\
+\left. A_{1c}^{(i)} \right|_{z=0} = 0,
+\nonumber \\
+\left. A_{1f} \right|_{z=0} = 0.
+\label{eqBoundary_left_gen}
+\end{eqnarray}
+Справа картина несколько иная:
+\begin{eqnarray}
+\left. A_{2s}^{(i)} \right|_{z=d} = r \left. A_{1c}^{(i)} \right|_{z=d},
+\nonumber \\ 
+\left. A_{2c} \right|_{z=d} = 0,
+\nonumber \\ 
+\left. A_{2d} \right|_{z=d} = r \left. A_{1f} \right|_{z=d},
+\nonumber \\ 
+\left. A_{2f} \right|_{z=d} = 0,
+\label{eqBoundary_right_gen}
+\end{eqnarray}
+где \(r\) - коэффициент отражения от зеркала. Очевидно что для \(r\) справедлива
+следующая оценка 
+\[
+r < 1. 
+\]
+Кроме потерь при отражении от зеркала, которые обычно составляют величину порядка
+\(1 \div 10 \% \), мы запишем в \(r\) и другие потери, как то потери в самом резонаторе,
+потери при отражении части светового пучка от граней кристалла и т. п.
+С учетом данных предположений представляется возможным использовать для \(r\) следующую оценку
+\( r \approx 0.1\).

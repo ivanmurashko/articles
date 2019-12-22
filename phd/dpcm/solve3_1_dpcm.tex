@@ -1,0 +1,184 @@
+%% -*- coding:koi8-r -*-
+\subsubsection{Случай примеси одного сорта}
+
+В случае ФРК с примесями одного сорта с  учетом диффузионного механизма записи 
+будем исходить из общего уравнения (\ref{eqEnd_1_phr}) в котором положим
+\(E_0 = 0\). 
+
+При этом с целью упрощения окончательных уравнений
+будем предполагать, что выполнено условие (\ref{eqEmEq_phr}).
+С учетом эффекта Поккельса (\ref{eqElectroOpt_phr}),обозначая через
+\begin{equation}
+\Gamma = \frac{\alpha E_D}{\tau_{eff}}
+\label{eqGamma_dpcm}
+\end{equation}
+так называемый коэффициент нелинейной связи - имеем
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right)\varepsilon_m{e}^{i\vec{\kappa}\vec{r}} =
+\nonumber \\
+=
+- i \Gamma 
+\frac{
+(\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)}{I_0}
+- i \Gamma  m_0 {e}^{i\vec{\kappa}\vec{r}}
+,
+\label{eqMaterial_1_dpcm} 
+\end{eqnarray}
+где  $I_0$
+- полная интенсивность всех падающих пучков, а через \(m_0\)
+обозначены те компоненты \(m_0\) в  (\ref{eqEnd_1_phr}) волновой вектор 
+\(K\) которых
+близок к \(\kappa\).
+
+Сохраним в правой части (\ref{eqMaterial_1_dpcm}) только члены зависящие от
+$r$ по закону $e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}}$, учтя
+что, $\vec{k}_1+\vec{k}_2+\vec{\kappa}=0$. В результате для первого слагаемого 
+правой части (\ref{eqMaterial_1_dpcm}) получим:
+\begin{eqnarray}
+(\vec{E}_1\vec{E}_1^\ast) + (\vec{E}_2\vec{E}_2^\ast) =
+\left( A_{1s} A_{1c}^{\ast} + A_{2s} A_{2c}^{\ast} \right)
+\left( \vec {e_1} \vec {e_2}\right) 
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+\nonumber \\
++ A_{1s} A_{1c}^{\ast} 
+\left( \vec {e_1} \vec{e_f^{(1)\ast}}\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+A_{2s} A_{2c}^{\ast} 
+\left( \vec {e_2} \vec{e_f^{(2)\ast}}\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}}.
+\nonumber
+\end{eqnarray}
+
+Таким образом, в пренебрежении быстро осциллирующими членами  имеем
+следующее уравнение для $\varepsilon_m$ 
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right)\varepsilon_m =
+\nonumber \\
+= - i \Gamma  
+\frac{A_{1s} A_{1c}^{\ast} + A_{2s} A_{2c}^{\ast}}{I_0}
+\left( \vec {e_1} \vec {e_2}\right) -
+\nonumber \\
+ - i \Gamma 
+\frac{A_{1s} A_{1f}^{\ast}}{I_0}
+\left( \vec {e_1} \vec{e_f^{(1)\ast}}\right) -
+\nonumber \\
+ - i \Gamma 
+\frac{A_{2s} A_{2f}^{\ast}}{I_0}
+\left( \vec {e_2} \vec{e_f^{(2)\ast}}\right)- i \Gamma   m_0 
+.
+\label{eqMatfin_dpcm}
+\end{eqnarray}
+
+Если получившееся уравнение для 
+$\varepsilon_m$ домножить на $\vec{e}_1^\ast\vec{e}_2^\ast$, проинтегрировать
+по $S$ и усреднить по ансамблю (при этом исчезнут интегралы в которые входит
+$\vec{e}_{1f,2f}$, т. к. $\left\langle{\vec{e}_{1f,2f}}\right\rangle=0$), то придем к
+уравнению для величины $M^\ast$, которая входит в систему уравнений
+(\ref{eqE1_dpcm}, \ref{eqE2_dpcm}):
+\begin{equation}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right){M^\ast} 
+= 
+- i\frac{\Gamma}{I_0}B(A_{1s} A_{1c}^{\ast}+A_{2s} A_{2c}^{\ast})
++ \frac{M_0^\ast}{\tau_{eff}}
+, 
+\label{eqM_1_dpcm}
+\end{equation}
+где
+\[
+M_0 = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_1\vec{e}_2) m_0^\ast ds}
+\] 
+а через $B$ обозначено
+\[
+B=\int 
+\limits_S{(\vec{e}_1^\ast\vec{e}_2^\ast)(\vec{e}_1\vec{e}_2)ds},
+\]
+таким образом $B$ - величина, определяемая известными распределениями полей,
+а \(M_0\) - величина постоянная во времени, которая определяет начальную
+затравку.
+
+Чтобы вывести уравнение для $M_{1f}^\ast$ нужно домножить уравнение
+(\ref{eqMatfin_dpcm}) на $(\vec{e}_1^\ast\vec{e}_{1f})$ и усреднить по
+ансамблю. При этом следует учитывать, что $\vec{e}_{1f}$ зависит от $t$ и от $z$.
+При усреднении по ансамблю можно считать, что 
+$\left\langle{ \vec\varepsilon_m
+\left(\vec{e}_1\frac{\partial\vec{e}_{1f}}{\partial{t}}\right) 
+}\right\rangle=0$ 
+и что $\vec{e}_{1f}$ и $\vec{e}_{2f}$ не кореллируют, что эквивалентно
+пренебрежению обращенным фенингом, тогда 
+$\left\langle\int\limits_S 
+{(\vec{e}_2\vec{e}_{2f}^{\ast})(\vec{e}_1^\ast\vec{e}_{1f})ds}\right\rangle 
+=0$,
+и в результате имеем:
+\begin{equation}
+\left(\frac{\partial}{\partial{t}}
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right){M_{1f}^\ast} = 
+- i\frac{\Gamma}{I_0} C_1 A_{1s} A_{1f}^{\ast}
++ \frac{M_{1f_0}^\ast}{\tau_{eff}}
+,
+\label{eqM1f_1_dpcm}
+\end{equation}
+где
+\[
+M_{1f_0} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_1\vec{e}_{1f}^\ast) m_0 ds}
+\]
+и
+\[
+C_1=\left\langle\int\limits_S 
+{(\vec{e}_1\vec{e}_{1f}^{\ast})(\vec{e}_1^\ast\vec{e}_{1f})ds}\right\rangle.
+\]
+$M_{f_0}$ и $C_1$ зависят от времени и координаты, но так как выполняются условия
+нормировки (\ref{eqNorm_dpcm}), то эта зависимость не очень сильная. При расчетах мы
+будем считать эти величины постоянными.
+
+Аналогичным образом можно получить  уравнение для $M_{2f}^\ast$. Для
+этого домножим уравнение(\ref{eqMatfin_dpcm}) на
+$(\vec{e}_2^\ast\vec{e}_{2f})$ и усредним  полученное по
+ансамблю. В результате получим:
+\begin{equation}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right)M_{2f}^\ast = -
+i\frac{\Gamma}{I_0} C_2 A_{2s} A_{2f}^{\ast}
++ \frac{M_{2f_0}^\ast}{\tau_{eff}},
+\label{eqM2f_1_dpcm}
+\end{equation}
+где
+\[
+M_{2f_0} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_2\vec{e}_{2f}^\ast) m_0 ds}
+\]
+и
+\[
+C_2=\left\langle\int\limits_S 
+{(\vec{e}_2\vec{e}_{2f}^{\ast})(\vec{e}_2^\ast\vec{e}_{2f})ds}\right\rangle.
+\]
+Опять же в дальнейшем, при расчетах, будем предполагать
+$M_{2f_0}$ и $C_2$ постоянными во времени величинами.

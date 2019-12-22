@@ -6,6 +6,7 @@
 - cattheory - Category Theory (in English) [![pdf](https://img.shields.io/badge/cattheory.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/cattheory/cattheory.pdf). 
 - dockertutorial - Docker tutorial (in English) [![pdf](https://img.shields.io/badge/dockertutorial.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/dockertutorial/dockertutorial.pdf)
 - probability - Probability paradoxes (in English, not finished) [![pdf](https://img.shields.io/badge/probability.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/probability/probability.pdf)
+- phd - PhD thesis (in Russian) [![pdf](https://img.shields.io/badge/phd.pdf-orange.svg)](https://nbviewer.jupyter.org/github/ivanmurashko/articles/blob/master/phd/phd.pdf)
 
 
 Note: The book was moved to https://github.com/CatTheoryByExample/book 

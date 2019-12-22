@@ -1,0 +1,319 @@
+%% -*- coding:koi8-r -*-
+\subsection{Вывод уравнений для среды}
+
+По аналогии с выводом уравнений среды для двойного некогерентного обращающего зеркала
+будем исходить из общего уравнения
+(\ref{eqMatfin_dpcm})
+
+Опять же - сохраним в правой части (\ref{eqMatfin_dpcm}) только члены зависящие от
+$r$ по закону $e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}}$, учтя
+что, $\vec{k}_1+\vec{k}_2+\vec{\kappa}=0$. В результате для 
+правой части (\ref{eqMatfin_dpcm}) получим:
+\begin{eqnarray}
+(\vec{E}_1\vec{E}_1^\ast) + (\vec{E}_2\vec{E}_2^\ast) =
+\nonumber \\
+=
+\left( \sum _i \left\{
+A_{1s} A_{1c}^{(i)\ast} \left( \vec {e_1} \vec {e_2}^{(i)}\right)
+\right\}
++ A_{1s} A_{1f}^{\ast} \left( \vec {e_1} \vec {e_{1f}^{\ast}}\right)
+\right) 
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+\nonumber \\
++
+\left( 
+\sum_i
+\left\{
+A_{2s}^{(i)} A_{2c}^{\ast} 
+\left( \vec {e_2} \vec {e_1}\right)
+\right\}
++
+%e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+A_{2d} A_{2c}^{\ast} 
+\left(\vec{e_d} \vec {e_1}\right)
+\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} 
+ +
+\nonumber \\
++
+\left(
+\sum_i
+\left\{
+%e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} +
+A_{2s}^{(i)} A_{2f}^{\ast} 
+\left( \vec{e_2}^{(i)} \vec{e_{2f}^{\ast}}\right) 
+\right\}
++
+A_{2d} A_{2f}^{\ast} 
+\left( \vec {e_d} \vec{e_{2f}^{\ast}}\right) 
+\right)
+e^{- i\left(\vec{k_1}+ \vec{k_2}\right) \vec{r}} 
+.
+\nonumber
+\end{eqnarray}
+Таким образом, в пренебрежении быстро осциллирующими членами  имеем
+следующее уравнение для $\varepsilon_m$ 
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right)\varepsilon_m =
+\nonumber \\
+- i \Gamma \sum_i
+\frac{
+A_{1s} A_{1c}^{(i)\ast} + A_{2s}^{(i)} A_{2c}^{\ast}
+}{I_0}
+\left( \vec {e_1} \vec {e_2}^{(i)\ast}\right)
+-
+\nonumber \\
+- i \Gamma
+\frac{A_{1s} A_{1f}^{\ast}}{I_0} 
+\left( \vec {e_1} \vec {e_{1f}^{\ast}}\right) 
+- \Gamma \sum_i
+\frac{A_{2s}^{(i)} A_{2f}^{\ast}}{I_0} 
+\left( \vec {e_2}^{(i)} \vec{e_{2f}^{\ast}}\right)
+ -
+\nonumber \\
+- i \Gamma
+\frac{A_{2d} A_{2c}^{\ast}}{I_0}
+\left(\vec{e_d} \vec {e_1}\right)
+- i \Gamma
+\frac{A_{2d} A_{2f}^{\ast} }{I_0}
+\left( \vec {e_d} \vec{e_{2f}^{\ast}}\right)
+- i \Gamma   m_0
+.
+\label{eqMatFinPre_gen}
+\end{eqnarray}
+
+С другой  стороны нам удобно иметь в дальнейшем дело с уравнением для
+$\varepsilon_m^\ast$. Объединяя (\ref{eqMatFinPre_gen}), (\ref{eqM_i_gen}),
+(\ref{eqM_F1_gen}), (\ref{eqM_F2_gen}), (\ref{eqM_D_gen}) и (\ref{eqM_FD_gen})
+окончательно имеем
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right)\varepsilon_m^\ast =
+\nonumber \\
++ i \Gamma \sum_i
+\frac{
+A_{1s}^{\ast} A_{1c}^{(i)} + A_{2s}^{(i)\ast} A_{2c}
+}{I_0}
+\left( \vec {e_1}^{\ast} \vec {e_2}^{(i)}\right)
++
+\nonumber \\
++ i \Gamma
+\frac{A_{1s}^{\ast} A_{1f}}{I_0} 
+\left( \vec {e_1}^{\ast} \vec {e_{1f}}\right) 
++ \Gamma \sum_i
+\frac{A_{2s}^{(i)\ast} A_{2f}}{I_0} 
+\left( \vec {e_2}^{(i)\ast} \vec{e_{2f}}\right)
+ +
+\nonumber \\
++ i \Gamma
+\frac{A_{2d}^{\ast} A_{2c}}{I_0}
+\left(\vec{e_d}^{\ast} \vec {e_1}^{\ast}\right)
++ i \Gamma
+\frac{A_{2d}^{\ast} A_{2f} }{I_0}
+\left( \vec {e_d}^{\ast} \vec{e_{2f}}\right)
++ i \Gamma   m_0^\ast,
+\nonumber \\
+M^{(i)} = 
+\left\langle
+\int\limits_{S}{ \varepsilon_m^\ast \left(\vec{e}_1
+\vec{e}_2^{(i)}\right)ds}
+\right\rangle,
+\nonumber \\
+M_{1f}=\left\langle
+\int  \limits_S{\varepsilon_m^\ast(\vec{e}_{1f}^{\ast}\vec{e}_1)ds}
+\right\rangle,
+\nonumber \\
+M_{2f}^{(i)} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_2}^{(i)}\right)ds
+}\right\rangle,
+\nonumber \\
+M_d = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e_d}\right)ds
+}\right\rangle,
+\nonumber \\
+M_{fd} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_d}\right)ds
+}\right\rangle.
+\label{eqMatFin_gen}
+\end{eqnarray}   
+
+Если уравнение (\ref{eqMatFin_gen}) домножить на
+$\vec{e}_1\vec{e}_2^{(i)}$, проинтегрировать 
+по $S$ и усреднить по ансамблю (при этом исчезнут интегралы в которые входит
+$\vec{e}_f$, т. к. $\left\langle{\vec{e}_f}\right\rangle=0$), то придем к
+уравнению для величины $M^{(i)}$, которая входит в систему уравнений
+(\ref{eqE1_gen}, \ref{eqE2_gen}):
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right)
+\right) M^{(i)}
+= 
+i \Gamma B^{(i)} 
+\frac{A_{1s}^{\ast}A_{1c}^{(i)}+A_{2s}^{(i)\ast}A_{2c}}{I_0}
++ \frac{M_0^{(i)}}{\tau_{eff}}, 
+\] 
+где введены следующие обозначения:
+\[
+B^{(i)}=\int 
+\limits_S{(\vec{e}_1^\ast\vec{e}_2^{(i)\ast})(\vec{e}_1\vec{e}_2^{(i)})ds}.
+\]
+и
+\[
+M_0^{(i)} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_1\vec{e}_2^{(i)}) m_0^\ast ds}
+\]
+Здесь $B^{(i)}$ - величина, определяемая известными распределениями полей,
+а $M_0^{(i)}$ - определяет начальную затравку.
+
+Чтобы вывести уравнение для $M_{1f}$ нужно домножить уравнение
+(\ref{eqMatFin_gen}) на $(\vec{e}_1\vec{e}_{1f}^{\ast})$ и усреднить по
+ансамблю. При этом следует учитывать, что $\vec{e}_{1f}$ зависит от $t$ и от $z$.
+При усреднении по ансамблю можно считать, что 
+$\left\langle{ \vec\varepsilon_m^\ast
+\left(\vec{e}_1\frac{\partial\vec{e}_{1f}^{\ast}}{\partial{t}}\right) 
+}\right\rangle=0$ 
+и что $\vec{e}_{1f}$ и $\vec{e}_{2f}$ не кореллируют, что эквивалентно
+пренебрежению обращенным фенингом, тогда 
+\(\left\langle\int\limits_S 
+{(\vec{e}_2^{(i)}\vec{e}_{2f}^{\ast})(\vec{e}_1\vec{e}_{1f}^{\ast})ds}\right\rangle 
+=0\),
+и в результате имеем:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{1f}} = 
+i\Gamma C_1 \frac{A_{1s}^{\ast}A_{1f}}{I_0}
++ \frac{M_{1f_0}}{\tau_{eff}}, 
+\]
+где
+\[
+C_1=\left\langle\int\limits_S 
+{(\vec{e}_1\vec{e}_{1f}^{\ast})(\vec{e}_1^\ast\vec{e}_{1f})ds}\right\rangle.
+\]
+$C_1$ зависит от времени и координаты, но так как выполняются условия
+нормировки (\ref{eqNorm_gen}), то эта зависимость не очень сильная. 
+При расчетах мы будем считать эту величину постоянной.
+Кроме того для начальной затравки имеем
+\[
+M_{1f_0} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_1 \vec{e}_{1f}^\ast) m_0^\ast ds}.
+\]
+
+Аналогичным образом можно получить  уравнение для $M_{2f}^{(i)}$. Для
+этого домножим уравнение (\ref{eqMatFin_gen}) на
+$(\vec{e}_2^{(i)}\vec{e}_{2f}^{\ast})$ и усредним  полученное по
+ансамблю. В результате получим:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{2f}^{(i)}} = 
+i\Gamma C_2^{(i)} \frac{A_{2s}^{(i)\ast}A_{2f}}{I_0}
++ \frac{M_{2f_0}^{(i)}}{\tau_{eff}},
+\]
+где коэффициент перекрытия $C_2^{(i)}$ 
+определяется следующим выражением
+\[
+C_2^{(i)}=\left\langle\int\limits_S 
+{(\vec{e}_2^{(i)\ast}\vec{e}_{2f})(\vec{e}_2^{(i)}\vec{e}_{2f}^{\ast})ds}
+\right\rangle,
+\]
+а начальная затравка -
+\[
+M_{2f_0}^{(i)} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_2^{(i)} \vec{e}_{2f}^\ast) m_0^\ast ds}.
+\]
+
+Чтобы вывести уравнение для $M_d$, нужно домножить уравнение
+(\ref{eqMatFin_gen}) на $(\vec{e}_1 \vec{e_d})$ и усреднить по
+ансамблю. При этом следует учитывать, что $\vec{e_d}$ зависит от $t$.
+При усреднении по ансамблю можно считать, что 
+\[\left\langle{ \vec\varepsilon_m^\ast
+\left(\vec{e}_1\frac{\partial\vec{e_d}}{\partial{t}}\right) 
+}\right\rangle=0,\]
+так что в результате имеем:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_d} = 
+i \Gamma C_d \frac{A_{2c} A_{2d}^{\ast}}{I_0}
++ \frac{M_{d_0}}{\tau_{eff}},
+\]
+где
+\[
+C_d=\left\langle\int\limits_S 
+{(\vec{e}_1^\ast\vec{e_d}^{\ast})(\vec{e}_1 \vec{e_d})ds}\right\rangle
+\]
+и
+\[
+M_{d_0} = i \alpha E_D  \int 
+\limits_S
+{ (\vec{e}_1 \vec{e_d}) m_0^\ast ds}.
+\]
+Здесь $C_d$ зависит от времени, но так как выполняются условия
+нормировки (\ref{eqNorm_gen}), то эта зависимость не очень сильная. При расчетах мы
+будем считать эту величину постоянной.
+
+И, наконец, для того чтобы получить уравнение для $M_{fd}$ -  домножим уравнение
+(\ref{eqMatFin_gen}) на $(\vec{e}_{2f}^{\ast} \vec{e_d})$ и усреднить по
+ансамблю. При этом опять же следует учитывать, что $\vec{e_d}$ и  
+$\vec{e}_{2f}$ зависят от $t$.
+При усреднении по ансамблю можно считать, что 
+$\left\langle{ \vec\varepsilon_m^\ast
+\left(\vec{f}_f^{(2)\ast}\frac{\partial\vec{e_d}}{\partial{t}}\right) 
+}\right\rangle=0$  и
+$\left\langle{ \vec\varepsilon_m^\ast
+\left(\frac{\partial\vec{f}_f^{(2)\ast}}{\partial{t}}\vec{e_d}\right) 
+}\right\rangle=0$ 
+так что в результате имеем:
+\[
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_q}
+\right) 
+\right) 
+{M_{fd}} = 
+i \Gamma C_{fd} \frac{A_{2f} A_{2d}^{\ast}}{I_0} +
+\frac{M_{fd_0}}{\tau_{eff}},
+\]
+где
+\[
+C_{fd}=\left\langle\int\limits_S 
+{(\vec{e}_{2f}\vec{e_d}^{\ast})(\vec{e}_{2f}^{\ast} \vec{e_d})ds}\right\rangle
+\]
+и
+\[
+M_{fd_0} = i \alpha E_D  \int 
+\limits_S
+{(\vec{e}_{2f}^{\ast} \vec{e_d}) m_0^\ast ds}.
+\]

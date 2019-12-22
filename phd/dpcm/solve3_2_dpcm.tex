@@ -1,0 +1,176 @@
+%% -*- coding:koi8-r -*-
+\subsubsection{Случай примеси двух сортов}
+В случае кристалла с примесями двух сортов мы будем исходить из системы
+уравнений (\ref{eqEsc_1_End_2_phr}, \ref{eqEsc_2_End_2_phr}), предполагая, что
+\[
+\varepsilon_m = \varepsilon_m^{(1)} + \varepsilon_m^{(2)}.
+\]
+Таким образом, полагая
+\begin{eqnarray}
+M^{(1,2)} = \int\limits_{S}
+{ \varepsilon_m^{(1,2)\ast} \left(\vec{e}_1 \vec{e}_2\right)ds},
+\nonumber \\
+M_{1f}^{(1,2)}=\left\langle
+\int  \limits_S{\varepsilon_m^{(1,2)\ast}
+(\vec{e}_{1f}^\ast \vec{e}_1)ds} \right\rangle,
+\nonumber \\
+M_{2f}^{(1,2)}=\left\langle
+\int  \limits_S{\varepsilon_m^{(1,2)\ast}
+(\vec{e}_{2f}^\ast\vec{e}_2)ds} \right\rangle,
+\label{eqMs_2_dpcm}
+\end{eqnarray}
+имеем
+\begin{eqnarray}
+M = M^{(1)} + M^{(2)},
+\nonumber \\
+M_{1f} = M_{(1f)}^{(1)} + M_{(1f)}^{(2)},
+\nonumber \\
+M_{2f} = M_{(2f)}^{(1)} + M_{(2f)}^{(2)}.
+\nonumber
+\end{eqnarray}
+
+По аналогии с выводом (\ref{eqMaterial_1_dpcm}), полагая при диффузионном
+механизме записи \(E_0 = 0\), а также считая что выполняется условие 
+(\ref{eqEmEq_phr}), получим из (\ref{eqEsc_1_End_2_phr}) для первого 
+сорта примесей \(\varepsilon_m^{(1)}\):
+\begin{eqnarray}  
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q^{(1)}}
+\right)
+\right)\varepsilon_m^{(1)}{e}^{i\vec{\kappa}\vec{r}} =
+\nonumber \\
+=
+- i \Gamma 
+\frac{
+(\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)}{I_0}
+- i \Gamma  m_0^{(1)} {e}^{i\vec{\kappa}\vec{r}} -
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_m^{(1)}}
+\right)
+\varepsilon_m^{(2)}{e}^{i\vec{\kappa}\vec{r}}
+,
+\label{eqMaterial_2_1_dpcm} 
+\end{eqnarray}
+где \(I_0\) суммарная интенсивность света, освещающего образец, а \(\Gamma\) 
+определяется (\ref{eqGamma_dpcm}). Через \(m_0^{(1)}\)
+обозначены те компоненты \(m_0^{(1)}\) в  (\ref{eqEsc_1_End_2_phr}) волновой вектор 
+\(K\) которых
+близок к \(\kappa\).
+
+Для второго уравнения (\ref{eqEsc_2_End_2_phr}) мы будем предполагать 
+в дальнейшем 
+\[
+\frac{1}{\tau_m^{(2)}} \approx \frac{1}{\tau_I^{(2)}}
+\gg \frac{\tau}{\tau_m^{(1)} \cdot \tau_R^{(2)}}. 
+\]
+Это позволяет нам упростить (\ref{eqEsc_2_End_2_phr}) и записать
+\begin{eqnarray}  
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+\varepsilon_m^{(2)}{e}^{i\vec{\kappa}\vec{r}} =
+\nonumber \\
+=
+- i \frac{\tau_{eff}}{\tau_m^{(2)}} \Gamma^{(2)} 
+\frac{
+(\vec{E}_1\vec{E}_1^\ast) + 
+(\vec{E}_2\vec{E}_2^\ast)}{I_0}
+- i \Gamma^{(2)} m_0^{(2)} {e}^{i\vec{\kappa}\vec{r}}
+,
+\label{eqMaterial_2_2_dpcm} 
+\end{eqnarray}
+где обозначено
+\[
+\Gamma^{(2)} = \Gamma \frac{E_m^{(2)}}{E_D}.
+\]
+
+Соотношения описывающие изменение во времени величин (\ref{eqMs_2_dpcm}) 
+можно получить по аналогии с эволюционными уравнениями для случая 
+примесей одного сорта (\ref{eqM_1_dpcm}, \ref{eqM1f_1_dpcm}, 
+\ref{eqM2f_1_dpcm}):
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right){M^{(1)\ast}} 
+= 
+- i B \frac{\Gamma}{I_0} (A_{1s} A_{1c}^{\ast}+A_{2s} A_{2c}^{\ast})
+-
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_m^{(1)}}
+\right) M^{(2)\ast}
++ \frac{M_0^{(1)\ast}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M^{(2)\ast}} 
+= - i \frac{\tau_{eff}}{\tau_m^{(2)}}
+\frac{\Gamma^{(2)}}{I_0} B (A_{1s} A_{1c}^{\ast}+A_{2s} A_{2c}^{\ast})
++ \frac{M_0^{(2)\ast}}{\tau_{m}^{(2)}}
+,
+\label{eqM_2_dpcm}
+\end{eqnarray}
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right){M_{1f}^{(1)\ast}} 
+= 
+- i\frac{\Gamma}{I_0} C_1 (A_{1s} A_{1f}^{\ast})
+-
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_m^{(1)}}
+\right) M_{1f}^{(2)\ast}
++ \frac{M_{1f_0}^{(1)\ast}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M_{1f}^{(2)\ast}} 
+= - i \frac{\tau_{eff}}{\tau_m^{(2)}}
+\frac{\Gamma^{(2)}}{I_0} C_1 (A_{1s} A_{1f}^{\ast})
++ \frac{M_{1f_0}^{(2)\ast}}{\tau_{m}^{(2)}}
+,
+\label{eqM1f_2_dpcm}
+\end{eqnarray}
+\begin{eqnarray}
+\left(\frac{\partial}{\partial{t}} 
++\frac{1}{\tau_{eff}}
+\left(
+1 - i \frac{E_D}{E_q}
+\right)
+\right){M_{2f}^{(1)\ast}} 
+= 
+- i\frac{\Gamma}{I_0}C_2 (A_{2s} A_{2f}^{\ast})
+-
+\nonumber \\
+- \frac{1}{\tau_{eff}}
+\left(
+1 + i \frac{E_D}{E_m^{(1)}}
+\right) M_{2f}^{(2)\ast}
++ \frac{M_{2f_0}^{(1)\ast}}{\tau_{eff}},
+\nonumber \\
+\left(
+\frac{\partial}{\partial{t}} + \frac{1}{\tau_I^{(2)}}
+\right) 
+{M_{2f}^{(2)\ast}} 
+= - i \frac{\tau_{eff}}{\tau_m^{(2)}}
+\frac{\Gamma^{(2)}}{I_0} C_2 (A_{2s} A_{2f}^{\ast})
++ \frac{M_{2f_0}^{(2)\ast}}{\tau_{m}^{(2)}}
+.
+\label{eqM2f_2_dpcm}
+\end{eqnarray}

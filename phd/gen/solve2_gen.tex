@@ -1,0 +1,500 @@
+%% -*- coding:koi8-r -*-
+\subsection{Поля падающие на кристалл  справа}
+
+Рассмотрим теперь поле $E_2$. Опять же применим лемму Лоренца 
+(\ref{eqLemmaLor_tw}) для этого случая.
+Область интегрирования изображена на рис. \ref{fig_right_gen}.
+ 
+В качестве эквивалентного тока выберем:
+\begin{equation} 
+\vec{j}_{eq}=i\vec{E}_2\mbox{\tiny$\Delta$\normalsize}\varepsilon
+\frac{\omega}{4\pi}, 
+\label{eqJ_right_gen} 
+\end{equation} 
+где возмущение диэлектрической проницаемости
+\tiny{$\Delta$}\normalsize$\varepsilon$
+определяется соотношением (\ref{eqEpsilon_gen})
+
+\input ./gen/fig_right_gen.tex
+
+
+В качестве поля ($a$)в (\ref{eqLemmaLor_tw}) примем поле $\vec{E}_2$ 
+в виде разложения (\ref{eqE_right_gen}) с
+источником $\vec{j}_{eq}$ в виде (\ref{eqJ_right_gen}), а в качестве произвольного
+вспомогательного поля ($b$), не имеющего источников, примем поочередно 
+$\vec{e}_2^\ast e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e_d}^{\ast}  e^{i(\vec{k}_2\vec{r})}$,
+$\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$ и 
+$\vec{e}_{2f}^{\ast}e^{-i(\vec{k}_1\vec{r})}$ -обращенные по отношению к
+искомым полям.
+
+Например для нахождения соотношения, описывающего динамику развития амплитуды
+поля $A_{2d}$, примем  в качестве вспомогательного поля
+$\vec{e_d}^{\ast}  e^{i(\vec{k}_2\vec{r})}$ - поле имеющее распределение
+$\vec{e_d}^{\ast}$ и направленное по $-\vec{k}_2$, т. е. против направления
+распространения рассеянного поля $\vec{E}_{2d}$. Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e_d}^{\ast}\right) 
+e^{i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e_d}^{\ast}\right)e^{i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e_d}^{\ast} 
+\right]}_n e^{i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_d^{\ast}\vec{E}_2  \right]}_n
+e^{i(\vec{k}_2\vec{r})} \right\}}.  
+\label{eqExample_right_1_gen} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{fig_right_gen}.
+
+Для нахождения интеграла в правой части (\ref{eqExample_right_1_gen}), 
+будем считать волны квазиплоскими и пользоваться соотношением
+(\ref{eqEH_tw}).
+
+Если воспользоваться условиями нормировки (\ref{eqNorm_gen}) и нулевого среднего
+для фенинга (\ref{eqZero_gen}) при усреднении по ансамблю, то для
+усредненного по ансамблю  первого
+слагаемого во второй части (\ref{eqExample_right_1_gen}) имеем:
+\begin{eqnarray} 
+\left\langle
+\int\limits_{S}{ {\left[ \vec{H}_2\vec{e_d}^{\ast} \right]}_n 
+e^{i(\vec{k}_2\vec{r})} }{ds} 
+\right\rangle
+=\sqrt{\frac{\varepsilon}{\mu}} 
+\sum_i
+\int\limits_{S}
+{ 
+A_{2s}^{(i)}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_2^{(i)}\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle 
+} 
+{ds}+
+\nonumber \\
++\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_{2c}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_1}{k_1}\vec{e}_1^\ast\right] \vec{e_d}^{\ast} 
+\right]_n
+\right\rangle 
+e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} 
++
+\nonumber \\
++
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_{2d}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e_d}\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle 
+} 
+{ds} 
++ 
+\nonumber \\
++
+\sqrt{\frac{\varepsilon}{\mu}} \int\limits_{S}
+{ 
+A_{2f}
+\left\langle
+\left[ 
+\left[\frac{\vec{k}_2}{k_2}\vec{e}_{2f}\right]
+ \vec{e_d}^{\ast} \right]_n
+\right\rangle  
+e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}
+} 
+{ds} 
+= 
+\nonumber \\
+=
+\sqrt{\frac{\varepsilon}{\mu}}
+\sum_i
+A_{2s}^{(i)}
+\left\langle 
+\int\limits_{S}
+{ 
+\left[ 
+ \vec{e_d}^{\ast} 
+ \left[
+  \vec{e}_2^{(i)\ast} \frac{\vec{k}_2}{k_2}
+ \right]
+\right]_n 
+} 
+{ds}
+\right\rangle
++
+\sqrt{\frac{\varepsilon}{\mu}}
+A_{2d}
+\left\langle 
+\int\limits_{S}
+{
+\left[ \vec{e_d}^{\ast}
+\left[\vec{e_d} \frac{\vec{k}_2}{k_2}\right]
+ \right]_n 
+} 
+{ds}
+\right\rangle
+=
+\nonumber \\
+= - \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2
+\left\{
+A_{2s}^{(i)}
+\left\langle
+\int\limits_{S}{
+\left(
+\vec{e_d}^{\ast}
+\vec{e}_2^{(i)\ast}
+\right)
+}{ds}  
+\right\rangle
+ +
+A_{2d}
+\left\langle
+\int\limits_{S}{
+\left(
+\vec{e_d}^{\ast}
+\vec{e_d}
+\right)
+}{ds}
+\right\rangle
+\right\}=
+- \sqrt{\frac{\varepsilon}{\mu}}\cos\theta_2 A_{2d}
+\nonumber. 
+\end{eqnarray} 
+
+При выводе данного соотношения
+пренебрегалось быстро осциллирующими членами, что позволило исключить из
+рассмотрения слагаемое с множителем 
+$e^{i(\vec{k}_2+\vec{k}_1)\vec{r}}$. 
+Кроме того при раскрытии векторных произведений использовалось очевидное
+тождество : 
+$\left(\vec{k}_2 \vec{e}_2\right) = 0.$ 
+
+Второе слагаемое в правой части (\ref{eqExample_right_1_gen}) удвоит данный результат и 
+таким образом в правой части (\ref{eqExample_right_1_gen}) имеем  
+\[
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e_d}^{\ast} 
+\right]}_n e^{i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_d^{\ast}\vec{E}_2  \right]}_n
+e^{i(\vec{k}_2\vec{r})} \right\}} = 
+- 2\cos{\theta_2} \sqrt{\frac{\varepsilon}{\mu}}A_{2d}.
+\] 
+
+
+Остается рассмотреть объемный интеграл в правой части (\ref{eqExample_right_1_gen}). Для
+этого воспользуемся соотношением (\ref{eqJ_right_gen}) для эквивалентных токов. 
+В итоге получим: 
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_d}^{\ast}\right)
+e^{i(\vec{k}_2\vec{r})}}
+\right\rangle 
+= 
+\nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{
+\left\{
+A_{2c}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{e}_1^\ast \vec{e_d}^{\ast}\right)
+ds}
+\right\rangle
++
+A_{2f}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m 
+\left(
+\vec{e}_{2f} \vec{e_d}^\ast
+\right)
+ds}
+\right\rangle
+\right\}
+dz'}
+= 
+\nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_{2d} 
+.\nonumber
+\end{eqnarray}
+При проведении данных выкладок сохранялись только те члены, для которых 
+\[e^{i((\vec{\kappa}+\vec{k}_1+\vec{k}_2)\vec{r})}=1,\]
+согласно условию 
+(\ref{eqVectors_gen}), а остальными членами с осциллирующими множителями   
+пренебрегалось. 
+
+Дифференцируя правую часть данного соотношения по $z$  
+несложно окончательно получить:
+\[
+\frac{\partial{A_{2d}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_1} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_{2c} M_d^\ast
++
+A_{2f} M_{fd}^\ast
+\right\}.
+\] 
+Здесь через $M_d$ обозначено
+\begin{equation}
+M_d = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_1 \vec{e_d}\right)ds
+}\right\rangle,
+\label{eqM_D_gen}
+\end{equation}
+а через $M_{fd}$
+\begin{equation}
+M_{fd} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_d}\right)ds
+}\right\rangle,
+\label{eqM_FD_gen}
+\end{equation}
+
+
+Для нахождения амплитуды поля $i$-ой моды резонатора $\vec{E}_{2s}^{(i)}$ будем использовать 
+в качестве вспомогательного поля $\vec{e}_2^{(i)\ast} e^{i(\vec{k}_2\vec{r})}$ 
+ - поле имеющее распределение обращенное к $i$-ой моде резонатора:
+$\vec{e}_2^{(i)\ast}$ и направленное по $-\vec{k}_2$, т. е. против направления
+распространения моды. Действуя по аналогии с вышеизложенным
+запишем лемму Лоренца для этого случая
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_2^{(i)\ast}\right) 
+e^{i(\vec{k}_2\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_2^{(i)\ast}\right)e^{i(\vec{k}_2\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e}_2^{(i)\ast} 
+\right]}_n e^{i(\vec{k}_2\vec{r})} - {\left[ \vec{h}_{2}^{(i)\ast}\vec{E}_2  \right]}_n
+e^{i(\vec{k}_2\vec{r})} \right\}}.  
+\label{eqExample_right_2_gen} 
+\end{eqnarray} 
+
+Усредняя ({\ref{eqExample_right_2_gen}}) по ансамблю и воспользовавшись соотношением
+(\ref{eqJ_right_gen}) для эквивалентных токов имеем:
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_2}^{(i)\ast}\right)
+e^{i(\vec{k}_2\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\int_{z}^{d}{
+\left\{
+A_{2c}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{e}_1^\ast \vec{e_2}^{(i)\ast}\right)ds}
+\right\rangle
++
+A_{2f}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m \left(\vec{e}_{2f} \vec{e_2}^{(i)\ast}\right)ds}
+\right\rangle
+\right\}
+dz'}
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_{2s}^{(i)} 
+.\nonumber
+\end{eqnarray}
+При этом было учтено соотношение (\ref{eqNorm_gen}), в частности условие
+нормировки мод резонатора.
+
+Введя следующее обозначение:
+\begin{equation}
+M_{2f}^{(i)} = \left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_2}^{(i)}\right)ds
+}\right\rangle,
+\label{eqM_F2_gen}
+\end{equation}
+
+можно окончательно записать:
+\[
+\frac{\partial{A_{2s}^{(i)}}}{\partial{z}} = 
+\frac{i\omega}{2 c cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_{2c} M^{(i)\ast}
++
+A_{2f} M_{2f}^{(i)\ast}
+\right\}. 
+\] 
+
+Для нахождения амплитуды  поля обращенной
+волны $\vec{E}_{2c}$, используем в качестве
+вспомогательного поля $\vec{e}_1 e^{-i(\vec{k}_1\vec{r})}$.
+Лемма Лоренца при этом дает:   
+\begin{eqnarray} 
+\frac{4\pi}{c} \int\limits_{V}{ \left(\vec{j}_{eq}\vec{e}_1\right) 
+e^{-i(\vec{k}_1\vec{r})}}dv = \frac{4\pi}{c} \int_{z}^{d}{dz'} 
+\int\limits_{S}{ds\left(\vec{j}_{eq}\vec{e}_1\right)e^{-i(\vec{k}_1\vec{r})}} 
+= 
+\nonumber \\ 
+\int\limits_{S}{ds \left\{ {\left[ \vec{H}_2\vec{e}_1 
+\right]}_n e^{-i(\vec{k}_1\vec{r})} - {\left[ \vec{e}_1\vec{E}_2  \right]}_n
+e^{-i(\vec{k}_1\vec{r})} \right\}}.  
+\label{eqExample_right_3_gen} 
+\end{eqnarray} 
+Область интегрирования изображена на рис. \ref{fig_right_gen}.
+Действуя по аналогии с изложенным выше, усредняя выражение
+({\ref{eqExample_right_3_gen} }), несложно получить:
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e_1}\right)
+e^{-i(\vec{k}_1\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\sum_i
+\int_{z}^{d}{A_{2s}^{(i)}dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e_1} \vec{e_2^{(i)}}\right)
+ds}
+\right\rangle
++
+\frac{i\omega}{c}
+\int_{z}^{d}{A_{2d} dz'}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e_1} \vec{e_d}\right)ds}
+\right\rangle
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_{2c} 
+,\nonumber
+\end{eqnarray}
+или же после дифференцирования -
+\[
+\frac{\partial{A_{2c}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{2d} M_d + \sum_i A_{2s}^{(i)} M^{(i)} \right\},
+\]
+
+По аналогии с изложенным выше можно получить соотношение для амплитуды
+фенинга. 
+
+В качестве  вспомогательного поля примем
+$\vec{e}_{2f}^{\ast}e^{-i(\vec{k}_1\vec{r})}$. Усредняя по ансамблю
+выражение для леммы Лоренца, имеем: 
+\begin{eqnarray}
+\frac{4 \pi}{c} \frac{i \omega}{4 \pi}
+\int_{z}^{d}{dz'} 
+\left\langle
+\int\limits_{S}{ds \mbox{\tiny$\Delta$\normalsize}
+\varepsilon
+\left(\vec{E}_2 \vec{e}_{2f}^{\ast}\right)
+e^{-i(\vec{k}_1\vec{r})}}
+\right\rangle 
+= \nonumber \\ 
+=
+\frac{i\omega}{c}
+\left\{
+\sum_i
+\int_{z}^{d}{
+A_{2s}^{(i)}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_2}^(i)\right)ds}
+\right\rangle
+dz'}
++
+\int_{z}^{d}{
+A_{2d}
+\left\langle
+\int\limits_{S}{
+\varepsilon_m^\ast \left(\vec{e}_{2f}^{\ast} \vec{e_d}\right)ds}
+\right\rangle
+dz'}
+\right\}
+= \nonumber \\
+=  
+- 2 \cos{\theta_2} 
+\sqrt{\frac{\varepsilon}{\mu}}A_{2f}
+,\nonumber
+\end{eqnarray}
+или же после дифференцирования -
+\[
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{2d} M_{fd} + \sum_i A_{2s}^{(i)} M_{2f}^{(i)} \right\},
+\]
+
+
+Таким образом окончательно можно записать:
+\begin{eqnarray}
+\frac{\partial{A_{2c}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{2d} M_d + \sum_i A_{2s}^{(i)} M^{(i)} \right\},
+\nonumber \\
+\frac{\partial{A_{2s}^{(i)}}}{\partial{z}} = 
+\frac{i\omega}{2 c cos{\theta_2} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_{2c} M^{(i)\ast}
++
+A_{2f} M_{2f}^{(i)\ast}
+\right\}, 
+\nonumber \\
+\frac{\partial{A_{2d}}}{\partial{z}} = 
+\frac{i\omega}{2 \quad c \quad cos{\theta_1} }
+\sqrt{\frac{\mu}{\varepsilon}}
+\left\{
+A_{2c} M_d^\ast
++
+A_{2f} M_{fd}^\ast
+\right\},
+\nonumber \\
+\frac{\partial{A_{2f}}}{\partial{z}} = 
+ \frac{i\omega}{2 c \cos{\theta_1}}
+\sqrt{\frac{\mu}{\varepsilon}} \left\{ 
+ A_{2d} M_{fd} + \sum_i A_{2s}^{(i)} M_{2f}^{(i)} \right\}.
+\label{eqE2_gen}
+\end{eqnarray}
+Смена знака в этих выражениях связана с тем что волна $E_2$ распространяется в
+сторону противоположную распространению $E_1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+%% -*- coding:koi8-r -*-
+\input ./preamble.tex
+
+\begin{document}
+%\Russian
+%\input title.tex
+\maketitle
+\makesecondp
+
+
+\pagestyle{myheadings}
+\makeatletter
+\renewcommand{\@evenhead}{}
+\renewcommand{\@oddhead}{}
+\renewcommand{\@evenfoot}{\large\thepage \hfil}
+\renewcommand{\@oddfoot}{\large\hfil \thepage}
+ 	
+\setcounter{page}{1}
+
+\input ./common.tex
+
+\input ./content.tex
+
+\input ./bibliography.tex
+
+\input ./published.tex
+
+\end{document}
