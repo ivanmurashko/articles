@@ -1,7 +1,7 @@
 %% -*- coding:utf-8 -*- 
 \documentclass[14pt,a4paper]{article} 
-
 \usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
 \usepackage{minted}
 \usepackage{longtable}
 \usepackage{hyperref}
@@ -226,7 +226,7 @@ node[midway,above]{Thrift Request(9191)};
   \caption{Applications}
   \label{fig:apps}
 \end{figure}
-The client (see \cref{fig:apps}) is run on a host and communicates
+The client (see \ref{fig:apps}) is run on a host and communicates
 with front-end run in a docker container via HTTP protocol, port 8080
 is used. The front-end communicates with a back-end application that
 is run on another docker container. The communication is done via 9191
