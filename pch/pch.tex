@@ -1,0 +1,49 @@
+%% -*- coding:utf-8 -*- 
+\documentclass[14pt,a4paper]{article} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{minted}
+\usepackage{longtable}
+\usepackage{hyperref}
+\hypersetup{
+  pdftex,
+  allcolors=blue,
+  bookmarksnumbered=true,     
+  bookmarksopen=true,         
+  bookmarksopenlevel=1,       
+  colorlinks=true,            
+  pdfstartview=Fit,           
+  pdfpagemode=UseOutlines,  
+  pdfpagelayout=TwoPageRight,
+  pdftitle={Precompiled headers at clang},
+  pdfsubject={Precompiled headers at clang},
+  pdfauthor={Ivan Murashkо},
+  pdfkeywords={pch, clang, C++}
+}
+\usepackage{tikz}
+\usetikzlibrary{positioning} 
+\title{Precompiled headers at clang}
+\author{Ivan Murashko}
+\date{}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section*{Introduction}
+The doc describes precompiled headers at clang, their internals and
+how they can be used
+
+The source code for examples can be found in the article git
+repository \cite{github:articles_ivanmurashko} in the folder 
+\textbf{pch/src}.
+
+\section{Base commands}
+
+
+\bibliographystyle{gost780s}  
+\bibliography{pch}     
+
+
+\end{document}
