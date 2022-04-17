@@ -7,14 +7,14 @@
 HEADERS=$(wildcard ./*.h)
 PCHS=$(HEADERS:.h=.pch)
 %.pch: %.h
-	clang++ -x c++-header $< -o $@
+	clang -x c++-header $< -o $@
 
 
 
 pch: $(PCHS)
 
 exe: main.cpp
-	clang++ -include-pch header1.pch -include-pch header2.pch main.cpp -o main -lstdc++
+	clang -include-pch header1.pch -include-pch header2.pch main.cpp -o main -lstdc++
 
 exenopch: main.cpp
 	clang++ main.cpp -o main -lstdc++
