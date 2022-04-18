@@ -16,14 +16,14 @@
   pdfstartview=Fit,           
   pdfpagemode=UseOutlines,  
   pdfpagelayout=TwoPageRight,
-  pdftitle={Precompiled headers at clang},
-  pdfsubject={Precompiled headers at clang},
+  pdftitle={Precompiled headers in clang},
+  pdfsubject={Precompiled headers in clang},
   pdfauthor={Ivan Murashkо},
   pdfkeywords={pch, clang, C++}
 }
 \usepackage{tikz}
 \usetikzlibrary{positioning} 
-\title{Precompiled headers at clang}
+\title{Precompiled headers in clang}
 \author{Ivan Murashko}
 \date{}
 \begin{document}
@@ -32,7 +32,7 @@
 \tableofcontents
 
 \section*{Introduction}
-The doc describes precompiled headers (pch) at clang, their internals and
+The doc describes precompiled headers (pch) in clang, their internals and
 how they can be used
 
 The source code for examples can be found in the article git
@@ -50,7 +50,7 @@ the option \textbf{-x c++-header} was used there. The option says that
 the header file has to be treated as a c++ header file. The output
 file is \textbf{header.pch}.
 
-The precompiled header generation is not enough and you may want to
+The precompiled headers generation is not enough and you may want to
 start using them. Typical C++ source file that uses the header may
 look like
 \inputminted{c++}{./src/simple/main.cpp}
