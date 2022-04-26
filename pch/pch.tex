@@ -16,14 +16,14 @@
   pdfstartview=Fit,           
   pdfpagemode=UseOutlines,  
   pdfpagelayout=TwoPageRight,
-  pdftitle={Precompiled headers in clang},
+  pdftitle={Precompiled headers and modules in clang},
   pdfsubject={Precompiled headers in clang},
   pdfauthor={Ivan Murashkо},
-  pdfkeywords={pch, clang, C++}
+  pdfkeywords={pch, pcm, clang, C++}
 }
 \usepackage{tikz}
 \usetikzlibrary{positioning} 
-\title{Precompiled headers in clang}
+\title{Precompiled headers and modules in clang}
 \author{Ivan Murashko}
 \date{}
 \begin{document}
@@ -32,14 +32,15 @@
 \tableofcontents
 
 \section*{Introduction}
-The doc describes precompiled headers (pch) in clang, their internals and
-how they can be used
+The doc describes precompiled headers (pch) and modules (pcm) in
+clang, their internals and how they can be used
 
 The source code for examples can be found in the article git
 repository \cite{github:articles_ivanmurashko} in the folder 
 \textbf{pch/src}.
 
 \section{User guide}
+\subsection{Precompiled headers}
 Generate you pch file is simple. Suppose you have a header file with
 name \textbf{header.h}:
 \inputminted{c++}{./src/simple/header.h} then you can generate a pch for it with
@@ -66,8 +67,13 @@ specify it explicitly with
 clang -include-pch header.pch main.cpp -o main -lstdc++
 \end{verbatim}
 
+\subsection{Modules}
+TBD
 
-\section{PCH internals}
+\section{Internals}
+
+Actual pch file read is done via
+\textbf{clang::ASTReader::ReadASTCore} method.
 
 \bibliographystyle{unsrt}  
 \bibliography{pch}     
