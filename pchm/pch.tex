@@ -74,6 +74,8 @@ TBD
 
 Actual pch file read is done via
 \textbf{clang::ASTReader::ReadASTCore} method.
+\textbf{clang::CompilerInstance::createPCHExternalASTSource ->
+  clang::ASTReader::ReadAST -> clang::ASTReader::ReadASTCore -> } method.
 
 \bibliographystyle{unsrt}  
 \bibliography{pch}     

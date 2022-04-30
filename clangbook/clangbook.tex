@@ -1,0 +1,47 @@
+\documentclass[12pt,a4paper]{book}
+\usepackage[toc,page]{appendix}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english]{babel}
+% http://tex.stackexchange.com/questions/42343/how-to-add-a-navigation-window-to-a-latex-generated-pdf-document
+\usepackage{hyperref}
+\hypersetup{
+  pdftex,
+  allcolors=blue,
+  bookmarksnumbered=true,     
+  bookmarksopen=true,         
+  bookmarksopenlevel=1,       
+  colorlinks=true,            
+  pdfstartview=Fit,           
+  pdfpagemode=UseOutlines,  
+  pdfpagelayout=TwoPageRight,
+  pdftitle={Clang compiler frontend},
+  pdfsubject={Clang compiler frontend},
+  pdfauthor={Ivan Murashko},
+  pdfkeywords={clang, compiler, compiler frontend}
+}
+\usepackage{hypcap}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
+
+%\makeindex[intoc]
+
+\title{Clang compiler frontend}
+\author{Ivan Murashko}
+%\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\input ./intro.tex
+\input ./setup.tex
+
+\bibliographystyle{gost780s}  
+\bibliography{clangbook}
+%\input ./license.tex
+
+\end{document}

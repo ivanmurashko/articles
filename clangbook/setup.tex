@@ -1,0 +1,44 @@
+%% -*- coding:utf-8 -*-
+\chapter{Environment setup}
+
+The chapter describes basic steps to be done to setup the environment
+be used for future experiments with clang.
+
+\section{Source code compilation}
+
+we are going to compile our source code in debug mode to be suitable
+for future investigations with debugger.
+
+\subsection{Getting the source code}
+
+The clang source is a part of LLVM. You can get it with the following
+command
+\begin{verbatim}
+  git clone https://github.com/llvm/llvm-project.git
+  cd llvm-project
+\end{verbatim}
+
+\subsection{Configuration with cmake}
+Create a build folder where the compiler and related tools will be
+built
+\begin{verbatim}
+mkdir build
+cd build
+\end{verbatim}
+Run configure script
+\begin{verbatim}
+cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_PARALLEL_LINK_JOBS=10 ../llvm
+\end{verbatim}
+
+\subsection{Build}
+The build is trivial
+\begin{verbatim}
+ninja clang
+\end{verbatim}
+
+You can also run unit and end-to-end tests for the compiler with
+\begin{verbatim}
+ninja check-clang
+\end{verbatim}
+
+The compiler binary can be found as \textbf{bin/clang} at the build folder. 
