@@ -27,18 +27,28 @@ cd build
 \end{verbatim}
 Run configure script
 \begin{verbatim}
-cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_PARALLEL_LINK_JOBS=10 ../llvm
+cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" \
+-DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
 \end{verbatim}
+The are several options specified:
+\begin{itemize}
+  \item \textbf{LLVM\_ENABLE\_PROJECTS="clang;clang-tools-extra"}
+    specifies LLVM projects that we care about
+\item \textbf{LLVM\_USE\_LINKER=gold} - uses gold linker
+\item \textbf{LLVM\_USE\_SPLIT\_DWARF=ON} - spits debug information into
+  separate files. This option saves disk space as well as memory
+  consumption during the LLVM build. The option require compiler used
+  for clang build to support it
+\end{itemize}
+
 
 \subsection{Build}
 The build is trivial
 \begin{verbatim}
 ninja clang
 \end{verbatim}
-
 You can also run unit and end-to-end tests for the compiler with
 \begin{verbatim}
 ninja check-clang
 \end{verbatim}
-
 The compiler binary can be found as \textbf{bin/clang} at the build folder. 

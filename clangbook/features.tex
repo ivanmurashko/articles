@@ -1,0 +1,60 @@
+%% -*- coding:utf-8 -*-
+\chapter{Features}
+
+You can find some info about different clang features at the chapter
+
+\section{Precompiled headers}
+Precompiled headers or \textbf{pch} is a clang feature that was
+designed with the goal to improve clang frontend performance. The
+basic idea was to create AST for a header file and reuse the AST for
+some purposes.
+
+\subsection{User guide}
+Generate you pch file is simple \cite{clang:user_manual}. Suppose you have a header file with
+name \textbf{header.h}:
+\inputminted{c++}{./src/pch/simple/header.h} then you can generate a pch for it with
+\begin{verbatim}
+clang -x c++-header header.h -o header.pch
+\end{verbatim}
+the option \textbf{-x c++-header} was used there. The option says that
+the header file has to be treated as a c++ header file. The output
+file is \textbf{header.pch}.
+
+The precompiled headers generation is not enough and you may want to
+start using them. Typical C++ source file that uses the header may
+look like
+\inputminted{c++}{./src/pch/simple/main.cpp}
+As you may see, the header is included as follows
+\begin{minted}{c++}
+  ...
+#include "header.h"
+  ...
+\end{minted}
+By default clang will not use a pch at the case and you have to
+specify it explicitly with
+\begin{verbatim}
+clang -include-pch header.pch main.cpp -o main -lstdc++
+\end{verbatim}
+We can check the command with debugger and it will give us
+\begin{minted}[breaklines]{text}
+$ lldb ~/local/llvm-project/build/bin/clang -- -cc1 -include-pch header.pch main.cpp -fsyntax-only
+...
+(lldb) b clang::ASTReader::ReadAST                                             
+...
+(lldb) r
+...
+   4231   llvm::SaveAndRestore<SourceLocation>
+-> 4232     SetCurImportLocRAII(CurrentImportLoc, ImportLoc);
+   4233   llvm::SaveAndRestore<Optional<ModuleKind>> SetCurModuleKindRAII(
+   4234       CurrentDeserializingModuleKind, Type);
+   4235 
+(lldb) p FileName
+(llvm::StringRef) $0 = (Data = "header.pch", Length = 10)
+\end{minted}
+Note that only the first \textbf{--include-pch} option will be
+processed, all others will be ignored. It reflects the fact that there
+can be only one precompiled header for a translation unit.
+
+\section{Modules}
+TBD
+
