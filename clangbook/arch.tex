@@ -10,4 +10,16 @@ When we spoke about \textbf{clang} we should separate 2 things:
 \item compiler frontend 
 \end{itemize}
 Both of them are called \textbf{clang} but perform different
-operations. The driver invokes different stages of compilation process 
+operations. The driver invokes different stages of compilation process
+(see fig. \ref{fig:clang_driver})
+\begin{figure}
+\begin{center}
+\smartdiagramset{border color=none,
+set color list={green!50!green!60!green!50!green!80!black},
+back arrow disabled=true}
+12
+\smartdiagram[flow diagram:horizontal]{Frontend,Middle-/ Backend,Assembler,Linker}
+\end{center}
+  \caption{Clang driver}
+  \label{fig:clang_driver}
+\end{figure}
