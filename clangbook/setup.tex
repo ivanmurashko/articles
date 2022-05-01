@@ -26,12 +26,13 @@ mkdir build
 cd build
 \end{verbatim}
 Run configure script
-\begin{verbatim}
-cmake -G Ninja -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" \
--DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
-\end{verbatim}
+\begin{minted}[breaklines]{text}
+cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebugInfo -DLLVM_TARGETS_TO_BUILD="X86" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
+\end{minted}
 The are several options specified:
 \begin{itemize}
+  \item \textbf{-DLLVM\_TARGETS\_TO\_BUILD="X86"} specifies exact
+    targets to be build. It will avoid build unnecessary targets
   \item \textbf{LLVM\_ENABLE\_PROJECTS="clang;clang-tools-extra"}
     specifies LLVM projects that we care about
 \item \textbf{LLVM\_USE\_LINKER=gold} - uses gold linker
