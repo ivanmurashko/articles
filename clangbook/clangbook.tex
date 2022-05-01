@@ -27,9 +27,12 @@
 \usepackage{tikz-cd}
 \usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
 \usepackage{smartdiagram}
+\usepackage{imakeidx}
+
 %\usesmartdiagramlibrary{additions}
 
-%\makeindex[intoc]
+
+\makeindex[intoc]
 
 \title{Clang compiler frontend}
 \author{Ivan Murashko}
@@ -44,7 +47,7 @@
 \input ./arch.tex
 \input ./features.tex
 
-
+\printindex
 \bibliographystyle{gost780s}  
 \bibliography{clangbook}
 %\input ./license.tex
