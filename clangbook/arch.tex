@@ -31,3 +31,21 @@ there:
 \item Assembler: Running assembler
 \item Linker: Running linker
 \end{itemize}
+
+The driver is invoked by the following command
+\begin{minted}{text}
+clang main.cpp -o main -lstdc++
+\end{minted}
+The driver also adds a lot of additional arguments, for instance
+search paths for system includes that could be platform specific.
+You can use \mintinline{text}{-###} clang option to print actual
+command line used by the driver
+\begin{minted}[breaklines]{text}
+$clang -### main.cpp -o main -lstdc++
+clang version 12.0.1 (Fedora 12.0.1-1.fc34)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+ "/usr/bin/clang-12" "-cc1" "-triple" "x86_64-unknown-linux-gnu" "-emit-obj" "-mrelax-all" "--mrelax-relocations" "-disable-free" "-disable-llvm-verifier" "-discard-value-names" "-main-file-name" "main.cpp" "-mrelocation-model" "static" "-mframe-pointer=all" "-fmath-errno" "-fno-rounding-math" "-mconstructor-aliases" "-munwind-tables" "-target-cpu" "x86-64" "-tune-cpu" "generic" "-fno-split-dwarf-inlining" "-debugger-tuning=gdb" "-resource-dir" "/usr/lib64/clang/12.0.1" "-internal-isystem" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11" "-internal-isystem" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/x86_64-redhat-linux" "-internal-isystem" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../include/c++/11/backward" "-internal-isystem" "/usr/local/include" "-internal-isystem" "/usr/lib64/clang/12.0.1/include" "-internal-externc-isystem" "/include" "-internal-externc-isystem" "/usr/include" "-fdeprecated-macro" "-fdebug-compilation-dir" "/home/ivanmurashko/Projects/myown/articles/clangbook/src/simple" "-ferror-limit" "19" "-fgnuc-version=4.2.1" "-fcxx-exceptions" "-fexceptions" "-fcolor-diagnostics" "-faddrsig" "-o" "/tmp/main-5ece30.o" "-x" "c++" "main.cpp"
+ "/usr/bin/ld" "--hash-style=gnu" "--build-id" "--eh-frame-hdr" "-m" "elf_x86_64" "-dynamic-linker" "/lib64/ld-linux-x86-64.so.2" "-o" "main" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crt1.o" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crti.o" "/usr/lib/gcc/x86_64-redhat-linux/11/crtbegin.o" "-L/usr/lib/gcc/x86_64-redhat-linux/11" "-L/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64" "-L/usr/bin/../lib64" "-L/lib/../lib64" "-L/usr/lib/../lib64" "-L/usr/lib/gcc/x86_64-redhat-linux/11/../../.." "-L/usr/bin/../lib" "-L/lib" "-L/usr/lib" "/tmp/main-5ece30.o" "-lstdc++" "-lgcc" "--as-needed" "-lgcc_s" "--no-as-needed" "-lc" "-lgcc" "--as-needed" "-lgcc_s" "--no-as-needed" "/usr/lib/gcc/x86_64-redhat-linux/11/crtend.o" "/usr/lib/gcc/x86_64-redhat-linux/11/../../../../lib64/crtn.o"
+\end{minted}
