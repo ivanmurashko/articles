@@ -4,6 +4,8 @@
 You can find some info about clang internal architecture and relation
 with other LLVM components.
 
+\section{Clang and clang driver}
+
 When we spoke about \textbf{clang} we should separate 2 things:
 \begin{itemize}
 \item driver
@@ -54,4 +56,6 @@ wildly described at different compiler books
 \cite{book:engineering_a_compiler}. Despite the fact, the frontend
 part is quite different from a typical compiler frontend described at
 the books. The primary reason for this is C++ language and it's
-complexity, for instance macros. 
+complexity. Some features (macros) can change the source code itself
+another (typedef) can effect on token kind. As result the relations
+between different frontend components can be shown as follows 
