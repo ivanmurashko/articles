@@ -62,6 +62,19 @@ DAG (tree) i.e. one module can include more than one another module
 \footnote{Compare that with precompiled header where only one
 precompiled header can be introduced for each compilation unit}
 \subsection{User guide}
+\subsection{Module map file}
+The key point for clang modules is \mintinline{text}{modulemap}
+file. It describes relation between different modules and interface
+provided by the modules. The default name for the file is
+\mintinline{text}{module.modulemap}. Typical content is the following
+\begin{minted}{text}
+module header1 {
+  header "header1.h"
+  export *
+}
+\end{minted}
+
+
 The modules can be divided into 2 main sections
 \begin{enumerate}
 \item Explicit modules
