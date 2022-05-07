@@ -56,5 +56,21 @@ processed, all others will be ignored. It reflects the fact that there
 can be only one precompiled header for a translation unit.
 
 \section{Modules}
-TBD
+Modules can be considered as a next step in evolution of precompiled
+headers. They also represent an parsed AST in binary form but form a
+DAG (tree) i.e. one module can include more than one another module
+\footnote{Compare that with precompiled header where only one
+precompiled header can be introduced for each compilation unit}
+\subsection{User guide}
+The modules can be divided into 2 main sections
+\begin{enumerate}
+\item Explicit modules
+\item Implicit modules
+\end{enumerate}
+\subsubsection{Explicit modules}
+We will start with explicit modules first. 
 
+\subsubsection{Implicit modules}
+
+\section{Header-Map files}
+TBD
