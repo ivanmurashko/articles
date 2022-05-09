@@ -61,9 +61,22 @@ headers. They also represent an parsed AST in binary form but form a
 DAG (tree) i.e. one module can include more than one another module
 \footnote{Compare that with precompiled header where only one
 precompiled header can be introduced for each compilation unit}
-\subsection{User guide}
-\subsection{Module map file}
-The key point for clang modules is \mintinline{text}{modulemap}
+\subsection{User guide}.
+
+The C++20 standard \cite{book:ieee_cpp_20} introduced 2 concepts
+related to modules. The first one is ordinary modules described at
+section 10 of \cite{book:ieee_cpp_20}. Another one is so call header
+units \index{header unit}  which are mostly described at section 15.5.
+The header units can be considered as an intermediate step between
+ordinary headers and modules and allow to use
+\mintinline{text}{import} directive to import ordinary headers. The
+second approach was the main approach for modules implemented in clang
+and we will call it as \textbf{implicit modules}. The first one (primary one
+described at \cite{book:ieee_cpp_20}) will be call \textbf{explicit
+  modules}. We will start with the implicit modules first.
+
+\subsection{Implicit modules}
+The key point for implicit clang modules is \mintinline{text}{modulemap}
 file. It describes relation between different modules and interface
 provided by the modules. The default name for the file is
 \mintinline{text}{module.modulemap}. Typical content is the following
@@ -74,16 +87,8 @@ module header1 {
 }
 \end{minted}
 
-
-The modules can be divided into 2 main sections
-\begin{enumerate}
-\item Explicit modules
-\item Implicit modules
-\end{enumerate}
 \subsubsection{Explicit modules}
-We will start with explicit modules first. 
-
-\subsubsection{Implicit modules}
+TBD
 
 \section{Header-Map files}
 TBD
