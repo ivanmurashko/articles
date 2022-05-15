@@ -90,5 +90,10 @@ module header1 {
 \subsubsection{Explicit modules}
 TBD
 
+\subsection{Modules internals}
+Modules are processed inside
+\mintinline{c++}{clang::Preprocessor::HandleIncludeDirective}. There
+is a \mintinline{c++}{clang::Preprocessor::HandleHeaderIncludeOrImport} method. 
+
 \section{Header-Map files}
 TBD

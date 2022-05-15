@@ -41,6 +41,13 @@ The are several options specified:
   consumption during the LLVM build. The option require compiler used
   for clang build to support it
 \end{itemize}
+For debugging purposes you might want to change the
+\mintinline{text}{-DCMAKE_BUILD_TYPE} into
+\mintinline{text}{Debug}. Thus you overall config command will look
+like
+\begin{minted}[breaklines]{text}
+  cmake -G Ninja -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD="X86" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
+\end{minted}
 
 
 \subsection{Build}
