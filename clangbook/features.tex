@@ -86,10 +86,17 @@ module header1 {
   export *
 }
 \end{minted}
-The configuration file can be passed as the command line argument for
-compiler and will be used to build and load the module. The module
-will be used by the preprocessor when it tries to process include or
-import directive.  
+The header paths in the modulemap file has to be ether absolute or
+relative on the module map file location. Thus compiler should have a
+chance to find them to compile.
+
+There are 2 options to process the configuration file: explicit or
+implicit. The first one (explicit) assumes that you pass it via
+\mintinline{text}{-fmodule-map-file=<path to modulemap file>}. The
+second one (default) will search for modulemap files implicitly and
+apply them. You can turn off the behaviour with
+\mintinline{text}{-fno-implicit-module-maps} command line argument.
+
 
 \subsubsection{Explicit modules}
 TBD
