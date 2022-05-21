@@ -6,7 +6,7 @@ You can find some info about different clang features at the chapter
 \section{Precompiled headers}
 Precompiled headers or \textbf{pch} is a clang feature that was
 designed with the goal to improve clang frontend performance. The
-basic idea was to create AST\index{AST} for a header file and reuse the AST for
+basic idea was to create \myindex{AST} for a header file and reuse the AST for
 some purposes.
 
 \subsection{User guide}
@@ -65,8 +65,8 @@ precompiled header can be introduced for each compilation unit}
 
 The C++20 standard \cite{book:ieee_cpp_20} introduced 2 concepts
 related to modules. The first one is ordinary modules described at
-section 10 of \cite{book:ieee_cpp_20}. Another one is so call header
-units \index{header unit}  which are mostly described at section 15.5.
+section 10 of \cite{book:ieee_cpp_20}. Another one is so call
+\myindex{header unit} that is mostly described at section 15.5.
 The header units can be considered as an intermediate step between
 ordinary headers and modules and allow to use
 \mintinline{text}{import} directive to import ordinary headers. The
