@@ -1,6 +1,28 @@
 %% -*- coding:utf-8 -*-
 \chapter{Introduction}
 
-The book describes clang compiler frontend internals. Architecture
+The \mintinline{text}{clang} is C/C++ and ObjC compiler. It's an
+integral part of LLVM 
+project. When we say about clang we can say about 2 different
+things. The first one is the compiler front-end i.e. the part of
+compiler that is responsible for parsing and semantic reasoning about
+the program. We also use the word \mintinline{text}{clang} when we say
+about the compiler itself. It's also referred as compiler driver. The
+driver is responsible for compiler invocation i.e. it can be
+considered as a manger that calls different parts of the
+compiler such as the compiler
+front-end as well as other parts that are required for successful
+compilation (middle-end, back-end, assembler, linker).
+
+The book is mostly focused on the \mintinline{text}{clang} compiler
+front-end but it also includes some other relevant parts of
+LLVM that are critical for the front-end internals.
+
+The book is separated into several parts. The first one provides basic
+info about LLVM project and how it can be installed. It also describes
+useful development tools and configurations used for LLVM code
+exploration later in the book.
+Architecture
+
 design is described and also practical code examples provided
 \cite{github:clangbook_src}.
