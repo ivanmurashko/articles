@@ -101,6 +101,34 @@ apply them. You can turn off the behaviour with
 \subsubsection{Explicit modules}
 TBD
 
+\subsubsection{Some problems related to modules}
+The code that uses modules can introduce some non trivial behaviour of
+your program. Consider the project that consists of two headers.
+
+\mintinline{text}{header1.h}:
+\inputminted{c++}{./src/pcm/nontrivial/header1.h}
+
+\mintinline{text}{header2.h}:
+\inputminted{c++}{./src/pcm/nontrivial/header2.h}
+
+The \mintinline{text}{header1.h} is included into the
+\mintinline{text}{main.cpp}
+\inputminted{c++}{./src/pcm/nontrivial/main.cpp}
+
+The code will not compile
+
+\begin{minted}[breaklines]{text}
+clang++ -std=c++20 -fconstexpr-depth=1271242 main.cpp -o main -lstdc++
+main.cpp:7:37: error: use of undeclared identifier 'h2'
+  std::cout << "Header2 value: " << h2 << std::endl;
+                                    ^
+1 error generated.
+\end{minted}
+but if you use the following \mintinline{text}{module.modulemap} file
+then it will compile with modules
+\inputminted{text}{./src/pcm/nontrivial/module.modulemap}
+
+
 \subsection{Modules internals}
 Modules are processed inside
 \mintinline{c++}{clang::Preprocessor::HandleIncludeDirective}. There
