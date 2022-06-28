@@ -65,9 +65,30 @@ on fig \ref{fig:clang_frontend}
 \begin{center}
 \smartdiagramset{border color=none,
 back arrow disabled=true}
-\smartdiagram[flow diagram:horizontal]{Preprocessor,Parser,Codegen}
+\smartdiagram[flow diagram:horizontal]{Preprocessor/Lexer,Parser,Codegen}
 \end{center}
   \caption{Clang frontend components}
   \label{fig:clang_frontend}
 \end{figure}
 
+\section{Clang frontend overview}
+You can find some basic details about frontend there. We are going to
+use a simple program for our future tests.
+\inputminted{text}{./src/simple/fib.cpp}
+
+The first part is the Lexer. It's primary goal is to convert the input
+program into a stream of tokens. The token stream can be printed with
+\mintinline{text}{-dump-tokens} options as follows
+\begin{minted}{text}
+$ clang -cc1 -dump-tokens src/simple/fib.cpp
+unsigned 'unsigned'      [StartOfLine]  Loc=<src/simple/fib.cpp:2:1>
+int 'int'        [LeadingSpace] Loc=<src/simple/fib.cpp:2:10>
+identifier 'fib'         [LeadingSpace] Loc=<src/simple/fib.cpp:2:14>
+l_paren '('             Loc=<src/simple/fib.cpp:2:17>
+unsigned 'unsigned'             Loc=<src/simple/fib.cpp:2:18>
+int 'int'        [LeadingSpace] Loc=<src/simple/fib.cpp:2:27>
+identifier 'n'   [LeadingSpace] Loc=<src/simple/fib.cpp:2:31>
+...
+\end{minted}
+As you may see we run the clang with \mintinline{text}{-cc1} option
+that invokes the frontend part of the compiler 

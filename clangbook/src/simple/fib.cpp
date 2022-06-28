@@ -1,6 +1,4 @@
-#include "fib.h"
-#include <iostream>
-
+// calculate fibonacci numbers
 unsigned int fib(unsigned int n) {
   if (n <= 1) {
     return 1;
