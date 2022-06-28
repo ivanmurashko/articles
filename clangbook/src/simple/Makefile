@@ -1,7 +1,12 @@
 CLANG=~/local/llvm-project/build/bin/clang
 
-all: main.cpp
+fib: fib.cpp
+	$(CLANG) -c fib.cpp -o fib.o
+
+main: main.cpp
 	$(CLANG) main.cpp -o main -lstdc++
 
+all: main fib
+
 clean:
-	rm -rf *~ *.dSYM *.pch main
+	rm -rf *~ *.dSYM *.pch main *.o

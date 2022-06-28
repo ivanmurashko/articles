@@ -4,7 +4,7 @@
 You can find some info about clang internal architecture and relation
 with other LLVM components.
 
-\section{Clang and clang driver}
+\section{Clang and clang driver overview}
 
 When we spoke about \textbf{clang} we should separate 2 things:
 \begin{itemize}
@@ -51,6 +51,7 @@ InstalledDir: /usr/bin
  "/usr/bin/clang-12" "-cc1" "-triple" "x86_64-unknown-linux-gnu" "-emit-obj" "-mrelax-all" ...
 \end{minted}
 
+
 One may see that the clang compiler toolchain corresponds the pattern
 wildly described at different compiler books
 \cite{book:engineering_a_compiler}. Despite the fact, the frontend
@@ -58,4 +59,15 @@ part is quite different from a typical compiler frontend described at
 the books. The primary reason for this is C++ language and it's
 complexity. Some features (macros) can change the source code itself
 another (typedef) can effect on token kind. As result the relations
-between different frontend components can be shown as follows 
+between different frontend components can be represented as it's shown
+on fig \ref{fig:clang_frontend}
+\begin{figure}
+\begin{center}
+\smartdiagramset{border color=none,
+back arrow disabled=true}
+\smartdiagram[flow diagram:horizontal]{Preprocessor,Parser,Codegen}
+\end{center}
+  \caption{Clang frontend components}
+  \label{fig:clang_frontend}
+\end{figure}
+
