@@ -4,7 +4,7 @@
 You can find some info about clang internal architecture and relation
 with other LLVM components.
 
-\section{Clang and clang driver overview}
+\section{Clang driver overview}
 
 When we spoke about \textbf{clang} we should separate 2 things:
 \begin{itemize}
@@ -51,7 +51,7 @@ InstalledDir: /usr/bin
  "/usr/bin/clang-12" "-cc1" "-triple" "x86_64-unknown-linux-gnu" "-emit-obj" "-mrelax-all" ...
 \end{minted}
 
-
+\section{Clang frontend overview}
 One may see that the clang compiler toolchain corresponds the pattern
 wildly described at different compiler books
 \cite{book:engineering_a_compiler}. Despite the fact, the frontend
@@ -71,9 +71,9 @@ back arrow disabled=true}
   \label{fig:clang_frontend}
 \end{figure}
 
-\section{Clang frontend overview}
-You can find some basic details about frontend there. We are going to
-use a simple program for our future tests.
+You can bypass the driver call and run the clang frontend  with
+\mintinline{text}{-cc1} option. We are going to use it for our future
+experiments with one simple program:
 \inputminted{text}{./src/simple/main.cpp}
 
 The first part is the Lexer. It's primary goal is to convert the input
@@ -92,8 +92,6 @@ semi ';'                Loc=<src/simple/main.cpp:2:11>
 r_brace '}'      [StartOfLine]  Loc=<src/simple/main.cpp:3:1>
 eof ''          Loc=<src/simple/main.cpp:3:2>
 \end{minted}
-As you may see we run the clang with \mintinline{text}{-cc1} option
-that invokes the frontend part of the compiler.
 
 Another part is the Parser. It produces AST that can be shown as
 \begin{minted}[breaklines]{text}
