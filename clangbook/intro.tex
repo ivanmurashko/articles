@@ -9,7 +9,7 @@ compiler that is responsible for parsing and semantic reasoning about
 the program. We also use the word \clang when we say
 about the compiler itself. It's also referred as compiler driver. The
 driver is responsible for compiler invocation i.e. it can be
-considered as a manger that calls different parts of the
+considered as a manager that calls different parts of the
 compiler such as the compiler
 frontend as well as other parts that are required for successful
 compilation (middle-end, back-end, assembler, linker).
@@ -26,8 +26,12 @@ exploration later in the book.
 Second part is about \clang architecture and its
 place inside LLVM.
 
-The primary part of the book is about different features of clang such as C++
+The next part of the book is about different features of clang such as C++
 modules, header maps and others.
+
+The last part of the book is about different tools that were created on the base
+of clang. There are clang-tidy, powerful framework to create lint checks,
+clang-format, one of code refactoring tool and many others.
 
 The \clang follows primary paradigm of LLVM -
 everything is a library, that allows to create a bunch of different
