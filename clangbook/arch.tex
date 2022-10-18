@@ -124,3 +124,13 @@ TranslationUnitDecl 0x5581925de3b8 <<invalid sloc>> <invalid sloc>
       `-IntegerLiteral 0x558192623990 <col:10> 'int' 0
 \end{minted}
 
+\section{AST}
+The \myindex{AST} is the skeleton for clang frontend. It's also the primary
+instrument for linters and other clang tools. The AST keeps result of syntax and
+semantic analysis and represent a tree with leafs for different objects, such as
+function declaration for loop body etc. The clang provides advanced tools for
+search (match) different nodes. The tools are implemented in the form of SDL
+(special destination language). There is important to understand how its
+implemented to be able using it.
+
+TBD
