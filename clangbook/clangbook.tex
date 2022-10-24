@@ -87,24 +87,8 @@
 \tableofcontents
 
 \input ./intro.tex
-\part{Clang setup and architecture}
-You can find some info about LLVM internal architecture and how clang fits into
-it. There is also description how to install and build required clang and
-clang-tools, description for basic LLVM libraries and tools used across LLVM
-project and essential for clang development. You can find description for some
-clang features and their internal implementation.
-\input ./setup.tex
-\input ./baselibs.tex
-\input ./arch.tex
-\input ./features.tex
-\part{Clang tools}
-You can find some info about different clang tools here. We will start with
-linters based on clang-tidy, continue with some advanced code analysis
-techniques (CFG and live time analysis). The next chapter will be about
-different refactoring tools such as clang-format. The last chapter will be about
-IDE support. We are going to investigate how VSCode can be extended with
-language server provided by LLVM (clangd).
-\input ./tools.tex
+\input ./part1/main.tex
+\input ./part2/main.tex
 
 \printindex
 \bibliographystyle{abbrv}  
