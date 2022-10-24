@@ -8,5 +8,5 @@ clean:
 	rm -rf clangbook*.blg clangbook*.toc clangbook*.out clangbook*.idx clangbook*.ilg clangbook*.ind
 	rm -rf algorithmic.sty  algorithm.sty
 	rm -rf _minted-*
-	find . \( -name "*.log" -o -name "*~" \) -exec rm -rf {} \;
+	find . \( -name "*.log" -o -name "*~" -o -name "*.tmp" \) -exec rm -rf {} \;
 	cd src; make clean
