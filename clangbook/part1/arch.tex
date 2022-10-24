@@ -2,7 +2,12 @@
 \chapter{Architecture}
 
 You can find some info about clang internal architecture and relation with other
-LLVM components.
+LLVM components. We will start with clang driver - the backbone for the
+compiler as soon as it runs all compilation phases and controls their
+execution. We will focus on the first part of compilation - frontend that
+includes lexical and semantic analysis and produces AST (abstract syntax tree)
+as the primary output. The AST is the foundation for majority of clang tools and
+we will look at it more deeply. 
 
 \section{Clang driver overview}
 
@@ -124,7 +129,7 @@ TranslationUnitDecl 0x5581925de3b8 <<invalid sloc>> <invalid sloc>
       `-IntegerLiteral 0x558192623990 <col:10> 'int' 0
 \end{minted}
 
-\section{AST}
+\section{Clang AST}
 The \myindex{AST} is the skeleton for clang frontend. It's also the primary
 instrument for linters and other clang tools. The AST keeps result of syntax and
 semantic analysis and represent a tree with leafs for different objects, such as

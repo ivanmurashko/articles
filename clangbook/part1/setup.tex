@@ -4,10 +4,21 @@
 The chapter describes basic steps to be done to setup the environment
 be used for future experiments with clang.
 
-\section{Source code compilation}
+\section{Prerequisite}
+Our primary goal will be clang frontend investigation and that will assume some
+prerequisites that has to be installed.
 
-we are going to compile our source code in debug mode to be suitable
-for future investigations with debugger.
+There are
+\begin{enumerate}
+\item OS requirement (Linux, Darwin)
+\item build tools (cmake, ninja)
+\item debugger lldb
+\end{enumerate}
+
+\section{LLVM history and project structure}
+
+There is a short history of LLVM project and brief overview into its
+organization 
 
 \subsection{Getting the source code}
 
@@ -17,6 +28,11 @@ command
   git clone https://github.com/llvm/llvm-project.git
   cd llvm-project
 \end{minted}
+
+\section{Source code compilation}
+
+We are going to compile our source code in debug mode to be suitable
+for future investigations with debugger.
 
 \subsection{Configuration with cmake}
 Create a build folder where the compiler and related tools will be

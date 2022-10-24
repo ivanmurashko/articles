@@ -1,12 +1,17 @@
 %% -*- coding:utf-8 -*-
 \chapter{Basic libraries and tools}
-We cannot start LLVM and clang internals description without introduction into
-basic libraries and tools that are essential for development process.
+LLVM has been written with C++ language and currently (July 2022) uses c++17
+version of the C++ standard \cite{llvm:cpp17migration}. From other side it has a
+lot internal implementations for basic containers with primary goal of
+performance. It's crucial to be familiar with the extensions if you want to work
+with LLVM and clang. LLVM also introduced some additional development tools such
+as TableGen - DSL (domain specific language) for structural data processing and
+LIT (LLVM test framework). You can find some info about the tools here. 
 
-\section{Libs}
+\section{Basic libs}
 TBD
 
-\section{Table gen}
+\section{TableGen}
 TBD
 
 \section{LIT: LLVM test framework}
