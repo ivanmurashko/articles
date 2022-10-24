@@ -1,3 +1,19 @@
 %% -*- coding:utf-8 -*-
 \chapter{Advanced code analysis}
+The clang-tidy checks from previous chapter can be considered are based on an
+advanced matching provided by AST. It might be not enough when you want to
+detect some complex problems, such as lifetime issues. We will introduce some
+advanced code analysis tools based on CFG (control flow graph). The clang static
+analyser is a good example of such tools but we also have some CFG integration
+into clang-tidy. The chapter will start with typical usage examples, continue
+with implementation details. we will finish with our custom check that uses the
+advanced techniques.
+
+\section{Usage cases}
+TBD
+
+\section{CFG and life time analysis}
+TBD
+
+\section{Custom CFG check}
 TBD
