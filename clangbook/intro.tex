@@ -18,24 +18,24 @@ The book is mostly focused on the \clang compiler
 frontend but it also includes some other relevant parts of
 LLVM that are critical for the frontend internals.
 
-The book is separated into several parts. The first one provides basic
+The book is separated into 2 parts. The first one provides basic
 info about LLVM project and how it can be installed. It also describes
 useful development tools and configurations used for LLVM code
-exploration later in the book.
-
-Second part is about \clang architecture and its
-place inside LLVM.
-
-The next part of the book is about different features of clang such as C++
-modules, header maps and others.
-
-The last part of the book is about different tools that were created on the base
-of clang. There are clang-tidy, powerful framework to create lint checks,
-clang-format, one of code refactoring tool and many others.
+exploration later in the book. The internal \clang architecture is the next
+primary topic for the first part of the book. The knowledge about \clang
+internals and its place inside LLVM is essential for any development related to
+\clang. The final topic for the first part is compilation performance and
+especially how it can be improved. You can find a description for several \clang
+features that might significantly improve the compilation speed. There are C++ modules, header maps and others.
 
 The \clang follows primary paradigm of LLVM -
 everything is a library, that allows to create a bunch of different
-tools. Some of them are also described: clang-tidy, clangd and others
+tools. The second part of the book is about such tools. We consider clang-tidy -
+powerful framework to create lint checks. We consider simple checks based on AST
+(abstract syntax tree) matching as well as more powerful ones based on advanced
+techniques such as CFG (control flow graph). The list of tools is not limited by
+the code analysis but also include refactoring tools as well as IDE support.
+
 
 The book also includes a lot of different examples that can be found at
 \cite{github:clangbook_src}.
