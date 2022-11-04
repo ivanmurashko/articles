@@ -10,14 +10,23 @@ we will look at it more deeply.
 
 \section{Clang driver overview}
 
-When we spoke about \textbf{clang} we should separate 2 things:
+When we spoke about \clang we should separate 2 things:
 \begin{itemize}
 \item driver
 \item compiler frontend 
 \end{itemize}
-Both of them are called \textbf{clang} but perform different
-operations. The driver invokes different stages of compilation process
-(see fig. \ref{fig:clang_driver}). 
+Both of them are called \clang but perform different
+operations. The driver does the following:
+\begin{itemize}
+  \item it invokes and controls different stages of compilation process (see
+    fig. \ref{fig:clang_driver})
+  \item it also produces the final result of the compilation (executable,
+      object file, etc.)
+  \item the driver is responsible for check environment and setup correct
+      compilation flags, for instance be sure that
+      \mintinline{text}{/usr/include} is in the search paths for Linux OS.    
+\end{itemize}
+
 \begin{figure}
 \begin{center}
 \smartdiagramset{border color=none,
