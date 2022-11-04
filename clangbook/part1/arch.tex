@@ -36,8 +36,8 @@ back arrow disabled=true}
   \caption{Clang driver}
   \label{fig:clang_driver}
 \end{figure}
-The stages are standard for ordinary compiler and nothing special is
-there:
+The stages of compilation are standard for ordinary compiler and nothing special
+is here:
 \begin{itemize}
 \item Frontend: it does lexical analysis and parsing.
 \item Middle-end: it does different optimization on the intermediate
@@ -46,11 +46,34 @@ there:
 \item Assembler: Running assembler
 \item Linker: Running linker
 \end{itemize}
+Thus the driver gets source file and compilation flags and produces build
+artefact (executable, object file, etc.)
 
-The driver is invoked by the following command
+We will use the test file \mintinline{text}{main.cpp} for our experiments. The
+file implements a trivial C++ program
+\inputminted{c++}{./src/simple/main.cpp}
+
+The driver for that file is invoked by the following command
 \begin{minted}{text}
 clang main.cpp -o main -lstdc++
 \end{minted}
+The result of the invocation is an executable \mintinline{text}{main}. 
+
+You can get the phases using the following command
+\begin{minted}{text}
+  clang -ccc-print-phases main.cpp
+\end{minted}
+
+Output
+\begin{minted}{text}
++- 0: input, "main.cpp", c++
++- 1: preprocessor, {0}, c++-cpp-output
++- 2: compiler, {1}, ir
++- 3: backend, {2}, assembler
++- 4: assembler, {3}, object
+5: linker, {4}, image
+\end{minted}
+
 The driver also adds a lot of additional arguments, for instance
 search paths for system includes that could be platform specific.
 You can use \mintinline{text}{-###} clang option to print actual
@@ -85,9 +108,7 @@ back arrow disabled=true}
 \end{figure}
 
 You can bypass the driver call and run the clang frontend  with
-\mintinline{text}{-cc1} option. We are going to use it for our future
-experiments with one simple program:
-\inputminted{c++}{./src/simple/main.cpp}
+\mintinline{text}{-cc1} option. 
 
 The first part is the \textbf{Lexer}. It's primary goal is to convert the input
 program into a stream of tokens. The token stream can be printed with
