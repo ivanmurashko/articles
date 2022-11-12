@@ -25,10 +25,12 @@ organization
 
 \subsection{Getting the source code}
 
-The clang source is a part of LLVM. You can get it with the following
-command
+The clang source is a part of LLVM. The LLVM evolves very fast thus some part of
+the system can be changed dramatically between different LLVM versions. Fro this
+book we will use specific version of LLVM (15) to avoid uncertainty between
+revisions. You can get it with the following command
 \begin{minted}{text}
-  git clone https://github.com/llvm/llvm-project.git
+  git clone https://github.com/llvm/llvm-project.git -b release/15.x
   cd llvm-project
 \end{minted}
 
