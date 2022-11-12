@@ -1,5 +1,5 @@
 %% -*- coding:utf-8 -*-
-\chapter{Introduction}
+\chapter*{Introduction}
 
 The \mintinline{text}{clang} is C/C++ and ObjC compiler. It's an
 integral part of LLVM 
@@ -16,7 +16,10 @@ compilation (middle-end, back-end, assembler, linker).
 
 The book is mostly focused on the \clang compiler
 frontend but it also includes some other relevant parts of
-LLVM that are critical for the frontend internals.
+LLVM that are critical for the frontend internals. The LLVM project evolves
+very fast and some of its parts might be completely rewritten between different
+revisions. We will use a specific version of LLVM at the book. The used version
+is 15.x. It was first released in September 2022 \cite{llvm:releases}. 
 
 The book is separated into 2 parts. The first one provides basic
 info about LLVM project and how it can be installed. It also describes
