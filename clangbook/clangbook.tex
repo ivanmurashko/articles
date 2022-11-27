@@ -42,10 +42,15 @@
 \usepackage{aliascnt}
 \usepackage{cleveref}
 
-
 \usepackage{tikz}
 \usepackage{tikz-cd}
-\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,matrix}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+    decorations.pathreplacing,decorations.pathmorphing,shapes,%
+    matrix,shapes.symbols}
+\tikzstyle{block} = [rectangle, draw, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+
 \usepackage{smartdiagram}
 \usepackage{imakeidx}
 

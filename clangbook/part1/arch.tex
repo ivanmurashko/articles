@@ -49,6 +49,33 @@ is here:
 Thus the driver gets source file and compilation flags and produces build
 artefact (executable, object file, etc.)
 
+The \clang driver calls the components in some funny way
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (clang) {clang};
+    \node [block, below of=clang, right of=clang, node distance=2cm] (clangcc1)
+          {clang -cc1};
+    \node [block, below of=clangcc1, right of=clangcc1, node distance=2cm]
+          (frontend) {frontend};
+    \node [block, below of=frontend, node distance=2cm]
+          (backend) {backend};
+    \node [block, below of=backend, distance=3cm] (as) {as};      
+    \node [block, below of=clangcc1, node distance=8cm] (ld) {ld};
+    % Draw edges
+    \path [line] (clang) |- (clangcc1);
+    \path [line,dashed] (clangcc1) |- (frontend);
+    \path [line,dashed] (clangcc1) |- (backend);
+    \path [line,dashed] (clangcc1) |- (as);
+    \path [line] (clang) |- (ld);
+\end{tikzpicture}
+  \end{center}
+  \caption{Clang driver internals}
+  \label{fig:clang_driver_internals}
+\end{figure}
+
+
 We will use the test file \mintinline{text}{main.cpp} for our experiments. The
 file implements a trivial C++ program
 \inputminted{c++}{./src/simple/main.cpp}
