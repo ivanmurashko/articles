@@ -89,9 +89,22 @@ does the majority of compiler's stages. After that, the driver calls external
 process (ld) that links executable.
 
 As you may notice \clang driver calls \mintinline{text}{clang -cc1} as a
-separate process. This behaviour can be suppressed with verbose
-\begin{minted}{text}
-  lldb ./build/bin/clang -v main.cpp
+separate process. Thus if you want to debug \clang you have to call it with
+\mintinline{text}{-cc1} option as follows
+\begin{minted}[breaklines]{text}
+$ lldb ./llvm-project/build/bin/clang -- -cc1 src/simple/main.cpp -o /tmp/main.o
+...
+(lldb) b ParseAST
+Breakpoint 1: 2 locations.
+(lldb) r
+...
+* thread #1, name = 'clang', stop reason = breakpoint 1.1
+    frame #0: .... at ParseAST.cpp:116:3
+   113  
+   114  void clang::ParseAST(Sema &S,...) {
+   115    // Collect global stats on ....
+-> 116    if (PrintStats) {
+...
 \end{minted}
 
 
