@@ -17,7 +17,7 @@ some purposes.
 Generate you pch file is simple \cite{clang:user_manual}. Suppose you have a header file with
 name \textbf{header.h}:
 \inputminted{c++}{./src/pch/simple/header.h} then you can generate a pch for it with
-\begin{minted}{text}
+\begin{minted}{shell}
 clang -x c++-header header.h -o header.pch
 \end{minted}
 the option \mintinline{text}{-x c++-header} was used there. The option says that
@@ -36,11 +36,11 @@ As you may see, the header is included as follows
 \end{minted}
 By default clang will not use a pch at the case and you have to
 specify it explicitly with
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 clang -include-pch header.pch main.cpp -o main -lstdc++
 \end{minted}
 We can check the command with debugger and it will give us
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 $ lldb ~/local/llvm-project/build/bin/clang -- -cc1 -include-pch header.pch main.cpp -fsyntax-only
 ...
 (lldb) b clang::ASTReader::ReadAST                                             
@@ -84,7 +84,7 @@ The key point for implicit clang modules is \mintinline{text}{modulemap}
 file. It describes relation between different modules and interface
 provided by the modules. The default name for the file is
 \mintinline{text}{module.modulemap}. Typical content is the following
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 module header1 {
   header "header1.h"
   export *
@@ -121,7 +121,7 @@ The \mintinline{text}{header1.h} is included into the
 
 The code will not compile
 
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 clang++ -std=c++20 -fconstexpr-depth=1271242 main.cpp -o main -lstdc++
 main.cpp:7:37: error: use of undeclared identifier 'h2'
   std::cout << "Header2 value: " << h2 << std::endl;

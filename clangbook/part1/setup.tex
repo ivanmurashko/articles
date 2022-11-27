@@ -27,7 +27,7 @@ organization
 
 The clang source is a part of LLVM. As it was mentioned above, we are going to
 use LLVM version 15.x in the book (see page \pageref{c:release15}). You can get it with the following command
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
   git clone https://github.com/llvm/llvm-project.git -b release/15.x
   cd llvm-project
 \end{minted}
@@ -40,12 +40,12 @@ for future investigations with debugger.
 \subsection{Configuration with cmake}
 Create a build folder where the compiler and related tools will be
 built
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 mkdir build
 cd build
 \end{minted}
 Run configure script
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLLVM_TARGETS_TO_BUILD="X86" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
 \end{minted}
 The are several options specified:
@@ -64,18 +64,18 @@ For debugging purposes you might want to change the
 \mintinline{text}{-DCMAKE_BUILD_TYPE} into
 \mintinline{text}{Debug}. Thus you overall config command will look
 like
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 cmake -G Ninja -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD="X86" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DLLVM_USE_LINKER=gold -DLLVM_USE_SPLIT_DWARF=ON ../llvm
 \end{minted}
 
 
 \subsection{Build}
 The build is trivial
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 ninja clang
 \end{minted}
 You can also run unit and end-to-end tests for the compiler with
-\begin{minted}[breaklines,bgcolor=LightGray]{text}
+\begin{minted}{shell}
 ninja check-clang
 \end{minted}
 The compiler binary can be found as \mintinline{text}{bin/clang} at the build folder. 
