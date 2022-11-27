@@ -54,7 +54,7 @@ operations. The driver does the following:
       \mintinline{text}{/usr/include} is in the search paths for Linux OS.    
 \end{itemize}
 
-The \clang driver calls the components shown on fig \ref{fig:compiler_workflow}
+The \clang driver calls the components shown in fig \ref{fig:compiler_workflow}
 in some funny way, see fig \ref{fig:clang_driver}.
 \begin{figure}
   \begin{center}
@@ -67,7 +67,7 @@ in some funny way, see fig \ref{fig:clang_driver}.
           (frontend) {frontend};
     \node [block, below of=frontend, node distance=2cm]
           (backend) {backend};
-    \node [block, below of=backend, distance=3cm] (as) {as};      
+    \node [block, below of=backend, distance=3cm] (as) {integrated as};      
     \node [block, below of=clangcc1, node distance=8cm] (ld) {ld};
     % Draw edges
     \path [line] (clang) |- (clangcc1);
@@ -86,7 +86,13 @@ First of all it calls \clang with special arguments: \mintinline{text}{clang
 calls inside the invocation are made as LLVM/clang lib calls. The frontend
 performs parsing as well as code generation and assembler application i.e. it
 does the majority of compiler's stages. After that, the driver calls external
-process (ld) that links executable. 
+process (ld) that links executable.
+
+As you may notice \clang driver calls \mintinline{text}{clang -cc1} as a
+separate process. This behaviour can be suppressed with verbose
+\begin{minted}{text}
+  lldb ./build/bin/clang -v main.cpp
+\end{minted}
 
 
 We will use the test file \mintinline{text}{main.cpp} for our experiments. The
@@ -136,7 +142,7 @@ the books. The primary reason for this is C++ language and it's
 complexity. Some features (macros) can change the source code itself
 another (typedef) can effect on token kind. As result the relations
 between different frontend components can be represented as it's shown
-on fig \ref{fig:clang_frontend}
+in fig \ref{fig:clang_frontend}
 \begin{figure}
 \begin{center}
 \smartdiagramset{border color=none,
@@ -206,5 +212,9 @@ function declaration for loop body etc. The clang provides advanced tools for
 search (match) different nodes. The tools are implemented in the form of DSL
 (domain specific language). There is important to understand how its
 implemented to be able using it.
+
+TBD
+
+\section{Explore clang AST with clang-query}
 
 TBD
