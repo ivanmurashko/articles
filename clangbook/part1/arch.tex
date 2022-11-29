@@ -156,15 +156,28 @@ complexity. Some features (macros) can change the source code itself
 another (typedef) can effect on token kind. As result the relations
 between different frontend components can be represented as it's shown
 in fig \ref{fig:clang_frontend}
+
 \begin{figure}
-\begin{center}
-\smartdiagramset{border color=none,
-back arrow disabled=true}
-\smartdiagram[flow diagram:horizontal]{Preprocessor/Lexer,Parser,Codegen}
-\end{center}
-  \caption{Clang frontend components}
+  \begin{center}
+    \begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (clang) {clang frontend};
+    \node [block, below of=clang, right of=clang, node distance=2cm] (lexer)
+          {lexer/preprocessor};
+    \node [block, below of=lexer]
+          (parser) {parser};
+    \node [block, below of=parser, node distance=2cm]
+          (codegen) {codegen};
+    % Draw edges
+    \path [line,dashed] (clang) |- (lexer);
+    \path [line,dashed] (lexer) -- (parser);
+    \path [line,dashed] (parser) -- (codegen);
+\end{tikzpicture}
+  \end{center}
+  \caption{{Clang frontend components}}
   \label{fig:clang_frontend}
 \end{figure}
+
 
 You can bypass the driver call and run the clang frontend  with
 \mintinline{text}{-cc1} option. 
