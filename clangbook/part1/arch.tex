@@ -35,7 +35,31 @@ stages of compilation can be described as follows
 Thus the compiler gets source file and compilation flags and produces build
 artefact (executable, object file, etc.)
 
+
+We will use the test file \mintinline{text}{main.cpp} for our experiments. The
+file implements a trivial C++ program
+\inputminted{c++}{./src/simple/main.cpp}
+
 \subsection{clang driver}
+\clang uses the same phases as shown in fig.\ref{fig:compiler_workflow}. You can
+get the phases using the following command 
+\begin{minted}{shell}
+  clang -ccc-print-phases main.cpp
+\end{minted}
+
+Output
+\begin{minted}{shell}
++- 0: input, "main.cpp", c++
++- 1: preprocessor, {0}, c++-cpp-output
++- 2: compiler, {1}, ir
++- 3: backend, {2}, assembler
++- 4: assembler, {3}, object
+5: linker, {4}, image
+\end{minted}
+
+The phases are combined into several tool executions. 
+
+
 How \clang preform the compilation process described above. When we spoke about
 \clang we should separate 2 things: 
 \begin{itemize}
@@ -107,31 +131,11 @@ Breakpoint 1: 2 locations.
 ...
 \end{minted}
 
-
-We will use the test file \mintinline{text}{main.cpp} for our experiments. The
-file implements a trivial C++ program
-\inputminted{c++}{./src/simple/main.cpp}
-
 The driver for that file is invoked by the following command
 \begin{minted}{shell}
 clang main.cpp -o main -lstdc++
 \end{minted}
 The result of the invocation is an executable \mintinline{text}{main}. 
-
-You can get the phases using the following command
-\begin{minted}{shell}
-  clang -ccc-print-phases main.cpp
-\end{minted}
-
-Output
-\begin{minted}{shell}
-+- 0: input, "main.cpp", c++
-+- 1: preprocessor, {0}, c++-cpp-output
-+- 2: compiler, {1}, ir
-+- 3: backend, {2}, assembler
-+- 4: assembler, {3}, object
-5: linker, {4}, image
-\end{minted}
 
 The driver also adds a lot of additional arguments, for instance
 search paths for system includes that could be platform specific.
