@@ -26,7 +26,8 @@ organization
 \subsection{Getting the source code}
 
 The clang source is a part of LLVM. As it was mentioned above, we are going to
-use LLVM version 15.x in the book (see page \pageref{c:release15}). You can get it with the following command
+use LLVM version 15.x in the book (see page \pageref{c:release15}). You can get
+it with the following command 
 \begin{minted}{shell}
   git clone https://github.com/llvm/llvm-project.git -b release/15.x
   cd llvm-project
@@ -35,7 +36,7 @@ use LLVM version 15.x in the book (see page \pageref{c:release15}). You can get 
 \section{Source code compilation}
 
 We are going to compile our source code in debug mode to be suitable
-for future investigations with debugger.
+for future investigations with debugger. We are going to use lldb as the debuger
 
 \subsection{Configuration with cmake}
 Create a build folder where the compiler and related tools will be
