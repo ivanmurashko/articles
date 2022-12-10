@@ -1,16 +1,15 @@
 %% -*- coding:utf-8 -*-
 \chapter{Architecture}
 You can find some information about the clang’s internal architecture and its
-relationship with other LLVM components. We will start with the clang driver -
+relationship with other LLVM components. We will start with the overall compiler
+architecture overview. One of our main topics will be the clang driver -
 the backbone for the compiler as soon as it runs all compilation phases and
 controls their execution. Next, we will focus on the first part of the frontend
 that includes lexical and semantic analysis and produces AST (abstract syntax
 tree) as the primary output. The AST is the foundation for most clang tools, and
 we will look at it more deeply. 
 
-\section{Clang driver overview}
-
-\subsection{Compiler workflow}
+\section{Compiler workflow}
 
 \begin{figure}
 \begin{center}
@@ -35,6 +34,7 @@ stages of compilation can be described as follows
 Thus the compiler gets source file and compilation flags and produces build
 artefact (executable, object file, etc.)
 
+\section{Clang driver overview}
 
 We will use the test file \mintinline{text}{main.cpp} for our experiments. The
 file implements a trivial C++ program
