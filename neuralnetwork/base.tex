@@ -1,0 +1,37 @@
+%% -*- coding:utf-8 -*-
+\chapter{Neural network basics}
+
+\section{Logistic regression}
+Lets consider a simple example of logistic regression that can be used for
+classification task. I.e. it will provide \textbf{yes} or \textbf{no} answer on
+a question about input data.
+
+Suppose our input data are represented as the following vector
+\[
+\vec{x} =
+\begin{bmatrix}
+  x_{1} \\
+  x_{2} \\
+  \vdots \\
+  x_{m}
+\end{bmatrix}
+\]
+The result is a scalar \(y \in \{1,0\}\)
+
+In the model of supervised learning we have a set of $m$ samples that are used
+for learning process:
+\[
+\begin{array}[c]
+  \vec{x}^{(1)} \rightarrow y^{(1)}, \\
+  \vec{x}^{(2)} \rightarrow y^{(2)}, \\
+  \vdots \\
+  \vec{x}^{(m)} \rightarrow y^{(m)}, \\
+\end{array}
+\]
+We want to construct a function $\mathcal{F}$ such that
+\[
+\mathcal{F}\left(\vec{x}^{(i)}\right) = y^{(i)}
+\]
+for all $i \in \{1, \dots, m\}$
+
+TBD
