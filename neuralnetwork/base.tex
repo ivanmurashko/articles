@@ -61,14 +61,16 @@ Thus we can conclude that
 \end{eqnarray}
 For any test input $\vec{x}^{(i)} \rightarrow y^{(i)}$ we want to maximize the
 probability \cref{eq:ch1:sec1:probability}. Taking into consideration that
-$p \ge 0$ and $\log$ is a monotonic function then we can conclude that we want
+$p \ge 0$ and $\log$ is a monotonic function \cite{wiki:monotonic_func} then we
+can conclude that we want 
 to maximize $\log p$ or
 \begin{equation}
 \log p = y \cdot \mathcal{Y}\left(\vec{x}\right) +
 (1-y) \left(1 - \mathcal{Y}\left(\vec{x}\right)\right)
 \label{eq:ch1:sec1:logp}
 \end{equation}
-Instead of maximizing $\log p$ we can minimize $- \log p$. Thus we will want to
+Instead of maximizing $\log p$ \cref{eq:ch1:sec1:logp} we can minimize $- \log
+p$. Thus we will want to 
 minimize the following cost function
 \begin{equation}
   \mathcal{L} = - y \cdot \mathcal{Y}\left(\vec{x}\right) -
@@ -115,10 +117,10 @@ The equation \cref{eq:ch1:sec1:z} can be rewritten as follows
 \]
 and can be considered as a linear form on ${x_j}$. The \cref{eq:ch1:sec1:z}
 cannot be interpret as a probability and we need a special function apply on it
-that is monotonic and has its value between 0 and 1. The sigmoid function is our
-choice:
+that is monotonic \cite{wiki:monotonic_func} and has its value between 0 and
+1. The sigmoid function is our choice:
 \[
-\sigma{z} = \frac{1}{1+e^{-z}}
+\sigma\left(z\right) = \frac{1}{1+e^{-z}}
 \]
 Combining all together we can write
 \begin{equation}
@@ -145,5 +147,100 @@ unknown parameters only:
 (1-y^{(i)}) \left(1 - \mathcal{Y}\left(\omega_1, \dots, \omega_n, b, \vec{x}^{(i)}\right)\right)\right]
   \label{eq:ch1:sec1:cost_func_total_params}
 \end{eqnarray}
+
+For finding a minimum of $\mathcal{L}\left(\omega_1, \dots, \omega_n, b\right)$
+we can start with any point, for instance $\omega_j = 0, \forall j$ and $b = 0$
+as well. Then we should move in the direction opposite to gradient:
+\begin{eqnarray}
+  \omega_j^{(k)} = \omega_j^{(k-1)} - \alpha \frac{\partial
+    \mathcal{L}}{\partial \omega_j}\left(\omega_1^{(k-1)}, \cdots,
+  \omega_n^{(k-1)}, b^{(k-1)}\right),
+  \nonumber \\
+  b^{(k)} = b^{(k-1)}  - \alpha \frac{\partial
+    \mathcal{L}}{\partial b}\left(\omega_1^{(k-1)}, \cdots,
+  \omega_n^{(k-1)}, b^{(k-1)}\right)
+  \nonumber
+\end{eqnarray}
+where $\alpha$ is a parameter that relegates how fast we move to the minimum,
+$k$ is the iteration counter.
+
+Thus to find the final formula we have to calculate the derivatives. Lets
+rewrite our cost function \ref{eq:ch1:sec1:cost_func_total_params} for the
+easiest calculations
+\begin{eqnarray}
+  \mathcal{L}\left(\omega_1, \dots, \omega_n, b\right) =
+  \nonumber \\
+  = - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} \cdot \mathcal{Y}\left(\omega_1, \dots, \omega_n, b,
+    \vec{x}^{(i)}\right) + 
+(1-y^{(i)}) \left(1 - \mathcal{Y}\left(\omega_1, \dots, \omega_n, b,
+    \vec{x}^{(i)}\right)\right)\right] =
+  \nonumber \\
+  =
+  - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} \cdot \sigma\left(
+    \sum_{j=1}^n \omega_j x_j^{(i)} + b\right) + 
+(1-y^{(i)}) \left(1 - \sigma\left(
+    \sum_{j=1}^n \omega_j x_j^{(i)} + b\right)\right)\right]
+  \nonumber
+\end{eqnarray}
+For instance
+\begin{equation}
+ \frac{\partial
+   \mathcal{L}}{\partial \omega_j} =
+ - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} \frac{\partial \sigma}{\partial z}\frac{\partial
+     z}{\partial \omega_j} + 
+(1-y^{(i)}) \left(1 - \frac{\partial \sigma}{\partial z}\frac{\partial
+     z}{\partial \omega_j}\right)\right]
+ \nonumber
+\end{equation}
+where
+\[
+z = \sum_{j=1}^n \omega_j x_j^{(i)} +b 
+\]
+i.e.
+\begin{equation}
+  \frac{\partial z}{\partial \omega_j} = x_j^{(i)}
+  \nonumber
+\end{equation}
+from the other size
+\begin{eqnarray}
+  \frac{d \sigma}{d z} = - \frac{1}{\left(1 + e^{-z}\right)^2} \cdot \left( -
+  e^{-z}\right) =
+  \nonumber \\
+  = \frac{1}{\left(1 + e^{-z}\right)^2} \left(1 - \frac{1}{1 +
+    e^{-z}}\right)\left(1 + e^{-z}\right) =
+  \nonumber \\
+  = \frac{1}{1 + e^{-z}} \left(1 - \frac{1}{1 +
+    e^{-z}}\right) = \sigma(z) \left(1 - \sigma(z)\right).
+  \nonumber 
+\end{eqnarray}
+Thus
+\begin{equation}
+ \frac{\partial
+   \mathcal{L}}{\partial \omega_j} =
+ - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} x_j^{(i)} \sigma(z)(1-\sigma(z)) + 
+(1-y^{(i)}) \left(1 -  x_j^{(i)} \sigma(z)(1-\sigma(z))\right)\right]
+ \nonumber
+\end{equation}
+where
+\[
+\sigma(z) = \sigma\left(\vec{\omega}^T\vec{x}^{(i)} + b\right).
+\]
+For derivative by $b$ we have
+\[
+\frac{\partial \sigma}{\partial b} = 1,
+\]
+thus
+\begin{equation}
+ \frac{\partial
+   \mathcal{L}}{\partial b} =
+ - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} \sigma(z)(1-\sigma(z)) + 
+(1-y^{(i)}) \left(1 -   \sigma(z)(1-\sigma(z))\right)\right]
+ \nonumber
+\end{equation}
 
 %% TBD
