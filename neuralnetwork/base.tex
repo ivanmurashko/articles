@@ -13,7 +13,7 @@ Suppose our input data are represented as the following vector
   x_{1} \\
   x_{2} \\
   \vdots \\
-  x_{m}
+  x_{n}
 \end{bmatrix}
 \]
 The result is a scalar $y \in \{1,0\}$
@@ -28,10 +28,122 @@ for learning process:
   \vec{x}^{(m)} \rightarrow y^{(m)}
 \end{array}
 \]
-We want to construct a function $\mathcal{F}$ such that
+We want to construct a function $\mathcal{Y}$ such that
 \[
-\mathcal{F}\left(\vec{x}^{(i)}\right) = y^{(i)}
+\mathcal{Y}\left(\vec{x}^{(i)}\right) = y^{(i)}
 \]
-for all $i \in \{1, \dots, m\}$
+for all $i \in \{1, \dots, m\}$. Taking into consideration that the result is a
+binary function, we can interpret $\mathcal{Y}$ as a probability that the
+outcome will be 1, i.e.
+\begin{equation}
+  \mathcal{Y}\left(\vec{x}\right) = p\left(\left. y = 1\right|\vec{x}\right)
+  \label{eq:ch1:sec1:y_as_probability}
+\end{equation}
+from \cref{eq:ch1:sec1:y_as_probability} we can derive
+\begin{eqnarray}
+  p\left(\left. y = 1\right|\vec{x}\right) = \mathcal{Y}\left(\vec{x}\right),
+  \nonumber \\
+  p\left(\left. y = 0\right|\vec{x}\right) = 1 - p\left(\left. y =
+  1\right|\vec{x}\right) =
+  \nonumber \\
+  = 1 - \mathcal{Y}\left(\vec{x}\right)
+  \nonumber
+\end{eqnarray}
+Thus we can conclude that
+\begin{eqnarray}
+  p\left(\left. y\right|\vec{x}\right) =
+  p\left(\left. y = 1\right|\vec{x}\right)^y \cdot
+  p\left(\left. y = 0\right|\vec{x}\right)^{1-y} =
+  \nonumber \\
+  = \mathcal{Y}\left(\vec{x}\right)^y \cdot
+  \left(1 - \mathcal{Y}\left(\vec{x}\right)\right)^{1 - y}
+\label{eq:ch1:sec1:probability}
+\end{eqnarray}
+For any test input $\vec{x}^{(i)} \rightarrow y^{(i)}$ we want to maximize the
+probability \cref{eq:ch1:sec1:probability}. Taking into consideration that
+$p \ge 0$ and $\log$ is a monotonic function then we can conclude that we want
+to maximize $\log p$ or
+\begin{equation}
+\log p = y \cdot \mathcal{Y}\left(\vec{x}\right) +
+(1-y) \left(1 - \mathcal{Y}\left(\vec{x}\right)\right)
+\label{eq:ch1:sec1:logp}
+\end{equation}
+Instead of maximizing $\log p$ we can minimize $- \log p$. Thus we will want to
+minimize the following cost function
+\begin{equation}
+  \mathcal{L} = - y \cdot \mathcal{Y}\left(\vec{x}\right) -
+(1-y) \left(1 - \mathcal{Y}\left(\vec{x}\right)\right)
+  \label{eq:ch1:sec1:cost_func}
+\end{equation}
+That is similar to Shannon entropy \cite{wiki:entropy_information}.
+
+We want to minimize \cref{eq:ch1:sec1:cost_func} for each test input i.e.
+\begin{equation}
+  \mathcal{L}^{(i)} = - y^{(i)} \cdot \mathcal{Y}\left(\vec{x}^{(i)}\right) -
+(1-y^{(i)}) \left(1 - \mathcal{Y}\left(\vec{x}^{(i)}\right)\right)
+  \label{eq:ch1:sec1:cost_func_i}
+\end{equation}
+The \cref{eq:ch1:sec1:cost_func_i} can be combined into total cost function as
+follows
+\begin{equation}
+  \mathcal{L} = - \frac{1}{m} \sum_{i = 1}^{m} \left[ y^{(i)} \cdot \mathcal{Y}\left(\vec{x}^{(i)}\right) +
+(1-y^{(i)}) \left(1 - \mathcal{Y}\left(\vec{x}^{(i)}\right)\right)\right]
+  \label{eq:ch1:sec1:cost_func_total}
+\end{equation}
+
+we have not spoke about $\mathcal{Y}$ so far. Lets assume a linear dependency
+for it. it will consists of 2 functions: $\mathcal{Z}$ and $\sigma$. The first
+one is the $\mathcal{Z}$ that can be defined as follows
+\begin{equation}
+  \mathcal{Z} = \vec{\omega}^T \vec{x} + b,
+  \label{eq:ch1:sec1:z}
+\end{equation}
+where
+\[
+\vec{\omega} =
+\begin{bmatrix}
+  \omega_{1} \\
+  \omega_{2} \\
+  \vdots \\
+  \omega_{n}
+\end{bmatrix}
+\]
+i.e. the vector of the same dimension as $\vec{x}$.
+The equation \cref{eq:ch1:sec1:z} can be rewritten as follows
+\[
+\mathcal{Z} = \sum_{j = 1} \omega_j x_j +b
+\]
+and can be considered as a linear form on ${x_j}$. The \cref{eq:ch1:sec1:z}
+cannot be interpret as a probability and we need a special function apply on it
+that is monotonic and has its value between 0 and 1. The sigmoid function is our
+choice:
+\[
+\sigma{z} = \frac{1}{1+e^{-z}}
+\]
+Combining all together we can write
+\begin{equation}
+  \mathcal{Y}\left(\vec{\omega}, b, \vec{x}\right) =
+  \sigma\left(\vec{\omega}^T \vec{x} + b\right)
+  \label{eq1:ch1:sec1:y_final}
+\end{equation}
+The form \cref{eq1:ch1:sec1:y_final} is useful for computational purposes as
+soon as modern computer uses SIMD (single instruction multiple data) instraction
+set that allows to implement vector operations extremely efficient.
+
+We have parameters $\omega_1, \dots, \omega_n, b$ as unknown in
+\cref{eq1:ch1:sec1:y_final}. We want to find them by finding a minimum for cost
+function \cref{eq:ch1:sec1:cost_func_total}.
+
+Contrary to \cref{eq1:ch1:sec1:y_final}, our cost function is a function of
+unknown parameters only:
+\begin{eqnarray}
+  \mathcal{L}\left(\omega_1, \dots, \omega_n, b\right) = - \frac{1}{m} \sum_{i =
+    1}^{m} \left[ y^{(i)} \cdot \mathcal{Y}\left(\omega_1, \dots, \omega_n, b,
+    \vec{x}^{(i)}\right) + \right.
+    \nonumber \\
+    \left. + 
+(1-y^{(i)}) \left(1 - \mathcal{Y}\left(\omega_1, \dots, \omega_n, b, \vec{x}^{(i)}\right)\right)\right]
+  \label{eq:ch1:sec1:cost_func_total_params}
+\end{eqnarray}
 
 %% TBD
