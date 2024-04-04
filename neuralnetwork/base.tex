@@ -148,8 +148,28 @@ unknown parameters only:
   \label{eq:ch1:sec1:cost_func_total_params}
 \end{align}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        axis lines=middle,
+        tick style={very thick},
+      ]
+      %
+      %line of best fit
+      \addplot[thick,samples=151,domain=0:10] {0.3*(x-5)^(2) + 1}
+      foreach \x in {1,...,12} {coordinate[pos={0.5-1.5/pow(1+\x,2)}] (p\x)
+        \ifnum\x>1
+        (p\the\numexpr\x-1) edge[bend left=80] (p\x)
+        \fi};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Gradient descent}
+  \label{fig:ch1:sec1:gradient_desc}
+\end{figure}
+
 For finding a minimum of $\mathcal{L}\left(\omega_1, \dots, \omega_n, b\right)$
-we can start with any point, for instance $\omega_j = 0, \forall j$ and $b = 0$
+we can start with any point \cref{fig:ch1:sec1:gradient_desc}, for instance $\omega_j = 0, \forall j$ and $b = 0$
 as well. Then we should move in the direction opposite to gradient:
 \begin{align}
   \omega_j^{(k)} = \omega_j^{(k-1)} - \alpha \frac{\partial
