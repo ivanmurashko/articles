@@ -6,7 +6,6 @@ pdf: nn.tex
 	makeindex nn.nlo -s nomencl.ist -o nn.nls
 	pdflatex  -interaction=nonstopmode -shell-escape nn.tex
 
-
 clean:
 	rm -rf *.aux nn.bbl *.dvi *.blg *.toc *.out *.idx *.nlo *.ist *.nls
 	rm -rf _minted-*
