@@ -307,6 +307,37 @@ Current time from back-end: Thu Oct  3 14:33:00 2019
 Connection closed by foreign host.
 \end{verbatim}
 
+\section{Appendix}
+\subsection{MacOS setup}
+For Mac OS you might want to install \mintinline{text}{colima}, for instance
+from MacPorts
+\begin{minted}{shell}
+$ sudo port install colima
+\end{minted}
+
+You have to start colima to be able to use docker on MacOS:
+\begin{minted}{shell}
+$ colima start
+INFO[0000] starting colima
+INFO[0000] runtime: docker
+INFO[0001] creating and starting ...                     context=vm
+INFO[0002] downloading disk image ...                    context=vm
+INFO[0026] provisioning ...                              context=docker
+INFO[0027] starting ...                                  context=docker
+INFO[0027] done                                                 
+\end{minted}
+
+After that you can run your docker commands
+\begin{minted}[breaklines=true]{shell}
+$ docker run ubuntu uname -a  
+Linux 45d5eb771176 6.8.0-50-generic #51-Ubuntu SMP PREEMPT_DYNAMIC Sat Nov  9 18:03:35 UTC 2024 aarch64 aarch64 aarch64 GNU/Linux
+\end{minted}
+
+Don't forget to stop colima as soon as you finish your work
+\begin{minted}{shell}
+$ colima stop
+\end{minted}
+
 \bibliographystyle{unsrt}  
 \bibliography{dockertutorial}     
 
